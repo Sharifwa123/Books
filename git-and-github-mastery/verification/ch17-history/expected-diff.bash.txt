@@ -1,0 +1,116 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ cd bakery-menu
+$ git show
+commit 81f772ee32b93d8fcf80dbb34ab74053b69d97a2 (HEAD -> main)
+Author: Ada Learner <ada@example.org>
+Date:   Mon Jan 5 09:08:00 2026 +0000
+
+    Add coconut cake
+
+diff --git a/menu.md b/menu.md
+index 1f2a95a..97e3bea 100644
+--- a/menu.md
++++ b/menu.md
+@@ -2,3 +2,4 @@
+
+ - White loaf: 2.80
+ - Rolls (six): 3.00
++- Coconut cake (slice): 4.00
+$ git show HEAD~1
+commit 9f10b43614a19024637b4644c75e84a4aae6af83
+Author: Ada Learner <ada@example.org>
+Date:   Mon Jan 5 09:07:00 2026 +0000
+
+    Raise the price of the white loaf
+
+diff --git a/menu.md b/menu.md
+index 0b15fe9..1f2a95a 100644
+--- a/menu.md
++++ b/menu.md
+@@ -1,4 +1,4 @@
+ # Sunrise Bakery menu
+
+-- White loaf: 2.50
++- White loaf: 2.80
+ - Rolls (six): 3.00
+$ git show --stat HEAD~2
+commit 8a52ffecdf9a4a5f307aa1d31e3429b29ad0d6f9
+Author: Ada Learner <ada@example.org>
+Date:   Mon Jan 5 09:06:00 2026 +0000
+
+    Add the menu
+
+ menu.md | 4 ++++
+ 1 file changed, 4 insertions(+)
+$ git status --short
+$ printf '# Sunrise Bakery menu\n\n- White loaf: 2.80\n- Rolls (six): 3.20\n- Coconut cake (slice): 4.00\n' > menu.md
+$ git status --short
+ M menu.md
+$ git diff
+diff --git a/menu.md b/menu.md
+index 97e3bea..9674cda 100644
+--- a/menu.md
++++ b/menu.md
+@@ -1,5 +1,5 @@
+ # Sunrise Bakery menu
+
+ - White loaf: 2.80
+-- Rolls (six): 3.00
++- Rolls (six): 3.20
+ - Coconut cake (slice): 4.00
+$ git diff --staged
+$ git add menu.md
+$ git status --short
+M  menu.md
+$ git diff
+$ git diff --staged
+diff --git a/menu.md b/menu.md
+index 97e3bea..9674cda 100644
+--- a/menu.md
++++ b/menu.md
+@@ -1,5 +1,5 @@
+ # Sunrise Bakery menu
+
+ - White loaf: 2.80
+-- Rolls (six): 3.00
++- Rolls (six): 3.20
+ - Coconut cake (slice): 4.00
+$ git diff HEAD
+diff --git a/menu.md b/menu.md
+index 97e3bea..9674cda 100644
+--- a/menu.md
++++ b/menu.md
+@@ -1,5 +1,5 @@
+ # Sunrise Bakery menu
+
+ - White loaf: 2.80
+-- Rolls (six): 3.00
++- Rolls (six): 3.20
+ - Coconut cake (slice): 4.00
+$ git commit -m "Raise the price of rolls"
+[main 0dff14c] Raise the price of rolls
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+$ git diff HEAD~2 HEAD
+diff --git a/menu.md b/menu.md
+index 1f2a95a..9674cda 100644
+--- a/menu.md
++++ b/menu.md
+@@ -1,4 +1,5 @@
+ # Sunrise Bakery menu
+
+ - White loaf: 2.80
+-- Rolls (six): 3.00
++- Rolls (six): 3.20
++- Coconut cake (slice): 4.00
+$ git diff --stat HEAD~3 HEAD
+ menu.md | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+$ git rev-parse HEAD~1
+81f772ee32b93d8fcf80dbb34ab74053b69d97a2
+$ git rev-parse --short HEAD^
+81f772e
+$ git log --oneline HEAD~2..HEAD
+0dff14c (HEAD -> main) Raise the price of rolls
+81f772e Add coconut cake

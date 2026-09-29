@@ -1,0 +1,68 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ cd sharif-git-lab/sunrise-bakery
+$ ls
+README.md  contact.html  css  images  index.html  menu.html
+$ git init
+Initialized empty Git repository in /home/learner/sharif-git-lab/sunrise-bakery/.git/
+$ git status
+On branch main
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	README.md
+	contact.html
+	css/
+	images/
+	index.html
+	menu.html
+
+nothing added to commit but untracked files present (use "git add" to track)
+$ git add .
+$ git status
+On branch main
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+	new file:   README.md
+	new file:   contact.html
+	new file:   css/style.css
+	new file:   images/logo.svg
+	new file:   index.html
+	new file:   menu.html
+
+$ git commit -m "Add the Sunrise Bakery starter site"
+[main (root-commit) 0ed5bc9] Add the Sunrise Bakery starter site
+ 6 files changed, 127 insertions(+)
+ create mode 100644 README.md
+ create mode 100644 contact.html
+ create mode 100644 css/style.css
+ create mode 100644 images/logo.svg
+ create mode 100644 index.html
+ create mode 100644 menu.html
+$ git log --stat
+commit 0ed5bc9afc23af4d12117d41bb8a958c3cfccffd (HEAD -> main)
+Author: Ada Learner <ada@example.org>
+Date:   Mon Jan 5 09:08:00 2026 +0000
+
+    Add the Sunrise Bakery starter site
+
+ README.md       | 12 ++++++++++++
+ contact.html    | 27 +++++++++++++++++++++++++++
+ css/style.css   | 24 ++++++++++++++++++++++++
+ images/logo.svg |  5 +++++
+ index.html      | 27 +++++++++++++++++++++++++++
+ menu.html       | 32 ++++++++++++++++++++++++++++++++
+ 6 files changed, 127 insertions(+)
+$ git ls-files
+README.md
+contact.html
+css/style.css
+images/logo.svg
+index.html
+menu.html

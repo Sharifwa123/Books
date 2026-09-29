@@ -1,0 +1,42 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ cd bakery-menu
+$ git tag
+$ git tag v0.1
+$ git tag -a v1.0 -m "First public menu"
+$ git tag
+v0.1
+v1.0
+$ git log --oneline --decorate
+81f772e (HEAD -> main, tag: v1.0, tag: v0.1) Add coconut cake
+9f10b43 Raise the price of the white loaf
+8a52ffe Add the menu
+$ git show v1.0
+tag v1.0
+Tagger: Ada Learner <ada@example.org>
+Date:   Mon Jan 5 09:11:00 2026 +0000
+
+First public menu
+
+commit 81f772ee32b93d8fcf80dbb34ab74053b69d97a2 (HEAD -> main, tag: v1.0, tag: v0.1)
+Author: Ada Learner <ada@example.org>
+Date:   Mon Jan 5 09:08:00 2026 +0000
+
+    Add coconut cake
+
+diff --git a/menu.md b/menu.md
+index 1f2a95a..97e3bea 100644
+--- a/menu.md
++++ b/menu.md
+@@ -2,3 +2,4 @@
+
+ - White loaf: 2.80
+ - Rolls (six): 3.00
++- Coconut cake (slice): 4.00
+$ git tag -d v0.1
+Deleted tag 'v0.1' (was 81f772e)
+$ git tag
+v1.0
+$ git tag -l "v1.*"
+v1.0

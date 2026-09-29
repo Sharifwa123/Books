@@ -1,0 +1,21 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ mkdir -p work/project personal/project
+$ printf '[user]\n\temail = ada@work.example.net\n' > ~/.gitconfig-work
+$ git config --global includeIf.gitdir:~/work/.path ~/.gitconfig-work
+$ cat ~/.gitconfig
+[user]
+	name = Ada Learner
+	email = ada@example.org
+[includeIf "gitdir:~/work/"]
+	path = /home/learner/.gitconfig-work
+$ cd work/project
+$ git init -q
+$ git config user.email
+ada@work.example.net
+$ git config --show-origin user.email
+file:/home/learner/.gitconfig-work	ada@work.example.net
+$ cd ~/personal/project
+$ git init -q
+$ git config user.email
+ada@example.org

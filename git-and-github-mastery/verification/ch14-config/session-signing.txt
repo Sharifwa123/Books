@@ -1,0 +1,16 @@
+#!git
+git config --global user.name "Ada Learner"
+git config --global user.email "ada@example.org"
+git init -b main signing-demo
+cd signing-demo
+echo "Sunrise Bakery" > README.md
+git add README.md
+git config --global commit.gpgsign true
+git config --global gpg.format ssh
+git config --global gpg.ssh.program false
+git commit -m "Add README"
+git status --short
+git config --show-origin --get commit.gpgsign
+git -c commit.gpgsign=false commit -m "Add README"
+git log --oneline
+GIT_CONFIG_GLOBAL=/dev/null git config commit.gpgsign; echo "exit code: $?"

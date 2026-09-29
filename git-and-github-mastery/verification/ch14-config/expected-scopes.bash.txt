@@ -1,0 +1,26 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git init -b main scopes-demo
+Initialized empty Git repository in /home/learner/scopes-demo/.git/
+$ cd scopes-demo
+$ git config user.email
+ada@example.org
+$ git config --local user.email "ada.work@example.net"
+$ git config user.email
+ada.work@example.net
+$ git config --show-origin --show-scope user.email
+local	file:.git/config	ada.work@example.net
+$ git config --get-all user.email
+ada@example.org
+ada.work@example.net
+$ git config --global --unset user.email
+$ git config --local --unset user.email
+$ git config user.email; echo "exit code: $?"
+exit code: 1
+$ git config --global user.email "ada@example.org"
+$ git -c user.email="temporary@example.invalid" config user.email
+temporary@example.invalid
+$ GIT_CONFIG_GLOBAL=/dev/null git config user.email; echo "exit code: $?"
+exit code: 1
+$ git config user.email
+ada@example.org

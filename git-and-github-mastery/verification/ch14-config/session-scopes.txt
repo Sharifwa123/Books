@@ -1,0 +1,17 @@
+#!git
+git config --global user.name "Ada Learner"
+git config --global user.email "ada@example.org"
+git init -b main scopes-demo
+cd scopes-demo
+git config user.email
+git config --local user.email "ada.work@example.net"
+git config user.email
+git config --show-origin --show-scope user.email
+git config --get-all user.email
+git config --global --unset user.email
+git config --local --unset user.email
+git config user.email; echo "exit code: $?"
+git config --global user.email "ada@example.org"
+git -c user.email="temporary@example.invalid" config user.email
+GIT_CONFIG_GLOBAL=/dev/null git config user.email; echo "exit code: $?"
+git config user.email

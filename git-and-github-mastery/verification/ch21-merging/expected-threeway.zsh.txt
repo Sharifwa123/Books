@@ -1,0 +1,45 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ cd bakery-menu
+$ git switch -c add-tea
+Switched to a new branch 'add-tea'
+$ printf '# Sunrise Bakery menu\n\n- White loaf: 2.80\n- Rolls (six): 3.00\n- Coconut cake (slice): 4.00\n- Tea: 1.50\n' > menu.md
+$ git commit -am "Add tea to the menu"
+[add-tea a1ed54d] Add tea to the menu
+ 1 file changed, 1 insertion(+)
+$ git switch main
+Switched to branch 'main'
+$ printf 'Open Monday to Saturday.\n' > hours.md
+$ git add hours.md
+$ git commit -m "Add opening hours"
+[main 1e5eef8] Add opening hours
+ 1 file changed, 1 insertion(+)
+ create mode 100644 hours.md
+$ git log --oneline --all --graph
+* 1e5eef8 (HEAD -> main) Add opening hours
+| * a1ed54d (add-tea) Add tea to the menu
+|/
+* 81f772e Add coconut cake
+* 9f10b43 Raise the price of the white loaf
+* 8a52ffe Add the menu
+$ git merge --no-edit add-tea
+Merge made by the 'ort' strategy.
+ menu.md | 1 +
+ 1 file changed, 1 insertion(+)
+$ git log --oneline --all --graph
+*   94d0fc6 (HEAD -> main) Merge branch 'add-tea'
+|\
+| * a1ed54d (add-tea) Add tea to the menu
+* | 1e5eef8 Add opening hours
+|/
+* 81f772e Add coconut cake
+* 9f10b43 Raise the price of the white loaf
+* 8a52ffe Add the menu
+$ git show --stat --oneline HEAD
+94d0fc6 (HEAD -> main) Merge branch 'add-tea'
+
+ menu.md | 1 +
+ 1 file changed, 1 insertion(+)
+$ git log --oneline --merges
+94d0fc6 (HEAD -> main) Merge branch 'add-tea'

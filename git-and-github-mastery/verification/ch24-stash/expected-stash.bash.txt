@@ -1,0 +1,60 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ cd bakery-menu
+$ printf '# Sunrise Bakery menu\n\n- White loaf: 2.80\n- Rolls (six): 3.00\n- Coconut cake (slice): 4.00\n- Tea: 1.50\n' > menu.md
+$ printf 'draft\n' > ideas.txt
+$ git status --short
+ M menu.md
+?? ideas.txt
+$ git stash
+Saved working directory and index state WIP on main: 81f772e Add coconut cake
+$ git status --short
+?? ideas.txt
+$ git stash list
+stash@{0}: WIP on main: 81f772e Add coconut cake
+$ cat menu.md
+# Sunrise Bakery menu
+
+- White loaf: 2.80
+- Rolls (six): 3.00
+- Coconut cake (slice): 4.00
+$ git stash pop
+On branch main
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   menu.md
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	ideas.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Dropped refs/stash@{0} (9958d02c6f90ac44192aff2010753d5a93af29c9)
+$ git status --short
+ M menu.md
+?? ideas.txt
+$ git stash -u
+Saved working directory and index state WIP on main: 81f772e Add coconut cake
+$ git status --short
+$ git stash list
+stash@{0}: WIP on main: 81f772e Add coconut cake
+$ git stash pop
+On branch main
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   menu.md
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	ideas.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Dropped refs/stash@{0} (130e22629620c583dc9031508b0eda23eecf5126)
+$ git status --short
+ M menu.md
+?? ideas.txt
+$ git stash drop
+No stash entries found.

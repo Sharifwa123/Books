@@ -1,0 +1,20 @@
+#!git
+git config --global user.name "Ada Learner"
+git config --global user.email "ada@example.org"
+git config --global init.defaultBranch main
+@ mkdir shared && git init -q --bare shared/bakery.git && git clone -q shared/bakery.git alice && cd alice && printf "# Sunrise Bakery menu\n\n- White loaf: 2.50\n" > menu.md && git add menu.md && git commit -q -m "Add the menu" && git push -q -u origin main && cd ..
+cd alice
+git remote
+git remote -v
+git remote add backup ../shared/bakery.git
+git remote -v
+git remote rename backup mirror
+git remote
+git push mirror main
+git branch -r
+git remote remove mirror
+git remote
+git branch -r
+git config --get remote.origin.url
+git config --get branch.main.remote
+git config --get branch.main.merge

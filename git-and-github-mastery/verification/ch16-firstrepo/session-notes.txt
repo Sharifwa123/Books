@@ -1,0 +1,19 @@
+#!git
+git config --global user.name "Ada Learner"
+git config --global user.email "ada@example.org"
+git config --global init.defaultBranch main
+mkdir -p sharif-git-lab
+cd sharif-git-lab
+mkdir study-notes
+cd study-notes
+git status
+git init
+ls -a
+git status
+printf '# Study notes\n\nToday I learned what version control is.\n' > notes.md
+git status
+git add notes.md
+git status
+git commit -m "Add first study notes"
+git status
+git log

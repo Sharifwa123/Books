@@ -1,0 +1,64 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ cd bakery-menu
+$ git switch -c raise-bread
+Switched to a new branch 'raise-bread'
+$ printf '# Sunrise Bakery menu\n\n- White loaf: 3.00\n- Rolls (six): 3.00\n- Coconut cake (slice): 4.00\n' > menu.md
+$ git commit -am "Raise the white loaf to 3.00"
+[raise-bread 73e14f7] Raise the white loaf to 3.00
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+$ git switch main
+Switched to branch 'main'
+$ printf '# Sunrise Bakery menu\n\n- White loaf: 2.90\n- Rolls (six): 3.00\n- Coconut cake (slice): 4.00\n' > menu.md
+$ git commit -am "Raise the white loaf to 2.90"
+[main 4afeda6] Raise the white loaf to 2.90
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+$ git merge raise-bread
+Auto-merging menu.md
+CONFLICT (content): Merge conflict in menu.md
+Automatic merge failed; fix conflicts and then commit the result.
+$ git status
+On branch main
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+  (use "git merge --abort" to abort the merge)
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+	both modified:   menu.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+$ cat menu.md
+# Sunrise Bakery menu
+
+<<<<<<< HEAD
+- White loaf: 2.90
+=======
+- White loaf: 3.00
+>>>>>>> raise-bread
+- Rolls (six): 3.00
+- Coconut cake (slice): 4.00
+$ git diff --name-only --diff-filter=U
+menu.md
+$ printf '# Sunrise Bakery menu\n\n- White loaf: 2.95\n- Rolls (six): 3.00\n- Coconut cake (slice): 4.00\n' > menu.md
+$ git add menu.md
+$ git status
+On branch main
+All conflicts fixed but you are still merging.
+  (use "git commit" to conclude merge)
+
+Changes to be committed:
+	modified:   menu.md
+
+$ git commit -m "Merge raise-bread, settling on 2.95"
+[main cce1095] Merge raise-bread, settling on 2.95
+$ git log --oneline --graph
+*   cce1095 (HEAD -> main) Merge raise-bread, settling on 2.95
+|\
+| * 73e14f7 (raise-bread) Raise the white loaf to 3.00
+* | 4afeda6 Raise the white loaf to 2.90
+|/
+* 81f772e Add coconut cake
+* 9f10b43 Raise the price of the white loaf
+* 8a52ffe Add the menu

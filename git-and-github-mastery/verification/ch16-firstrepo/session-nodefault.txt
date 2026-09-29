@@ -1,0 +1,6 @@
+#!git
+mkdir demo
+cd demo
+git init
+git branch --show-current
+git status

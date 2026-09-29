@@ -1,0 +1,97 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ mkdir bakery-menu
+$ cd bakery-menu
+$ git init
+Initialized empty Git repository in /home/learner/bakery-menu/.git/
+$ printf '# Sunrise Bakery menu\n\n- White loaf: 2.50\n- Rolls (six): 3.00\n' > menu.md
+$ git add menu.md
+$ git commit -m "Add the menu"
+[main (root-commit) 8a52ffe] Add the menu
+ 1 file changed, 4 insertions(+)
+ create mode 100644 menu.md
+$ printf '# Sunrise Bakery menu\n\n- White loaf: 2.80\n- Rolls (six): 3.00\n' > menu.md
+$ git commit -am "Raise the price of the white loaf"
+[main 9f10b43] Raise the price of the white loaf
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+$ printf '# Sunrise Bakery menu\n\n- White loaf: 2.80\n- Rolls (six): 3.00\n- Coconut cake (slice): 4.00\n' > menu.md
+$ git commit -am "Add coconut cake"
+[main 81f772e] Add coconut cake
+ 1 file changed, 1 insertion(+)
+$ git log
+commit 81f772ee32b93d8fcf80dbb34ab74053b69d97a2 (HEAD -> main)
+Author: Ada Learner <ada@example.org>
+Date:   Mon Jan 5 09:08:00 2026 +0000
+
+    Add coconut cake
+
+commit 9f10b43614a19024637b4644c75e84a4aae6af83
+Author: Ada Learner <ada@example.org>
+Date:   Mon Jan 5 09:07:00 2026 +0000
+
+    Raise the price of the white loaf
+
+commit 8a52ffecdf9a4a5f307aa1d31e3429b29ad0d6f9
+Author: Ada Learner <ada@example.org>
+Date:   Mon Jan 5 09:06:00 2026 +0000
+
+    Add the menu
+$ git log --oneline
+81f772e (HEAD -> main) Add coconut cake
+9f10b43 Raise the price of the white loaf
+8a52ffe Add the menu
+$ git log -2 --oneline
+81f772e (HEAD -> main) Add coconut cake
+9f10b43 Raise the price of the white loaf
+$ git log --stat
+commit 81f772ee32b93d8fcf80dbb34ab74053b69d97a2 (HEAD -> main)
+Author: Ada Learner <ada@example.org>
+Date:   Mon Jan 5 09:08:00 2026 +0000
+
+    Add coconut cake
+
+ menu.md | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 9f10b43614a19024637b4644c75e84a4aae6af83
+Author: Ada Learner <ada@example.org>
+Date:   Mon Jan 5 09:07:00 2026 +0000
+
+    Raise the price of the white loaf
+
+ menu.md | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 8a52ffecdf9a4a5f307aa1d31e3429b29ad0d6f9
+Author: Ada Learner <ada@example.org>
+Date:   Mon Jan 5 09:06:00 2026 +0000
+
+    Add the menu
+
+ menu.md | 4 ++++
+ 1 file changed, 4 insertions(+)
+$ git log -p -1
+commit 81f772ee32b93d8fcf80dbb34ab74053b69d97a2 (HEAD -> main)
+Author: Ada Learner <ada@example.org>
+Date:   Mon Jan 5 09:08:00 2026 +0000
+
+    Add coconut cake
+
+diff --git a/menu.md b/menu.md
+index 1f2a95a..97e3bea 100644
+--- a/menu.md
++++ b/menu.md
+@@ -2,3 +2,4 @@
+
+ - White loaf: 2.80
+ - Rolls (six): 3.00
++- Coconut cake (slice): 4.00
+$ git log --format='%h %an: %s'
+81f772e Ada Learner: Add coconut cake
+9f10b43 Ada Learner: Raise the price of the white loaf
+8a52ffe Ada Learner: Add the menu
+$ git log --oneline -- menu.md
+81f772e (HEAD -> main) Add coconut cake
+9f10b43 Raise the price of the white loaf
+8a52ffe Add the menu

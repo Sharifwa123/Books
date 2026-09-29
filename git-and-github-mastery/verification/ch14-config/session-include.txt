@@ -1,0 +1,14 @@
+#!git
+git config --global user.name "Ada Learner"
+git config --global user.email "ada@example.org"
+mkdir -p work/project personal/project
+printf '[user]\n\temail = ada@work.example.net\n' > ~/.gitconfig-work
+git config --global includeIf.gitdir:~/work/.path ~/.gitconfig-work
+cat ~/.gitconfig
+cd work/project
+git init -q
+git config user.email
+git config --show-origin user.email
+cd ~/personal/project
+git init -q
+git config user.email

@@ -1,0 +1,34 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ cd bakery-menu
+$ git config merge.conflictStyle diff3
+$ git switch -c raise-bread
+Switched to a new branch 'raise-bread'
+$ printf '# Sunrise Bakery menu\n\n- White loaf: 3.00\n- Rolls (six): 3.00\n- Coconut cake (slice): 4.00\n' > menu.md
+$ git commit -am "Raise the white loaf to 3.00"
+[raise-bread df730a5] Raise the white loaf to 3.00
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+$ git switch main
+Switched to branch 'main'
+$ printf '# Sunrise Bakery menu\n\n- White loaf: 2.90\n- Rolls (six): 3.00\n- Coconut cake (slice): 4.00\n' > menu.md
+$ git commit -am "Raise the white loaf to 2.90"
+[main 5dc50d3] Raise the white loaf to 2.90
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+$ git merge raise-bread
+Auto-merging menu.md
+CONFLICT (content): Merge conflict in menu.md
+Automatic merge failed; fix conflicts and then commit the result.
+$ cat menu.md
+# Sunrise Bakery menu
+
+<<<<<<< HEAD
+- White loaf: 2.90
+||||||| 81f772e
+- White loaf: 2.80
+=======
+- White loaf: 3.00
+>>>>>>> raise-bread
+- Rolls (six): 3.00
+- Coconut cake (slice): 4.00
+$ git merge --abort

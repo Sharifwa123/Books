@@ -1,0 +1,67 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ cd bakery-menu
+$ git branch
+* main
+$ git branch add-tea
+$ git branch
+  add-tea
+* main
+$ git switch add-tea
+Switched to branch 'add-tea'
+$ git branch
+* add-tea
+  main
+$ printf '# Sunrise Bakery menu\n\n- White loaf: 2.80\n- Rolls (six): 3.00\n- Coconut cake (slice): 4.00\n- Tea: 1.50\n' > menu.md
+$ git commit -am "Add tea to the menu"
+[add-tea 5a16424] Add tea to the menu
+ 1 file changed, 1 insertion(+)
+$ git log --oneline --all --graph
+* 5a16424 (HEAD -> add-tea) Add tea to the menu
+* 81f772e (main) Add coconut cake
+* 9f10b43 Raise the price of the white loaf
+* 8a52ffe Add the menu
+$ git switch main
+Switched to branch 'main'
+$ cat menu.md
+# Sunrise Bakery menu
+
+- White loaf: 2.80
+- Rolls (six): 3.00
+- Coconut cake (slice): 4.00
+$ git switch add-tea
+Switched to branch 'add-tea'
+$ cat menu.md
+# Sunrise Bakery menu
+
+- White loaf: 2.80
+- Rolls (six): 3.00
+- Coconut cake (slice): 4.00
+- Tea: 1.50
+$ git switch main
+Switched to branch 'main'
+$ git switch -c fix-typo
+Switched to a new branch 'fix-typo'
+$ git branch -vv
+  add-tea  5a16424 Add tea to the menu
+* fix-typo 81f772e Add coconut cake
+  main     81f772e Add coconut cake
+$ git branch -m fix-typo tidy-menu
+$ git branch
+  add-tea
+  main
+* tidy-menu
+$ git branch -d tidy-menu
+error: cannot delete branch 'tidy-menu' used by worktree at '/home/learner/bakery-menu'
+$ git switch main
+Switched to branch 'main'
+$ git branch -d tidy-menu
+Deleted branch tidy-menu (was 81f772e).
+$ git branch -d add-tea
+error: the branch 'add-tea' is not fully merged.
+If you are sure you want to delete it, run 'git branch -D add-tea'
+$ git branch -D add-tea
+Deleted branch add-tea (was 5a16424).
+$ git branch
+* main

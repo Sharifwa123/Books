@@ -1,0 +1,23 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ cd bakery-menu
+$ git checkout -b legacy-style
+Switched to a new branch 'legacy-style'
+$ git branch
+* legacy-style
+  main
+$ git checkout main
+Switched to branch 'main'
+$ git branch -d legacy-style
+Deleted branch legacy-style (was 81f772e).
+$ git switch nowhere
+fatal: invalid reference: nowhere
+$ git switch --detach HEAD~1
+HEAD is now at 9f10b43 Raise the price of the white loaf
+$ git status
+HEAD detached at 9f10b43
+nothing to commit, working tree clean
+$ git switch main
+Previous HEAD position was 9f10b43 Raise the price of the white loaf
+Switched to branch 'main'

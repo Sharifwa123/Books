@@ -1,0 +1,60 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ cd bakery-menu
+$ git commit --allow-empty -m "Mark the start of the spring menu"
+[main aa2ff61] Mark the start of the spring menu
+$ printf '# Sunrise Bakery menu\n\n- White loaf: 2.80\n- Rolls (six): 3.00\n- Coconut cake (slice): 4.00\n- Lemon tart: 3.50\n' > menu.md
+$ git commit -am "stuff"
+[main 72a36ee] stuff
+ 1 file changed, 1 insertion(+)
+$ git log --oneline -3
+72a36ee (HEAD -> main) stuff
+aa2ff61 Mark the start of the spring menu
+81f772e Add coconut cake
+$ git commit --amend -m "Add the lemon tart to the menu"
+[main 5c151e3] Add the lemon tart to the menu
+ Date: Mon Jan 5 09:10:00 2026 +0000
+ 1 file changed, 1 insertion(+)
+$ git log --oneline -3
+5c151e3 (HEAD -> main) Add the lemon tart to the menu
+aa2ff61 Mark the start of the spring menu
+81f772e Add coconut cake
+$ printf 'Prices include tax.\n' > notes.txt
+$ git add notes.txt
+$ git commit --amend --no-edit
+[main f71f66b] Add the lemon tart to the menu
+ Date: Mon Jan 5 09:10:00 2026 +0000
+ 2 files changed, 2 insertions(+)
+ create mode 100644 notes.txt
+$ git show --stat --oneline HEAD
+f71f66b (HEAD -> main) Add the lemon tart to the menu
+ menu.md   | 1 +
+ notes.txt | 1 +
+ 2 files changed, 2 insertions(+)
+$ git commit --allow-empty -m "Summarise the change" -m "The body explains why, in complete sentences, after a blank line."
+[main 573a346] Summarise the change
+$ git log -1
+commit 573a3460805e3e95ac6f40a56908bc88249022b3 (HEAD -> main)
+Author: Ada Learner <ada@example.org>
+Date:   Mon Jan 5 09:17:00 2026 +0000
+
+    Summarise the change
+
+    The body explains why, in complete sentences, after a blank line.
+$ git log -1 --format=fuller
+commit 573a3460805e3e95ac6f40a56908bc88249022b3 (HEAD -> main)
+Author:     Ada Learner <ada@example.org>
+AuthorDate: Mon Jan 5 09:17:00 2026 +0000
+Commit:     Ada Learner <ada@example.org>
+CommitDate: Mon Jan 5 09:17:00 2026 +0000
+
+    Summarise the change
+
+    The body explains why, in complete sentences, after a blank line.
+$ git log --format='%h | %an | %s' -5
+573a346 | Ada Learner | Summarise the change
+f71f66b | Ada Learner | Add the lemon tart to the menu
+aa2ff61 | Ada Learner | Mark the start of the spring menu
+81f772e | Ada Learner | Add coconut cake
+9f10b43 | Ada Learner | Raise the price of the white loaf

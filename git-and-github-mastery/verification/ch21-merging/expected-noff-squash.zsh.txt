@@ -1,0 +1,63 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ cd bakery-menu
+$ git switch -c add-tea
+Switched to a new branch 'add-tea'
+$ printf '# Sunrise Bakery menu\n\n- White loaf: 2.80\n- Rolls (six): 3.00\n- Coconut cake (slice): 4.00\n- Tea: 1.50\n' > menu.md
+$ git commit -am "Add tea to the menu"
+[add-tea a1ed54d] Add tea to the menu
+ 1 file changed, 1 insertion(+)
+$ printf '# Sunrise Bakery menu\n\n- White loaf: 2.80\n- Rolls (six): 3.00\n- Coconut cake (slice): 4.00\n- Tea: 1.50\n- Coffee: 2.00\n' > menu.md
+$ git commit -am "Add coffee to the menu"
+[add-tea 0bbfb6b] Add coffee to the menu
+ 1 file changed, 1 insertion(+)
+$ git switch main
+Switched to branch 'main'
+$ git merge --no-ff add-tea -m "Merge the hot drinks"
+Merge made by the 'ort' strategy.
+ menu.md | 2 ++
+ 1 file changed, 2 insertions(+)
+$ git log --oneline --graph
+*   45e4d88 (HEAD -> main) Merge the hot drinks
+|\
+| * 0bbfb6b (add-tea) Add coffee to the menu
+| * a1ed54d Add tea to the menu
+|/
+* 81f772e Add coconut cake
+* 9f10b43 Raise the price of the white loaf
+* 8a52ffe Add the menu
+$ git switch -c add-juice HEAD~2
+Switched to a new branch 'add-juice'
+$ printf '# Sunrise Bakery menu\n\n- White loaf: 2.80\n- Rolls (six): 3.00\n- Coconut cake (slice): 4.00\n- Juice: 2.20\n' > menu.md
+$ git commit -am "Add juice"
+[add-juice d438514] Add juice
+ 1 file changed, 2 insertions(+)
+$ printf '# Sunrise Bakery menu\n\n- White loaf: 2.80\n- Rolls (six): 3.00\n- Coconut cake (slice): 4.00\n- Juice: 2.20\n- Lemonade: 2.00\n' > menu.md
+$ git commit -am "Add lemonade"
+[add-juice d11d40a] Add lemonade
+ 1 file changed, 1 insertion(+)
+$ git switch main
+Switched to branch 'main'
+$ git merge --squash add-juice
+Auto-merging menu.md
+CONFLICT (content): Merge conflict in menu.md
+Squash commit -- not updating HEAD
+Automatic merge failed; fix conflicts and then commit the result.
+$ git status --short
+UU menu.md
+$ git commit -m "Add cold drinks"
+U	menu.md
+error: Committing is not possible because you have unmerged files.
+hint: Fix them up in the work tree, and then use 'git add/rm <file>'
+hint: as appropriate to mark resolution and make a commit.
+fatal: Exiting because of an unresolved conflict.
+$ git log --oneline --graph
+*   45e4d88 (HEAD -> main) Merge the hot drinks
+|\
+| * 0bbfb6b (add-tea) Add coffee to the menu
+| * a1ed54d Add tea to the menu
+|/
+* 81f772e Add coconut cake
+* 9f10b43 Raise the price of the white loaf
+* 8a52ffe Add the menu
