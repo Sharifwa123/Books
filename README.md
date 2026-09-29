@@ -6,4 +6,4 @@ Each book lives in its own top-level folder (lowercase slug). See each book's `R
 
 | Book | Folder | Status |
 |------|--------|--------|
-| Git & GitHub: From Zero to Mastery (working title) | [`git-and-github-mastery/`](git-and-github-mastery/) | Planning phase |
+| Git & GitHub: From Zero to Mastery | [`git-and-github-mastery/`](git-and-github-mastery/) | Research and architecture phase |

@@ -1,5 +1,7 @@
 # 07 — Copyright and Open-Publication Options
 
+> **Superseded in part:** licence decision is now CC BY-SA (text) + MIT (code), intended, pending verification. See `../publishing/metadata.md`. Options below kept for reference.
+
 **Not legal advice.** This is an educational summary for the publisher; verify against the actual licence texts (and qualified counsel if needed). **No option is selected yet — the publisher decides.**
 
 ## Baseline facts
