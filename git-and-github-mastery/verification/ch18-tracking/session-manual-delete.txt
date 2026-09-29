@@ -1,0 +1,15 @@
+#!git
+git config --global user.name "Ada Learner"
+git config --global user.email "ada@example.org"
+git config --global init.defaultBranch main
+@ mkdir -p ~/sharif-git-lab && cp -r "$STARTER" ~/sharif-git-lab/sunrise-bakery && cd ~/sharif-git-lab/sunrise-bakery && git init -q && git add . && git commit -q -m "Add the Sunrise Bakery starter site" && cd
+cd sharif-git-lab/sunrise-bakery
+rm contact.html
+git status --short
+git status
+git add contact.html
+git status --short
+git restore --staged contact.html
+git restore contact.html
+git status --short
+ls
