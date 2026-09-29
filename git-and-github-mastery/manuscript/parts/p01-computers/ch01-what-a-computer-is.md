@@ -97,7 +97,7 @@ Computers store everything as numbers, and they write every number using only tw
 
 > **New term: byte.** A unit of storage. One byte is eight bits. Sizes of files are counted in bytes, and in larger units built from bytes: a kilobyte is about a thousand bytes, a megabyte about a million, and a gigabyte about a billion.
 
-You do not need to calculate with bytes. You need to know that files have sizes, that the sizes are counted in bytes, and that a photo is much bigger than a paragraph of text. In Chapter 4 you will look at real bytes and see how letters are stored.
+You do not need to calculate with bytes. You need to know that files have sizes, that the sizes are counted in bytes, and that a photo is much bigger than a paragraph of text. In Chapter 4<!--ref:text--> you will look at real bytes and see how letters are stored.
 
 > **Deep.** Two competing conventions exist for the larger units. Some tools count a kilobyte as 1,000 bytes; others count 1,024. When the difference matters, tools usually say which they use. It rarely matters for this book.
 
@@ -147,7 +147,7 @@ You will meet three families of operating system in this book. Here is what to k
 
 > **Verification pending [R111].** Product-level statements (who makes what, and how macOS and Linux relate) are given here from general knowledge. They will be re-checked against the vendors' and the Linux community's own documentation before publication. Nothing later in this book depends on a detail of them.
 
-You do not need to choose between them now. The book teaches on all three, with one primary environment: a program called a *terminal* running a shell named **Bash** (Chapter 7 explains what that means). On Windows the book uses **Git Bash**, so that all learners see the same commands.
+You do not need to choose between them now. The book teaches on all three, with one primary environment: a program called a *terminal* running a shell named **Bash** (Chapter 7<!--ref:terminal--> explains what that means). On Windows the book uses **Git Bash**, so that all learners see the same commands.
 
 ---
 
@@ -178,7 +178,7 @@ For example, on Ubuntu and other Debian-family Linux systems, the package manage
 sudo apt-get install -y zsh
 ```
 
-Other systems have their own equivalents, and Chapter 13 gives the steps for installing Git on each system and states how each set of steps was checked. The idea is the same everywhere: *ask a trusted collection for the program by name*.
+Other systems have their own equivalents, and Chapter 13<!--ref:install--> gives the steps for installing Git on each system and states how each set of steps was checked. The idea is the same everywhere: *ask a trusted collection for the program by name*.
 
 ### 1.4.2 Installing safely
 
@@ -203,7 +203,7 @@ Now you have every piece you need for a first, simple picture of Git.
 - Git is an **application**, that is, software.
 - It runs on your **operating system**, on your **hardware**.
 - It reads the **files** you have saved in **storage**, and it stores its record of their history in storage too.
-- It runs only when you ask it to (you will do so through the terminal in Chapter 7).
+- It runs only when you ask it to (you will do so through the terminal in Chapter 7<!--ref:terminal-->).
 
 Nothing about Git is magical. It is a program that follows instructions, and its results are stored in ordinary files that you will learn to look at.
 
@@ -262,7 +262,7 @@ Do the exercises in [`exercises/ch01-exercises.md`](../../../exercises/ch01-exer
 
 ## Before Moving On
 
-You are ready for Chapter 2 if you can:
+You are ready for Chapter 2<!--ref:files--> if you can:
 
 - [ ] explain the difference between memory and storage using the kitchen picture
 - [ ] say what an operating system is for, without using the words "operating system" in your answer
@@ -279,4 +279,4 @@ You are ready for Chapter 2 if you can:
 
 ## Where this leads
 
-Chapter 2 explains how a computer organises its storage into **files and folders** and how to describe where a file is (its **path**). Chapter 7 shows you how to give commands to the computer by typing. Chapter 13 installs Git, using the ideas about installing that you met in section 1.4.
+Chapter 2<!--ref:files--> explains how a computer organises its storage into **files and folders** and how to describe where a file is (its **path**). Chapter 7<!--ref:terminal--> shows you how to give commands to the computer by typing. Chapter 13<!--ref:install--> installs Git, using the ideas about installing that you met in section 1.4.
