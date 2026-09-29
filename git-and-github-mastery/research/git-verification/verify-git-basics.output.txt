@@ -1,0 +1,54 @@
+git version: git version 2.43.0
+PASS  init.defaultBranch=main honoured
+PASS  status --short shows staged add
+PASS  diff shows unstaged change
+PASS  diff --staged shows staged change
+PASS  HEAD~1 resolves to first commit
+PASS  restore discards working-tree edit
+PASS  restore --staged unstages
+PASS  switch -c creates+switches
+PASS  ff merge (no divergence)
+PASS  reset --soft keeps commit changes staged/HEAD moved
+PASS  reflog still holds reset-away commit
+PASS  recovered via reflog
+PASS  revert creates new commit
+PASS  conflicting merge leaves conflict markers
+PASS  merge --abort restores clean tree
+PASS  interactive rebase squash (scripted)
+PASS  stash cleans tree
+PASS  annotated tag is tag object
+PASS  lightweight tag points to commit
+PASS  worktree add
+PASS  grep finds content
+PASS  blame runs
+PASS  cherry-pick usage exists
+PASS  blob type
+PASS  tree type
+PASS  clone --depth 1
+PASS  clone --filter=blob:none
+PASS  sparse-checkout set
+PASS  'git push --force-with-lease' recognised
+PASS  'git rebase --abort' recognised
+PASS  'git rebase --continue' recognised
+PASS  'git rebase --skip' recognised
+PASS  'git reflog expire' recognised
+PASS  'git maintenance start' recognised
+PASS  'git submodule add' recognised
+PASS  'git clean -n' recognised
+PASS  'git bisect start' recognised
+PASS  'git config --global core.autocrlf' recognised
+PASS  'git am' recognised
+PASS  'git format-patch' recognised
+PASS  'git rerere' recognised
+PASS  'git gc' recognised
+PASS  'git fsck' recognised
+PASS  gpg.format=ssh accepted
+INFO  git-lfs NOT installed in sandbox (LFS commands unverified)
+PASS  remote add
+PASS  push -u sets upstream
+PASS  branch tracking configured
+PASS  fetch updates remote-tracking ref only
+PASS  status reports behind
+PASS  pull --ff-only brings changes
+PASS  push --force-with-lease accepted (no-op)
+cleanup: /tmp/tmp.JUQJqsBpLo

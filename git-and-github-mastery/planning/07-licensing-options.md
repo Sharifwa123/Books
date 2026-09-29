@@ -1,5 +1,7 @@
 # 07 — Copyright and Open-Publication Options
 
+> **Superseded:** the intended licences are now **CC BY-NC-SA 4.0** (book text) and **MIT** (code samples), both pending official verification. See `../publishing/metadata.md`. Options below are kept for reference only.
+
 **Not legal advice.** This is an educational summary for the publisher; verify against the actual licence texts (and qualified counsel if needed). **No option is selected yet — the publisher decides.**
 
 ## Baseline facts

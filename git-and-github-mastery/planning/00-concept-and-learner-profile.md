@@ -12,7 +12,7 @@ Working title must not imply GitHub affiliation and should avoid generic "AI-boo
 | 2 | **Version Control from First Principles** | Learn Git and GitHub by Understanding How They Work | More distinctive; less searchable |
 | 3 | **Track, Branch, Ship** | Git and GitHub for Complete Beginners and Working Professionals | Memorable; needs a strong subtitle |
 
-**Decision required from the publisher:** choose a title. Until then, 1 is used.
+**Decision (recorded):** title 1 selected, with the long subtitle in publishing/metadata.md.
 
 ## Presentation
 - Written by Sharif Tingane Issah

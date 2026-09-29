@@ -1,0 +1,488 @@
+{
+ "computer": {
+  "number": 1,
+  "title": "What a Computer Is",
+  "tag": "Core",
+  "first_read": "full"
+ },
+ "files": {
+  "number": 2,
+  "title": "Files, Folders and Paths",
+  "tag": "Core",
+  "first_read": "full"
+ },
+ "editors": {
+  "number": 3,
+  "title": "Editors and Project Folders",
+  "tag": "Core",
+  "first_read": "full"
+ },
+ "text": {
+  "number": 4,
+  "title": "Text, Encodings and Newlines",
+  "tag": "Core",
+  "first_read": "full"
+ },
+ "internet": {
+  "number": 5,
+  "title": "The Internet, the Web and Servers",
+  "tag": "Core",
+  "first_read": "full"
+ },
+ "accounts": {
+  "number": 6,
+  "title": "Accounts, Passwords and Trust",
+  "tag": "Core",
+  "first_read": "full"
+ },
+ "terminal": {
+  "number": 7,
+  "title": "The Terminal Without Fear",
+  "tag": "Core",
+  "first_read": "full"
+ },
+ "markdown": {
+  "number": 8,
+  "title": "Markdown in Five Pages",
+  "tag": "Core",
+  "first_read": "full"
+ },
+ "problem": {
+  "number": 9,
+  "title": "The Problem of Changing Files",
+  "tag": "Core",
+  "first_read": "full"
+ },
+ "history": {
+  "number": 10,
+  "title": "A Short History of Version Control",
+  "tag": "Core",
+  "first_read": "later"
+ },
+ "distributed": {
+  "number": 11,
+  "title": "Centralized vs Distributed",
+  "tag": "Core",
+  "first_read": "full"
+ },
+ "platforms": {
+  "number": 12,
+  "title": "Git, GitHub, GitLab, Bitbucket",
+  "tag": "Core",
+  "first_read": "full"
+ },
+ "install": {
+  "number": 13,
+  "title": "Installing Git",
+  "tag": "Core",
+  "first_read": "full"
+ },
+ "config": {
+  "number": 14,
+  "title": "Configuration Scopes and Environments",
+  "tag": "Core",
+  "first_read": "full"
+ },
+ "model": {
+  "number": 15,
+  "title": "Git's Core Model",
+  "tag": "Core",
+  "first_read": "full"
+ },
+ "firstrepo": {
+  "number": 16,
+  "title": "Your First Repository",
+  "tag": "Core",
+  "first_read": "full"
+ },
+ "history_view": {
+  "number": 17,
+  "title": "Seeing Changes and History",
+  "tag": "Core",
+  "first_read": "full"
+ },
+ "tracking": {
+  "number": 18,
+  "title": "Tracking, Ignoring, Renaming, Deleting",
+  "tag": "Core",
+  "first_read": "full"
+ },
+ "commits": {
+  "number": 19,
+  "title": "Writing Good Commits",
+  "tag": "Core",
+  "first_read": "full"
+ },
+ "branching": {
+  "number": 20,
+  "title": "Branching",
+  "tag": "Core",
+  "first_read": "full"
+ },
+ "merging": {
+  "number": 21,
+  "title": "Merging",
+  "tag": "Core",
+  "first_read": "full"
+ },
+ "conflicts": {
+  "number": 22,
+  "title": "Merge Conflicts",
+  "tag": "Core",
+  "first_read": "full"
+ },
+ "remotes": {
+  "number": 23,
+  "title": "Remotes",
+  "tag": "Core",
+  "first_read": "full"
+ },
+ "stash": {
+  "number": 24,
+  "title": "Stash and Small Tools",
+  "tag": "Core",
+  "first_read": "part"
+ },
+ "undo": {
+  "number": 25,
+  "title": "Undoing Things Safely",
+  "tag": "Core",
+  "first_read": "full"
+ },
+ "reflog": {
+  "number": 26,
+  "title": "Recovery with the Reflog",
+  "tag": "Core",
+  "first_read": "full"
+ },
+ "rebase": {
+  "number": 27,
+  "title": "Rebase",
+  "tag": "Deep",
+  "first_read": "later"
+ },
+ "tools": {
+  "number": 28,
+  "title": "Cherry-pick, Bisect and Patches",
+  "tag": "Deep",
+  "first_read": "later"
+ },
+ "tags": {
+  "number": 29,
+  "title": "Tags and Versioning",
+  "tag": "Core",
+  "first_read": "part"
+ },
+ "objects": {
+  "number": 30,
+  "title": "Inside Git: The Object Model",
+  "tag": "Deep",
+  "first_read": "later"
+ },
+ "bigrepos": {
+  "number": 31,
+  "title": "Big and Complex Repositories",
+  "tag": "Deep",
+  "first_read": "later"
+ },
+ "custom": {
+  "number": 32,
+  "title": "Customising Git",
+  "tag": "Deep",
+  "first_read": "later"
+ },
+ "gitsec": {
+  "number": 33,
+  "title": "Git Security",
+  "tag": "Core",
+  "first_read": "part"
+ },
+ "workflows": {
+  "number": 34,
+  "title": "Git Workflows",
+  "tag": "Core",
+  "first_read": "part"
+ },
+ "readdocs": {
+  "number": 35,
+  "title": "Reading Official Documentation",
+  "tag": "Core",
+  "first_read": "part"
+ },
+ "whatgh": {
+  "number": 36,
+  "title": "What GitHub Is (and Is Not)",
+  "tag": "Core",
+  "first_read": "full"
+ },
+ "ghaccount": {
+  "number": 37,
+  "title": "Account and Profile",
+  "tag": "Core",
+  "first_read": "full"
+ },
+ "ghauth": {
+  "number": 38,
+  "title": "Authentication in Depth",
+  "tag": "Core",
+  "first_read": "full"
+ },
+ "ghrepo": {
+  "number": 39,
+  "title": "Your First GitHub Repository",
+  "tag": "Core",
+  "first_read": "full"
+ },
+ "ghtour": {
+  "number": 40,
+  "title": "Touring the GitHub Interface",
+  "tag": "Core",
+  "first_read": "full"
+ },
+ "notify": {
+  "number": 41,
+  "title": "Notifications, Stars and Watching",
+  "tag": "Core",
+  "first_read": "part"
+ },
+ "readme": {
+  "number": 42,
+  "title": "Professional Repositories and READMEs",
+  "tag": "Core",
+  "first_read": "full"
+ },
+ "settings": {
+  "number": 43,
+  "title": "Repository Settings, Security Tab and Wiki Tour",
+  "tag": "Core",
+  "first_read": "part"
+ },
+ "issues": {
+  "number": 44,
+  "title": "Issues",
+  "tag": "Core",
+  "first_read": "full"
+ },
+ "pr": {
+  "number": 45,
+  "title": "Pull Requests",
+  "tag": "Core",
+  "first_read": "full"
+ },
+ "review": {
+  "number": 46,
+  "title": "Code Review",
+  "tag": "Core",
+  "first_read": "full"
+ },
+ "projects": {
+  "number": 47,
+  "title": "GitHub Projects",
+  "tag": "Deep",
+  "first_read": "later"
+ },
+ "discussions": {
+  "number": 48,
+  "title": "GitHub Discussions",
+  "tag": "Deep",
+  "first_read": "later"
+ },
+ "collab": {
+  "number": 49,
+  "title": "Collaboration and Access",
+  "tag": "Core",
+  "first_read": "part"
+ },
+ "protect": {
+  "number": 50,
+  "title": "Branch Protection and Rulesets",
+  "tag": "Deep",
+  "first_read": "later"
+ },
+ "insights": {
+  "number": 51,
+  "title": "Insights",
+  "tag": "Deep",
+  "first_read": "later"
+ },
+ "cicd": {
+  "number": 52,
+  "title": "CI/CD Concepts",
+  "tag": "Core",
+  "first_read": "full"
+ },
+ "yaml": {
+  "number": 53,
+  "title": "YAML for Beginners",
+  "tag": "Core",
+  "first_read": "full"
+ },
+ "actions": {
+  "number": 54,
+  "title": "GitHub Actions Fundamentals",
+  "tag": "Core",
+  "first_read": "full"
+ },
+ "exprs": {
+  "number": 55,
+  "title": "Expressions, Contexts and Conditionals",
+  "tag": "Deep",
+  "first_read": "later"
+ },
+ "workflows_practice": {
+  "number": 56,
+  "title": "Practical Workflows",
+  "tag": "Core",
+  "first_read": "full"
+ },
+ "wfdebug": {
+  "number": 57,
+  "title": "Debugging and Re-running Workflows",
+  "tag": "Core",
+  "first_read": "full"
+ },
+ "wfadvanced": {
+  "number": 58,
+  "title": "Reusable Workflows, Environments and Deployments",
+  "tag": "Deep",
+  "first_read": "later"
+ },
+ "runners": {
+  "number": 59,
+  "title": "Self-Hosted Runners, Concurrency and Limits",
+  "tag": "Deep",
+  "first_read": "later"
+ },
+ "wfsec": {
+  "number": 60,
+  "title": "Securing Workflows",
+  "tag": "Core",
+  "first_read": "part"
+ },
+ "externalci": {
+  "number": 61,
+  "title": "Actions vs External CI",
+  "tag": "Deep",
+  "first_read": "later"
+ },
+ "ghsec": {
+  "number": 62,
+  "title": "GitHub Security Features",
+  "tag": "Core",
+  "first_read": "part"
+ },
+ "secpractice": {
+  "number": 63,
+  "title": "Repository Security Practice",
+  "tag": "Core",
+  "first_read": "part"
+ },
+ "oss": {
+  "number": 64,
+  "title": "How Open Source Works",
+  "tag": "Core",
+  "first_read": "part"
+ },
+ "licences": {
+  "number": 65,
+  "title": "Copyright and Licences",
+  "tag": "Core",
+  "first_read": "part"
+ },
+ "releases": {
+  "number": 66,
+  "title": "Releases",
+  "tag": "Core",
+  "first_read": "part"
+ },
+ "ossproject": {
+  "number": 67,
+  "title": "Creating an Open-Source Project",
+  "tag": "Deep",
+  "first_read": "later"
+ },
+ "orgs": {
+  "number": 68,
+  "title": "Organizations and Enterprise Concepts",
+  "tag": "Deep",
+  "first_read": "later"
+ },
+ "pages": {
+  "number": 69,
+  "title": "GitHub Pages",
+  "tag": "Deep",
+  "first_read": "later"
+ },
+ "codespaces": {
+  "number": 70,
+  "title": "Codespaces and Dev Containers",
+  "tag": "Deep",
+  "first_read": "later"
+ },
+ "packages": {
+  "number": 71,
+  "title": "GitHub Packages and Containers",
+  "tag": "Deep",
+  "first_read": "later"
+ },
+ "deploy": {
+  "number": 72,
+  "title": "Deployment Pipelines",
+  "tag": "Deep",
+  "first_read": "later"
+ },
+ "ghcli": {
+  "number": 73,
+  "title": "GitHub CLI",
+  "tag": "Deep",
+  "first_read": "later"
+ },
+ "api": {
+  "number": 74,
+  "title": "APIs, Webhooks and Apps",
+  "tag": "Deep",
+  "first_read": "later"
+ },
+ "platformextras": {
+  "number": 75,
+  "title": "Other Platform Features",
+  "tag": "Deep",
+  "first_read": "later"
+ },
+ "scenarios": {
+  "number": 76,
+  "title": "Professional Scenarios 1-12",
+  "tag": "Core",
+  "first_read": "later"
+ },
+ "capstone": {
+  "number": 77,
+  "title": "Capstone Project",
+  "tag": "Core",
+  "first_read": "later"
+ },
+ "trouble": {
+  "number": 78,
+  "title": "Troubleshooting Handbook",
+  "tag": "Core",
+  "first_read": "later"
+ },
+ "playbooks": {
+  "number": 79,
+  "title": "Recovery Playbooks",
+  "tag": "Core",
+  "first_read": "later"
+ },
+ "challenges": {
+  "number": 80,
+  "title": "Advanced Challenges",
+  "tag": "Deep",
+  "first_read": "later"
+ },
+ "assessment": {
+  "number": 81,
+  "title": "Final Mastery Assessment",
+  "tag": "Core",
+  "first_read": "later"
+ }
+}

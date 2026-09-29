@@ -1,6 +1,6 @@
 # 08 — Source and Research Plan
 
-**Status: research NOT yet performed.** No GitHub feature, plan limit, price or UI detail may be written until verified against the official source below, and the verification date recorded.
+**Status: partly performed — see `../research/README.md`.** (Git checked locally against 2.43.0 and its packaged upstream docs; GitHub and most licence texts unverified because the official hosts are blocked.) No GitHub feature, plan limit, price or UI detail may be written until verified against the official source below, and the verification date recorded.
 
 ## Source hierarchy
 1. Official Git documentation (git-scm.com docs, reference manual, Pro Git *as a reference to read, never to copy*), Git release notes.

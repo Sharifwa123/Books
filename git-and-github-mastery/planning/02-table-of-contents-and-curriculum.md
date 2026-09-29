@@ -1,3 +1,5 @@
+> **SUPERSEDED (v1).** Chapter numbers in this file are obsolete. The current outline is `11-toc-v2-renumbered.md` (generated from `tools/toc_data.py`). Kept for history; detailed per-chapter scope has been carried forward into the v2 outline.
+
 # 02 — Table of Contents and Chapter Curriculum
 
 Every chapter ends with the standard checkpoint: What You Learned · New Vocabulary · Commands Learned · Common Mistakes · Practice (5 levels: Guided, Partial, Independent, Professional, Troubleshooting) · Self-Test · Before Moving On. Exercise solutions are in a separate companion section.

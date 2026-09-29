@@ -1,0 +1,30 @@
+git version: git version 2.43.0
+PASS  global overrides system
+PASS  local overrides global
+PASS  --show-scope reports local as winner
+PASS  --get-all lists all three values in order
+PASS  --show-origin shows file path
+PASS  worktree scope overrides local (with extensions.worktreeConfig)
+PASS  --show-scope reports worktree
+PASS  includeIf gitdir applies inside matching repo
+PASS  inherited commit.gpgsign=true makes a plain commit FAIL when signer is broken
+PASS  -c commit.gpgsign=false overrides for one command
+PASS  GIT_CONFIG_GLOBAL=/dev/null isolates from global
+PASS  system-only key is visible normally
+PASS  GIT_CONFIG_NOSYSTEM=1 hides the system scope (even when GIT_CONFIG_SYSTEM is set)
+PASS  rebase -i todo help mentions 'pick'
+PASS  rebase -i todo help mentions 'reword'
+PASS  rebase -i todo help mentions 'edit'
+PASS  rebase -i todo help mentions 'squash'
+PASS  rebase -i todo help mentions 'fixup'
+PASS  rebase -i todo help mentions 'exec'
+PASS  rebase -i todo help mentions 'break'
+PASS  rebase -i todo help mentions 'drop'
+PASS  rebase -i todo help mentions 'label'
+PASS  rebase -i todo help mentions 'reset'
+PASS  rebase -i todo help mentions 'merge'
+LFS: git-lfs/3.4.1 (GitHub; linux amd64; go 1.22.2)
+PASS  lfs install --local
+PASS  lfs track adds .gitattributes line
+PASS  committed blob is a small LFS pointer
+PASS  lfs ls-files lists tracked file
