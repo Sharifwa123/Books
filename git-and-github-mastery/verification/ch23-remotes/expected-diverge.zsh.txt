@@ -54,7 +54,7 @@ Merge made by the 'ort' strategy.
  menu.md | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 $ git log --oneline --graph
-*   ea931b1 (HEAD -> main) Merge branch 'main' of /home/learner/shared/bakery
+*   4d21943 (HEAD -> main) Merge branch 'main' of /home/learner/shared/bakery
 |\  
 | * 23d585e (origin/main, origin/HEAD) Raise the price of the white loaf
 * | 41cdbf3 Add opening hours
@@ -62,7 +62,7 @@ $ git log --oneline --graph
 * 807a5c6 Add the menu
 $ git push
 To /home/learner/shared/bakery.git
-   23d585e..ea931b1  main -> main
+   23d585e..4d21943  main -> main
 $ git status
 On branch main
 Your branch is up to date with 'origin/main'.

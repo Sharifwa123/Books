@@ -11,8 +11,13 @@ check = sys.argv[sys.argv.index("--check") + 1] if "--check" in sys.argv else No
 MARK = "@@READY@@ "
 root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 GITMODE = open(session).readline().startswith("#!git")
-tmp = tempfile.mkdtemp(prefix="session-")
-home = os.path.join(tmp, "home", "learner"); os.makedirs(home)
+# A FIXED home path (serialised with a lock) so that anything Git writes into commit messages (such as
+# "Merge branch 'main' of <path>") is identical on every run and every machine, keeping commit hashes reproducible.
+import fcntl, shutil
+_lock = open(os.path.join(tempfile.gettempdir(), "sharif-session.lock"), "w"); fcntl.flock(_lock, fcntl.LOCK_EX)
+tmp = os.path.join(tempfile.gettempdir(), "sharif-session-home")
+shutil.rmtree(tmp, ignore_errors=True)
+home = os.path.join(tmp, "learner"); os.makedirs(home)
 argv = {"bash": ["bash", "--norc", "--noprofile", "--noediting", "-i"], "zsh": ["zsh", "-f", "-i", "-o", "no_zle", "-o", "no_prompt_sp"]}[shell]
 env = {"HOME": home, "PATH": os.environ["PATH"], "LC_ALL": "C", "TERM": "dumb", "USER": "learner", "LOGNAME": "learner", "STARTER": os.path.join(root_dir, "companion", "sunrise-bakery-starter")}
 if GITMODE:  # neutralise the host's Git setup and anything that would block a terminal session
