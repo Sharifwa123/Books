@@ -406,6 +406,8 @@ main
 
 *Recorded in Bash; `ch20-branching/expected-naming.bash.txt`.*
 
+*Newer Git versions (2.55.0 was tested) print two extra `hint:` lines after each `fatal:` line, pointing to `git help check-ref-format`. The refusal itself is the same.*
+
 Two rejections are recorded: a name with a **space** and a name containing **`..`** are not valid. A name with a slash, `feature/add-tea`, *is* valid. Slashes group branch names (the branches appear as `feature/add-tea`).
 
 **Conventions.** These are habits, not Git rules, and your team may have its own:
