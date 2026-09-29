@@ -109,7 +109,7 @@ You do not need to calculate with bytes. You need to know that files have sizes,
 
 The hardware alone can do nothing useful, just as a kitchen with no recipes and no cook does nothing. Software supplies the instructions. There are two kinds you must know about.
 
-1. **Applications** (also called **programs**, **apps** or **software packages**): software that does a job for you. A web browser, a photo editor, a game and Git are all applications.
+1. **Applications** (also called **programs**, **apps** or **software packages**): software that does a job for you. A web browser (the program you use to look at web pages), a photo editor, a game and Git are all applications.
 2. **The operating system**: the software that manages the computer itself and lets the applications run.
 
 > **New term: application (program).** Software that does a specific job for a person: browsing, writing, calculating, or tracking file history.
@@ -244,7 +244,7 @@ None yet. (The one command shown, `sudo apt-get install -y zsh`, was an illustra
 
 1. **Treating "memory" and "storage" as the same thing.** Unsaved work is in memory and can be lost.
 2. **Installing from the first search result or from an email link.** Go to the maker's own site or your system's official source.
-3. **Clicking "Allow" on an administrator prompt out of habit.** Only allow it when you just asked for something that needs it.
+3. **Clicking "Allow" out of habit when a box asks for administrator permission.** Only allow it when you just asked for something that needs it.
 4. **Assuming every operating system behaves identically.** The differences are small but real, and later chapters point them out.
 
 ## Practice

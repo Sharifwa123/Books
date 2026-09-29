@@ -21,3 +21,9 @@ $ ls *.md
 a.md  b.md
 $ ls *.xyz
 ls: cannot access '*.xyz': No such file or directory
+$ mkdir full
+$ touch full/x.txt
+$ rmdir full
+rmdir: failed to remove 'full': Directory not empty
+$ ls full
+x.txt

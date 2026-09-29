@@ -48,7 +48,7 @@ The important word is *suggests*. The extension does not change what is in the f
 
 | Extension | Usually means | Chapter where it matters |
 |---|---|---|
-| `.txt` | plain text | 3 and 4 |
+| `.txt` | plain text (letters and symbols with no formatting) | 3 and 4 |
 | `.md` | text written in Markdown | 8 |
 | `.html`, `.css` | the pages and appearance of a website | 3 |
 | `.svg` | a picture stored as text | 3 |
@@ -86,7 +86,7 @@ flowchart TD
 
 *Diagram description:* a folder called `sunrise-bakery` at the top contains three page files, `index.html`, `menu.html` and `contact.html`, and two sub-folders. The `css` folder contains `style.css`. The `images` folder contains `logo.svg`.
 
-> **New term: root.** The top folder of a tree, from which every other folder can be reached. On macOS, Linux and Git Bash it is written `/`.
+> **New term: root.** The top folder of a tree, from which every other folder can be reached. On macOS and Linux it is written `/`.
 
 The top of a tree is called the root. The folder that contains another folder is its **parent**; the folder inside is its **child**. On your own computer there is one special folder that belongs to you, called your **home folder**: it is where your documents, downloads and settings normally live.
 
@@ -146,7 +146,7 @@ flowchart LR
 
 ### 2.3.3 Slashes
 
-Paths use separators between folder names. macOS, Linux and Git Bash use the **forward slash** `/`. Windows' own traditional tools use the **backslash** `\`. Everything in this book uses the forward slash, because that is what Git prints on every system, including Windows.
+Paths use separators between folder names. macOS, Linux and Git Bash use the **forward slash** `/`. Windows' own traditional tools use the **backslash** `\`. Everything in this book uses the forward slash, because the tools you will use (Bash, Git Bash and Git) all write paths that way.
 
 ### 2.3.4 Home shorthand
 
@@ -160,7 +160,7 @@ Many systems let you write `~` (the tilde) to mean your home folder. So `~/shari
 
 > **New term: hidden file.** A file that a file manager or a plain listing does not show unless you ask for it.
 
-Systems hide files that the user normally does not need to touch, such as settings. On Linux, macOS and Git Bash, a file or folder whose name **starts with a dot** is hidden by ordinary listings. Windows uses a different mechanism, a "hidden" property, but Git Bash still shows dot-names as hidden.
+Systems hide files that the user normally does not need to touch, such as settings. On Linux and macOS, a file or folder whose name **starts with a dot** is hidden by ordinary listings, and so it is in the Git Bash environment that Chapter 7<!--ref:terminal--> introduces. Windows uses a different mechanism, a "hidden" property, but Git Bash still shows dot-names as hidden.
 
 You will see the effect yourself in Chapter 7<!--ref:terminal-->. For now, keep this in mind: **Git keeps its records in a hidden folder called `.git` inside your project.** The project looks the same as before; the history is in the hidden folder. Files that must not be tracked by Git are listed in a hidden text file called `.gitignore` (Chapter 18<!--ref:tracking-->).
 
@@ -217,7 +217,7 @@ Three kinds of action are controlled:
 - **Write**: change or delete the contents.
 - **Execute**: run the file as a program (or, for a folder, enter it).
 
-On Linux, macOS and Git Bash these are shown as a string of ten characters when you list a file in detail. Here is a real example from the test environment. First the file has private permissions, then normal ones:
+On Linux and macOS (and in Git Bash) these are shown as a string of ten characters when you list a file in detail. Here is a real example from the test environment. First the file has private permissions, then normal ones:
 
 ```text
 $ chmod 600 plan.txt

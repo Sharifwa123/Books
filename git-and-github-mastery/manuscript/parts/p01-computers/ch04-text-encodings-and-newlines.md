@@ -19,7 +19,7 @@ ledger: [R118, R119]
 
 **Before you start.** Chapter 3<!--ref:editors-->: you know what a plain text file is, and that Git can show readable differences for text but not for packaged binary files.
 
-> **Look, don't type.** Some boxes in this chapter show commands, on lines that begin with `$`, followed by what the computer printed. You are *not* asked to type them yet. The terminal is introduced in Chapter 7<!--ref:terminal-->, where you can repeat every one of these. For now, read the results: they are real output recorded in the book's test environment, and they show you what is hidden inside ordinary files.
+> **Look, don't type.** Some boxes in this chapter show commands, on lines that begin with `$`, followed by what the computer printed. You are *not* asked to type them yet. The terminal is introduced in Chapter 7<!--ref:terminal-->, where you can repeat every one of these. (The programs that read such commands are called *shells*; this book tests two of them, Bash and zsh.) For now, read the results: they are real output recorded in the book's test environment, and they show you what is hidden inside ordinary files.
 
 ---
 

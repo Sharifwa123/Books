@@ -82,7 +82,7 @@ The two look similar and are used differently.
 
 A **code editor** is a text editor with extra help for writing code and other structured text.
 
-> **New term: code editor.** A text editor with features for structured text such as software: coloured text, line numbers, tools for searching many files, and often a built-in terminal.
+> **New term: code editor.** A text editor with features for structured text such as software: coloured text, line numbers, tools for searching many files, and often a built-in terminal (a window for typing commands, introduced in Chapter 7<!--ref:terminal-->).
 
 The features that will help you in this book:
 
@@ -92,7 +92,7 @@ The features that will help you in this book:
   > **New term: syntax highlighting.** Colouring different parts of text (for example, tags, words and comments) so that its structure is easy to see.
 
 - **Show invisible characters.** You can display spaces, tabs and line endings. Chapter 4<!--ref:text--> explains why you will want this.
-- **Choice of encoding and line endings.** You can say how the file is saved (Chapter 4<!--ref:text-->).
+- **Choice of encoding and line endings.** You can say how characters are stored in the file (Chapter 4<!--ref:text--> explains both terms).
 - **Open a whole folder.** You see all the files of a project in a side panel.
 - **Search across files.** You can find every use of a word in the project.
 
@@ -160,7 +160,7 @@ You do not need to write code. You need to understand what kind of files these a
 | `css/style.css` | CSS | The appearance: colours, spacing |
 | `images/logo.svg` | SVG | A small picture, stored as text |
 
-> **New term: HTML.** A text format for web pages. It marks up text with tags such as `<h1>` (a main heading) so that a browser knows how to display it.
+> **New term: HTML.** A text format for web pages. It marks up text with tags such as `<h1>` (a main heading) so that a browser (the program for viewing web pages) knows how to display it.
 >
 > **New term: CSS.** A text format that describes how web pages should look: colours, fonts, spacing.
 

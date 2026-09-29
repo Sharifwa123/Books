@@ -116,7 +116,7 @@ Parts are separated by **spaces**, so spaces matter. Names are **case-sensitive*
 
 > **UI-VERSION NOTE.** How to open a terminal depends on your system and its version. On macOS and Linux, search your applications for "Terminal". On Windows, after Git for Windows is installed, search for "Git Bash". If you cannot find it, search your system's help for "open a terminal".
 
-When a terminal opens, you are normally in your **home folder** (Chapter 2<!--ref:files-->). The recordings in this chapter start there and use the fictional user name `learner`, so your paths will differ: `/home/learner` will be your own home folder, and on Windows Git Bash shows Windows drives in a Unix style such as `/c/Users/yourname`.
+When a terminal opens, you are normally in your **home folder** (Chapter 2<!--ref:files-->). The recordings in this chapter start there and use the fictional user name `learner`, so your paths will differ: `/home/learner` will be your own home folder, and on Windows, Git Bash is expected to show Windows drives in a Unix style, such as `/c/Users/yourname` (**verification pending [R126]**: not run here).
 
 ---
 
@@ -282,7 +282,19 @@ README.md
 
 - `rm notes.txt` removed the file. No message: success.
 - `rm css` **refused**, because `css` is a folder, and printed the error `Is a directory`. That refusal is a safety feature: it stopped you from deleting a folder by reflex.
-- `rmdir` removes an **empty** folder, and only an empty one. Non-empty folders are not removed by `rmdir` (so it is a safe way to remove folders you have finished with). There is an option that deletes a folder and everything in it. This book will not use it until Git recovery gives you a safety net, and you should treat it as the most dangerous ordinary command that you will meet.
+- `rmdir` removes an **empty** folder, and only an empty one (so it is a safe way to remove folders you have finished with). Here it is refused on a folder that still holds a file:
+
+```text
+$ mkdir full
+$ touch full/x.txt
+$ rmdir full
+rmdir: failed to remove 'full': Directory not empty
+$ ls full
+x.txt
+```
+
+*Recorded in Bash and zsh (identical); `ch07-terminal/expected-errors.bash.txt`.*
+ There is an option that deletes a folder and everything in it. This book will not use it until Git recovery gives you a safety net, and you should treat it as the most dangerous ordinary command that you will meet.
 
 ---
 
@@ -354,7 +366,7 @@ $ rmdir "my folder"
 
 `mkdir my folder` made **two** folders, `my` and `folder`, because the space split the command into two arguments. Putting the name in **quotes** keeps it together, and `mkdir "my folder"` made one. This is why Chapter 2<!--ref:files--> advised names without spaces. (`rmdir my folder` removed both empty folders: the same splitting applied.)
 
-**Wildcards** let one pattern match many names. `*` stands for "any characters". Here `ls *.md` matched the two Markdown files but not `c.txt`:
+**Wildcards** let one pattern match many names. `*` stands for "any characters". Here `ls *.md` matched the two files that end in `.md` (Markdown files, Chapter 8<!--ref:markdown-->) but not `c.txt`:
 
 ```text
 $ touch a.md b.md c.txt

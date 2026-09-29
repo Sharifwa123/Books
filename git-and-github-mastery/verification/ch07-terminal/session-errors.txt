@@ -13,3 +13,7 @@ rmdir "my folder"
 touch a.md b.md c.txt
 ls *.md
 ls *.xyz
+mkdir full
+touch full/x.txt
+rmdir full
+ls full
