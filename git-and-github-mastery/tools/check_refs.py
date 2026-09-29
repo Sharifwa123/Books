@@ -31,7 +31,8 @@ for base, _, files in os.walk(root):
         if not f.endswith(".md"): continue
         p = os.path.join(base, f); text = open(p, errors="replace").read()
         if text.startswith("> **SUPERSEDED") or text.startswith("> **Note:** chapter numbers"): continue
-        for m in re.finditer(r"\{ch:([a-z_0-9]+)\}", text):
+        scan = re.sub(r"`[^`\n]*`", "", re.sub(r"```.*?```", "", text, flags=re.S))  # ignore code spans/blocks
+        for m in re.finditer(r"\{ch:([a-z_0-9]+)\}", scan):
             if m.group(1) not in pos: errs.append(f"{p}: unknown {{ch:{m.group(1)}}}")
         for m in pat.finditer(text):
             num, t = int(m.group(1)), m.group(2).strip()

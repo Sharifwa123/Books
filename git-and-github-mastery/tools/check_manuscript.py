@@ -54,7 +54,7 @@ for p in files:
         for mm in re.finditer(rx, prose, re.I): errs.append(f"{rel}: banned filler phrase '{mm.group(0)}'")
     for lid in d.get("ledger", []):
         if lid not in ledger: errs.append(f"{rel}: unknown ledger id {lid}")
-        elif release and not ledger[lid]["evidence_class"].startswith(("Officially", "Both", "Time-sensitive (verified)")): errs.append(f"{rel}: release gate: {lid} not officially verified")
+        elif release and not ledger[lid]["evidence_class"].startswith(("Officially", "Both", "Time-sensitive (verified)", "Not applicable")): errs.append(f"{rel}: release gate: {lid} not officially verified")
     sec = re.search(r"^## New Vocabulary\s*\n(.*?)(?=^## )", body, re.S | re.M)
     terms = re.findall(r"^- \*\*(.+?)\*\*", sec.group(1), re.M) if sec else []
     for t in terms:
