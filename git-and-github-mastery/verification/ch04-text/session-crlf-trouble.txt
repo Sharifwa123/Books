@@ -1,0 +1,8 @@
+printf '#!/bin/sh\necho "hello from LF"\n' > lf.sh
+printf '#!/bin/sh\r\necho "hello from CRLF"\r\n' > crlf.sh
+chmod +x lf.sh crlf.sh
+./lf.sh
+./crlf.sh
+od -c crlf.sh
+grep -c "$(printf '\r')" crlf.sh
+grep -c "$(printf '\r')" lf.sh
