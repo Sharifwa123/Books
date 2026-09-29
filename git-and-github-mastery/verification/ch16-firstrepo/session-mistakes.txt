@@ -1,0 +1,18 @@
+#!git
+git config --global user.name "Ada Learner"
+git config --global user.email "ada@example.org"
+git config --global init.defaultBranch main
+mkdir mistakes-demo
+cd mistakes-demo
+git init
+printf 'first\n' > a.txt
+git commit -m "Try to commit before staging"
+git add a.txt
+git commit
+git status --short
+git commit -m "Add a.txt"
+git commit -m "Commit again with nothing new"
+printf 'second\n' >> a.txt
+git commit -m "Commit without staging"
+git commit -am "Stage and commit tracked changes in one step"
+git log --oneline

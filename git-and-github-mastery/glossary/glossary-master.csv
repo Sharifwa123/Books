@@ -116,3 +116,7 @@ Commit,"A recorded snapshot with author, time, message and a link to the previou
 Hash (commit identifier),The long code that uniquely identifies a commit.,"A cryptographic hash of an object's content, used as its identifier; usually abbreviated.",c3c1c38,commit; branch,model
 Branch,A movable name that points to a commit.,A reference under refs/heads that holds the identifier of a commit and moves forward with new commits.,main,HEAD; commit,model
 HEAD,The pointer that says which commit you are currently on.,"A reference, normally symbolic, to the current branch or commit; the parent of the next commit.",HEAD -> main,branch; commit,model
+git init,Creates a new repository in the current folder.,Initialises an empty Git repository by creating the .git directory.,git init,repository; git status,firstrepo
+git status,"Shows which files are untracked, modified or staged, and the current branch.",Reports the state of the working tree and index relative to HEAD; read-only.,git status,working tree; index,firstrepo
+git add,Stages files so they are part of the next commit.,Updates the index with the current content of the given paths.,git add notes.md,stage; index,firstrepo
+git commit,Records the staged snapshot with a message.,Creates a commit object from the index and advances the current branch.,"git commit -m ""Add notes""",commit; stage,firstrepo
