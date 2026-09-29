@@ -12,10 +12,10 @@
 | 6 Accounts, Passwords and Trust | 5 The Internet, the Web and Servers |
 | 7 The Terminal Without Fear | 2 Files, Folders and Paths, 4 Text, Encodings and Newlines |
 | 8 Markdown in Five Pages | 3 Editors and Project Folders, 4 Text, Encodings and Newlines |
-| 9 The Problem of Changing Files | 2 Files, Folders and Paths, 3 Editors and Project Folders |
+| 9 The Problem of Changing Files | 2 Files, Folders and Paths, 3 Editors and Project Folders, 7 The Terminal Without Fear |
 | 10 A Short History of Version Control | 9 The Problem of Changing Files |
-| 11 Centralized vs Distributed | 9 The Problem of Changing Files, 5 The Internet, the Web and Servers |
-| 12 Git, GitHub, GitLab, Bitbucket | 11 Centralized vs Distributed |
+| 11 Centralised vs Distributed | 9 The Problem of Changing Files, 5 The Internet, the Web and Servers |
+| 12 Git, GitHub, GitLab, Bitbucket | 11 Centralised vs Distributed |
 | 13 Installing Git | 7 The Terminal Without Fear, 6 Accounts, Passwords and Trust, 12 Git, GitHub, GitLab, Bitbucket |
 | 14 Configuration Scopes and Environments | 13 Installing Git |
 | 15 Git's Core Model | 14 Configuration Scopes and Environments, 9 The Problem of Changing Files |

@@ -1,0 +1,10 @@
+mkdir shared alice bob
+printf 'Bread: 2.50\nRolls: 3.00\n' > shared/menu.txt
+cp shared/menu.txt alice/menu.txt
+cp shared/menu.txt bob/menu.txt
+printf 'Bread: 2.50\nRolls: 3.00\nCake: 4.00\n' > alice/menu.txt
+printf 'Bread: 2.80\nRolls: 3.00\n' > bob/menu.txt
+cp alice/menu.txt shared/menu.txt
+cat shared/menu.txt
+cp bob/menu.txt shared/menu.txt
+cat shared/menu.txt

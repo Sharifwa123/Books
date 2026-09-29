@@ -1,0 +1,17 @@
+$ mkdir menu-history
+$ cd menu-history
+$ printf 'Bread: 2.50\nRolls: 3.00\n' > menu.txt
+$ printf 'Bread: 2.50\nRolls: 3.20\n' > menu_v2.txt
+$ printf 'Bread: 2.80\nRolls: 3.20\n' > menu_final.txt
+$ printf 'Bread: 2.80\nRolls: 3.00\n' > menu_final_v2.txt
+$ printf 'Bread: 2.80\nRolls: 3.20\nCake: 4.00\n' > menu_final_REAL.txt
+$ ls
+menu.txt  menu_final.txt  menu_final_REAL.txt  menu_final_v2.txt  menu_v2.txt
+$ diff menu_final.txt menu_final_v2.txt
+2c2
+< Rolls: 3.20
+---
+> Rolls: 3.00
+$ diff menu_final.txt menu_final_REAL.txt
+2a3
+> Cake: 4.00
