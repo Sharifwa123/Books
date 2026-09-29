@@ -13,5 +13,9 @@ for exp in */expected-*.bash.txt */expected-*.zsh.txt; do
   python3 ../tools/run_session.py "$shell" "$dir/session-$name.txt" --check "$exp" || { echo "FAIL  $exp"; rc=1; }
 done
 echo "transcripts checked: $n"
-[ -f ch08-markdown/render_check.py ] && { python3 ch08-markdown/render_check.py || rc=1; }
+for check in "python3 ch03-editors/docx_vs_txt.py --check" "python3 ch05-internet/url_parts.py --check" \
+             "bash ch05-internet/local_server_demo.sh" "python3 ch08-markdown/render_check.py" \
+             "python3 companion-starter/check_starter.py"; do
+  echo "== $check"; $check || { echo "FAIL  $check"; rc=1; }
+done
 exit $rc

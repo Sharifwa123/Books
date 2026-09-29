@@ -1,0 +1,37 @@
+# PDF Edition — Build Plan (required deliverable at completion)
+
+**Requirement (from the rights holder's representative, mid-project):** when the book is complete, also produce a PDF copy with all PDF features. This is a required release artifact alongside the Markdown source, not an afterthought; the manuscript is therefore written to convert cleanly.
+
+## Feature checklist (each must be present and machine-verified in the final PDF)
+| Feature | Approach | Verified by |
+|---|---|---|
+| Cover page, half title, title page, copyright/licence page | HTML/CSS templates from `publishing/metadata.md`; licence wording only after legal verification | build check |
+| Document metadata (title, subtitle, author, publisher, subject, keywords, language, licence) | HTML `<meta>` + XMP where supported | `pypdf` metadata check |
+| **Bookmarks / outline** (parts → chapters → sections) | `bookmark-level` from headings | outline check |
+| **Table of contents with clickable entries and page numbers** | generated from headings; `target-counter()` page refs | link + page check |
+| **Internal hyperlinks** (cross-references to chapters, sections, glossary, appendices) | `{ch:key}` tokens resolved to anchors | every internal link resolves |
+| **External hyperlinks** (official documentation) | plain links; list of URLs in Sources | link annotation check |
+| Page numbers, running headers/footers (chapter/part title), roman numerals for front matter | CSS `@page` margin boxes and named pages | render check |
+| Selectable, searchable text; copy-paste works | real text, not images | text-extraction check |
+| **Embedded fonts** with full Unicode (Latin, accents, box-drawing, symbols like ⚠️ → replaced by text labels or an embedded symbol font) | open-licence fonts bundled with the build | font check |
+| Syntax-styled code blocks that do not overflow; long commands wrap safely | CSS + tested samples | overflow check |
+| Tables that paginate; callout boxes for New term / CAUTION / Security note | CSS | visual spot check |
+| Diagrams as vector | Mermaid sources pre-rendered to SVG (needs a Mermaid renderer + headless Chromium, which exists in the environment) with text alternatives | figure list check |
+| **Accessibility**: tagged PDF, document language, alt text for images, logical reading order | PDF/UA variant of the renderer | tag-tree check |
+| Long-term archival profile | evaluate PDF/A variant; if it cannot be combined with PDF/UA, ship an archival copy separately | validator |
+| Glossary and **back-of-book index** with page references | generated from `glossary/glossary-master.csv` and index terms | index check |
+| List of figures / tables / exercises index | generated | build check |
+| Reproducible build | pinned tool versions, `SOURCE_DATE_EPOCH`, checksums in `SHA256SUMS` | CI rebuild compare |
+| Two profiles | **screen** (links, colour) and **print** (page size, margins, greyscale-safe) | build check |
+
+## Toolchain decision (2026-09-29, autonomous)
+Feasibility spike **passed** with WeasyPrint 66.0 (pip-installable here): produced a PDF with metadata, nested bookmarks, internal+external links, running header, page counters, embedded fonts, a tag tree and a language tag (PDF/UA variant). Chosen as primary renderer. LaTeX/Pandoc are not installed and are not needed. Chromium (Playwright) is available as a fallback and for diagram rendering.
+
+## Implications for manuscript authoring (enforced by checks)
+- No content that exists only in HTML: every diagram has a text description; every image has alt text.
+- Cross-references use chapter keys; never page numbers.
+- Emoji/symbol callouts (⚠️) need an embedded font; the PDF build maps them to text labels ("CAUTION") to avoid missing glyphs.
+- Wide tables and long command lines must be checked for overflow in the PDF profile.
+
+## Release gate additions
+`tools/check_pdf.py` (to be written) must confirm: page count, outline depth, every TOC link resolves, metadata fields, fonts embedded, tag tree present, no external link broken *by syntax*, licence page present. PDF is built in CI on release and attached to the release. Publishing the release itself still requires the rights holder's authorisation (Gate B).

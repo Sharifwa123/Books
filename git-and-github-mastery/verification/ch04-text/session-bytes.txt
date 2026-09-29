@@ -1,0 +1,17 @@
+printf 'Hi\n' | od -c
+printf 'Hi\r\n' | od -c
+printf 'one\ntwo\n' > unix.txt
+printf 'one\r\ntwo\r\n' > windows.txt
+od -c unix.txt
+od -c windows.txt
+wc -l unix.txt
+wc -c unix.txt
+wc -c windows.txt
+printf 'caf\303\251\n' > cafe.txt
+cat cafe.txt
+od -An -tx1 cafe.txt
+wc -c cafe.txt
+printf 'a\tb\n' | od -c
+printf 'a b\n' | od -c
+printf 'end   \n' | od -c
+printf '\360\237\215\236\n' | od -An -tx1

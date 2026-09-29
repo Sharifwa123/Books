@@ -20,4 +20,6 @@ E=$(git log --format=%H --grep='^empty$' main | head -1)
 git cherry-pick "$E" >/tmp/cp.out 2>&1; show "cherry-pick of an EMPTY commit: exit=$?; output: $(head -3 /tmp/cp.out | tr '\n' '|')"
 git cherry-pick --abort >/dev/null 2>&1
 git cherry-pick --allow-empty "$E" >/dev/null 2>&1; show "cherry-pick --allow-empty of the same commit: exit=$?"
+git revert -h 2>&1 | grep -qiE 'allow-empty|keep-redundant' && show "git revert usage lists an empty-commit option" || show "git revert usage lists NO empty-commit option (allow-empty/keep-redundant-commits)"
+git cherry-pick -h 2>&1 | grep -qiE 'allow-empty' && show "git cherry-pick usage lists --allow-empty" || show "git cherry-pick usage lists NO --allow-empty"
 cd /; rm -rf "$W"

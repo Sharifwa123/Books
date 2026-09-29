@@ -65,7 +65,7 @@ jobs:
         run: |
           sudo apt-get update -qq
           sudo apt-get install -y -qq zsh
-          python3 -m pip install --quiet markdown-it-py==4.2.0
+          python3 -m pip install --quiet markdown-it-py==4.2.0 python-docx==1.2.0
       - name: Tool versions
         run: |
           bash --version | head -1

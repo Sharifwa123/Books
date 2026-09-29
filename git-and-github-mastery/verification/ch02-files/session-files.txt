@@ -1,0 +1,23 @@
+mkdir demo
+cd demo
+touch Report.txt report.txt
+ls
+touch .secret
+ls
+ls -a
+touch plan.txt
+chmod 600 plan.txt
+ls -l plan.txt
+chmod 644 plan.txt
+ls -l plan.txt
+mkdir -p notes/2026
+cd notes/2026
+pwd
+cd ../..
+pwd
+cd ./notes
+pwd
+cd ..
+pwd
+ls notes/2026
+ls ./notes/../notes/2026
