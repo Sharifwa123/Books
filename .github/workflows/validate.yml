@@ -1,0 +1,48 @@
+name: Validate book
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: validate-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  structure:
+    name: Structure, references, ledger, secrets
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Run static checks
+        run: git-and-github-mastery/tools/check_all.sh
+
+  git-tests:
+    name: Git command tests (runner's Git version)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Show tool versions
+        run: |
+          git --version
+          git lfs version || echo "git-lfs not installed"
+          bash --version | head -1
+      - name: Run Git verification scripts
+        run: git-and-github-mastery/research/git-verification/run-all.sh
+      - name: Upload results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: git-verification-results
+          path: git-and-github-mastery/research/git-verification/results/

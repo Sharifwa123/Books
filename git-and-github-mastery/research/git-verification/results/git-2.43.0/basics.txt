@@ -51,4 +51,4 @@ PASS  fetch updates remote-tracking ref only
 PASS  status reports behind
 PASS  pull --ff-only brings changes
 PASS  push --force-with-lease accepted (no-op)
-cleanup: /tmp/tmp.jHvJNSqMhn
+cleanup: /tmp/tmp.o5ds8wo4R4
