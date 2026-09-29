@@ -1,0 +1,34 @@
+pwd
+mkdir sharif-git-lab
+cd sharif-git-lab
+pwd
+ls
+mkdir -p sunrise-bakery/css sunrise-bakery/images
+ls
+ls sunrise-bakery
+cd sunrise-bakery
+pwd
+echo "Sunrise Bakery" > README.md
+cat README.md
+echo "Fresh bread every morning." >> README.md
+cat README.md
+cp README.md README-copy.md
+ls
+mv README-copy.md notes.txt
+ls
+touch .hidden-note
+ls
+ls -a
+ls -l notes.txt
+cd ..
+pwd
+cd -
+cd ~
+pwd
+cd sharif-git-lab/sunrise-bakery
+rm notes.txt
+ls
+rm css
+rmdir css
+rmdir images
+ls

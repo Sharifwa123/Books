@@ -1,0 +1,17 @@
+name="Sunrise Bakery"
+echo "$name"
+echo '$name'
+echo $name
+export SHOP=sunrise
+sh -c 'echo "shop is: $SHOP"'
+UNEXPORTED=hidden
+sh -c 'echo "unexported is: [$UNEXPORTED]"'
+echo $HOME
+echo ~
+mkdir bin
+printf '#!/bin/sh\necho "Hello from the Sunrise Bakery tool"\n' > bin/hello-sunrise
+chmod +x bin/hello-sunrise
+hello-sunrise
+PATH="$PWD/bin:$PATH"
+hello-sunrise
+command -v hello-sunrise

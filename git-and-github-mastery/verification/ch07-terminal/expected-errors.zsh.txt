@@ -1,0 +1,23 @@
+$ mkdir sharif-git-lab
+$ cd sharif-git-lab
+$ cd nowhere
+cd: no such file or directory: nowhere
+$ ls missing-folder
+ls: cannot access 'missing-folder': No such file or directory
+$ cat missing-file.txt
+cat: missing-file.txt: No such file or directory
+$ frobnicate
+zsh: command not found: frobnicate
+$ mkdir my folder
+$ ls
+folder	my
+$ rmdir my folder
+$ mkdir "my folder"
+$ ls
+'my folder'
+$ rmdir "my folder"
+$ touch a.md b.md c.txt
+$ ls *.md
+a.md  b.md
+$ ls *.xyz
+zsh: no matches found: *.xyz

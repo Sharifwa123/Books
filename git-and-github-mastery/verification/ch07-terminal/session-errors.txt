@@ -1,0 +1,15 @@
+mkdir sharif-git-lab
+cd sharif-git-lab
+cd nowhere
+ls missing-folder
+cat missing-file.txt
+frobnicate
+mkdir my folder
+ls
+rmdir my folder
+mkdir "my folder"
+ls
+rmdir "my folder"
+touch a.md b.md c.txt
+ls *.md
+ls *.xyz
