@@ -1,0 +1,19 @@
+#!git
+git config --global user.name "Ada Learner"
+git config --global user.email "ada@example.org"
+git config --global init.defaultBranch main
+@ mkdir -p ~/sharif-git-lab && cp -r "$STARTER" ~/sharif-git-lab/sunrise-bakery && cd ~/sharif-git-lab/sunrise-bakery && git init -q && git add . && git commit -q -m "Add the Sunrise Bakery starter site" && cd
+cd sharif-git-lab/sunrise-bakery
+git status
+printf 'error log\n' > build.log
+printf 'draft notes\n' > notes.tmp
+printf 'PAYMENT_API_KEY=FAKE_TOKEN_DO_NOT_USE_0000\n' > .env
+git status
+git status --short
+printf '*.log\n*.tmp\n.env\n' > .gitignore
+git status --short
+git check-ignore -v build.log notes.tmp .env
+git status --short --ignored
+git add .gitignore
+git commit -m "Ignore logs, temporary files and the local environment file"
+git ls-files

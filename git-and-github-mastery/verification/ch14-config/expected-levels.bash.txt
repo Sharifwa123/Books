@@ -1,0 +1,37 @@
+$ printf '[demo]\n\tlevel = system\n' > "$HOME/system.gitconfig"
+$ export GIT_CONFIG_SYSTEM="$HOME/system.gitconfig"
+$ git init -b main levels-demo
+Initialized empty Git repository in /home/learner/levels-demo/.git/
+$ cd levels-demo
+$ git config demo.level
+system
+$ git config --global demo.level global
+$ git config demo.level
+global
+$ git config --show-scope --get-all demo.level
+system	system
+global	global
+$ git config --local demo.level local
+$ git config demo.level
+local
+$ git config --show-scope --get-all demo.level
+system	system
+global	global
+local	local
+$ git config --show-origin --get-all demo.level
+file:/home/learner/system.gitconfig	system
+file:/home/learner/.gitconfig	global
+file:.git/config	local
+$ git config extensions.worktreeConfig true
+$ git config --worktree demo.level worktree
+$ git config demo.level
+worktree
+$ git config --show-scope --get-all demo.level
+system	system
+global	global
+local	local
+worktree	worktree
+$ GIT_CONFIG_NOSYSTEM=1 git config --show-scope --get-all demo.level
+global	global
+local	local
+worktree	worktree

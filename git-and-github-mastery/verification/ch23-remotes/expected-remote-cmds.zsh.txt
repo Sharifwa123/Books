@@ -1,0 +1,35 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ cd alice
+$ git remote
+origin
+$ git remote -v
+origin	/home/learner/shared/bakery.git (fetch)
+origin	/home/learner/shared/bakery.git (push)
+$ git remote add backup ../shared/bakery.git
+$ git remote -v
+backup	../shared/bakery.git (fetch)
+backup	../shared/bakery.git (push)
+origin	/home/learner/shared/bakery.git (fetch)
+origin	/home/learner/shared/bakery.git (push)
+$ git remote rename backup mirror
+$ git remote
+mirror
+origin
+$ git push mirror main
+Everything up-to-date
+$ git branch -r
+  mirror/main
+  origin/main
+$ git remote remove mirror
+$ git remote
+origin
+$ git branch -r
+  origin/main
+$ git config --get remote.origin.url
+/home/learner/shared/bakery.git
+$ git config --get branch.main.remote
+origin
+$ git config --get branch.main.merge
+refs/heads/main

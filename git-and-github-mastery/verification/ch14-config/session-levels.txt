@@ -1,0 +1,18 @@
+#!git
+printf '[demo]\n\tlevel = system\n' > "$HOME/system.gitconfig"
+export GIT_CONFIG_SYSTEM="$HOME/system.gitconfig"
+git init -b main levels-demo
+cd levels-demo
+git config demo.level
+git config --global demo.level global
+git config demo.level
+git config --show-scope --get-all demo.level
+git config --local demo.level local
+git config demo.level
+git config --show-scope --get-all demo.level
+git config --show-origin --get-all demo.level
+git config extensions.worktreeConfig true
+git config --worktree demo.level worktree
+git config demo.level
+git config --show-scope --get-all demo.level
+GIT_CONFIG_NOSYSTEM=1 git config --show-scope --get-all demo.level

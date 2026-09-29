@@ -1,0 +1,48 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ cd sharif-git-lab/sunrise-bakery
+$ git status
+On branch main
+nothing to commit, working tree clean
+$ printf 'error log\n' > build.log
+$ printf 'draft notes\n' > notes.tmp
+$ printf 'PAYMENT_API_KEY=FAKE_TOKEN_DO_NOT_USE_0000\n' > .env
+$ git status
+On branch main
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	.env
+	build.log
+	notes.tmp
+
+nothing added to commit but untracked files present (use "git add" to track)
+$ git status --short
+?? .env
+?? build.log
+?? notes.tmp
+$ printf '*.log\n*.tmp\n.env\n' > .gitignore
+$ git status --short
+?? .gitignore
+$ git check-ignore -v build.log notes.tmp .env
+.gitignore:1:*.log	build.log
+.gitignore:2:*.tmp	notes.tmp
+.gitignore:3:.env	.env
+$ git status --short --ignored
+?? .gitignore
+!! .env
+!! build.log
+!! notes.tmp
+$ git add .gitignore
+$ git commit -m "Ignore logs, temporary files and the local environment file"
+[main 8de9399] Ignore logs, temporary files and the local environment file
+ 1 file changed, 3 insertions(+)
+ create mode 100644 .gitignore
+$ git ls-files
+.gitignore
+README.md
+contact.html
+css/style.css
+images/logo.svg
+index.html
+menu.html

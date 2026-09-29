@@ -1,0 +1,24 @@
+#!git
+git config --global user.name "Ada Learner"
+git config --global user.email "ada@example.org"
+git config --global init.defaultBranch main
+@ mkdir -p ~/sharif-git-lab && cp -r "$STARTER" ~/sharif-git-lab/sunrise-bakery && cd ~/sharif-git-lab/sunrise-bakery && git init -q && git add . && git commit -q -m "Add the Sunrise Bakery starter site" && cd
+cd sharif-git-lab/sunrise-bakery
+git mv menu.html carte.html
+git status --short
+git status
+git rm contact.html
+git status --short
+git commit -m "Rename the menu page and remove the contact page"
+git ls-files
+git log --oneline --stat -1
+printf 'temporary\n' > scratch.txt
+git add scratch.txt
+git commit -m "Add scratch file"
+printf 'scratch.txt\n' > .gitignore
+git status --short
+git rm --cached scratch.txt
+git status --short
+git commit -am "Stop tracking the scratch file"
+git status --short
+git ls-files

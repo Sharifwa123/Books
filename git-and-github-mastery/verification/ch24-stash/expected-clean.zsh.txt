@@ -1,0 +1,24 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ cd bakery-menu
+$ printf 'scratch\n' > scratch.txt
+$ mkdir tmp
+$ printf 'x\n' > tmp/a.txt
+$ git status --short
+?? scratch.txt
+?? tmp/
+$ git clean -n
+Would remove scratch.txt
+$ git clean -n -d
+Would remove scratch.txt
+Would remove tmp/
+$ git clean -f
+Removing scratch.txt
+$ git status --short
+?? tmp/
+$ git clean -f -d
+Removing tmp/
+$ git status --short
+$ ls
+menu.md

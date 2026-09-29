@@ -1,0 +1,43 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ mkdir shared
+$ git init --bare shared/bakery.git
+Initialized empty Git repository in /home/learner/shared/bakery.git/
+$ git clone shared/bakery.git alice
+Cloning into 'alice'...
+warning: You appear to have cloned an empty repository.
+done.
+$ cd alice
+$ printf '# Sunrise Bakery menu\n\n- White loaf: 2.50\n- Rolls (six): 3.00\n' > menu.md
+$ git add menu.md
+$ git commit -m "Add the menu"
+[main (root-commit) 807a5c6] Add the menu
+ 1 file changed, 4 insertions(+)
+ create mode 100644 menu.md
+$ git remote -v
+origin	/home/learner/shared/bakery.git (fetch)
+origin	/home/learner/shared/bakery.git (push)
+$ git branch -vv
+* main 807a5c6 [origin/main: gone] Add the menu
+$ git push -u origin main
+To /home/learner/shared/bakery.git
+ * [new branch]      main -> main
+branch 'main' set up to track 'origin/main'.
+$ git branch -vv
+* main 807a5c6 [origin/main] Add the menu
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+$ cd ..
+$ git clone shared/bakery.git bob
+Cloning into 'bob'...
+done.
+$ cd bob
+$ git log --oneline
+807a5c6 (HEAD -> main, origin/main, origin/HEAD) Add the menu
+$ git remote -v
+origin	/home/learner/shared/bakery.git (fetch)
+origin	/home/learner/shared/bakery.git (push)

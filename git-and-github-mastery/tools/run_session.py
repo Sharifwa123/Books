@@ -9,10 +9,15 @@ import difflib, os, pty, re, select, sys, tempfile, time
 shell, session = sys.argv[1], sys.argv[2]
 check = sys.argv[sys.argv.index("--check") + 1] if "--check" in sys.argv else None
 MARK = "@@READY@@ "
+root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+GITMODE = open(session).readline().startswith("#!git")
 tmp = tempfile.mkdtemp(prefix="session-")
 home = os.path.join(tmp, "home", "learner"); os.makedirs(home)
 argv = {"bash": ["bash", "--norc", "--noprofile", "--noediting", "-i"], "zsh": ["zsh", "-f", "-i", "-o", "no_zle", "-o", "no_prompt_sp"]}[shell]
-env = {"HOME": home, "PATH": os.environ["PATH"], "LC_ALL": "C", "TERM": "dumb", "USER": "learner", "LOGNAME": "learner"}
+env = {"HOME": home, "PATH": os.environ["PATH"], "LC_ALL": "C", "TERM": "dumb", "USER": "learner", "LOGNAME": "learner", "STARTER": os.path.join(root_dir, "companion", "sunrise-bakery-starter")}
+if GITMODE:  # neutralise the host's Git setup and anything that would block a terminal session
+    env.update({"GIT_CONFIG_SYSTEM": "/dev/null", "GIT_PAGER": "cat", "PAGER": "cat", "GIT_EDITOR": "true", "EDITOR": "true",
+                "GIT_TERMINAL_PROMPT": "0"})
 pid, fd = pty.fork()
 if pid == 0:
     os.chdir(home); os.execvpe(argv[0], argv, env)
@@ -33,16 +38,26 @@ time.sleep(0.3)
 os.write(fd, (("PS1" if shell == "bash" else "PROMPT") + f"='{MARK}'\n").encode())
 buf = b""; read_until_prompt()
 buf = b""
+if GITMODE:  # every git call gets a timestamp one minute after the previous call (deterministic): real, reproducible commit hashes and dates
+    wrapper = ('git() { _n=$((_n+1)); local _t=$((1767603600 + _n*60)); '
+               'GIT_AUTHOR_DATE="$_t +0000" GIT_COMMITTER_DATE="$_t +0000" command git "$@"; }')
+    os.write(fd, (wrapper + "\n").encode()); read_until_prompt(); buf = b""
 cmds = [l.rstrip("\n") for l in open(session) if l.strip() and not l.startswith("#")]
 out = MARK
 for c in cmds:
-    os.write(fd, (c + "\n").encode()); read_until_prompt()
+    silent = c.startswith("@ ")
+    os.write(fd, ((c[2:] if silent else c) + "\n").encode()); read_until_prompt()
     chunk = buf.decode(errors="replace"); buf = b""
-    out += chunk
+    if silent: chunk = MARK if False else ""; out = out  # setup step: neither echoed nor recorded
+    else: out += chunk
 os.write(fd, b"exit\n"); time.sleep(0.2)
 out = re.sub(r"\x1b\[[0-9;?]*[A-Za-z]", "", out).replace("\r", "")
 out = out.replace(MARK, "$ ")
 out = out.replace(home, "/home/learner").replace(tmp, "/tmp/session")
+if GITMODE:
+    # progress meters differ from computer to computer (thread counts, speeds): drop them, keep the settled summary lines
+    out = re.sub(r"(?m)^(Enumerating objects|Counting objects|Compressing objects|Writing objects|Receiving objects|Resolving deltas|Unpacking objects|Delta compression|Total \d+|remote: (Enumerating|Counting|Compressing|Total)).*\n", "", out)
+    out = re.sub(r"git version \d+\.\d+\.\d+[^\n]*", "git version <version>", out)
 out = re.sub(r"(?m)^([-dlrwxs]{10}) +(\d+) +\S+ +\S+ +(\d+) +[A-Z][a-z]{2} +\d+ +[\d:]+ ", r"\1 \2 learner learner \3 <date> ", out)
 out = re.sub(r"\n\$ $", "\n", out)
 out = out.rstrip("\n") + "\n"

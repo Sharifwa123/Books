@@ -1,0 +1,24 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git init -b main signing-demo
+Initialized empty Git repository in /home/learner/signing-demo/.git/
+$ cd signing-demo
+$ echo "Sunrise Bakery" > README.md
+$ git add README.md
+$ git config --global commit.gpgsign true
+$ git config --global gpg.format ssh
+$ git config --global gpg.ssh.program false
+$ git commit -m "Add README"
+fatal: either user.signingkey or gpg.ssh.defaultKeyCommand needs to be configured
+$ git status --short
+A  README.md
+$ git config --show-origin --get commit.gpgsign
+file:/home/learner/.gitconfig	true
+$ git -c commit.gpgsign=false commit -m "Add README"
+[main (root-commit) c3f6cc7] Add README
+ 1 file changed, 1 insertion(+)
+ create mode 100644 README.md
+$ git log --oneline
+c3f6cc7 (HEAD -> main) Add README
+$ GIT_CONFIG_GLOBAL=/dev/null git config commit.gpgsign; echo "exit code: $?"
+exit code: 1

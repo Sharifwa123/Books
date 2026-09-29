@@ -1,0 +1,22 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ cd bakery-menu
+$ git grep "loaf"
+menu.md:- White loaf: 2.80
+$ git grep -n "Rolls"
+menu.md:4:- Rolls (six): 3.00
+$ git grep -c "e"
+menu.md:3
+$ git grep "loaf" HEAD~2
+HEAD~2:menu.md:- White loaf: 2.50
+$ git blame -s menu.md
+^8a52ffe 1) # Sunrise Bakery menu
+^8a52ffe 2) 
+9f10b436 3) - White loaf: 2.80
+^8a52ffe 4) - Rolls (six): 3.00
+81f772ee 5) - Coconut cake (slice): 4.00
+$ git blame -s -L 3,3 menu.md
+9f10b436 3) - White loaf: 2.80
+$ git log -S"Coconut" --oneline
+81f772e (HEAD -> main) Add coconut cake

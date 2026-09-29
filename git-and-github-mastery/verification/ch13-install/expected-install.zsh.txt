@@ -1,0 +1,15 @@
+$ git --version
+git version <version>
+$ command -v git
+git
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ git config --global --list
+user.name=Ada Learner
+user.email=ada@example.org
+init.defaultbranch=main
+$ git status -h 2>&1 | head -3
+usage: git status [<options>] [--] [<pathspec>...]
+
+    -v, --[no-]verbose    be verbose

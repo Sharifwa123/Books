@@ -1,0 +1,24 @@
+#!git
+git config --global user.name "Ada Learner"
+git config --global user.email "ada@example.org"
+git init -b main model-demo
+cd model-demo
+git status
+echo "Sunrise Bakery" > README.md
+git status
+git add README.md
+git status
+git commit -m "Add README"
+git status
+echo "Fresh bread every morning." >> README.md
+git status
+git add README.md
+git status
+git commit -m "Add opening line"
+git log --oneline
+ls -a
+cat .git/HEAD
+cat .git/refs/heads/main
+git ls-files --stage
+git cat-file -t HEAD
+git cat-file -p HEAD

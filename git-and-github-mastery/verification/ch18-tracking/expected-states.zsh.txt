@@ -1,0 +1,60 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ cd sharif-git-lab/sunrise-bakery
+$ git mv menu.html carte.html
+$ git status --short
+R  menu.html -> carte.html
+$ git status
+On branch main
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	renamed:    menu.html -> carte.html
+
+$ git rm contact.html
+rm 'contact.html'
+$ git status --short
+R  menu.html -> carte.html
+D  contact.html
+$ git commit -m "Rename the menu page and remove the contact page"
+[main a496e78] Rename the menu page and remove the contact page
+ 2 files changed, 27 deletions(-)
+ rename menu.html => carte.html (100%)
+ delete mode 100644 contact.html
+$ git ls-files
+README.md
+carte.html
+css/style.css
+images/logo.svg
+index.html
+$ git log --oneline --stat -1
+a496e78 (HEAD -> main) Rename the menu page and remove the contact page
+ menu.html => carte.html |  0
+ contact.html            | 27 ---------------------------
+ 2 files changed, 27 deletions(-)
+$ printf 'temporary\n' > scratch.txt
+$ git add scratch.txt
+$ git commit -m "Add scratch file"
+[main 0c6c05c] Add scratch file
+ 1 file changed, 1 insertion(+)
+ create mode 100644 scratch.txt
+$ printf 'scratch.txt\n' > .gitignore
+$ git status --short
+?? .gitignore
+$ git rm --cached scratch.txt
+rm 'scratch.txt'
+$ git status --short
+D  scratch.txt
+?? .gitignore
+$ git commit -am "Stop tracking the scratch file"
+[main 936eed8] Stop tracking the scratch file
+ 1 file changed, 1 deletion(-)
+ delete mode 100644 scratch.txt
+$ git status --short
+?? .gitignore
+$ git ls-files
+README.md
+carte.html
+css/style.css
+images/logo.svg
+index.html

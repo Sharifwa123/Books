@@ -1,0 +1,21 @@
+#!git
+git config --global user.name "Ada Learner"
+git config --global user.email "ada@example.org"
+git config --global init.defaultBranch main
+mkdir shared
+git init --bare shared/bakery.git
+git clone shared/bakery.git alice
+cd alice
+printf '# Sunrise Bakery menu\n\n- White loaf: 2.50\n- Rolls (six): 3.00\n' > menu.md
+git add menu.md
+git commit -m "Add the menu"
+git remote -v
+git branch -vv
+git push -u origin main
+git branch -vv
+git status
+cd ..
+git clone shared/bakery.git bob
+cd bob
+git log --oneline
+git remote -v

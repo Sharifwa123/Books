@@ -17,6 +17,7 @@ for f in sorted(glob.glob(os.path.join(root, "manuscript", "**", "*.md"), recurs
         blocks += 1
         for line in body:
             if line.strip() == "" or line in recorded: continue
+            if re.match(r"git version \d+\.\d+\.\d+", line) and "git version <version>" in recorded: continue
             print(f"NOT RECORDED {os.path.relpath(f, root)}: {line!r}"); bad += 1
 print(f"transcript blocks checked: {blocks}, unrecorded lines: {bad}")
 sys.exit(1 if bad else 0)

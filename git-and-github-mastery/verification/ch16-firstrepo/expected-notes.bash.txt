@@ -1,0 +1,53 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ mkdir -p sharif-git-lab
+$ cd sharif-git-lab
+$ mkdir study-notes
+$ cd study-notes
+$ git status
+fatal: not a git repository (or any of the parent directories): .git
+$ git init
+Initialized empty Git repository in /home/learner/sharif-git-lab/study-notes/.git/
+$ ls -a
+.  ..  .git
+$ git status
+On branch main
+
+No commits yet
+
+nothing to commit (create/copy files and use "git add" to track)
+$ printf '# Study notes\n\nToday I learned what version control is.\n' > notes.md
+$ git status
+On branch main
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	notes.md
+
+nothing added to commit but untracked files present (use "git add" to track)
+$ git add notes.md
+$ git status
+On branch main
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+	new file:   notes.md
+
+$ git commit -m "Add first study notes"
+[main (root-commit) dffcc1c] Add first study notes
+ 1 file changed, 3 insertions(+)
+ create mode 100644 notes.md
+$ git status
+On branch main
+nothing to commit, working tree clean
+$ git log
+commit dffcc1c3a28fc135c5cc88c0fb8149fefc625a87 (HEAD -> main)
+Author: Ada Learner <ada@example.org>
+Date:   Mon Jan 5 09:10:00 2026 +0000
+
+    Add first study notes

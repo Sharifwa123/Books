@@ -1,0 +1,52 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ cd alice
+$ printf '# Sunrise Bakery menu\n\n- White loaf: 2.80\n- Rolls (six): 3.00\n' > menu.md
+$ git commit -am "Raise the price of the white loaf"
+[main 23d585e] Raise the price of the white loaf
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+$ git push
+To /home/learner/shared/bakery.git
+   807a5c6..23d585e  main -> main
+$ cd ../bob
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+$ git fetch
+From /home/learner/shared/bakery
+   807a5c6..23d585e  main       -> origin/main
+$ git status
+On branch main
+Your branch is behind 'origin/main' by 1 commit, and can be fast-forwarded.
+  (use "git pull" to update your local branch)
+
+nothing to commit, working tree clean
+$ git log --oneline main
+807a5c6 (HEAD -> main) Add the menu
+$ git log --oneline origin/main
+23d585e (origin/main, origin/HEAD) Raise the price of the white loaf
+807a5c6 (HEAD -> main) Add the menu
+$ git diff main origin/main
+diff --git a/menu.md b/menu.md
+index 0b15fe9..1f2a95a 100644
+--- a/menu.md
++++ b/menu.md
+@@ -1,4 +1,4 @@
+ # Sunrise Bakery menu
+ 
+-- White loaf: 2.50
++- White loaf: 2.80
+ - Rolls (six): 3.00
+$ git pull
+Updating 807a5c6..23d585e
+Fast-forward
+ menu.md | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+$ git log --oneline
+23d585e (HEAD -> main, origin/main, origin/HEAD) Raise the price of the white loaf
+807a5c6 Add the menu
+$ git branch -vv
+* main 23d585e [origin/main] Raise the price of the white loaf

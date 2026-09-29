@@ -1,0 +1,32 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ cd bakery-menu
+$ git switch -c add-tea
+Switched to a new branch 'add-tea'
+$ printf '# Sunrise Bakery menu\n\n- White loaf: 2.80\n- Rolls (six): 3.00\n- Coconut cake (slice): 4.00\n- Tea: 1.50\n' > menu.md
+$ git commit -am "Add tea to the menu"
+[add-tea a1ed54d] Add tea to the menu
+ 1 file changed, 1 insertion(+)
+$ git switch main
+Switched to branch 'main'
+$ git log --oneline --all --graph
+* a1ed54d (add-tea) Add tea to the menu
+* 81f772e (HEAD -> main) Add coconut cake
+* 9f10b43 Raise the price of the white loaf
+* 8a52ffe Add the menu
+$ git merge add-tea
+Updating 81f772e..a1ed54d
+Fast-forward
+ menu.md | 1 +
+ 1 file changed, 1 insertion(+)
+$ git log --oneline --all --graph
+* a1ed54d (HEAD -> main, add-tea) Add tea to the menu
+* 81f772e Add coconut cake
+* 9f10b43 Raise the price of the white loaf
+* 8a52ffe Add the menu
+$ git branch --merged
+  add-tea
+* main
+$ git branch -d add-tea
+Deleted branch add-tea (was a1ed54d).

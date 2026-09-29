@@ -1,0 +1,17 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ mkdir demo
+$ cd demo
+$ git init
+Initialized empty Git repository in /home/learner/demo/.git/
+$ git config --global core.excludesFile ~/.gitignore_global
+$ printf '.DS_Store\n*.swp\n' > ~/.gitignore_global
+$ git config --global --get core.excludesFile
+/home/learner/.gitignore_global
+$ printf 'x\n' > .DS_Store
+$ printf 'y\n' > notes.txt
+$ git status --short
+?? notes.txt
+$ git check-ignore -v .DS_Store
+/home/learner/.gitignore_global:1:.DS_Store	.DS_Store
