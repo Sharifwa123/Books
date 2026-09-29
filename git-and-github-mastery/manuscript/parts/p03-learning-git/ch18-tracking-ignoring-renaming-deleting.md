@@ -155,7 +155,7 @@ Each line of `.gitignore` is a **pattern**. Blank lines are skipped, and a line 
 | `build/` | A folder called `build`, and everything in it | A trailing `/` means *directory* |
 | `/todo.txt` | `todo.txt` in the **top folder only** | A leading `/` anchors the pattern to the top of the repository |
 | `docs/*.tmp` | `.tmp` files directly inside `docs` | A pattern with a `/` in the middle is relative to the top |
-| `!important.log` | An **exception**: do not ignore this file, even though an earlier rule did | `!` negates; it must come after the rule it overrides |
+| `!important.log` | An **exception**: do not ignore this file, even though an earlier rule did | `!` negates; it must come after the rule it overrides, and it cannot re-include a file inside an ignored *folder* (section 18.4.3) |
 
 A recording tests all of them at once. Eight files are created and the five patterns are written:
 
