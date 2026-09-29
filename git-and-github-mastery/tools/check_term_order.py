@@ -6,7 +6,7 @@ root = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 sys.path.insert(0, os.path.dirname(__file__))
 import toc_data as T
 num = {c[1]: i + 1 for i, c in enumerate(T.C)}
-ALLOW = {"file", "folder", "computer", "path", "storage", "memory", "network", "server", "client", "local", "remote", "account", "command", "character", "web", "internet"}
+ALLOW = {"git", "file", "folder", "computer", "path", "storage", "memory", "network", "server", "client", "local", "remote", "account", "command", "character", "web", "internet"}
 terms = []
 for r in csv.DictReader(open(os.path.join(root, "glossary", "glossary-master.csv"))):
     base = re.sub(r"\s*\(.*?\)", "", r["term"]).strip()
