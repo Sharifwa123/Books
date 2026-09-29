@@ -1,3 +1,5 @@
+> **Note:** chapter numbers written as "Ch N" in this review refer to the v1 outline. The renumbered v2 outline is `11-toc-v2-renumbered.md`; gap-by-gap resolution is in `13-gap-resolution.md`. The v2 outline was approved (81 chapters).
+
 # 10 — Architecture Review (before any drafting)
 
 Reviewed `02-table-of-contents-and-curriculum.md` against the master prompt and the latest instructions. Findings are grouped; **proposed changes are not yet applied to 02** — they are consolidated in the v2 outline below for approval.

@@ -1,0 +1,13 @@
+exercise_id,chapter_key,chapter_no,title,level,needs_github_account,behaviour_verified_on_git,verified_on_github_date,status,verifier,notes
+EX-undo-restore-worktree,undo,25,Discard an unwanted edit with restore,L1,no,2.43.0,,candidate: behaviour verified; exercise text not written,verify-git-basics.sh,
+EX-undo-unstage,undo,25,Unstage a file with restore --staged,L1,no,2.43.0,,candidate: behaviour verified; exercise text not written,verify-git-basics.sh,
+EX-reflog-recover-reset,reflog,26,Recover commits after reset --hard using the reflog,L4,no,2.43.0,,candidate: behaviour verified; exercise text not written,verify-git-basics.sh,destructive: sandbox only
+EX-conflict-abort,conflicts,22,"Create a conflict, read markers, abort the merge",L1,no,2.43.0,,candidate: behaviour verified; exercise text not written,verify-git-basics.sh,
+EX-remotes-bare,remotes,23,"Use a local bare repository as a remote: push -u, fetch, pull",L1,no,2.43.0,,candidate: behaviour verified; exercise text not written,verify-git-basics.sh,no account needed
+EX-fetch-vs-pull,remotes,23,Observe fetch updating origin/main only; then pull --ff-only,L2,no,2.43.0,,candidate: behaviour verified; exercise text not written,verify-git-basics.sh,
+EX-rebase-squash,rebase,27,Squash three commits with an interactive rebase,L3,no,2.43.0,,candidate: scripted behaviour verified; interactive editor flow not verified,verify-git-basics.sh,teach GIT_SEQUENCE_EDITOR only as an advanced note
+EX-config-scopes,config,14,Prove which scope wins: system/global/local/worktree; --show-origin,L2,no,2.43.0,,candidate: behaviour verified; exercise text not written,verify-config-and-lfs.sh,use isolated GIT_CONFIG_* files
+EX-config-forced-signing,config,14,Diagnose a commit failing because of inherited commit.gpgsign,L5,no,2.43.0,,candidate: behaviour verified; exercise text not written,verify-config-and-lfs.sh,
+EX-lfs-pointer,bigrepos,31,Track a large binary with Git LFS and inspect the pointer,L2,no,2.43.0 + git-lfs 3.4.1,,candidate: local pointer behaviour verified; server behaviour untested,verify-config-and-lfs.sh,LFS remote/quotas unverified
+EX-revert-empty-commit,undo,25,Revert an empty commit,-,no,2.43.0 (observed failure),,BLOCKED: do not publish; behaviour undocumented and unconfirmed on current Git,(manual test),fails with exit 1 'nothing to commit' on 2.43.0; docs silent; investigate on baseline
+EX-revert-quiet-flag,undo,25,(anti-example) revert has no -q,-,no,2.43.0,,NOT AN EXERCISE: methodology note only,verify-against-docs.py,docs do not list -q; running it exits 129

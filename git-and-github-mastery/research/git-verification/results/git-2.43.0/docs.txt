@@ -1,0 +1,83 @@
+PASS  restore.staged             git-restore.txt              /--staged/ 
+PASS  restore.source             git-restore.txt              /--source=<tree>/ 
+PASS  restore.experimental       git-restore.txt              /EXPERIMENTAL/ -- docs label restore experimental in 2.43.0
+PASS  switch.experimental        git-switch.txt               /EXPERIMENTAL/ -- docs label switch experimental in 2.43.0
+PASS  switch.create              git-switch.txt               /-c <new-branch>/ 
+PASS  reset.soft                 git-reset.txt                /--soft/ 
+PASS  reset.mixed                git-reset.txt                /--mixed/ 
+PASS  reset.hard                 git-reset.txt                /--hard/ 
+PASS  revert.no-commit           git-revert.txt               /--no-commit/ 
+PASS  revert.mainline            git-revert.txt               /--mainline/ 
+PASS  revert.no-quiet            git-revert.txt               ABSENT /(^|\s)(-q|--quiet)\b/ -- -q NOT documented for revert
+PASS  revert.empty-undocumented  git-revert.txt               ABSENT /empty/ -- revert doc does not discuss empty commits
+PASS  cherrypick.empty           git-cherry-pick.txt          /cherry-picking an empty commit will fail/ 
+PASS  push.fwl                   git-push.txt                 /--force-with-lease/ 
+PASS  push.fio                   git-push.txt                 /--force-if-includes/ 
+PASS  push.delete                git-push.txt                 /--delete/ 
+PASS  push.tags                  git-push.txt                 /--tags/ 
+PASS  rebase.abort               git-rebase.txt               /--abort/ 
+PASS  rebase.continue            git-rebase.txt               /--continue/ 
+PASS  rebase.skip                git-rebase.txt               /--skip/ 
+PASS  rebase.autosquash          git-rebase.txt               /--autosquash/ 
+PASS  rebase.merges              git-rebase.txt               /--rebase-merges/ 
+PASS  rebase.todo.edit           git-rebase.txt               /"edit"/ -- todo command documented in prose
+PASS  rebase.todo.reword         git-rebase.txt               /"reword"/ -- todo command documented in prose
+PASS  rebase.todo.squash         git-rebase.txt               /"squash"|`squash`/ -- todo command documented in prose
+PASS  rebase.todo.fixup          git-rebase.txt               /"fixup"|`fixup`/ -- todo command documented in prose
+PASS  rebase.todo.drop           git-rebase.txt               /"drop"/ -- todo command documented in prose
+PASS  rebase.todo.exec           git-rebase.txt               /"exec"|`exec`/ -- todo command documented in prose
+PASS  rebase.recovering          git-rebase.txt               /RECOVERING FROM UPSTREAM REBASE/ -- docs warn about rewriting published history
+PASS  clean.dryrun               git-clean.txt                /--dry-run/ 
+PASS  clean.requireforce         git-clean.txt                /clean\.requireForce/ 
+PASS  config.system              git-config.txt               /--system/ 
+PASS  config.global              git-config.txt               /--global/ 
+PASS  config.local               git-config.txt               /--local/ 
+PASS  config.worktree            git-config.txt               /--worktree/ 
+PASS  config.showorigin          git-config.txt               /--show-origin/ 
+PASS  config.showscope           git-config.txt               /--show-scope/ 
+PASS  cfg.includeif              git-config.html              /includeIf/ 
+PASS  cfg.defaultbranch          git-config.html              /init\.defaultBranch/ 
+PASS  cfg.gpg.format             git-config.html              /gpg\.format/ 
+PASS  cfg.gpg.ssh.allowed        git-config.html              /gpg\.ssh\.allowedSignersFile/ 
+PASS  cfg.commit.gpgsign         git-config.html              /commit\.gpgSign/ 
+PASS  cfg.gc.reflogexpire        git-config.html              /gc\.reflogExpire\b/ 
+PASS  cfg.pull.rebase            git-config.html              /pull\.rebase/ 
+PASS  cfg.pull.ff                git-config.html              /pull\.ff/ 
+PASS  cfg.hookspath              git-config.html              /core\.hooksPath/ 
+PASS  cfg.autocrlf               git-config.html              /core\.autocrlf/ 
+PASS  cfg.worktreeconfig         git-config.html              /extensions\.worktreeConfig/ 
+PASS  cfg.credential.helper      git-config.html              /credential\.helper/ 
+PASS  attr.eol                   gitattributes.txt            /^`eol`/ 
+PASS  attr.text                  gitattributes.txt            /^`text`/ 
+PASS  attr.filter                gitattributes.txt            /^`filter`/ 
+PASS  hooks.precommit            githooks.txt                 /^pre-commit/ 
+PASS  hooks.commitmsg            githooks.txt                 /^commit-msg/ 
+PASS  hooks.prepush              githooks.txt                 /^pre-push/ 
+PASS  hooks.prereceive           githooks.txt                 /^pre-receive/ 
+PASS  hooks.postreceive          githooks.txt                 /^post-receive/ 
+PASS  clone.depth                git-clone.txt                /--depth/ 
+PASS  clone.filter               git-clone.txt                /--filter=<filter-spec>/ 
+PASS  clone.single               git-clone.txt                /--single-branch/ 
+PASS  sparse.cone                git-sparse-checkout.txt      /cone mode/ 
+PASS  worktree.add               git-worktree.txt             /git worktree add/ 
+PASS  stash.push                 git-stash.txt                /push \[/ 
+PASS  stash.untracked            git-stash.txt                /--include-untracked/ 
+PASS  tag.annotate               git-tag.txt                  /--annotate/ 
+PASS  merge.noff                 git-merge.txt                /--no-ff/ 
+PASS  merge.squash               git-merge.txt                /--squash/ 
+PASS  merge.ffonly               git-merge.txt                /--ff-only/ 
+PASS  merge.abort                git-merge.txt                /--abort/ 
+PASS  pull.ffonly                git-pull.html                /--ff-only/ 
+PASS  commit.amend               git-commit.txt               /--amend/ 
+PASS  commit.allowempty          git-commit.txt               /--allow-empty\b/ 
+PASS  init.bare                  git-init.txt                 /--bare/ 
+PASS  init.initialbranch         git-init.txt                 /--initial-branch/ 
+PASS  reflog.expire              git-reflog.txt               /expire/ 
+PASS  filterbranch.filter-repo   git-filter-branch.txt        /filter-repo/ -- docs point to git-filter-repo
+PASS  filterbranch.pitfalls      git-filter-branch.txt        /pitfalls|WARNING/ -- docs warn about filter-branch
+PASS  credentials.helper         gitcredentials.txt           /credential\.helper/ 
+PASS  maintenance.start          git-maintenance.txt          /\bstart\b/ 
+PASS  init.objectformat          git-init.txt                 /--object-format=<format>/ 
+PASS  bisect.start               git-bisect.txt               /git bisect start/ 
+PASS  gitignore.patterns         gitignore.txt                /PATTERN FORMAT/ 
+FAILURES: 0

@@ -1,35 +1,45 @@
 # Research — Status Report
 
-**Technical information verified: [DATE]** — deliberately NOT filled in. The research phase is **not complete**.
+**Technical information verified: [DATE]** — deliberately NOT filled in. Research is **not complete**; the book-level date is set only after every time-sensitive ledger row is verified.
 
-## What was possible and what was not
-| Source | Result |
-|--------|--------|
-| docs.github.com | **Blocked** by the session's egress proxy (organisation network policy) |
-| git-scm.com | **Blocked** |
-| creativecommons.org | **Blocked** |
-| Local Git 2.43.0 binary | Available → used for empirical command verification |
-| Local man pages / `git help <cmd>` | Not installed (minimised image); only `-h` usage text works |
-| Git LFS, `gh` CLI | Not installed |
+## Evidence classes (used in `research-ledger.csv`)
+Officially verified · Locally tested · Both officially verified and locally tested · Time-sensitive · Needs re-verification · Not applicable. A locally tested claim is never called officially verified. Where "official" means the documentation *packaged with a specific Git version* (not the live git-scm.com manual), the row says so in `verification_scope` and stays `needs_reverification = yes`.
 
-Consequence: **zero GitHub claims and zero licence-text claims are verified.** Every one is in `research-ledger.csv` with status `UNVERIFIED`. Nothing about GitHub may be drafted until those rows are filled from official sources.
+## Source access (checked 2026-09-29)
+| Host | Reachable? | Effect |
+|------|-----------|--------|
+| www.apache.org | **Yes** | Apache-2.0 text verified (`licences/apache-2.0-verification.md`) |
+| docs.github.com, github.blog | No (egress policy) | **All GitHub claims unverified** |
+| git-scm.com | No | current Git reference/release notes unavailable |
+| creativecommons.org | No | **CC BY-NC-SA 4.0 name/identifier/terms unverified** |
+| opensource.org, spdx.org | No | MIT text and SPDX identifiers unverified |
+| semver.org, www.gnu.org | No | SemVer spec, GPL/LGPL texts unverified |
+| archive.ubuntu.com | Yes | Used to obtain the Git 2.43.0 upstream docs (`git-doc`, `git-man`) and `git-lfs` 3.4.1 — **version-bound**, not current |
 
-## What was verified (Git, locally, version 2.43.0)
-`git-verification/verify-git-basics.sh` runs in a throwaway directory (host Git config ignored) and checks 51 behaviours. Result: all pass (`verify-git-basics.output.txt`), covering init/default branch, status/add/commit/diff (incl. `--staged`), relative refs, `restore`, `switch`, fast-forward merge, conflict markers and `merge --abort`, `reset --soft/--hard` plus reflog recovery, `revert`, scripted interactive-rebase squash, stash, lightweight vs annotated tags, worktree, grep, blame, object types (blob/tree), `--depth` and `--filter=blob:none` clones, sparse-checkout, a local bare repository used as a remote (push -u, upstream tracking, fetch vs pull, `--force-with-lease`), and existence of the remaining commands/flags the book plans to teach.
+I cannot change the environment's network policy. Hosts to add (minimum set you specified): docs.github.com, github.blog, git-scm.com, creativecommons.org, opensource.org, spdx.org, semver.org, www.gnu.org (www.apache.org already works). Optional, for Appendix M and the shell chapter: learn.microsoft.com (PowerShell/Command Prompt), support.apple.com (macOS shell).
 
-### Findings worth teaching or watching
-1. `git revert` has no `-q` flag (exit 129). My own first test script got this wrong — a reminder that commands must be run, not recalled.
-2. Reverting an **empty** commit fails in this version (my test hit it; cause not yet confirmed against the docs). Do not build an exercise on it until confirmed.
-3. A **local bare repository works as a remote**, so Part III can teach remotes with no account and no network. This is a structural improvement (see `../planning/10-architecture-review.md`).
-4. The sandbox's host config forced commit signing (`commit.gpgsign true`, SSH format, custom program). Verification scripts must isolate config (`GIT_CONFIG_GLOBAL=/dev/null`) — also a good teaching example of config scopes.
-5. **Version gap:** Git 2.43.0 (Debian) is older than the current release. Behaviour described in the book must be re-tested on the newest stable Git before publication, and planned changes in future major versions must be checked in the official release notes.
+## What has been checked
+| Check | Script | Result (Git 2.43.0) |
+|-------|--------|--------------------|
+| Core behaviour in a throwaway sandbox (host config ignored) | `git-verification/verify-git-basics.sh` | 51 pass / 0 fail |
+| Config scopes, `includeIf`, environment influence, rebase todo help text, Git LFS pointers | `git-verification/verify-config-and-lfs.sh` | 28 pass / 0 fail |
+| Claims vs the upstream docs packaged with Git 2.43.0 | `git-verification/verify-against-docs.py` | 82 pass / 0 fail |
+| Apache-2.0 official text | manual, `licences/` | verified |
 
-## Not verified at all (still open)
-Git LFS, credential helpers, signing end-to-end (verification with allowed-signers), history-rewriting tools for secrets (filter-repo / BFG), official Git wording, current Git version, SHA-256 status; **everything GitHub**; licence texts; SemVer spec version.
+`git-verification/run-all.sh` re-runs everything with whichever `git` is on PATH and stores results per Git version under `results/`; `git-version-matrix.csv` records runs. **These are regression tests, not the publication baseline** — see `git-version-test-plan.md`.
 
-## To unblock
-Add these hosts to the environment's allowed domains (Network access → Edit environment): `docs.github.com`, `github.blog`, `git-scm.com`, `creativecommons.org`, `opensource.org`, `spdx.org`, `semver.org`, `www.gnu.org`, `www.apache.org`, `docs.git-scm.com` (and `api.github.com` / `cli.github.com` if `gh` docs are wanted). Also install `git-lfs` and `gh` in the environment setup script if you want them tested.
+## Ledger (109 rows)
+Migrated from 94 rows; added the evidence-class, scope, conditions (account type, repository visibility, organisation context, permissions, plan limitations, feature availability) and re-verification columns, plus 15 rows for licences and new v2 topics. Counts: Time-sensitive (unverified) 55 · Needs re-verification 21 · Both 19 · Locally tested 7 · Officially verified (docs only) 7. **All 55 GitHub rows remain unverified; their condition columns read `TO RECORD`.**
 
-## Files
-- `research-ledger.csv` — 94 rows, columns: id, knowledge_type, topic, claim_to_verify, official_source, url, date_verified, conditions_plan_visibility, notes, stability, status. Stable Git knowledge is separated from time-sensitive GitHub information via `knowledge_type`.
-- `git-verification/` — script and its recorded output.
+## Findings
+1. `git revert` has **no `-q`/`--quiet` option** (usage text, runtime exit 129, and absent from the 2.43.0 docs). Methodology point: commands are executed and verified, not recalled.
+2. Reverting an **empty commit fails** on 2.43.0 (exit 1, "nothing to commit"). The git-revert docs are silent on it; git-cherry-pick docs say empty cherry-picks fail by default. Cause/intent unconfirmed → `EX-revert-empty-commit` is **BLOCKED** in `exercises/registry.csv`.
+3. The 2.43.0 docs label **`git switch` and `git restore` EXPERIMENTAL**. Check the current release's wording before deciding how to present them.
+4. Interactive-rebase todo commands are described in **prose** in the 2.43.0 rebase docs; the exact command list is printed in the editor's todo help (verified at runtime: pick, reword, edit, squash, fixup, exec, break, drop, label, reset, merge).
+5. **Configuration**: precedence system < global < local < worktree (worktree needs `extensions.worktreeConfig`); `--show-origin`/`--show-scope` reveal the winner; an **inherited `commit.gpgsign=true` with a broken signer makes a plain `git commit` fail** (fix for one command: `-c commit.gpgsign=false`); `GIT_CONFIG_NOSYSTEM=1` hides the system scope even when `GIT_CONFIG_SYSTEM` is set; `GIT_CONFIG_GLOBAL=/dev/null` isolates from the global scope. My first draft of a NOSYSTEM test was wrong, not Git — recorded as a reminder to test the test.
+6. A **local bare repository works as a remote**, enabling account-free remote exercises.
+7. **Git LFS 3.4.1**: install, track (`.gitattributes`) and pointer-file commits work locally; server behaviour and quotas untested.
+8. `git filter-branch` docs (2.43.0) warn about pitfalls and point to `git-filter-repo`; the tools themselves (filter-repo, BFG) are **not** verified.
+
+## Still open
+Everything GitHub · current Git release and re-run of all scripts on it · CC/MIT/SPDX/SemVer/GPL texts · credential helpers, end-to-end signing, hooks and attributes *execution* · Windows/macOS behaviour · current UI labels.

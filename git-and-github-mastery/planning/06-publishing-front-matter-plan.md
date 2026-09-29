@@ -1,5 +1,7 @@
 # 06 — Publishing and Front-Matter Plan
 
+> **Update:** decisions now recorded in `../publishing/metadata.md` (title, subtitle, intended licences: book text CC BY-NC-SA 4.0, code MIT — both wording UNVERIFIED and not yet inserted). The 'How to use this book' front-matter must explain the Core/Deep tags and First-Read Path (`12-first-read-path-and-tags.md`) and the Git Bash convention, and the Preface carries the methodology (`../publishing/author-methodology.md`).
+
 **Rule:** no invented legal identifiers. Anything not supplied stays a bracketed placeholder.
 
 ## Metadata (supplied)
