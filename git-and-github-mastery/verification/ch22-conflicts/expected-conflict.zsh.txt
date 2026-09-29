@@ -55,10 +55,10 @@ $ git commit -m "Merge raise-bread, settling on 2.95"
 [main cce1095] Merge raise-bread, settling on 2.95
 $ git log --oneline --graph
 *   cce1095 (HEAD -> main) Merge raise-bread, settling on 2.95
-|\  
+|\
 | * 73e14f7 (raise-bread) Raise the white loaf to 3.00
 * | 4afeda6 Raise the white loaf to 2.90
-|/  
+|/
 * 81f772e Add coconut cake
 * 9f10b43 Raise the price of the white loaf
 * 8a52ffe Add the menu

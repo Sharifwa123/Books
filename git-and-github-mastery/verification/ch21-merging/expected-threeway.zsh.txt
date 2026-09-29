@@ -19,7 +19,7 @@ $ git commit -m "Add opening hours"
 $ git log --oneline --all --graph
 * 1e5eef8 (HEAD -> main) Add opening hours
 | * a1ed54d (add-tea) Add tea to the menu
-|/  
+|/
 * 81f772e Add coconut cake
 * 9f10b43 Raise the price of the white loaf
 * 8a52ffe Add the menu
@@ -29,10 +29,10 @@ Merge made by the 'ort' strategy.
  1 file changed, 1 insertion(+)
 $ git log --oneline --all --graph
 *   94d0fc6 (HEAD -> main) Merge branch 'add-tea'
-|\  
+|\
 | * a1ed54d (add-tea) Add tea to the menu
 * | 1e5eef8 Add opening hours
-|/  
+|/
 * 81f772e Add coconut cake
 * 9f10b43 Raise the price of the white loaf
 * 8a52ffe Add the menu

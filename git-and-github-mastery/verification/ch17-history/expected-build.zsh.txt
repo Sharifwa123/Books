@@ -83,7 +83,7 @@ index 1f2a95a..97e3bea 100644
 --- a/menu.md
 +++ b/menu.md
 @@ -2,3 +2,4 @@
- 
+
  - White loaf: 2.80
  - Rolls (six): 3.00
 +- Coconut cake (slice): 4.00

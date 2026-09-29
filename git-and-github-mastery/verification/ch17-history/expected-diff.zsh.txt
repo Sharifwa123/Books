@@ -14,7 +14,7 @@ index 1f2a95a..97e3bea 100644
 --- a/menu.md
 +++ b/menu.md
 @@ -2,3 +2,4 @@
- 
+
  - White loaf: 2.80
  - Rolls (six): 3.00
 +- Coconut cake (slice): 4.00
@@ -31,7 +31,7 @@ index 0b15fe9..1f2a95a 100644
 +++ b/menu.md
 @@ -1,4 +1,4 @@
  # Sunrise Bakery menu
- 
+
 -- White loaf: 2.50
 +- White loaf: 2.80
  - Rolls (six): 3.00
@@ -55,7 +55,7 @@ index 97e3bea..9674cda 100644
 +++ b/menu.md
 @@ -1,5 +1,5 @@
  # Sunrise Bakery menu
- 
+
  - White loaf: 2.80
 -- Rolls (six): 3.00
 +- Rolls (six): 3.20
@@ -72,7 +72,7 @@ index 97e3bea..9674cda 100644
 +++ b/menu.md
 @@ -1,5 +1,5 @@
  # Sunrise Bakery menu
- 
+
  - White loaf: 2.80
 -- Rolls (six): 3.00
 +- Rolls (six): 3.20
@@ -84,7 +84,7 @@ index 97e3bea..9674cda 100644
 +++ b/menu.md
 @@ -1,5 +1,5 @@
  # Sunrise Bakery menu
- 
+
  - White loaf: 2.80
 -- Rolls (six): 3.00
 +- Rolls (six): 3.20
@@ -99,7 +99,7 @@ index 1f2a95a..9674cda 100644
 +++ b/menu.md
 @@ -1,4 +1,5 @@
  # Sunrise Bakery menu
- 
+
  - White loaf: 2.80
 -- Rolls (six): 3.00
 +- Rolls (six): 3.20

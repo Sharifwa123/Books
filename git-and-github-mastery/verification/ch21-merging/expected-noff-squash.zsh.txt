@@ -20,10 +20,10 @@ Merge made by the 'ort' strategy.
  1 file changed, 2 insertions(+)
 $ git log --oneline --graph
 *   45e4d88 (HEAD -> main) Merge the hot drinks
-|\  
+|\
 | * 0bbfb6b (add-tea) Add coffee to the menu
 | * a1ed54d Add tea to the menu
-|/  
+|/
 * 81f772e Add coconut cake
 * 9f10b43 Raise the price of the white loaf
 * 8a52ffe Add the menu
@@ -54,10 +54,10 @@ hint: as appropriate to mark resolution and make a commit.
 fatal: Exiting because of an unresolved conflict.
 $ git log --oneline --graph
 *   45e4d88 (HEAD -> main) Merge the hot drinks
-|\  
+|\
 | * 0bbfb6b (add-tea) Add coffee to the menu
 | * a1ed54d Add tea to the menu
-|/  
+|/
 * 81f772e Add coconut cake
 * 9f10b43 Raise the price of the white loaf
 * 8a52ffe Add the menu

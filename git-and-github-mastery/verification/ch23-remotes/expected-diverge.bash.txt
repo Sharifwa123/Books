@@ -39,11 +39,11 @@ $ git pull
 hint: You have divergent branches and need to specify how to reconcile them.
 hint: You can do so by running one of the following commands sometime before
 hint: your next pull:
-hint: 
+hint:
 hint:   git config pull.rebase false  # merge
 hint:   git config pull.rebase true   # rebase
 hint:   git config pull.ff only       # fast-forward only
-hint: 
+hint:
 hint: You can replace "git config" with "git config --global" to set a default
 hint: preference for all repositories. You can also pass --rebase, --no-rebase,
 hint: or --ff-only on the command line to override the configured default per
@@ -55,10 +55,10 @@ Merge made by the 'ort' strategy.
  1 file changed, 1 insertion(+), 1 deletion(-)
 $ git log --oneline --graph
 *   4d21943 (HEAD -> main) Merge branch 'main' of /home/learner/shared/bakery
-|\  
+|\
 | * 23d585e (origin/main, origin/HEAD) Raise the price of the white loaf
 * | 41cdbf3 Add opening hours
-|/  
+|/
 * 807a5c6 Add the menu
 $ git push
 To /home/learner/shared/bakery.git

@@ -12,7 +12,7 @@ $ git grep "loaf" HEAD~2
 HEAD~2:menu.md:- White loaf: 2.50
 $ git blame -s menu.md
 ^8a52ffe 1) # Sunrise Bakery menu
-^8a52ffe 2) 
+^8a52ffe 2)
 9f10b436 3) - White loaf: 2.80
 ^8a52ffe 4) - Rolls (six): 3.00
 81f772ee 5) - Coconut cake (slice): 4.00

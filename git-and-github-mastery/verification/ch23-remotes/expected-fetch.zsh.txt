@@ -36,7 +36,7 @@ index 0b15fe9..1f2a95a 100644
 +++ b/menu.md
 @@ -1,4 +1,4 @@
  # Sunrise Bakery menu
- 
+
 -- White loaf: 2.50
 +- White loaf: 2.80
  - Rolls (six): 3.00

@@ -31,7 +31,7 @@ $ cat menu.md
 $ git log --oneline --graph --all
 * 4afeda6 (HEAD -> main) Raise the white loaf to 2.90
 | * 73e14f7 (raise-bread) Raise the white loaf to 3.00
-|/  
+|/
 * 81f772e Add coconut cake
 * 9f10b43 Raise the price of the white loaf
 * 8a52ffe Add the menu
