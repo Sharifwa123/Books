@@ -29,8 +29,8 @@ Half title · Title page · Copyright page · Publisher and author information �
 | Ch | Title | Tag | Path | Teaches |
 |---|---|---|---|---|
 | 9 | The Problem of Changing Files | Core | ● | report_final_v3 problem; collaboration collisions; lost work; cloud sync and backup vs version control (what each does and does not do) |
-| 10 | A Short History of Version Control | Core | ○ | local → centralized → distributed; why Git was created; why it became widely used |
-| 11 | Centralized vs Distributed | Core | ● | mental models; trade-offs; Git vs SVN-style systems |
+| 10 | A Short History of Version Control | Core | ○ | local → centralised → distributed; why Git was created; why it became widely used |
+| 11 | Centralised vs Distributed | Core | ● | mental models; trade-offs; Git vs SVN-style systems |
 | 12 | Git, GitHub, GitLab, Bitbucket | Core | ● | what each is and is not; tool vs platform; alternatives and trade-offs |
 
 

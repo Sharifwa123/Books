@@ -25,7 +25,7 @@ This document specifies the text for the book's opening 'How to use this book' s
 | 7 | 7 The Terminal Without Fear | Core |
 | 8 | 8 Markdown in Five Pages | Core |
 | 9 | 9 The Problem of Changing Files | Core |
-| 10 | 11 Centralized vs Distributed | Core |
+| 10 | 11 Centralised vs Distributed | Core |
 | 11 | 12 Git, GitHub, GitLab, Bitbucket | Core |
 | 12 | 13 Installing Git | Core |
 | 13 | 14 Configuration Scopes and Environments | Core |

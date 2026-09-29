@@ -23,8 +23,8 @@ C = [
 (0,"markdown","Markdown in Five Pages","Core","full",["editors","text"],"headings, lists, links, code blocks, tables, images; README-style documents; why Markdown suits version control"),
 # ---- Part II
 (1,"problem","The Problem of Changing Files","Core","full",["files","editors","terminal"],"report_final_v3 problem; collaboration collisions; lost work; cloud sync and backup vs version control (what each does and does not do)"),
-(1,"history","A Short History of Version Control","Core","later",["problem"],"local → centralized → distributed; why Git was created; why it became widely used"),
-(1,"distributed","Centralized vs Distributed","Core","full",["problem","internet"],"mental models; trade-offs; Git vs SVN-style systems"),
+(1,"history","A Short History of Version Control","Core","later",["problem"],"local → centralised → distributed; why Git was created; why it became widely used"),
+(1,"distributed","Centralised vs Distributed","Core","full",["problem","internet"],"mental models; trade-offs; Git vs SVN-style systems"),
 (1,"platforms","Git, GitHub, GitLab, Bitbucket","Core","full",["distributed"],"what each is and is not; tool vs platform; alternatives and trade-offs"),
 # ---- Part III
 (2,"install","Installing Git","Core","full",["terminal","accounts","platforms"],"install per OS (Git for Windows/Git Bash, macOS, Linux); verify with git --version; PATH problems; git help and reading built-in help"),
