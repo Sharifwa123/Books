@@ -12,13 +12,16 @@ git commit -am "Add coffee to the menu"
 git switch main
 git merge --no-ff add-tea -m "Merge the hot drinks"
 git log --oneline --graph
-git switch -c add-juice HEAD~2
-printf '# Sunrise Bakery menu\n\n- White loaf: 2.80\n- Rolls (six): 3.00\n- Coconut cake (slice): 4.00\n- Juice: 2.20\n' > menu.md
-git commit -am "Add juice"
-printf '# Sunrise Bakery menu\n\n- White loaf: 2.80\n- Rolls (six): 3.00\n- Coconut cake (slice): 4.00\n- Juice: 2.20\n- Lemonade: 2.00\n' > menu.md
+git switch -c add-juice
+printf 'Juice: 2.20\n' > cold-drinks.md
+git add cold-drinks.md
+git commit -m "Add juice"
+printf 'Juice: 2.20\nLemonade: 2.00\n' > cold-drinks.md
 git commit -am "Add lemonade"
 git switch main
 git merge --squash add-juice
 git status --short
 git commit -m "Add cold drinks"
 git log --oneline --graph
+git branch -d add-juice
+git branch -D add-juice

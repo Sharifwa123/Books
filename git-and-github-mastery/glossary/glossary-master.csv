@@ -135,3 +135,7 @@ Empty commit,A commit with a message but no file change.,"A commit whose tree is
 git branch,"Lists, creates, renames and deletes branches.",Manages branch references under refs/heads.,git branch add-tea,branch; git switch,branching
 git switch,Changes the current branch.,Moves HEAD to another branch and updates the index and working tree to match.,git switch add-tea,branch; HEAD,branching
 Detached HEAD,HEAD points directly at a commit instead of a branch.,A state in which HEAD contains a commit identifier rather than a symbolic reference to a branch.,HEAD detached at 9f10b43,HEAD; branch,branching
+Fast-forward,A merge that only moves a branch pointer forward.,"A merge in which the receiving branch has not diverged, so Git moves its pointer to the source commit and creates no merge commit.",main moves to add-tea's commit.,merge; merge commit,merging
+Diverged,Each branch has commits the other lacks.,"Two branches have diverged when neither tip is an ancestor of the other, so a fast-forward is impossible.",Hours added on main while tea is added on add-tea.,merge; fast-forward,merging
+Merge commit,A commit that joins two lines of work.,"A commit with two or more parents, recording where lines of work were combined.",Merge branch 'add-tea'.,merge; diverged,merging
+Squash,Turn many commits into one.,"Combine the changes of several commits into a single new commit, leaving no link to the originals.",git merge --squash add-juice.,merge commit,merging
