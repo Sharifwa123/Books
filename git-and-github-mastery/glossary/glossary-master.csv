@@ -120,3 +120,12 @@ git init,Creates a new repository in the current folder.,Initialises an empty Gi
 git status,"Shows which files are untracked, modified or staged, and the current branch.",Reports the state of the working tree and index relative to HEAD; read-only.,git status,working tree; index,firstrepo
 git add,Stages files so they are part of the next commit.,Updates the index with the current content of the given paths.,git add notes.md,stage; index,firstrepo
 git commit,Records the staged snapshot with a message.,Creates a commit object from the index and advances the current branch.,"git commit -m ""Add notes""",commit; stage,firstrepo
+git log,"Shows the history of commits, newest first.","Lists commits reachable from the current revision in reverse chronological order, with options for format and filtering.",git log --oneline,commit; revision,history_view
+Revision,"Any way of naming a commit: a hash, a branch name, HEAD, HEAD~2.","A specifier that resolves to a commit (or other object), as defined by Git's revision syntax.",HEAD~1,hash; HEAD,history_view
+Diff,"A report of the differences between two versions, line by line.","A description of changes between two file or tree states, shown as removed (-) and added (+) lines in hunks.",git diff,hunk; git show,history_view
+Hunk,One contiguous chunk of changes in a diff.,"A group of adjacent changed lines with context in a unified diff, introduced by an @@ header.","@@ -1,4 +1,4 @@",diff,history_view
+git show,Displays one commit: its message and changes.,Shows a commit's metadata and diff (or other objects).,git show HEAD~1,git log; diff,history_view
+Ignored file,A file Git has been told to leave alone.,A file matching an ignore pattern that Git omits from untracked listings and from git add of directories.,build.log,.gitignore; untracked file,tracking
+.gitignore,A text file listing patterns of files Git should ignore.,A file whose lines are patterns (with comments and negations) applied to paths under its directory; normally tracked.,*.log,ignored file; core.excludesFile,tracking
+git mv,Renames or moves a file and stages the change.,Moves a file in the working tree and index in one operation.,git mv menu.html carte.html,git rm; rename,tracking
+git rm,Deletes a file and stages the deletion.,Removes a path from the working tree and the index; with --cached only from the index.,git rm contact.html,git mv; git restore,tracking

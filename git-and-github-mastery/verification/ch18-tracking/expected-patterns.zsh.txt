@@ -1,0 +1,37 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ mkdir patterns-demo
+$ cd patterns-demo
+$ git init
+Initialized empty Git repository in /home/learner/patterns-demo/.git/
+$ mkdir build docs logs
+$ printf 'x\n' > app.log
+$ printf 'x\n' > important.log
+$ printf 'x\n' > todo.txt
+$ printf 'x\n' > docs/todo.txt
+$ printf 'x\n' > build/output.js
+$ printf 'x\n' > docs/draft.tmp
+$ printf 'x\n' > docs/notes.md
+$ printf 'x\n' > logs/today.log
+$ printf '*.log\n!important.log\nbuild/\n/todo.txt\ndocs/*.tmp\n' > .gitignore
+$ git status --short
+?? .gitignore
+?? docs/
+?? important.log
+$ git status --short --ignored
+?? .gitignore
+?? docs/
+?? important.log
+!! app.log
+!! build/
+!! docs/draft.tmp
+!! logs/
+!! todo.txt
+$ git check-ignore -v app.log important.log todo.txt docs/todo.txt build/output.js docs/draft.tmp logs/today.log
+.gitignore:1:*.log	app.log
+.gitignore:2:!important.log	important.log
+.gitignore:4:/todo.txt	todo.txt
+.gitignore:3:build/	build/output.js
+.gitignore:5:docs/*.tmp	docs/draft.tmp
+.gitignore:1:*.log	logs/today.log

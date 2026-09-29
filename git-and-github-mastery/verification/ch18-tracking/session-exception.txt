@@ -1,0 +1,14 @@
+#!git
+git config --global user.name "Ada Learner"
+git config --global user.email "ada@example.org"
+git config --global init.defaultBranch main
+mkdir exception-demo
+cd exception-demo
+git init
+mkdir -p assets/raw
+printf 'x\n' > assets/raw/logo-final.psd
+printf 'x\n' > assets/raw/big.psd
+printf 'assets/raw/\n!assets/raw/logo-final.psd\n' > .gitignore
+git status --short --ignored
+printf 'assets/raw/*\n!assets/raw/logo-final.psd\n' > .gitignore
+git status --short --ignored
