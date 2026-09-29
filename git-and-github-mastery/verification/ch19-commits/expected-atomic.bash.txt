@@ -1,0 +1,25 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ cd bakery-menu
+$ printf '# Sunrise Bakery menu\n\n- White loaf: 2.80\n- Rolls (six): 3.20\n- Coconut cake (slice): 4.00\n' > menu.md
+$ printf 'Open Monday to Saturday.\n' > hours.md
+$ git status --short
+ M menu.md
+?? hours.md
+$ git add menu.md
+$ git commit -m "Raise the price of rolls"
+[main bf46067] Raise the price of rolls
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+$ git add hours.md
+$ git commit -m "Add the opening hours"
+[main b27846f] Add the opening hours
+ 1 file changed, 1 insertion(+)
+ create mode 100644 hours.md
+$ git log --oneline --stat -2
+b27846f (HEAD -> main) Add the opening hours
+ hours.md | 1 +
+ 1 file changed, 1 insertion(+)
+bf46067 Raise the price of rolls
+ menu.md | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)

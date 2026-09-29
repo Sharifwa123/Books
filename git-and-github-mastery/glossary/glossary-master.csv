@@ -129,3 +129,9 @@ Ignored file,A file Git has been told to leave alone.,A file matching an ignore 
 .gitignore,A text file listing patterns of files Git should ignore.,A file whose lines are patterns (with comments and negations) applied to paths under its directory; normally tracked.,*.log,ignored file; core.excludesFile,tracking
 git mv,Renames or moves a file and stages the change.,Moves a file in the working tree and index in one operation.,git mv menu.html carte.html,git rm; rename,tracking
 git rm,Deletes a file and stages the deletion.,Removes a path from the working tree and the index; with --cached only from the index.,git rm contact.html,git mv; git restore,tracking
+git commit --amend,"Replaces the last commit with a new one, to fix its message or add forgotten changes.",Creates a new commit from the index and message that replaces the tip commit; the replaced commit is left unreferenced.,git commit --amend --no-edit,commit; reflog,commits
+Atomic commit,A commit containing one logical change.,"A commit that is complete and self-contained, with a single purpose, that can be reviewed or reverted independently.",Raise the price of rolls,commit,commits
+Empty commit,A commit with a message but no file change.,"A commit whose tree is identical to its parent's, created with --allow-empty.",Mark the start of the spring menu,commit,commits
+git branch,"Lists, creates, renames and deletes branches.",Manages branch references under refs/heads.,git branch add-tea,branch; git switch,branching
+git switch,Changes the current branch.,Moves HEAD to another branch and updates the index and working tree to match.,git switch add-tea,branch; HEAD,branching
+Detached HEAD,HEAD points directly at a commit instead of a branch.,A state in which HEAD contains a commit identifier rather than a symbolic reference to a branch.,HEAD detached at 9f10b43,HEAD; branch,branching

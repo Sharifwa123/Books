@@ -58,3 +58,14 @@ f71f66b | Ada Learner | Add the lemon tart to the menu
 aa2ff61 | Ada Learner | Mark the start of the spring menu
 81f772e | Ada Learner | Add coconut cake
 9f10b43 | Ada Learner | Raise the price of the white loaf
+$ git reflog -6
+573a346 (HEAD -> main) HEAD@{0}: commit: Summarise the change
+f71f66b HEAD@{1}: commit (amend): Add the lemon tart to the menu
+5c151e3 HEAD@{2}: commit (amend): Add the lemon tart to the menu
+72a36ee HEAD@{3}: commit: stuff
+aa2ff61 HEAD@{4}: commit: Mark the start of the spring menu
+81f772e HEAD@{5}: commit: Add coconut cake
+$ git show --stat --oneline 72a36ee
+72a36ee stuff
+ menu.md | 1 +
+ 1 file changed, 1 insertion(+)

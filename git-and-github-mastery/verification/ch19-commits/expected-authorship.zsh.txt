@@ -1,0 +1,20 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ cd bakery-menu
+$ printf '# Sunrise Bakery menu\n\n- White loaf: 2.80\n- Rolls (six): 3.00\n- Coconut cake (slice): 4.00\n- Lemon tart: 3.50\n' > menu.md
+$ git commit -am "Add the lemon tart to the menu" --author="Grace Baker <grace@example.net>"
+[main 85d89ce] Add the lemon tart to the menu
+ Author: Grace Baker <grace@example.net>
+ 1 file changed, 1 insertion(+)
+$ git log -1 --format=fuller
+commit 85d89ce09c6ec84fee0c1defc39afcc321167630 (HEAD -> main)
+Author:     Grace Baker <grace@example.net>
+AuthorDate: Mon Jan 5 09:09:00 2026 +0000
+Commit:     Ada Learner <ada@example.org>
+CommitDate: Mon Jan 5 09:09:00 2026 +0000
+
+    Add the lemon tart to the menu
+$ git log --format='%h author=%an committer=%cn %s' -2
+85d89ce author=Grace Baker committer=Ada Learner Add the lemon tart to the menu
+81f772e author=Ada Learner committer=Ada Learner Add coconut cake
