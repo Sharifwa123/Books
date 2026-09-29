@@ -1,0 +1,7 @@
+plain text file: 27 bytes; starts with: b'Fresh bread '
+word-processor file starts with bytes: b'PK' (the ZIP signature 'PK')
+is it a ZIP archive? True
+contains parts (first four, sorted): [Content_Types].xml, _rels/.rels, customXml/_rels/item1.xml.rels, customXml/item1.xml
+has word/document.xml: True
+visible text is about 26 bytes; the file holds far more than the text
+file is larger than its text: True

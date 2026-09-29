@@ -1,0 +1,106 @@
+[
+ {
+  "id": "heading",
+  "md": "# Sunrise Bakery\n\n## Menu\n\n### Breads\n"
+ },
+ {
+  "id": "paragraphs",
+  "md": "Fresh bread every morning.\n\nWe open at six.\n"
+ },
+ {
+  "id": "one-paragraph-two-lines",
+  "md": "Fresh bread\nevery morning.\n"
+ },
+ {
+  "id": "hard-break-two-spaces",
+  "md": "Fresh bread  \nevery morning.\n"
+ },
+ {
+  "id": "hard-break-backslash",
+  "md": "Fresh bread\\\nevery morning.\n"
+ },
+ {
+  "id": "emphasis",
+  "md": "This is *italic*, this is **bold**, and this is ***both***.\n"
+ },
+ {
+  "id": "underscore-in-word",
+  "md": "Use the file_name_here.txt file.\n"
+ },
+ {
+  "id": "unordered-list",
+  "md": "- White loaf\n- Whole-wheat loaf\n- Rolls\n"
+ },
+ {
+  "id": "ordered-list",
+  "md": "1. Mix\n2. Knead\n3. Bake\n"
+ },
+ {
+  "id": "nested-list",
+  "md": "- Breads\n  - White loaf\n  - Whole-wheat loaf\n- Cakes\n"
+ },
+ {
+  "id": "list-needs-blank-line",
+  "md": "Ingredients:\n- flour\n- water\n"
+ },
+ {
+  "id": "link",
+  "md": "Visit [our menu](menu.html) today.\n"
+ },
+ {
+  "id": "link-title",
+  "md": "[menu](menu.html \"Our menu\")\n"
+ },
+ {
+  "id": "image",
+  "md": "![Sunrise Bakery logo](images/logo.svg)\n"
+ },
+ {
+  "id": "inline-code",
+  "md": "Run `git status` now.\n"
+ },
+ {
+  "id": "code-block",
+  "md": "```bash\ngit status\n```\n"
+ },
+ {
+  "id": "code-block-indent",
+  "md": "    git status\n"
+ },
+ {
+  "id": "blockquote",
+  "md": "> Fresh bread every morning.\n"
+ },
+ {
+  "id": "rule",
+  "md": "Above\n\n---\n\nBelow\n"
+ },
+ {
+  "id": "table",
+  "md": "| Item | Price |\n|------|-------|\n| Loaf | 2.50 |\n| Rolls | 3.00 |\n"
+ },
+ {
+  "id": "table-no-separator",
+  "md": "| Item | Price |\n| Loaf | 2.50 |\n"
+ },
+ {
+  "id": "escape",
+  "md": "Cost: 3 \\* 2 = 6\n"
+ },
+ {
+  "id": "html-inline",
+  "md": "Text with <b>bold</b> HTML.\n"
+ },
+ {
+  "id": "bare-url",
+  "md": "See https://example.org for details.\n"
+ },
+ {
+  "id": "autolink",
+  "md": "See <https://example.org> for details.\n"
+ },
+ {
+  "id": "readme-example",
+  "md": "# Sunrise Bakery\n\nA small website for a *fictional* neighbourhood bakery, used as the running example in a textbook.\n\n## Pages\n\n- `index.html`: the home page\n- `menu.html`: the menu\n- `contact.html`: how to find us\n\n## Opening hours\n\n| Day | Hours |\n|-----|-------|\n| Monday to Saturday | 06:00 to 18:00 |\n| Sunday | closed |\n\n## Licence\n\nSee the licence file when one is added.\n"
+ }
+]

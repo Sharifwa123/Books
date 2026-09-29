@@ -1,0 +1,38 @@
+$ printf 'Hi\n' | od -c
+0000000   H   i  \n
+0000003
+$ printf 'Hi\r\n' | od -c
+0000000   H   i  \r  \n
+0000004
+$ printf 'one\ntwo\n' > unix.txt
+$ printf 'one\r\ntwo\r\n' > windows.txt
+$ od -c unix.txt
+0000000   o   n   e  \n   t   w   o  \n
+0000010
+$ od -c windows.txt
+0000000   o   n   e  \r  \n   t   w   o  \r  \n
+0000012
+$ wc -l unix.txt
+2 unix.txt
+$ wc -c unix.txt
+8 unix.txt
+$ wc -c windows.txt
+10 windows.txt
+$ printf 'caf\303\251\n' > cafe.txt
+$ cat cafe.txt
+café
+$ od -An -tx1 cafe.txt
+ 63 61 66 c3 a9 0a
+$ wc -c cafe.txt
+6 cafe.txt
+$ printf 'a\tb\n' | od -c
+0000000   a  \t   b  \n
+0000004
+$ printf 'a b\n' | od -c
+0000000   a       b  \n
+0000004
+$ printf 'end   \n' | od -c
+0000000   e   n   d              \n
+0000007
+$ printf '\360\237\215\236\n' | od -An -tx1
+ f0 9f 8d 9e 0a

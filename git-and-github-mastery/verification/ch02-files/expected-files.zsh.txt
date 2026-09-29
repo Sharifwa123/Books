@@ -1,0 +1,32 @@
+$ mkdir demo
+$ cd demo
+$ touch Report.txt report.txt
+$ ls
+Report.txt  report.txt
+$ touch .secret
+$ ls
+Report.txt  report.txt
+$ ls -a
+.  ..  .secret	Report.txt  report.txt
+$ touch plan.txt
+$ chmod 600 plan.txt
+$ ls -l plan.txt
+-rw------- 1 learner learner 0 <date> plan.txt
+$ chmod 644 plan.txt
+$ ls -l plan.txt
+-rw-r--r-- 1 learner learner 0 <date> plan.txt
+$ mkdir -p notes/2026
+$ cd notes/2026
+$ pwd
+/home/learner/demo/notes/2026
+$ cd ../..
+$ pwd
+/home/learner/demo
+$ cd ./notes
+$ pwd
+/home/learner/demo/notes
+$ cd ..
+$ pwd
+/home/learner/demo
+$ ls notes/2026
+$ ls ./notes/../notes/2026

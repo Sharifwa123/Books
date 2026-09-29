@@ -1,0 +1,53 @@
+$ pwd
+/home/learner
+$ mkdir sharif-git-lab
+$ cd sharif-git-lab
+$ pwd
+/home/learner/sharif-git-lab
+$ ls
+$ mkdir -p sunrise-bakery/css sunrise-bakery/images
+$ ls
+sunrise-bakery
+$ ls sunrise-bakery
+css  images
+$ cd sunrise-bakery
+$ pwd
+/home/learner/sharif-git-lab/sunrise-bakery
+$ echo "Sunrise Bakery" > README.md
+$ cat README.md
+Sunrise Bakery
+$ echo "Fresh bread every morning." >> README.md
+$ cat README.md
+Sunrise Bakery
+Fresh bread every morning.
+$ cp README.md README-copy.md
+$ ls
+README-copy.md	README.md  css	images
+$ mv README-copy.md notes.txt
+$ ls
+README.md  css	images	notes.txt
+$ touch .hidden-note
+$ ls
+README.md  css	images	notes.txt
+$ ls -a
+.  ..  .hidden-note  README.md	css  images  notes.txt
+$ ls -l notes.txt
+-rw-r--r-- 1 learner learner 42 <date> notes.txt
+$ cd ..
+$ pwd
+/home/learner/sharif-git-lab
+$ cd -
+~/sharif-git-lab/sunrise-bakery
+$ cd ~
+$ pwd
+/home/learner
+$ cd sharif-git-lab/sunrise-bakery
+$ rm notes.txt
+$ ls
+README.md  css	images
+$ rm css
+rm: cannot remove 'css': Is a directory
+$ rmdir css
+$ rmdir images
+$ ls
+README.md

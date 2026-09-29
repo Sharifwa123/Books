@@ -21,7 +21,8 @@ This book is an independent educational publication. It is not affiliated with, 
 | Git research | Partial: tested on Git 2.43.0 and checked against its packaged upstream docs (161 checks pass); not the publication baseline |
 | GitHub research | **Blocked** — docs.github.com not reachable; all GitHub ledger rows unverified |
 | Licence texts | Apache-2.0 verified; CC BY-NC-SA 4.0 and MIT **unverified**, so no licence wording has been written |
-| Manuscript | **Not started** (by instruction) |
+| PDF edition (all PDF features) | Planned as a required release artifact — `publishing/pdf-build-plan.md`; toolchain feasibility spike passed |
+| Manuscript | **Part I in progress** |
 
 ## Layout
 `planning/` · `research/` (ledger, verification scripts, version-test plan) · `references/` · `publishing/` · `manuscript/` · `exercises/` (+ registry) · `solutions/` · `diagrams/` · `tools/` (outline build and cross-reference checks)

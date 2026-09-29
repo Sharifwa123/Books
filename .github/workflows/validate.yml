@@ -1,0 +1,76 @@
+name: Validate book
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: validate-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  structure:
+    name: Structure, references, ledger, secrets
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Run static checks
+        run: git-and-github-mastery/tools/check_all.sh
+
+  git-tests:
+    name: Git command tests (runner's Git version)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Show tool versions
+        run: |
+          git --version
+          git lfs version || echo "git-lfs not installed"
+          bash --version | head -1
+      - name: Run Git verification scripts
+        run: git-and-github-mastery/research/git-verification/run-all.sh
+      - name: Print results (job log is the record; artifact hosts may be unreachable from some environments)
+        if: always()
+        run: |
+          for f in git-and-github-mastery/research/git-verification/results/*/*.txt; do
+            echo "=================== $f"; cat "$f"
+          done
+      - name: Upload results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: git-verification-results
+          path: git-and-github-mastery/research/git-verification/results/
+
+  chapter-commands:
+    name: Chapter command transcripts (bash and zsh)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Install zsh and Markdown renderer
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq zsh
+          python3 -m pip install --quiet markdown-it-py==4.2.0 python-docx==1.2.0
+      - name: Tool versions
+        run: |
+          bash --version | head -1
+          zsh --version
+          ls --version | head -1
+          python3 --version
+      - name: Re-run recorded transcripts and compare
+        run: git-and-github-mastery/verification/run_all.sh

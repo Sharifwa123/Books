@@ -2,3 +2,7 @@ git_version,script,os,date,pass,fail,docs_source,notes
 2.43.0,verify-git-basics.sh,Ubuntu 24.04,2026-09-29,51,0,n/a,distribution build
 2.43.0,verify-config-and-lfs.sh,Ubuntu 24.04,2026-09-29,28,0,n/a,git-lfs 3.4.1
 2.43.0,verify-against-docs.py,Ubuntu 24.04,2026-09-29,82,0,packaged docs 2.43.0,not git-scm.com
+2.55.0,verify-git-basics.sh,GitHub Actions ubuntu-latest runner,2026-09-29,51,0,n/a,runner Git; not confirmed to be the latest release; git-lfs 3.8.0
+2.55.0,verify-config-and-lfs.sh,GitHub Actions ubuntu-latest runner,2026-09-29,28,0,n/a,git-lfs 3.8.0
+2.55.0,verify-investigations.sh,GitHub Actions ubuntu-latest runner,2026-09-29,8 observations,0,n/a,empty revert: identical to 2.43.0 (exit 1 'nothing to commit'; --no-commit exit 0)
+2.43.0,verify-investigations.sh,Ubuntu 24.04,2026-09-29,8 observations,0,n/a,baseline

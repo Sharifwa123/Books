@@ -1,0 +1,16 @@
+$ printf '#!/bin/sh\necho "hello from LF"\n' > lf.sh
+$ printf '#!/bin/sh\r\necho "hello from CRLF"\r\n' > crlf.sh
+$ chmod +x lf.sh crlf.sh
+$ ./lf.sh
+hello from LF
+$ ./crlf.sh
+bash: ./crlf.sh: cannot execute: required file not found
+$ od -c crlf.sh
+0000000   #   !   /   b   i   n   /   s   h  \r  \n   e   c   h   o    
+0000020   "   h   e   l   l   o       f   r   o   m       C   R   L   F
+0000040   "  \r  \n
+0000043
+$ grep -c "$(printf '\r')" crlf.sh
+2
+$ grep -c "$(printf '\r')" lf.sh
+0

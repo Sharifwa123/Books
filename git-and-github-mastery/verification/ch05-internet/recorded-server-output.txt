@@ -1,0 +1,8 @@
+$ curl -i http://127.0.0.1:8765/index.html
+HTTP/1.0 200 OK
+Content-type: text/html
+Content-Length: 24
+
+<h1>Sunrise Bakery</h1>
+$ curl -i http://127.0.0.1:8765/missing.html
+HTTP/1.0 404 File not found

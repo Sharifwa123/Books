@@ -1,0 +1,9 @@
+git version: git version 2.43.0
+OBSERVED  revert of a NON-empty commit: exit=0
+OBSERVED  revert of an EMPTY commit (auto-commit): exit=1; output: On branch main|nothing to commit, working tree clean|
+OBSERVED  working-tree changes left after failed empty revert: 0
+OBSERVED  revert --no-commit of the EMPTY commit: exit=0
+OBSERVED  changes staged by that no-commit revert: 0
+OBSERVED  manual 'git commit --allow-empty' afterwards: exit=0
+OBSERVED  cherry-pick of an EMPTY commit: exit=1; output: The previous cherry-pick is now empty, possibly due to conflict resolution.|If you wish to commit it anyway, use:||
+OBSERVED  cherry-pick --allow-empty of the same commit: exit=0

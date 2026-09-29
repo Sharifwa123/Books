@@ -1,0 +1,7 @@
+the word:                 café
+stored as UTF-8 bytes:    63 61 66 c3 a9   (5 bytes for 4 characters)
+the same bytes read as Latin-1: cafÃ©
+stored as Latin-1 bytes:  63 61 66 e9   (4 bytes)
+Latin-1 bytes read as UTF-8:    UnicodeDecodeError (unexpected end of data)
+with errors replaced:      caf�
+emoji U+1F35E as UTF-8:   f0 9f 8d 9e   (4 bytes for 1 character)

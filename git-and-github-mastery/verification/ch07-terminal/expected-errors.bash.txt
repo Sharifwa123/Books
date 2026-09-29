@@ -1,0 +1,29 @@
+$ mkdir sharif-git-lab
+$ cd sharif-git-lab
+$ cd nowhere
+bash: cd: nowhere: No such file or directory
+$ ls missing-folder
+ls: cannot access 'missing-folder': No such file or directory
+$ cat missing-file.txt
+cat: missing-file.txt: No such file or directory
+$ frobnicate
+bash: frobnicate: command not found
+$ mkdir my folder
+$ ls
+folder	my
+$ rmdir my folder
+$ mkdir "my folder"
+$ ls
+'my folder'
+$ rmdir "my folder"
+$ touch a.md b.md c.txt
+$ ls *.md
+a.md  b.md
+$ ls *.xyz
+ls: cannot access '*.xyz': No such file or directory
+$ mkdir full
+$ touch full/x.txt
+$ rmdir full
+rmdir: failed to remove 'full': Directory not empty
+$ ls full
+x.txt

@@ -1,0 +1,7 @@
+URL:      https://example.org:8443/menu/cakes?sort=price&page=2#top
+scheme:   https
+host:     example.org
+port:     8443
+path:     /menu/cakes
+query:    sort=price&page=2   -> {'sort': ['price'], 'page': ['2']}
+fragment: top
