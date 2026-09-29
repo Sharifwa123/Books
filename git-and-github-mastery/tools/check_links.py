@@ -11,7 +11,9 @@ for base, dirs, files in os.walk(root):
         if not f.endswith(".md"): continue
         p = os.path.join(base, f)
         text = open(p, errors="replace").read()
+        text = re.sub(r"````.*?````", "", text, flags=re.S)
         text = re.sub(r"```.*?```", "", text, flags=re.S)  # ignore code blocks
+        text = re.sub(r"`[^`\n]*`", "", text)  # ignore inline code
         for m in pat.finditer(text):
             t = m.group(1)
             if re.match(r"^[a-z]+:", t) or t.startswith("#"): continue

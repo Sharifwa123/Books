@@ -23,5 +23,6 @@
  "escape": "<p>Cost: 3 * 2 = 6</p>\n",
  "html-inline": "<p>Text with <b>bold</b> HTML.</p>\n",
  "bare-url": "<p>See https://example.org for details.</p>\n",
- "autolink": "<p>See <a href=\"https://example.org\">https://example.org</a> for details.</p>\n"
+ "autolink": "<p>See <a href=\"https://example.org\">https://example.org</a> for details.</p>\n",
+ "readme-example": "<h1>Sunrise Bakery</h1>\n<p>A small website for a <em>fictional</em> neighbourhood bakery, used as the running example in a textbook.</p>\n<h2>Pages</h2>\n<ul>\n<li><code>index.html</code>: the home page</li>\n<li><code>menu.html</code>: the menu</li>\n<li><code>contact.html</code>: how to find us</li>\n</ul>\n<h2>Opening hours</h2>\n<table>\n<thead>\n<tr>\n<th>Day</th>\n<th>Hours</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Monday to Saturday</td>\n<td>06:00 to 18:00</td>\n</tr>\n<tr>\n<td>Sunday</td>\n<td>closed</td>\n</tr>\n</tbody>\n</table>\n<h2>Licence</h2>\n<p>See the licence file when one is added.</p>\n"
 }

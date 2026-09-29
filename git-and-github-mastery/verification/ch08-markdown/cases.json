@@ -98,5 +98,9 @@
  {
   "id": "autolink",
   "md": "See <https://example.org> for details.\n"
+ },
+ {
+  "id": "readme-example",
+  "md": "# Sunrise Bakery\n\nA small website for a *fictional* neighbourhood bakery, used as the running example in a textbook.\n\n## Pages\n\n- `index.html`: the home page\n- `menu.html`: the menu\n- `contact.html`: how to find us\n\n## Opening hours\n\n| Day | Hours |\n|-----|-------|\n| Monday to Saturday | 06:00 to 18:00 |\n| Sunday | closed |\n\n## Licence\n\nSee the licence file when one is added.\n"
  }
 ]
