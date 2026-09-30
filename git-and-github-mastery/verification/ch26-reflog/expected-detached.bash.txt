@@ -1,0 +1,41 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ cd bakery-menu
+$ git switch --detach HEAD~1
+HEAD is now at 9f10b43 Raise the price of the white loaf
+$ git status
+HEAD detached at 9f10b43
+nothing to commit, working tree clean
+$ printf -- '- Tea: 1.50\n' >> menu.md
+$ git commit -am "Add tea on a detached HEAD"
+[detached HEAD fae405d] Add tea on a detached HEAD
+ 1 file changed, 1 insertion(+)
+$ git switch main
+Warning: you are leaving 1 commit behind, not connected to
+any of your branches:
+
+  fae405d Add tea on a detached HEAD
+
+If you want to keep it by creating a new branch, this may be a good time
+to do so with:
+
+ git branch <new-branch-name> fae405d
+
+Switched to branch 'main'
+$ git log --oneline --all
+81f772e (HEAD -> main) Add coconut cake
+9f10b43 Raise the price of the white loaf
+8a52ffe Add the menu
+$ git reflog -3
+81f772e (HEAD -> main) HEAD@{0}: checkout: moving from fae405dddf099cd51e07afda8545230358e7aa2e to main
+fae405d HEAD@{1}: commit: Add tea on a detached HEAD
+9f10b43 HEAD@{2}: checkout: moving from main to HEAD~1
+$ git branch rescued fae405d
+$ git branch
+* main
+  rescued
+$ git log --oneline rescued
+fae405d (rescued) Add tea on a detached HEAD
+9f10b43 Raise the price of the white loaf
+8a52ffe Add the menu
