@@ -12,6 +12,7 @@ rm -rf "$out"; mkdir -p "$out/manuscript" "$out/ebook" "$out/cover" "$out/metada
 python3 tools/export_clean.py --out "$out/manuscript"
 python3 tools/build_epub.py --out "$out/ebook/git-and-github-from-zero-to-mastery.epub"
 python3 tools/build_pdf.py --profile screen --out "$out/ebook/git-and-github-from-zero-to-mastery-screen.pdf"
+python3 tools/build_docx.py --book "$out/manuscript/book.md" --out "$out/ebook/git-and-github-from-zero-to-mastery.docx"
 cp publishing/cover/cover-front.svg publishing/cover/cover-front.png "$out/cover/"
 rm -f "$out"/ebook/*.html   # intermediate files written by the PDF builder
 python3 - "$out" <<'PY'

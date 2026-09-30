@@ -14,6 +14,6 @@ Recordings and ledger
 - `fetch_source.py`, `ledger_add.py`, `ledger_verify.py`: fetch sources with hashes and maintain the research ledger.
 
 Editions
-- `build_pdf.py`, `build_epub.py`, `export_clean.py`, `build_package.sh`, `check_pdf.py`, `verapdf_check.sh`: PDF, EPUB, clean export, packaging and validation.
+- `build_docx.py` (Word edition from the clean export), `build_pdf.py`, `build_epub.py`, `export_clean.py`, `build_package.sh`, `check_pdf.py`, `verapdf_check.sh`: PDF, EPUB, clean export, packaging and validation.
 
 Typical workflow for a change: edit the manuscript or `toc_data.py`, regenerate with the `build_*` scripts where a generated file is affected, run `tools/check_all.sh`.
