@@ -146,3 +146,7 @@ Remote-tracking branch,Your note of where a remote branch was when you last look
 Upstream branch,The remote branch a local branch follows.,"The branch named by branch.<name>.remote and branch.<name>.merge, used by plain push, pull and status.",main follows origin/main,remote-tracking branch,remotes
 Fetch,Download new commits without changing your branches.,"Retrieve objects and update remote-tracking branches, leaving local branches and the working tree untouched.",git fetch,pull; remote-tracking branch,remotes
 Pull,"Fetch, then merge into your current branch.","git fetch followed by integrating the upstream branch into the current branch, by default with a merge.",git pull,fetch; merge,remotes
+Stash,A shelf for unfinished changes.,A stack of saved working-tree and index states that lets you return to a clean tree and reapply the changes later.,git stash,working tree,stash
+Tag,A fixed name for one commit.,"A reference that names a commit and, unlike a branch, does not move when new commits are made.",v1.0,branch; annotated tag,stash
+Lightweight tag,A tag that is just a name.,"A tag that is only a reference to a commit, with no tagger, date or message of its own.",git tag v0.1,tag; annotated tag,stash
+Annotated tag,A tag with a message and tagger.,"A tag stored as its own object with tagger, date and message; the usual choice for releases.","git tag -a v1.0 -m ""First public menu""",tag,stash
