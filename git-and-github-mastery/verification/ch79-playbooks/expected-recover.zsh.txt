@@ -1,0 +1,183 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ echo "== P1: A secret was pushed"
+== P1: A secret was pushed
+$ git clone -q hub.git work
+$ cd work
+$ printf 'API_KEY=not-a-real-key\n' > .env
+$ git add .env
+$ git commit -q -m "Add configuration"
+$ git push -q origin main
+$ echo "1. REVOKE the key at the service that issued it (outside Git)"
+1. REVOKE the key at the service that issued it (outside Git)
+$ git rm -q .env
+$ printf '.env\n' > .gitignore
+$ git add .gitignore
+$ git commit -q -m "Stop tracking .env"
+$ git push -q origin main
+$ git log --format=%s -S'not-a-real-key'
+Stop tracking .env
+Add configuration
+$ git filter-repo --sensitive-data-removal --invert-paths --path .env --force
+NOTICE: Fetching all refs from origin to make sure we rewrite
+        all history that may reference the sensitive data, via
+      git fetch -q --prune --update-head-ok --refmap "" origin +refs/*:refs/*
+Parsed 4 commits
+New history written in <n> seconds; now repacking/cleaning...
+You rewrote 2 (of 4) commits.
+
+NOTE: First Changed Commit(s) is/are:
+  c6f19902e8d163fd177ad0064c2ceca5b2bf778e
+NOTE: LFS object orphaning not checked (LFS not in use)
+
+Repacking your repo and cleaning out old unneeded objects
+HEAD is now at aa630cc Stop tracking .env
+Completely finished after <n> seconds.
+
+NEXT STEPS FOR YOUR SENSITIVE DATA REMOVAL:
+  * If you are doing your rewrite in multiple steps, ignore these next steps
+    until you have completed all your invocations of git-filter-repo.
+  * See the "Sensitive Data Removal" subsection of the "DISCUSSION" section
+    of the manual for more details about any of the steps below.
+  * Inspect this repository and verify that the sensitive data is indeed
+    completely removed from all commits.
+  * Force push the rewritten history to the server:
+      git push --force --mirror origin
+  * Contact the server admins for additional steps they need to take; the
+    First Changed Commit(s) may come in handy here.
+  * Have other colleagues with a clone either discard their clone and reclone
+    OR follow the detailed steps in the manual to repeatedly rebase and
+    purge the sensitive data from their copy.  Again, the First Changed
+    Commit(s) may come in handy.
+  * See the "Prevent repeats and avoid future sensitive data spills" section
+    of the manual.
+
+$ git log --format=%s -S'not-a-real-key'
+$ git push -q --force --mirror origin
+$ git clone -q ../hub.git ../fresh
+$ git -C ../fresh log --all --format=%s -S'not-a-real-key'
+$ cd ..
+$ echo "== P2: Commits seem to be lost after a hard reset"
+== P2: Commits seem to be lost after a hard reset
+$ git clone -q hub.git p2
+$ cd p2
+$ printf -- "- Coffee: 2.00\n" >> menu.md
+$ git commit -q -am "Add coffee"
+$ printf -- "- Scone: 2.20\n" >> menu.md
+$ git commit -q -am "Add scone"
+$ git reset -q --hard HEAD~2
+$ git log --format=%s
+Stop tracking .env
+Add tea
+Add the menu
+$ git reflog --format='%gd %gs' -n 4
+HEAD@{0} reset: moving to HEAD~2
+HEAD@{1} commit: Add scone
+HEAD@{2} commit: Add coffee
+HEAD@{3} clone: from /home/learner/hub.git
+$ git reset -q --hard 'HEAD@{1}'
+$ git log --format=%s
+Add scone
+Add coffee
+Stop tracking .env
+Add tea
+Add the menu
+$ cd ..
+$ echo "== P3: A bad merge reached the shared branch"
+== P3: A bad merge reached the shared branch
+$ git clone -q hub.git p3
+$ cd p3
+$ git switch -q -c risky
+$ printf -- "- Coffee: 20.00\n" >> menu.md
+$ git commit -q -am "Add coffee at a wrong price"
+$ git switch -q main
+$ printf 'Open daily.\n' > hours.md
+$ git add hours.md
+$ git commit -q -m "Add opening hours"
+$ git merge -q --no-ff -m "Merge risky" risky
+$ git push -q origin main
+$ git log --format=%s
+Merge risky
+Add opening hours
+Add coffee at a wrong price
+Stop tracking .env
+Add tea
+Add the menu
+$ git revert -m 1 --no-edit HEAD > /dev/null
+$ git push -q origin main
+$ git log --format=%s
+Revert "Merge risky"
+Merge risky
+Add opening hours
+Add coffee at a wrong price
+Stop tracking .env
+Add tea
+Add the menu
+$ cat menu.md
+# Sunrise Bakery menu
+
+- White loaf: 2.50
+- Rolls: 3.00
+- Tea: 1.50
+$ ls
+hours.md  menu.md
+$ cd ..
+$ echo "== P4: A rebase went wrong"
+== P4: A rebase went wrong
+$ git clone -q hub.git p4
+$ cd p4
+$ git switch -q -c feature
+$ sed -i 's/Rolls: 3.00/Rolls: 3.20/' menu.md
+$ git commit -q -am "Rolls 3.20"
+$ git switch -q main
+$ sed -i 's/Rolls: 3.00/Rolls: 3.50/' menu.md
+$ git commit -q -am "Rolls 3.50"
+$ git switch -q feature
+$ git -c advice.mergeConflict=false rebase main 2>&1 | grep -E '^CONFLICT'
+CONFLICT (content): Merge conflict in menu.md
+$ git status -sb | head -1
+## HEAD (no branch)
+$ git rebase --abort
+$ git status -sb | head -1
+## feature
+$ git log --format=%s
+Rolls 3.20
+Revert "Merge risky"
+Merge risky
+Add opening hours
+Add coffee at a wrong price
+Stop tracking .env
+Add tea
+Add the menu
+$ cd ..
+$ echo "== P5: A commit was made on the wrong branch"
+== P5: A commit was made on the wrong branch
+$ git clone -q hub.git p5
+$ cd p5
+$ printf -- "- Coffee: 2.00\n" >> menu.md
+$ git commit -q -am "Add coffee"
+$ git branch feature/coffee
+$ git reset -q --hard origin/main
+$ git log --format=%s
+Revert "Merge risky"
+Merge risky
+Add opening hours
+Add coffee at a wrong price
+Stop tracking .env
+Add tea
+Add the menu
+$ git log --format=%s feature/coffee
+Add coffee
+Revert "Merge risky"
+Merge risky
+Add opening hours
+Add coffee at a wrong price
+Stop tracking .env
+Add tea
+Add the menu
+$ git switch -q feature/coffee
+$ git push -q -u origin feature/coffee
+$ git status -sb | head -1
+## feature/coffee...origin/feature/coffee
+$ cd ..
