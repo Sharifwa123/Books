@@ -36,7 +36,7 @@ The 107 terms first explained from Part V onwards (GitHub and what is built on i
 | Copyright | The legal right of a creator over their work. | Chapter [[licences]] |
 | Creative Commons | A family of licences for text, pictures and other non-software work. | Chapter [[licences]] |
 | Cron | A compact way to write repeating times. | Chapter [[workflows_practice]] |
-| Custom property | A label with a value that you attach to repositories in an organisation. | Chapter [[platformextras]] |
+| Custom property | A label with a value that you attach to repositories in an organization. | Chapter [[platformextras]] |
 | CVE | A public identification number for a known vulnerability. | Chapter [[ghsec]] |
 | Dependabot | GitHub's helper that warns about vulnerable dependencies and opens pull requests to update them. | Chapter [[ghsec]] |
 | Dependency graph | A list of the packages your project depends on. | Chapter [[ghsec]] |

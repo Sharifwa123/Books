@@ -15,7 +15,7 @@ ledger: [R228, R229, R230, R231]
 - how your Git identity and your account connect
 - what a profile shows, and who can see it
 - what to keep off a profile
-- organisations, briefly
+- organizations, briefly
 
 > **How to read this chapter.** Everything here is about how a web service *behaves*. The statements are checked against GitHub's own documentation (the open `github/docs` repository at commit `2eaab0b`, 29 September 2026) and its `site-policy` repository (commit `b9578b5`), and are labelled with the ledger row that records the check. No step was run on a live account, and what the screens look like was not seen, so buttons and menus are described by their idea, not their position. The Git side (your name and email in commits) was tested in Chapter 14<!--ref:config-->.
 
@@ -27,7 +27,7 @@ ledger: [R228, R229, R230, R231]
 
 An **account** on a platform is a stored identity: a **username**, one or more **email addresses**, a way to prove that you are you (a password and more, Chapter 38<!--ref:ghauth-->), and settings. Everything you do on the platform (a repository, a comment, a pull request) is attributed to it.
 
-> **Checked against GitHub's documentation (R228).** "Creating an account on GitHub" says that to get started you need "a personal account and a verified email address", that you sign up at `github.com/signup` (or with the supported social logins Google or Apple), and that without a verified email address "you won't be able to complete some basic GitHub tasks, such as creating a repository". It recommends two-factor authentication. "Types of GitHub accounts" names three kinds of account: user accounts, organisation accounts and enterprise accounts; a *personal account* is the kind you get by signing up yourself, and the same page calls accounts created for automation *machine users*. GitHub's username policy says names "are available on a first-come, first-served basis", that requests to reclaim a name because it looks inactive are not accepted, and that name squatting is prohibited. The exact character rules for a username were not found in these pages; the sign-up form states them.
+> **Checked against GitHub's documentation (R228).** "Creating an account on GitHub" says that to get started you need "a personal account and a verified email address", that you sign up at `github.com/signup` (or with the supported social logins Google or Apple), and that without a verified email address "you won't be able to complete some basic GitHub tasks, such as creating a repository". It recommends two-factor authentication. "Types of GitHub accounts" names three kinds of account: user accounts, organization accounts and enterprise accounts; a *personal account* is the kind you get by signing up yourself, and the same page calls accounts created for automation *machine users*. GitHub's username policy says names "are available on a first-come, first-served basis", that requests to reclaim a name because it looks inactive are not accepted, and that name squatting is prohibited. The exact character rules for a username were not found in these pages; the sign-up form states them.
 
 **Before you sign up, decide three things:**
 
@@ -60,9 +60,9 @@ A **profile** is your public page. Its parts, as GitHub's documentation lists th
 | **Pinned repositories** | A few that you choose to show at the top |
 | **Profile README** | A special repository, named the same as your username, whose README is displayed on the profile |
 | **Contribution graph** | A calendar of activity |
-| Organisations | Groups that you belong to (Chapter 68<!--ref:orgs-->) |
+| Organizations | Groups that you belong to (Chapter 68<!--ref:orgs-->) |
 
-> **Checked against GitHub's documentation (R230).** "About your profile" lists the profile README, personal information (picture, name and bio), contribution activity, pinned items and a status. A **profile README** is shown when "you've created a repository with a name that matches your GitHub username", the repository is public, it contains a `README.md` in its root, and that file has some content. **Pinned** items are "up to six repositories and gists, combined". The **contribution graph** ("Contributions on your profile" and its reference page) records contributions with times in UTC, shows only public-repository activity by default (you can choose to show private activity in anonymised form), and counts actions such as creating a repository or forking always, and opening an issue or pull request, reviewing, and making a commit *sometimes*. A commit counts only if its email is associated with your account, it was made in a standalone repository (not a fork), and it is on the default branch or `gh-pages`, and you are a collaborator or organisation member, or have forked it, or have opened a pull request or issue there. A setting exists to "make profile private and hide activity". A graph of activity is not a measure of skill: it counts what the platform counts, on its rules, and quiet weeks are normal.
+> **Checked against GitHub's documentation (R230).** "About your profile" lists the profile README, personal information (picture, name and bio), contribution activity, pinned items and a status. A **profile README** is shown when "you've created a repository with a name that matches your GitHub username", the repository is public, it contains a `README.md` in its root, and that file has some content. **Pinned** items are "up to six repositories and gists, combined". The **contribution graph** ("Contributions on your profile" and its reference page) records contributions with times in UTC, shows only public-repository activity by default (you can choose to show private activity in anonymised form), and counts actions such as creating a repository or forking always, and opening an issue or pull request, reviewing, and making a commit *sometimes*. A commit counts only if its email is associated with your account, it was made in a standalone repository (not a fork), and it is on the default branch or `gh-pages`, and you are a collaborator or organization member, or have forked it, or have opened a pull request or issue there. A setting exists to "make profile private and hide activity". A graph of activity is not a measure of skill: it counts what the platform counts, on its rules, and quiet weeks are normal.
 
 **Practical advice.**
 
@@ -84,11 +84,11 @@ Treat a profile as a **shop window**: it should show what you want visitors to s
 
 ---
 
-## 37.5 Organisations
+## 37.5 Organizations
 
-An **organisation** is a shared account that owns repositories and has **members** with roles, so that a team, a school class, or a project does not depend on one person's account. Chapter 68<!--ref:orgs--> covers them. For now, note that a repository can live under a person or under an organisation, and that this changes its address (`github.com/<owner>/<repository>`) and who can manage it.
+An **organization** is a shared account that owns repositories and has **members** with roles, so that a team, a school class, or a project does not depend on one person's account. Chapter 68<!--ref:orgs--> covers them. For now, note that a repository can live under a person or under an organization, and that this changes its address (`github.com/<owner>/<repository>`) and who can manage it.
 
-> **Checked against GitHub's documentation (R231).** "Types of GitHub accounts" says organisations are "shared accounts where a large number of people can collaborate across many projects at once"; that "you cannot sign in to an organization", because each person signs in to their own user account and actions are attributed to it; that members can have different roles; that owners and security managers manage settings; and that teams are nested sub-groups of members. Which organisation features depend on the plan was not checked.
+> **Checked against GitHub's documentation (R231).** "Types of GitHub accounts" says organizations are "shared accounts where a large number of people can collaborate across many projects at once"; that "you cannot sign in to an organization", because each person signs in to their own user account and actions are attributed to it; that members can have different roles; that owners and security managers manage settings; and that teams are nested sub-groups of members. Which organization features depend on the plan was not checked.
 
 ---
 
@@ -114,7 +114,7 @@ An **organisation** is a shared account that owns repositories and has **members
 - A username appears in every repository address, so choose it deliberately.
 - The platform can link a commit to an account by email; a commit's email is public in a public repository and stays in the history.
 - A profile shows what you choose to share; GitHub offers a setting to make it private, and the graph shows only public activity by default. Show only what you want visitors to see.
-- An organisation owns repositories for a group.
+- An organization owns repositories for a group.
 
 ## New Vocabulary
 
@@ -151,15 +151,15 @@ You are ready for Chapter 38<!--ref:ghauth--> if you can:
 - [ ] explain the link between `user.email` and an account
 - [ ] name what to decide before creating an account
 - [ ] say what should stay off a profile
-- [ ] describe what an organisation is for
+- [ ] describe what an organization is for
 
 ## How this chapter was checked
 
 | Claim | Evidence class | Ledger |
 |---|---|---|
 | Git writes `user.name` and `user.email` into commits as text (Chapter 14<!--ref:config-->) | Locally tested in Chapter 14<!--ref:config--> | n/a here |
-| Account creation, usernames, profile parts, the contribution graph, email matching, organisations | Checked against `github/docs` and `site-policy`; screens not seen (no live account) | R228-R231 |
+| Account creation, usernames, profile parts, the contribution graph, email matching, organizations | Checked against `github/docs` and `site-policy`; screens not seen (no live account) | R228-R231 |
 
 ## Where this leads
 
-Chapter 38<!--ref:ghauth--> covers signing in and protecting the account. Chapter 39<!--ref:ghrepo--> creates your first repository, and Chapter 68<!--ref:orgs--> returns to organisations.
+Chapter 38<!--ref:ghauth--> covers signing in and protecting the account. Chapter 39<!--ref:ghrepo--> creates your first repository, and Chapter 68<!--ref:orgs--> returns to organizations.

@@ -86,7 +86,7 @@ Two limits matter. By default the restrictions "don't apply to people with admin
 
 When a push is refused the platform says so, for example: `remote: error: GH006: Protected branch update failed for refs/heads/main.` followed by the reason, such as `Changes have been requested.`
 
-> **Checked against GitHub's documentation (R275).** "About protected branches" is the source of every quotation and setting in this section. Details of each setting, and its availability for private repositories on each plan, were **not** checked: one item in the documentation limits *branch restrictions* to public repositories of a free organisation and to all repositories of paid organisations, which shows that plan matters.
+> **Checked against GitHub's documentation (R275).** "About protected branches" is the source of every quotation and setting in this section. Details of each setting, and its availability for private repositories on each plan, were **not** checked: one item in the documentation limits *branch restrictions* to public repositories of a free organization and to all repositories of paid organizations, which shows that plan matters.
 
 ---
 

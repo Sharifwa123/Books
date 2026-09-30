@@ -230,4 +230,4 @@ You are ready for Chapter 68<!--ref:orgs--> if you can:
 
 ## Where this leads
 
-Part X, "Advanced GitHub", starts with Chapter 68<!--ref:orgs-->: organisations, teams and enterprise concepts.
+Part X, "Advanced GitHub", starts with Chapter 68<!--ref:orgs-->: organizations, teams and enterprise concepts.

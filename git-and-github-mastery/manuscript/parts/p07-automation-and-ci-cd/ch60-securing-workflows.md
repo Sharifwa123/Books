@@ -61,7 +61,7 @@ Each `uses:` line runs someone else's code (Chapter 54<!--ref:actions-->). GitHu
 - **Audit the source code** of the action: check "that secrets are not sent to unintended hosts, or are not inadvertently logged".
 - **Pin to a tag only if you trust the creator.**
 
-GitHub offers policies to require SHA pinning at the repository and organisation level, and Dependabot can keep actions up to date (Chapter 62<!--ref:ghsec-->).
+GitHub offers policies to require SHA pinning at the repository and organization level, and Dependabot can keep actions up to date (Chapter 62<!--ref:ghsec-->).
 
 **This book's workflow does it.** Its `uses:` lines look like this:
 

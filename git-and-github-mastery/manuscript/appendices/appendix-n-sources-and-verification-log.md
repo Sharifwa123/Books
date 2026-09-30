@@ -57,7 +57,7 @@ These rows were planned during research and could not be verified from an offici
 | R051 | Actions overview | workflow syntax basics, events, jobs, steps, contexts/expressions |
 | R052 | Actions runners | GitHub-hosted labels/images, self-hosted security notes, larger runners |
 | R053 | Actions limits & billing | included minutes, storage, concurrency limits by plan/visibility, pricing |
-| R054 | Actions secrets & variables | repository/environment/organisation scope, naming, availability to forks |
+| R054 | Actions secrets & variables | repository/environment/organization scope, naming, availability to forks |
 | R055 | Actions environments | required reviewers, protection rules, secrets scoping, plan limits |
 | R056 | Actions permissions & GITHUB_TOKEN | default permissions, permissions key, fork PR restrictions |
 | R057 | Actions artifacts & caching | retention, size limits, actions/cache & actions/upload-artifact current major versions |

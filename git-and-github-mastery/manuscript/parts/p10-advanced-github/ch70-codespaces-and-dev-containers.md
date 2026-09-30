@@ -92,7 +92,7 @@ The documentation's lifecycle:
 - **Rebuilding** applies changes to the dev container configuration; creating a new codespace is often the alternative.
 - **Limits on the number of codespaces** exist; the numbers are in the documentation.
 
-**Cost.** "All personal GitHub accounts have a monthly quota of free use of GitHub Codespaces included in the Free or Pro plan." If you create a codespace from an organisation-owned repository, "use of the codespace will either be charged to the organization (if the organization is configured for this), or to your personal account". Owners of organizations on some plans can pay for members' use and set a spending limit (Chapter 68<!--ref:orgs-->). **The size of the quota and the prices are not stated here.** Check the billing page before you rely on codespaces for regular work, and stop or delete codespaces you no longer use.
+**Cost.** "All personal GitHub accounts have a monthly quota of free use of GitHub Codespaces included in the Free or Pro plan." If you create a codespace from an organization-owned repository, "use of the codespace will either be charged to the organization (if the organization is configured for this), or to your personal account". Owners of organizations on some plans can pay for members' use and set a spending limit (Chapter 68<!--ref:orgs-->). **The size of the quota and the prices are not stated here.** Check the billing page before you rely on codespaces for regular work, and stop or delete codespaces you no longer use.
 
 > **Checked against GitHub's documentation (R333).** "Understanding the codespace lifecycle" and "What are GitHub Codespaces?" (billing overview).
 
@@ -105,7 +105,7 @@ A codespace runs code and holds a token. The documentation's "Security in GitHub
 - Each codespace has its **own virtual machine** ("Two codespaces are never co-located on the same VM") and **own virtual network**; incoming connections from the internet are blocked and outbound connections are allowed.
 - Every time a codespace is created or restarted it is assigned a **new token with an automatic expiry**, scoped to your access: with write access, read/write on the repository; with only read access, clone-only, and a commit or push leads to a fork with read/write access to that fork.
 - **Only the creator** can connect to a codespace.
-- **Forwarded ports** are private by default (only the creator, after authenticating). They can be made public **to anyone on the internet without authentication**, and organisation owners can restrict this. A public port reverts to private when you remove and re-add it or restart the codespace.
+- **Forwarded ports** are private by default (only the creator, after authenticating). They can be made public **to anyone on the internet without authentication**, and organization owners can restrict this. A public port reverts to private when you remove and re-add it or restart the codespace.
 - "You should only open and work within repositories you know and trust." Code in a codespace can use its token: the risks of Chapter 60<!--ref:wfsec--> (untrusted code, secrets) apply.
 
 Treat secrets as in Chapter 63<!--ref:secpractice-->: do not put them in the dev container configuration, which is committed to the repository. GitHub documents a way to declare which secrets a repository recommends; the mechanism was not examined for this book.

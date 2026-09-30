@@ -26,7 +26,7 @@ ledger: [R270, R271, R272, R273]
 
 Two questions from Chapter 38<!--ref:ghauth--> come back: *who are you?* was authentication; *what may you do?* is **authorisation**, decided by **permissions**, and a **role** is a set of permissions given to a person or team.
 
-For a repository owned by an **organisation**, GitHub's documentation lists five roles, "from least access to most access":
+For a repository owned by an **organization**, GitHub's documentation lists five roles, "from least access to most access":
 
 | Role | The documentation recommends it for |
 |---|---|
@@ -36,11 +36,11 @@ For a repository owned by an **organisation**, GitHub's documentation lists five
 | **Maintain** | project managers who need to manage the repository without access to sensitive or destructive actions |
 | **Admin** | people who need full access, including sensitive and destructive actions like managing security or deleting a repository |
 
-Organisation owners have admin access to every repository of the organisation. Enterprise plans can define **custom repository roles** (up to 20 in the documentation for the current version). The documentation's principle: "Choose the role that best fits each person or team's function in your project without giving people more access to the project than they need."
+Organization owners have admin access to every repository of the organization. Enterprise plans can define **custom repository roles** (up to 20 in the documentation for the current version). The documentation's principle: "Choose the role that best fits each person or team's function in your project without giving people more access to the project than they need."
 
-A repository owned by a **personal account** is simpler: it has "a single owner who has full control", and the owner can invite **collaborators**. For finer control the documentation suggests transferring the repository to an organisation.
+A repository owned by a **personal account** is simpler: it has "a single owner who has full control", and the owner can invite **collaborators**. For finer control the documentation suggests transferring the repository to an organization.
 
-> **Checked against GitHub's documentation (R270).** "Repository roles for an organization" gives the five roles and the quoted principle; "About custom repository roles" says custom roles are limited (up to 20 in the current version); "Permission levels for a personal account repository" describes the single owner and the suggestion to move to an organisation. Which exact actions each role may take is a long table in the documentation and is not reproduced here.
+> **Checked against GitHub's documentation (R270).** "Repository roles for an organization" gives the five roles and the quoted principle; "About custom repository roles" says custom roles are limited (up to 20 in the current version); "Permission levels for a personal account repository" describes the single owner and the suggestion to move to an organization. Which exact actions each role may take is a long table in the documentation and is not reproduced here.
 
 **Least privilege** (Chapter 33<!--ref:gitsec-->) applies: start with the smallest role that lets someone do their job, and remove access when they leave.
 
@@ -125,7 +125,7 @@ Follow the story. `git remote -v` first shows only `origin`, your fork. `git rem
 
 ## 49.4 Code owners
 
-A repository can say *who should review which files*, in a file named `CODEOWNERS`. Each line is a pattern followed by owners (`@username` or `@organisation/team`). It is a plain file, committed like any other, so it is versioned and reviewed like code.
+A repository can say *who should review which files*, in a file named `CODEOWNERS`. Each line is a pattern followed by owners (`@username` or `@organization/team`). It is a plain file, committed like any other, so it is versioned and reviewed like code.
 
 > **New term: code owner.** A person or team named in a `CODEOWNERS` file as responsible for certain files, who is automatically requested to review pull requests that change them.
 
@@ -157,7 +157,7 @@ That last sentence has a consequence for a Git user: the shared defaults are **n
 
 ## What You Learned
 
-- Organisation repositories use five roles: Read, Triage, Write, Maintain, Admin; give the least that works.
+- Organization repositories use five roles: Read, Triage, Write, Maintain, Admin; give the least that works.
 - A clone is on your computer, a branch is inside a repository, a fork is a hosted copy you own.
 - A fork stays in step through a second remote, `upstream`: fetch it and fast-forward your `main`.
 - `CODEOWNERS` requests reviews automatically, from the base branch's copy of the file.
@@ -211,4 +211,4 @@ You are ready for Chapter 50<!--ref:protect--> if you can:
 
 ## Where this leads
 
-Chapter 50<!--ref:protect--> covers rules that make reviews and checks mandatory. Chapter 64<!--ref:oss--> shows how open-source projects use forks, and Chapter 68<!--ref:orgs--> covers organisations in depth.
+Chapter 50<!--ref:protect--> covers rules that make reviews and checks mandatory. Chapter 64<!--ref:oss--> shows how open-source projects use forks, and Chapter 68<!--ref:orgs--> covers organizations in depth.

@@ -424,9 +424,9 @@ Every term that the book defines, in alphabetical order. Each entry gives a simp
 
 *Related:* relative path; path. *First explained in* Chapter [[files]].
 
-**Custom property.** A label with a value that you attach to repositories in an organisation.
+**Custom property.** A label with a value that you attach to repositories in an organization.
 
-*Technically:* Organisation-defined metadata on repositories that can be used, for example, to target rulesets. *Example:* criticality = high
+*Technically:* Organization-defined metadata on repositories that can be used, for example, to target rulesets. *Example:* criticality = high
 
 *Related:* ruleset; organization. *First explained in* Chapter [[platformextras]].
 
@@ -746,7 +746,7 @@ Every term that the book defines, in alphabetical order. Each entry gives a simp
 
 **GitHub Sponsors.** GitHub's way of supporting open-source maintainers with money.
 
-*Technically:* A GitHub program through which people and organisations sponsor maintainers, with additional terms and regional eligibility for those who receive funds. *Example:* A sponsor button on a repository.
+*Technically:* A GitHub program through which people and organizations sponsor maintainers, with additional terms and regional eligibility for those who receive funds. *Example:* A sponsor button on a repository.
 
 *Related:* open source; FUNDING.yml. *First explained in* Chapter [[platformextras]].
 

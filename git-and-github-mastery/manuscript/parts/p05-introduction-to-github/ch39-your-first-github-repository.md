@@ -42,8 +42,8 @@ On the platform you create a repository from a web form, choosing a name and a f
 
 > **Checked against GitHub's documentation (R237).** "Creating a new repository" and the quickstart describe the form: choose the plus icon in the upper-right corner of any page and then **New repository**; choose an owner and a name ("the repository name must not exceed 100 characters, and can only contain ASCII letters, digits, and the characters `.`, `-`, and `_`"), an optional description, and a visibility. The optional items are a README, a `.gitignore` file and a software licence. The choices, in the words of this book:
 >
-> - **Owner and name.** The owner is you or an organisation (Chapter 37<!--ref:ghaccount-->); the name becomes part of every address (Chapter 36<!--ref:whatgh-->).
-> - **Visibility.** *Public* ("accessible to everyone on the internet") or *private* ("only accessible to you, people you explicitly share access with, and, for organization repositories, certain organization members"; organisations that are part of an enterprise can also have *internal* repositories). Decide deliberately. A public repository, and everything in its history, can be copied by anyone (Chapter 33<!--ref:gitsec-->).
+> - **Owner and name.** The owner is you or an organization (Chapter 37<!--ref:ghaccount-->); the name becomes part of every address (Chapter 36<!--ref:whatgh-->).
+> - **Visibility.** *Public* ("accessible to everyone on the internet") or *private* ("only accessible to you, people you explicitly share access with, and, for organization repositories, certain organization members"; organizations that are part of an enterprise can also have *internal* repositories). Decide deliberately. A public repository, and everything in its history, can be copied by anyone (Chapter 33<!--ref:gitsec-->).
 > - **A README.** A file that describes the project (Chapter 42<!--ref:readme-->).
 > - **A `.gitignore`.** A starter list of files to ignore (Chapter 18<!--ref:tracking-->).
 > - **A licence.** The terms under which others may reuse your work (Chapter 65<!--ref:licences-->).

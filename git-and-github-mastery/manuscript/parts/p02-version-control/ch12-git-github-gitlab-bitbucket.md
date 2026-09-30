@@ -66,7 +66,7 @@ Beginners often look for a feature in the wrong place. Use this table to know wh
 | Issues, discussions, project boards | **The platform** |
 | Pull requests and reviews | **The platform** (Chapter 45<!--ref:pr-->) |
 | Automated workflows (*Actions*) | **The platform** (Chapter 54<!--ref:actions-->) |
-| Profiles, organisations, stars, followers | **The platform** |
+| Profiles, organizations, stars, followers | **The platform** |
 | Web pages for a project | **The platform** |
 
 > **Verification pending [R140].** Which features a given platform offers, under which names and conditions, is exactly the sort of statement that must come from its current documentation. Part V and Part VI verify each one before describing it.
