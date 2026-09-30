@@ -3,7 +3,7 @@
 | What | Licence | File |
 |---|---|---|
 | Book text: `manuscript/`, `exercises/`, `solutions/`, `glossary/`, `planning/`, `publishing/` documents, diagrams and the draft cover | CC BY-NC-SA 4.0 | [`LICENSE-TEXT.md`](LICENSE-TEXT.md) |
-| Code samples: code in the chapters, `companion/`, `tools/`, `verification/`, `research/` scripts | MIT | [`LICENSE-CODE`](LICENSE-CODE) |
+| Code samples: code in the chapters, `companion/` (see [`companion/LICENSE.md`](companion/LICENSE.md)), `tools/`, `verification/`, `research/` scripts | MIT | [`LICENSE-CODE`](LICENSE-CODE) |
 | Quotations and third-party material | Their own terms; **not** covered by either licence | [`publishing/third-party-rights-register.md`](publishing/third-party-rights-register.md) |
 | The name SHARIF TECHNOLOGIES and any logo | Not licensed by either | — |
 

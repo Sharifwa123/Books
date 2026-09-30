@@ -29,6 +29,7 @@ Prepared 30 September 2026 to the author's instruction. **Proposed publication w
 | `LICENSE-TEXT.md` (in the book folder) | A short notice: the book text is under CC BY-NC-SA 4.0, the canonical URL, the copyright line, what the licence does not cover. It does **not** contain the legal code. |
 | `LICENSE-CODE` | The MIT License text for the code samples, with "Copyright (c) 2026 SHARIF TECHNOLOGIES". |
 | `LICENSE.md` | A plain index saying which licence applies to which folder. |
+| `companion/LICENSE.md` | States that the companion files are under MIT. The bakery starter's own README is left byte-for-byte as recorded, because the book's recorded command sessions (Chapters 16 and 18) include its contents and commit names; its old "MIT (intended)" line is declared superseded there. |
 
 ## Which material is under which licence
 
