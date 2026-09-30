@@ -1,0 +1,13 @@
+#!git
+git config --global user.name "Ada Learner"
+git config --global user.email "ada@example.org"
+git config --global init.defaultBranch main
+@ mkdir bakery-menu && cd bakery-menu && git init -q && printf "# Sunrise Bakery menu\n\n- White loaf: 2.80\n- Coconut cake (slise): 4.00\n" > menu.md && git add menu.md && git commit -q -m "Add the menu" && git switch -q -c review-me && cd ..
+cd bakery-menu
+grep -n slise menu.md
+sed -i 's/slise/slice/' menu.md
+git diff
+git commit -q -am "Fix the typo in the cake line" -m "Co-authored-by: Sam Reviewer <sam@example.org>"
+git log -1 --format=%B
+git log -1 --format='%(trailers:key=Co-authored-by,valueonly)'
+git shortlog -sne --group=author --group=trailer:co-authored-by HEAD

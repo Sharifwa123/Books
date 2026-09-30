@@ -1,0 +1,30 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ cd bakery-menu
+$ grep -n slise menu.md
+4:- Coconut cake (slise): 4.00
+$ sed -i 's/slise/slice/' menu.md
+$ git diff
+diff --git a/menu.md b/menu.md
+index 462ca3a..bc206a1 100644
+--- a/menu.md
++++ b/menu.md
+@@ -1,4 +1,4 @@
+ # Sunrise Bakery menu
+
+ - White loaf: 2.80
+-- Coconut cake (slise): 4.00
++- Coconut cake (slice): 4.00
+$ git commit -q -am "Fix the typo in the cake line" -m "Co-authored-by: Sam Reviewer <sam@example.org>"
+$ git log -1 --format=%B
+Fix the typo in the cake line
+
+Co-authored-by: Sam Reviewer <sam@example.org>
+
+$ git log -1 --format='%(trailers:key=Co-authored-by,valueonly)'
+Sam Reviewer <sam@example.org>
+
+$ git shortlog -sne --group=author --group=trailer:co-authored-by HEAD
+     2	Ada Learner <ada@example.org>
+     1	Sam Reviewer <sam@example.org>
