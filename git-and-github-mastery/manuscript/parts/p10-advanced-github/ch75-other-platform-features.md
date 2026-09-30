@@ -99,7 +99,7 @@ What does not change, whatever tool produced a change:
 
 Plans, features, limits and policies for these tools differ by account and change often; read the current documentation and your organization's policy.
 
-> **Checked against GitHub's documentation (R346).** "About GitHub Copilot" (first sections only). No AI feature was used to write or check this chapter's claims about it.
+> **Checked against GitHub's documentation (R346).** "About GitHub Copilot" (first sections only). The claims about Copilot were not checked by using it. This book as a whole was written with a different AI assistant, Claude, working with the author; the Preface and Appendix N say how.
 
 ---
 

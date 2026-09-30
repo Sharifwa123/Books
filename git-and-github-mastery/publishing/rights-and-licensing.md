@@ -77,7 +77,7 @@ These seven are stated in the book's copyright page and in Chapter 65.
 ## Points a lawyer should see (not resolved here)
 
 1. Who holds the rights: the author or a separate SHARIF TECHNOLOGIES (see `publisher-imprint-profile.md`).
-2. Whether any part of the text or code is not protected or not owned by the stated holder because of how it was produced (`final-publication-blockers.md`, item 3).
+2. How the AI assistance disclosed in `AI-ASSISTANCE.md` affects ownership and the licence grant; whether any part of the text or code is not protected or not owned by the stated holder because of how it was produced (`final-publication-blockers.md`, item 3).
 3. What counts as "NonCommercial" in the situations the author cares about (classes with fees, sites with advertising, corporate training). The licence's own definition governs.
 4. Adoption effects of a NonCommercial licence (some repositories and publishers accept only licences that allow commercial use); the author has chosen knowingly.
 5. Third-party material listed in `third-party-rights-register.md`, notably any ShareAlike-licensed source.

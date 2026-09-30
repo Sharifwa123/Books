@@ -8,6 +8,7 @@
 - **Manuscript:** complete (81 chapters, 14 appendices, exercises, solutions, glossary, index); full editorial read-through done
 - **Technical information verified:** not yet set (79 ledger rows are still marked unverified, 55 of them early planning rows superseded by later rows; see Appendix N and research/README.md)
 - **ISBN:** none assigned
+- **AI assistance:** this book was written with an AI assistant (Claude, made by Anthropic, used through Claude Code), working with the author. Claude is a contributor and co-author of the commits. Full statement: [AI-ASSISTANCE.md](AI-ASSISTANCE.md)
 - **Licences:** book text CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/); code samples MIT. Proposed wording, not legal advice; see LICENSE.md and publishing/rights-and-licensing.md
 
 This book is an independent educational publication. It is not affiliated with, endorsed by, or sponsored by Git, GitHub, or Microsoft.

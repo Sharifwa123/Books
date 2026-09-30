@@ -31,6 +31,14 @@ A beginner-to-advanced guide to Git and GitHub. It starts with what a computer a
 
 (The last sentence depends on the rights review and is removed if the licence decision changes.)
 
+## AI-assistance disclosure
+
+| Item | State |
+|---|---|
+| Statement in the book (copyright page, Preface, author page, Appendix N) and in `AI-ASSISTANCE.md` | Done |
+| EPUB `dc:contributor` and package metadata name the AI assistant | Done |
+| Retailer upload forms and copyright-registration applications may ask whether AI-generated material is included; the truthful answer is yes, as described in `AI-ASSISTANCE.md` | To answer at upload or filing; requirements not checked (sites unreachable) |
+
 ## Format and file metadata
 
 | Item | State |
@@ -38,7 +46,7 @@ A beginner-to-advanced guide to Git and GitHub. It starts with what a computer a
 | Reflowable EPUB (built from the manuscript, not from the PDF), EPUBCheck-validated in CI | Ready |
 | Screen PDF (A4) and print-profile PDF (170 x 240 mm), PDF/UA-1 validated by veraPDF in CI | Ready |
 | PDF/A-2b archive build validated in CI | Ready |
-| Editable source (Markdown) and clean export without planning notes | Ready (`tools/export_clean.py`) |
+| Editable source (Markdown) and clean export without planning notes (the AI-assistance statement stays in the book text) | Ready (`tools/export_clean.py`) |
 | Kindle: from the EPUB | Amazon's upload requirements not checked (site unreachable) |
 | Cover: front cover, draft | Ready as a draft; back cover, spine and wrap need trim size, page count and ISBN |
 | Accessibility metadata in the EPUB | States that the book is not third-party certified |
