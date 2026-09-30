@@ -6,7 +6,7 @@ Prepared 30 September 2026 to the author's instruction. **Proposed publication w
 
 | Item | Decision | Source of the decision |
 |---|---|---|
-| Copyright holder | SHARIF TECHNOLOGIES | Author's instruction, 30 September 2026. Legal basis not documented (see `publisher-imprint-profile.md`). |
+| Copyright holder | SHARIF TECHNOLOGIES | Author's instruction, confirmed again 30 September 2026. Legal basis not documented (see `publisher-imprint-profile.md`); the book is published by the author personally under the imprint. |
 | Copyright year | 2026 | Author's instruction |
 | Book text licence | Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0), SPDX `CC-BY-NC-SA-4.0` | Author's instruction |
 | Canonical licence URL | https://creativecommons.org/licenses/by-nc-sa/4.0/ | Author's instruction |

@@ -1,36 +1,32 @@
 # Final Publication Blockers
 
-Status at 30 September 2026. Everything that can be done without a person has been done. What remains needs the author (or, for some items, a lawyer, an agency or a printer). Nothing below stops further unattended work on the manuscript, tooling or checks.
+Status at 30 September 2026, after the author's answers of the same day. The book is an **electronic book only** (no print edition). Everything that could be done without an outside party is done.
 
-## A. Needs the author's decision or confirmation
+## A. Decided by the author on 30 September 2026
 
-| # | Blocker | Why it cannot be settled by the project | What is ready |
+| # | Matter | The author's decision | What the project did |
 |---|---|---|---|
-| 1 | **Rights holder.** Is SHARIF TECHNOLOGIES the author's trading name, or a separate legal person? If separate, there must be a written basis (assignment, employment terms or similar) for it to hold the copyright and to grant the licences. | The relationship is a legal fact. The project found no registry or document (`publisher-imprint-profile.md`). It will not manufacture a basis. | The pages are prepared exactly as instructed. An alternative wording naming the author is in `publisher-imprint-profile.md`. |
-| 2 | **Final licence wording sign-off.** Confirm the wording on the copyright page is what the author wants to publish. | It is proposed wording, not legal advice; the Creative Commons text was checked by the author, not by this project (`creativecommons.org` is unreachable). | `rights-and-licensing.md`, `LICENSE-TEXT.md`, `LICENSE-CODE`, `LICENSE.md`. |
-| 3 | **AI assistance and authorship. Disclosure decided on 30 September 2026: the book and repository state it everywhere (`AI-ASSISTANCE.md`, copyright page, Preface, author page, Appendix N, READMEs, metadata).** What remains is the legal meaning: The repository history records that this book was produced with AI assistance (commit trailers). Decide what the book says about it, and confirm with qualified advice what that means for copyright ownership, for registration, and for the licence grant ("only for material the rights holder has authority to grant"). | Some legal systems do not give copyright to machine-generated material, and registration offices may ask for disclosure. This is a legal and ethical decision for the author, and the readers are owed honesty. The project will not hide it and will not assert an ownership conclusion. | The title page says "Written by Sharif Tingane Issah"; the author must decide whether that stays exactly as it is. The clean export contains no working notes. A one-sentence disclosure can be added to the copyright page once the author chooses the wording. |
-| 4 | **Publication authorisation.** Explicit permission to publish or release the finished book. | Reserved to the author. | All build and validation pipelines. |
-| 5 | **Website and contact.** Confirm `www.shariftechnologies.online` is the official, live site. Decide whether to give a contact address. | The site could not be opened here. No address was supplied, and a personal address found in a public package record was deliberately not used. | The page prints the website the author's profile lists. |
-| 6 | **Biography sign-off.** Read the three biographies in `author-biographies.md` and confirm or correct them, and add any credential or employment the author wants stated, with a source. | The biography is built from public evidence only; the author knows what else is true. | Short, standard and extended versions. |
+| 1 | Rights holder | SHARIF TECHNOLOGIES | Copyright page and metadata say so. **The legal relationship between the author and SHARIF TECHNOLOGIES is still undocumented** (no registry or document was found; see `publisher-imprint-profile.md`). The decision is recorded as the author's; the project does not claim it is legally verified |
+| 2 | Publication | Authorised, under the author's identity, as an ebook | Copyright page: "Published by Sharif Issah Tingane, under the SHARIF TECHNOLOGIES imprint"; ebook formats built and validated; print profiles are no longer needed |
+| 3 | Author name | Sharif Issah Tingane | Applied to the book, cover, metadata and repository |
+| 4 | Biography | Education entry kept; PHP experience removed; location "Wenchi, Ghana" | Applied (`author-biographies.md`) |
+| 5 | AI assistance | The author describes it as using AI to run research and automate compilation | The book's statement **stays as the repository's history shows it**: the assistant also drafted the chapters, exercises, solutions, glossary and code (`AI-ASSISTANCE.md`). If the author wrote or rewrote parts personally, the author says which and the statement is extended; it is not narrowed below what the history records |
+| 6 | Website | `www.shariftechnologies.online` printed on the copyright and author pages | Not opened by this project; the author confirms it is live |
 
-## B. Needs an outside party
+## B. Waiting on an outside party or on a person
 
-| # | Blocker | Who |
-|---|---|---|
-| 7 | ISBN for each sold format (`isbn-metadata-checklist.md`) | The ISBN agency for the registrant's territory, after the registrant is settled |
-| 8 | Print specification: trim size, paper, binding, printer; then back cover, spine and wrap | The author and a printer |
-| 9 | Legal review of the licence structure, the rights holder, the third-party register open points (ShareAlike sources) | A qualified adviser |
-| 10 | A real screen-reader test and a reading test with a beginner | A person with the tools |
-| 11 | A run of the book's GitHub-side procedures on a live account (the "live-account pass") | The author's account |
-| 12 | Kindle and other retailers' own upload requirements | Their sites, which are unreachable from the authoring environment |
+| # | Item | Who | State |
+|---|---|---|---|
+| 7 | **ISBN** | The ISBN agency for the registrant's territory | The agency needs the full manuscript. **The manuscript package is built** (`isbn-metadata-checklist.md`, section 4): the author submits it. No ISBN exists; none is stated anywhere |
+| 8 | Legal advice on the rights holder and on AI-assisted material | A qualified person | Recommended before or soon after release; not something the project can supply |
+| 9 | Uploading to bookshops and any retailer forms (including AI-content questions; answer truthfully, see `AI-ASSISTANCE.md`) | The author | Retailer requirements were not checked (their sites are unreachable from the authoring environment) |
+| 10 | A real screen-reader test and a beginner reading test | A person with the tools | Not done; the book states it is not third-party accessibility certified |
+| 11 | The run of the book's GitHub procedures on a live account | The author's account | Not done; the book labels every such statement |
+| 12 | Default branch of the GitHub repository | The owner, in Settings | Still `ccr-761e9a6b-sigmi1`; switch to `main` |
 
 ## C. Known limits, not blockers
 
-- 79 ledger rows are still marked unverified (55 are early planning rows superseded by later chapter-level rows); many need hosts that cannot be reached here. Appendix N lists them, and the chapters carry 25 verification-pending markers.
+- 79 ledger rows are still marked unverified (55 are superseded planning rows); Appendix N lists them, and the chapters carry 25 verification-pending markers.
 - No list of tables; no byte-reproducible PDFs.
-- The book is not third-party accessibility certified.
 - The empty-commit revert exercise stays blocked until its cause is confirmed.
-
-## D. Not blockers any more
-
-Author biography (written from evidence), publisher profile (written, with the legal status left open), licence wording (prepared), third-party rights register (prepared), ISBN checklist (prepared), stale repository status text (updated), the six references to `research/…` paths (audited, `research-file-references-audit.md`).
+- The copyright notice depends on the legal relationship in item 1 and on the legal effect of the AI assistance (item 8).

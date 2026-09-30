@@ -1,8 +1,10 @@
 # AI Assistance: how this book and its repository were made
 
-**This book was written with an AI assistant.** The assistant is Claude, made by Anthropic, used through Claude Code, working in sessions with the author, Sharif Tingane Issah. This page says where the assistant worked, what the author decided, how the repository records it, and what remains uncertain. The printed book carries a shorter statement (copyright page, Preface, author page and Appendix N); this page is the full version.
+**This book was written with an AI assistant.** The assistant is Claude, made by Anthropic, used through Claude Code, working in sessions with the author, Sharif Issah Tingane. This page says where the assistant worked, what the author decided, how the repository records it, and what remains uncertain. The printed book carries a shorter statement (copyright page, Preface, author page and Appendix N); this page is the full version.
 
 ## Who did what
+
+The author describes their own use of AI as running research and automating the compilation of the book. The repository's history shows more than that: the assistant also drafted the chapters, exercises, solutions, glossary, appendices and code, and this page follows the history. If the author wrote or rewrote parts personally, this table is extended to say which.
 
 | Area | What the AI assistant did | What the author did and decided |
 |---|---|---|

@@ -4,21 +4,21 @@ Written 30 September 2026 from `author-research-report.md`, revised the same day
 
 **Use:** the short version for retailer metadata and back matter, the standard version for the book's "Author and Publisher" page, the extended version for a publisher website, author page or press material. Re-read them before publication: the dates and the software version change.
 
-## Short biography (64 words)
+## Short biography (59 words)
 
-Sharif Tingane Issah (also styled Sharif Issah Tingane) builds software from Ghana and founded SHARIF TECHNOLOGIES. Sharif reports more than seven years of building web and desktop applications in PHP. Public projects include SAIBA, an AI business assistant, Sharif NOVA, an open-source programming language, and CodeCast, an Android app. This book, for first-time learners, was written with the help of an AI assistant, Claude.
+Sharif Issah Tingane builds software from Wenchi, Ghana, and founded SHARIF TECHNOLOGIES. Public projects include SAIBA, an AI business assistant; Sharif NOVA, an open-source programming language; and CodeCast, an Android app. A public ORCID record lists interests in software development, AI, cybersecurity and networking. This book, for first-time learners, was written with the help of an AI assistant, Claude.
 
-## Standard biography (174 words) — used in the book
+## Standard biography (152 words) — used in the book
 
-Sharif Tingane Issah (also styled Sharif Issah Tingane) is the founder of SHARIF TECHNOLOGIES, the name under which Sharif builds and publishes software and books from Ghana. The SHARIF TECHNOLOGIES website lists custom web and mobile software, cybersecurity, networking and ICT training. In a public post, Sharif reports more than seven years of building web and desktop applications in PHP.
+Sharif Issah Tingane is the founder of SHARIF TECHNOLOGIES, the name under which Sharif builds and publishes software and books from Wenchi, Ghana. The SHARIF TECHNOLOGIES website lists custom web and mobile software, cybersecurity, networking and ICT training.
 
 Public projects include SAIBA, an AI assistant for business customer support; Sharif NOVA, an open-source programming language and toolchain, still at an early version number; and CodeCast, an Android app that its repository describes as turning a codebase into a video tutorial. Sharif's public ORCID record lists interests in software development, artificial intelligence, cybersecurity, networking and developer tools, and an education entry in General Science at Techiman Senior High School, Ghana.
 
 This book follows one habit: every command was run and recorded, each claim is tied to its source, and what could not be checked is written down. It was written with the help of an AI assistant, Claude, as the copyright page explains.
 
-## Extended biography (372 words)
+## Extended biography (346 words)
 
-Sharif Tingane Issah, also styled Sharif Issah Tingane in some public records, is the founder of SHARIF TECHNOLOGIES, the name under which Sharif builds and publishes software and books. Sharif works from Ghana and has kept a public GitHub account since March 2023. The SHARIF TECHNOLOGIES website lists custom web and system development, mobile applications, software maintenance, cybersecurity, networking and ICT training. In a public post announcing the website, Sharif reports more than seven years of building web and desktop applications in PHP.
+Sharif Issah Tingane is the founder of SHARIF TECHNOLOGIES, the name under which Sharif builds and publishes software and books. Sharif works from Wenchi, in Ghana's Bono Region, and has kept a public GitHub account since March 2023. The SHARIF TECHNOLOGIES website lists custom web and system development, mobile applications, software maintenance, cybersecurity, networking and ICT training.
 
 Several projects are public. SAIBA is an AI assistant for business customer support that works from a business's own knowledge and rules and hands over to a person when needed; it was announced as under development and available for testing, and is distributed as Android builds. Sharif NOVA is a programming language and toolchain, started as an independent project and meant to read like ordinary instructions while still going through a real compiler pipeline; by its own documentation it has a parser, a semantic checker, an interpreter, a compiler from page descriptions to HTML and JavaScript, and a mode that serves an API and pages together. It is released under the MIT licence, first appeared on npm in September 2026, and is at an early version number. CodeCast is an Android app that its repository describes as turning a codebase into a video tutorial. Nothing here is a claim about how widely any of these is used.
 
@@ -32,12 +32,11 @@ Sources marked "dossier" come from the author's research dossier of 30 September
 
 | Claim in the biographies | Evidence | Kind |
 |---|---|---|
-| Sharif Tingane Issah is the author; also styled Sharif Issah Tingane | Book credit; ORCID name fields and the LinkedIn and Facebook display names (dossier) | Self; cross-linked public profiles, **not** civil-identity proof |
+| Sharif Issah Tingane is the author | Confirmed by the author on 30 September 2026 as the credited name order (ORCID, LinkedIn and Facebook use the same order; the repository's earlier drafts used "Sharif Tingane Issah") | Author's confirmation; cross-linked public profiles, **not** civil-identity proof |
 | Founder of SHARIF TECHNOLOGIES | GitHub bio "Founder @ SHARIF TECHNOLOGIES"; LinkedIn headline "Startup Founder, CEO, Tech Builder" (dossier) | **Self-description**; no legal-entity claim. "CEO" is not used |
 | SHARIF TECHNOLOGIES is the name under which the author builds and publishes software and books | GitHub company field; website (dossier); npm package; repository root README | Self |
-| Works from Ghana | GitHub location; website says it is based in Wenchi, Bono Region, serving Ghana (dossier). Only the country is printed | Self |
+| Works from Wenchi, Ghana (Bono Region) | GitHub location; the company website says it is based in Wenchi, Bono Region (dossier); the author confirmed "Wenchi, Ghana" for print on 30 September 2026 | Self; business location, no street address |
 | Website lists the services named | Official website and Services page (dossier) | Self; delivery of services not verified |
-| Reports more than seven years of building web and desktop applications in PHP | Facebook website-launch post under the author's name (dossier) | **First-person claim**, not independently audited; attributed with "reports" |
 | Public GitHub account since March 2023 | Account creation date on the GitHub profile | Platform record |
 | SAIBA: AI assistant for business customer support; announced as under development and available for testing; Android builds | SAIBA site, APK repository and releases, announcement (dossier) | Project presentation; functionality, adoption and approval not verified |
 | Sharif NOVA: programming language and toolchain; independent project; parser, checker, interpreter, page compiler, server mode; MIT; npm in September 2026; early version | npm README and registry record (read by this project); repository and HANDOFF (dossier) | Author's own documentation; code not read; the repository's own version statements differ |

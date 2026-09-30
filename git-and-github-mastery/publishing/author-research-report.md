@@ -1,6 +1,6 @@
 # Author and Publisher Research Report
 
-Research date: 30 September 2026. Authorised by the author (Sharif Tingane Issah) in this session to research public evidence about the author and SHARIF TECHNOLOGIES. Method: read only what public sources could be reached from the authoring environment; do not treat search snippets or aggregator profiles as evidence; write nothing the evidence does not support. This report is internal (publishing folder); it is not part of the book text.
+Research date: 30 September 2026. Authorised by the author (Sharif Issah Tingane) in this session to research public evidence about the author and SHARIF TECHNOLOGIES. Method: read only what public sources could be reached from the authoring environment; do not treat search snippets or aggregator profiles as evidence; write nothing the evidence does not support. This report is internal (publishing folder); it is not part of the book text.
 
 ## 1. What could and could not be reached
 
@@ -14,7 +14,7 @@ Research date: 30 September 2026. Authorised by the author (Sharif Tingane Issah
 | LinkedIn, search engines, social media, academic or research indexes, Wikipedia, company registries | **No**: blocked or not reachable | No evidence from these. |
 | api.github.com and github.com pages directly | Blocked (HTTP 403 through the proxy) | The GitHub connection was used instead. |
 
-Name variants searched where a search was possible (npm registry text search): `sharifwa123`, `maintainer:sharifwa123`. Variants such as "Sharif Issah Tingane", "Sharif Tingane" and "Sharif Issah" could not be searched on general search engines, which are blocked. **No public source reached here contains the full name "Sharif Tingane Issah" except this book project's own metadata.** The link between the person and the GitHub account rests on the author's own statement in this session and on the account that owns the book repository.
+Name variants searched where a search was possible (npm registry text search): `sharifwa123`, `maintainer:sharifwa123`. Variants such as "Sharif Issah Tingane", "Sharif Tingane" and "Sharif Issah" could not be searched on general search engines, which are blocked. **No public source reached here contains the full name "Sharif Issah Tingane" except this book project's own metadata.** The link between the person and the GitHub account rests on the author's own statement in this session and on the account that owns the book repository.
 
 ## 2. Evidence found
 
@@ -44,11 +44,11 @@ Name variants searched where a search was possible (npm registry text search): `
 | Reported downloads | The registry reported a few hundred downloads in the week of the query. **Not used**: download counts on a new package include mirrors and bots and do not show use. |
 | Stage | Early (version 0.x, first published a week before this research) |
 
-What this supports: Sharif Tingane Issah's GitHub account is associated with a language project under the SHARIF TECHNOLOGIES name, at an early stage. What it does **not** support: that the language is used by others, production-ready or successful. It is described as an early-stage project, nothing more.
+What this supports: Sharif Issah Tingane's GitHub account is associated with a language project under the SHARIF TECHNOLOGIES name, at an early stage. What it does **not** support: that the language is used by others, production-ready or successful. It is described as an early-stage project, nothing more.
 
 ### 2.3 This repository
 
-- `Sharifwa123/Books`: a public repository, owner `Sharifwa123`. Root README: "Main directory for all books by Sharif Tingane Issah, published under SHARIF TECHNOLOGIES". One book folder.
+- `Sharifwa123/Books`: a public repository, owner `Sharifwa123`. Root README: "Main directory for all books by Sharif Issah Tingane, published under SHARIF TECHNOLOGIES". One book folder.
 - The book itself: 81 chapters in 13 parts, 14 appendices, exercises and solutions, a research ledger with 356 rows and recorded command sessions, in CI. Commits were made with AI assistance (the commit trailers say so); see `final-publication-blockers.md`, item 3.
 - Activity: 164 commits and 22 merged pull requests in this repository between 29 and 30 September 2026.
 
@@ -103,7 +103,7 @@ The author supplied a 16-page "Author Research Dossier" made from public sources
 
 | Finding | Use |
 |---|---|
-| ORCID record (public API): given names "Sharif Issah", family name "Tingane"; links to the company website and the Facebook page; keywords (software, AI, cybersecurity, networking, ICT, developer tools, programming languages and others); works list empty | The name order "Sharif Issah Tingane" is listed as a public variant. Interests are attributed to the ORCID record. No publications claimed |
+| ORCID record (public API): given names "Sharif Issah", family name "Tingane"; links to the company website and the Facebook page; keywords (software, AI, cybersecurity, networking, ICT, developer tools, programming languages and others); works list empty | The name order matches the author's confirmed credit. Interests are attributed to the ORCID record. No publications claimed |
 | ORCID education entry: General Science / WASSCE, Techiman Senior High School, Ghana, December 2023 to June 2026; no result stated | Used in the standard and extended biographies as "an education entry" in General Science, without dates, result or certificate. **The author can remove it** |
 | LinkedIn (sign-in-gated): headline "Startup Founder, CEO, Tech Builder"; education previews conflict (a university and the school) | "Founder" used as the author's own description; "CEO" and any university claim **not** used |
 | Facebook website-launch post: more than seven years of PHP web and desktop applications | Used, attributed ("reports"); not independently audited |
@@ -115,8 +115,8 @@ The author supplied a 16-page "Author Research Dossier" made from public sources
 
 **Unsupported claims the dossier lists, all respected:** civil-identity authentication; SHARIF TECHNOLOGIES as incorporated, registered, a separate legal person or registered publisher; a WASSCE result; a university degree or enrolment; proven employer, client or delivered product behind the PHP statement; verified cybersecurity expertise; independent testing, security or adoption of SAIBA, NOVA, CodeCast or the Space; publication, ISBN or rights clearance of this book; who wrote each passage of the book; authorship of the company's blog articles.
 
-**Points for the author**
-1. **Name order.** The book credits "Sharif Tingane Issah"; ORCID has family name "Tingane". Decide the order for the cover and for ISBN and library records (the variant can be listed as an alternate name).
-2. **Education entry.** It is the author's own public ORCID entry, but it names a secondary school; say if it should stay in the printed biography.
-3. **PHP experience.** Self-reported; say if it should stay.
-4. **Wenchi.** The business location is public on the company website; the book prints only "Ghana".
+**Author's answers of 30 September 2026**
+1. **Name order:** "Sharif Issah Tingane" (applied throughout the book, its metadata and the repository; the earlier "Sharif Tingane Issah" is only an alternate form in records made before the change).
+2. **Education entry:** keep, worded as an ORCID-listed entry.
+3. **PHP experience:** remove (removed from the biographies).
+4. **Location:** "Wenchi, Ghana" (added to the biographies and the author page).

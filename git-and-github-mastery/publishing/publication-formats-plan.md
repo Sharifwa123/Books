@@ -1,6 +1,8 @@
 # Publication Formats Plan (EPUB, PDF, source, cover, metadata)
 
-Status (2026-09-30): partly implemented; see the table below. Nothing here overrides the master plan; it records the format principles so they are applied when the manuscript reaches the publication stage. The PDF edition is already built (see `pdf-build-plan.md`).
+**Decision of 30 September 2026: the book is an electronic book only.** EPUB and the screen PDF are the release formats; the print PDF profile, back cover, spine and trim size are out of scope unless the author later adds a print edition.
+
+Status (2026-09-30): implemented for the ebook formats; see the table below. Nothing here overrides the master plan; it records the format principles so they are applied when the manuscript reaches the publication stage. The PDF edition is already built (see `pdf-build-plan.md`).
 
 ## Principle
 CONTENT -> STRUCTURE -> ACCESSIBILITY -> NAVIGATION -> REFLOWABLE PRESENTATION -> VISUAL DESIGN.
@@ -37,7 +39,7 @@ Exact layout and names to follow the master plan when the stage is reached.
 A separate export contains only the published book: cover, title page, copyright page, author information, contents, main text, references, about the author and end matter. It must exclude research notes, TODO lists, planning, repository architecture, drafting instructions and AI working notes. A check will list what the export contains and fail if any `planning/`, `research/` or ledger-internal material is present. The registration itself is a human action (gate D).
 
 ## Identity and legal
-- Author, consistently: Sharif Tingane Issah.
+- Author, consistently: Sharif Issah Tingane.
 - SHARIF TECHNOLOGIES is the intended brand identity. The legal publisher or imprint is undecided and is not asserted as a legal fact anywhere until the rights holder decides (gates A and B).
 - ISBN, address and author biography stay placeholders until officially assigned or supplied. Licence wording stays undecided (gate A).
 

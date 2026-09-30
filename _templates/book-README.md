@@ -1,7 +1,7 @@
 # [Book Title]
 
 - **Subtitle:** [ ]
-- **Author:** Sharif Tingane Issah
+- **Author:** Sharif Issah Tingane
 - **Publisher / rights holder:** SHARIF TECHNOLOGIES
 - **Slogan:** Knowledge Is Power
 - **Genre / audience:** [ ]

@@ -2,7 +2,7 @@
 
 ## The author
 
-Sharif Tingane Issah (also styled Sharif Issah Tingane) is the founder of SHARIF TECHNOLOGIES, the name under which Sharif builds and publishes software and books from Ghana. The SHARIF TECHNOLOGIES website lists custom web and mobile software, cybersecurity, networking and ICT training. In a public post, Sharif reports more than seven years of building web and desktop applications in PHP.
+Sharif Issah Tingane is the founder of SHARIF TECHNOLOGIES, the name under which Sharif builds and publishes software and books from Wenchi, Ghana. The SHARIF TECHNOLOGIES website lists custom web and mobile software, cybersecurity, networking and ICT training.
 
 Public projects include SAIBA, an AI assistant for business customer support; Sharif NOVA, an open-source programming language and toolchain, still at an early version number; and CodeCast, an Android app that its repository describes as turning a codebase into a video tutorial. Sharif's public ORCID record lists interests in software development, artificial intelligence, cybersecurity, networking and developer tools, and an education entry in General Science at Techiman Senior High School, Ghana.
 
@@ -10,7 +10,7 @@ This book follows one habit: every command was run and recorded, each claim is t
 
 ## The imprint
 
-**SHARIF TECHNOLOGIES** is the name under which Sharif Tingane Issah writes and publishes software and books. This book is published under the SHARIF TECHNOLOGIES imprint. The name is not licensed by the book's licences.
+**SHARIF TECHNOLOGIES** is the name under which Sharif Issah Tingane writes and publishes software and books. This book is published under the SHARIF TECHNOLOGIES imprint. The name is not licensed by the book's licences.
 
 *Knowledge Is Power*
 

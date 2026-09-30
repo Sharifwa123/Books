@@ -16,7 +16,7 @@ os.makedirs(os.path.dirname(out), exist_ok=True)
 M = os.path.join(root, "manuscript"); DIAG = os.path.join(root, "publishing", "build", "diagrams")
 TITLE = "Git & GitHub: From Zero to Mastery"
 SUB = "A Complete Beginner-to-Expert Guide to Version Control, Collaboration, Automation, Security, and Modern Software Development"
-AUTHOR = "Sharif Tingane Issah"
+AUTHOR = "Sharif Issah Tingane"
 epoch = int(os.environ.get("SOURCE_DATE_EPOCH", "0")) or int(datetime.datetime.now(datetime.timezone.utc).timestamp())
 STAMP = datetime.datetime.fromtimestamp(epoch, datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 md = MarkdownIt("commonmark", {"xhtmlOut": True}).enable("table")
