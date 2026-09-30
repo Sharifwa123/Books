@@ -1,0 +1,15 @@
+#!git
+git config --global user.name "Ada Learner"
+git config --global user.email "ada@example.org"
+git config --global init.defaultBranch main
+@ git init -q --bare bakery-menu.wiki.git && git clone -q bakery-menu.wiki.git seed 2>/dev/null && cd seed && printf '# Welcome\n\nThe Sunrise Bakery wiki.\n' > Home.md && git add Home.md && git commit -q -m "Create the Home page" && git push -q origin HEAD:main && cd .. && rm -rf seed
+git clone -q bakery-menu.wiki.git bakery-wiki
+cd bakery-wiki
+ls
+git log --oneline
+printf '# Recipes\n\nHow we bake the white loaf.\n' > Recipes.md
+git add Recipes.md
+git commit -q -m "Add the Recipes page"
+git push -q origin main
+git log --oneline
+git -C ../bakery-menu.wiki.git log --oneline main
