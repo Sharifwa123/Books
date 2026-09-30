@@ -1,0 +1,11 @@
+#!git
+git config --global user.name "Ada Learner"
+git config --global user.email "ada@example.org"
+git config --global init.defaultBranch main
+@ printf %s aW1wb3J0IGhtYWMsIGhhc2hsaWIsIHN5cwpzZWNyZXQgPSAiSXQncyBhIFNlY3JldCB0byBFdmVyeWJvZHkiLmVuY29kZSgidXRmLTgiKQpkZWYgc2lnbmF0dXJlKHBheWxvYWQpOgogICAgcmV0dXJuICJzaGEyNTY9IiArIGhtYWMubmV3KHNlY3JldCwgcGF5bG9hZC5lbmNvZGUoInV0Zi04IiksIGhhc2hsaWIuc2hhMjU2KS5oZXhkaWdlc3QoKQpkZWYgdmVyaWZ5KHBheWxvYWQsIGhlYWRlcik6CiAgICByZXR1cm4gaG1hYy5jb21wYXJlX2RpZ2VzdChzaWduYXR1cmUocGF5bG9hZCksIGhlYWRlcikKaGVhZGVyID0gInNoYTI1Nj03NTcxMDdlYTBlYjI1MDlmYzIxMTIyMWNjZTk4NGI4YTM3NTcwYjZkNzU4NmMyMmM0NmY0Mzc5YzhiMDQzZTE3IgpwcmludChzaWduYXR1cmUoIkhlbGxvLCBXb3JsZCEiKSkKcHJpbnQoImdlbnVpbmUgZGVsaXZlcnkgYWNjZXB0ZWQ6IiwgdmVyaWZ5KCJIZWxsbywgV29ybGQhIiwgaGVhZGVyKSkKcHJpbnQoInRhbXBlcmVkIHBheWxvYWQgYWNjZXB0ZWQ6IiwgdmVyaWZ5KCJIZWxsbywgV29ybGQ/IiwgaGVhZGVyKSkK | base64 -d > sig.py
+@ printf %s aW1wb3J0IHJlLCBzeXMKbGluayA9IHN5cy5zdGRpbi5yZWFkKCkuc3RyaXAoKQpwYWdlcyA9IHtyZWw6IHVybCBmb3IgdXJsLCByZWwgaW4gcmUuZmluZGFsbChyJzwoW14+XSspPjsgcmVsPSIoXHcrKSInLCBsaW5rKX0KZm9yIHJlbCBpbiAoImZpcnN0IiwgInByZXYiLCAibmV4dCIsICJsYXN0Iik6CiAgICBwcmludChyZWwsICItPiIsIHBhZ2VzLmdldChyZWwsICIobm9uZSkiKSkK | base64 -d > link.py
+python3 sig.py
+secret="It's a Secret to Everybody"
+printf '%s' 'Hello, World!' | openssl dgst -sha256 -hmac "$secret" | awk '{print $NF}'
+printf '%s\n' '<https://api.github.com/repositories/1300192/issues?page=2>; rel="prev", <https://api.github.com/repositories/1300192/issues?page=4>; rel="next", <https://api.github.com/repositories/1300192/issues?page=515>; rel="last", <https://api.github.com/repositories/1300192/issues?page=1>; rel="first"' | python3 link.py
+printf '%s\n' '<https://api.github.com/repositories/1300192/issues?page=2>; rel="next"' | python3 link.py
