@@ -1,0 +1,21 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ title='a"; echo INJECTED-COMMAND-RAN; #'
+$ echo "$title"
+a"; echo INJECTED-COMMAND-RAN; #
+$ printf 'title="%s"\necho "checking: $title"\n' "$title" > vulnerable.sh
+$ cat vulnerable.sh
+title="a"; echo INJECTED-COMMAND-RAN; #"
+echo "checking: $title"
+$ sh vulnerable.sh
+INJECTED-COMMAND-RAN
+checking: a
+$ printf 'echo "checking: $TITLE"\n' > safe.sh
+$ cat safe.sh
+echo "checking: $TITLE"
+$ TITLE="$title" sh safe.sh
+checking: a"; echo INJECTED-COMMAND-RAN; #
+$ git check-ref-format --branch 'zzz";echo${IFS}"hello";#' && echo "Git accepts that as a branch name"
+zzz";echo${IFS}"hello";#
+Git accepts that as a branch name
