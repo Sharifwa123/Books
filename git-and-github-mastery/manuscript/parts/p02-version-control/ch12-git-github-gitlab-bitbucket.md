@@ -21,7 +21,7 @@ ledger: [R140, R141]
 
 > **Independent publication.** This book is an independent educational work by Sharif Tingane Issah, issued under the SHARIF TECHNOLOGIES name. It is not affiliated with, endorsed by, sponsored by, or published by Git, GitHub, GitLab, Bitbucket, Microsoft, or any company mentioned. Names of products and companies are trademarks of their respective owners and are used here only to identify them.
 
-> **Verification pending [R140].** Descriptions of products and companies in this chapter are general and have not yet been checked against each product's own documentation. Products change quickly; the chapter avoids statements about specific features, prices or ownership for that reason, and the release gate will not pass until the ledger rows are verified against current official sources.
+> **Verification pending [R140].** Descriptions of products and companies in this chapter are general and have not yet been checked against each product's own documentation. Products change quickly; the chapter avoids statements about specific features, prices or ownership for that reason. Check current official sources before relying on any product detail.
 
 ---
 
