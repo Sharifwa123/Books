@@ -1,0 +1,48 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ cd bakery-menu
+$ git switch -c add-tea
+Switched to a new branch 'add-tea'
+$ printf -- '- Tea: 1.50\n' >> menu.md
+$ git commit -am "Add tea"
+[add-tea 73ad7ed] Add tea
+ 1 file changed, 1 insertion(+)
+$ git switch main
+Switched to branch 'main'
+$ printf 'Open Monday to Saturday.\n' > hours.md
+$ git add hours.md
+$ git commit -m "Add opening hours"
+[main 1e5eef8] Add opening hours
+ 1 file changed, 1 insertion(+)
+ create mode 100644 hours.md
+$ git log --oneline --all --graph
+* 1e5eef8 (HEAD -> main) Add opening hours
+| * 73ad7ed (add-tea) Add tea
+|/
+* 81f772e Add coconut cake
+* 9f10b43 Raise the price of the white loaf
+* 8a52ffe Add the menu
+$ git switch add-tea
+Switched to branch 'add-tea'
+$ git rebase main
+Successfully rebased and updated refs/heads/add-tea.
+$ git log --oneline --all --graph
+* 2cc423d (HEAD -> add-tea) Add tea
+* 1e5eef8 (main) Add opening hours
+* 81f772e Add coconut cake
+* 9f10b43 Raise the price of the white loaf
+* 8a52ffe Add the menu
+$ git switch main
+Switched to branch 'main'
+$ git merge add-tea
+Updating 1e5eef8..2cc423d
+Fast-forward
+ menu.md | 1 +
+ 1 file changed, 1 insertion(+)
+$ git log --oneline --graph
+* 2cc423d (HEAD -> main, add-tea) Add tea
+* 1e5eef8 Add opening hours
+* 81f772e Add coconut cake
+* 9f10b43 Raise the price of the white loaf
+* 8a52ffe Add the menu

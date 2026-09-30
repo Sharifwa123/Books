@@ -1,0 +1,15 @@
+#!git
+git config --global user.name "Ada Learner"
+git config --global user.email "ada@example.org"
+git config --global init.defaultBranch main
+@ mkdir bakery-menu && cd bakery-menu && git init -q && printf "# Sunrise Bakery menu\n\n- White loaf: 2.50\n- Rolls (six): 3.00\n" > menu.md && git add menu.md && git commit -q -m "Add the menu" && printf "# Sunrise Bakery menu\n\n- White loaf: 2.80\n- Rolls (six): 3.00\n" > menu.md && git commit -q -am "Raise the price of the white loaf" && printf "# Sunrise Bakery menu\n\n- White loaf: 2.80\n- Rolls (six): 3.00\n- Coconut cake (slice): 4.00\n" > menu.md && git commit -q -am "Add coconut cake" && cd ..
+cd bakery-menu
+git tag -a v0.1.0 8a52ffe -m "First draft of the menu"
+git tag -a v1.0.0 -m "First public menu"
+git tag v1.0.0-rc.1 HEAD~1
+git tag
+git tag --sort=version:refname
+git -c versionsort.suffix=-rc tag --sort=version:refname
+git describe
+git describe --tags 8a52ffe
+git show v0.1.0 --stat --oneline

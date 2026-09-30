@@ -1,0 +1,46 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ cd bakery-menu
+$ printf -- '- Tea: 1.50\n' >> menu.md
+$ git commit -am "Add tea"
+[main 60cb0bb] Add tea
+ 1 file changed, 1 insertion(+)
+$ printf -- '- Coffee: 2.00\n' >> menu.md
+$ git commit -am "Add coffee"
+[main bf6d066] Add coffee
+ 1 file changed, 1 insertion(+)
+$ printf -- '- Juice: 2.20\n' >> menu.md
+$ git commit -am "Add juice"
+[main bde8e38] Add juice
+ 1 file changed, 1 insertion(+)
+$ git log --oneline
+bde8e38 (HEAD -> main) Add juice
+bf6d066 Add coffee
+60cb0bb Add tea
+81f772e Add coconut cake
+9f10b43 Raise the price of the white loaf
+8a52ffe Add the menu
+$ GIT_SEQUENCE_EDITOR="sed -i -e '2s/^pick/squash/' -e '3s/^pick/squash/'" git rebase -i HEAD~3
+hint: Waiting for your editor to close the file...
+hint: Waiting for your editor to close the file...
+[detached HEAD 69d6e2b] Add tea
+ Date: Mon Jan 5 09:09:00 2026 +0000
+ 1 file changed, 3 insertions(+)
+Successfully rebased and updated refs/heads/main.
+$ git log --oneline
+69d6e2b (HEAD -> main) Add tea
+81f772e Add coconut cake
+9f10b43 Raise the price of the white loaf
+8a52ffe Add the menu
+$ git log -1 --format=%B
+Add tea
+
+Add coffee
+
+Add juice
+
+$ git show --stat --oneline HEAD
+69d6e2b (HEAD -> main) Add tea
+ menu.md | 3 +++
+ 1 file changed, 3 insertions(+)
