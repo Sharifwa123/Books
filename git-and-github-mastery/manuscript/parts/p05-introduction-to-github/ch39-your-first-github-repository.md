@@ -193,6 +193,8 @@ branch 'main' set up to track 'origin/main'.
 
 *Recorded in Bash; `ch39-firstrepo/expected-unrelated.bash.txt`.*
 
+*(On Git 2.55.0 the decoration reads `(origin/main, origin/HEAD)`: after the `git fetch`, that newer version also records which branch is the remote's default. Git 2.43.0 did not do this for a remote that you added by hand, and it is a good example of why the same commands can print slightly different things.)*
+
 The graph has two separate roots, one that the platform made ("Initial commit") and yours, joined by the merge commit. That is fine, and it is the price of starting both ends independently.
 
 **How to avoid it.** For Route B, create the hosted repository **empty**. If you did tick the README box, this recovery works, but the history keeps its odd shape.
