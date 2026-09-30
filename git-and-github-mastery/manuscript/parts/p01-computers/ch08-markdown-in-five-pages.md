@@ -442,7 +442,7 @@ See <https://example.org> for details.
 <p>See <a href="https://example.org">https://example.org</a> for details.</p>
 ```
 
-> **Verification pending [R132].** Some services (GitHub is one) turn a bare address into a link on their own. That statement is from general knowledge and awaits confirmation from GitHub's own documentation; the demonstration above is of plain CommonMark only.
+> **Checked against a source [R132].** GitHub's published Markdown specification (version 0.29, 2019) lists autolinks, tables, task lists and strikethrough as extensions to CommonMark, including the recognition of a bare `www.` or `http` address as a link. What GitHub's website shows today was not observed in this book's test environment, and the demonstration above is of plain CommonMark only.
 
 ---
 

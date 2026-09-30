@@ -66,7 +66,7 @@ The answer to those limits was **distributed** version control: instead of one s
 
 Git's beginning was practical. According to general accounts, it was written in the mid-2000s by the leader of the Linux kernel project, for the needs of the kernel's own very large community of developers, when the tool they had been using was no longer available to them. Its goals, reported in those accounts, matched the requirements of section 9.4: **speed**, a **simple design**, strong support for **thousands of parallel branches**, being **fully distributed**, and being able to handle **very large projects**, all while keeping history safe from silent damage.
 
-> **Verification pending [R137].** The creator, the year, the reason and the list of goals will be checked against the Git project's own documentation and the Linux kernel community's records. Do not quote this paragraph as fact.
+> **Partly checked [R137].** Git's own published history was read for this book: the first commit in the `git/git` repository is dated 7 April 2005 and is authored by Linus Torvalds, with the message *Initial revision of "git", the information manager from hell*. That fixes the creator and the year. The **reason** (the earlier tool becoming unavailable) and the **list of goals** are still from general accounts and have not been checked against the Git project's documentation or the kernel community's records, so do not quote them as fact.
 
 Two features of that origin will keep appearing in this book:
 
