@@ -340,7 +340,7 @@ There is no universally best choice. The right one depends on what your team wan
 
 ## 21.7 A merge checklist
 
-1. **Commit or stash** your work (`git status` clean).
+1. **Commit or stash** your work (`git status` clean; stashing is covered in Chapter 24<!--ref:stash-->).
 2. **Switch to the branch that should receive** the work: `git switch main`.
 3. **Merge:** `git merge <branch>`.
 4. **Read the output.** Did it fast-forward, make a merge commit, or report a conflict (Chapter 22<!--ref:conflicts-->)?
