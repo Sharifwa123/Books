@@ -66,6 +66,8 @@ out = out.replace(MARK, "$ ")
 out = out.replace(WRAP_DIR + "/git", "/usr/bin/git").replace(home, "/home/learner").replace(tmp, "/tmp/session")
 if GITMODE:
     out = re.sub(r"[ \t]+(?=\n)", "", out)  # trailing spaces differ between Git versions and are invisible
+    out = re.sub(r"(Rebasing \(\d+/\d+\) *)+", "", out)  # progress line that a terminal overwrites in place
+    out = re.sub(r"(?m)^ {20,}(?=Successfully rebased)", "", out)
     # progress meters differ from computer to computer (thread counts, speeds): drop them, keep the settled summary lines
     out = re.sub(r"(?m)^(Enumerating objects|Counting objects|Compressing objects|Writing objects|Receiving objects|Resolving deltas|Unpacking objects|Delta compression|Total \d+|remote: (Enumerating|Counting|Compressing|Total)).*\n", "", out)
     out = re.sub(r"git version \d+\.\d+\.\d+[^\n]*", "git version <version>", out)

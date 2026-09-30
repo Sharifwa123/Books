@@ -1,0 +1,78 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ cd bakery-menu
+$ git switch -c raise-bread
+Switched to a new branch 'raise-bread'
+$ printf '# Sunrise Bakery menu\n\n- White loaf: 3.00\n- Rolls (six): 3.00\n- Coconut cake (slice): 4.00\n' > menu.md
+$ git commit -am "Raise the white loaf to 3.00"
+[raise-bread 73e14f7] Raise the white loaf to 3.00
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+$ git switch main
+Switched to branch 'main'
+$ printf '# Sunrise Bakery menu\n\n- White loaf: 2.90\n- Rolls (six): 3.00\n- Coconut cake (slice): 4.00\n' > menu.md
+$ git commit -am "Raise the white loaf to 2.90"
+[main 4afeda6] Raise the white loaf to 2.90
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+$ git switch raise-bread
+Switched to branch 'raise-bread'
+$ git rebase main
+Auto-merging menu.md
+CONFLICT (content): Merge conflict in menu.md
+error: could not apply 73e14f7... Raise the white loaf to 3.00
+hint: Resolve all conflicts manually, mark them as resolved with
+hint: "git add/rm <conflicted_files>", then run "git rebase --continue".
+hint: You can instead skip this commit: run "git rebase --skip".
+hint: To abort and get back to the state before "git rebase", run "git rebase --abort".
+Could not apply 73e14f7... Raise the white loaf to 3.00
+$ git status
+interactive rebase in progress; onto 4afeda6
+Last command done (1 command done):
+   pick 73e14f7 Raise the white loaf to 3.00
+No commands remaining.
+You are currently rebasing branch 'raise-bread' on '4afeda6'.
+  (fix conflicts and then run "git rebase --continue")
+  (use "git rebase --skip" to skip this patch)
+  (use "git rebase --abort" to check out the original branch)
+
+Unmerged paths:
+  (use "git restore --staged <file>..." to unstage)
+  (use "git add <file>..." to mark resolution)
+	both modified:   menu.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+$ git diff --name-only --diff-filter=U
+menu.md
+$ git rebase --abort
+$ git status
+On branch raise-bread
+nothing to commit, working tree clean
+$ git log --oneline --all --graph
+* 4afeda6 (main) Raise the white loaf to 2.90
+| * 73e14f7 (HEAD -> raise-bread) Raise the white loaf to 3.00
+|/
+* 81f772e Add coconut cake
+* 9f10b43 Raise the price of the white loaf
+* 8a52ffe Add the menu
+$ git rebase main
+Auto-merging menu.md
+CONFLICT (content): Merge conflict in menu.md
+error: could not apply 73e14f7... Raise the white loaf to 3.00
+hint: Resolve all conflicts manually, mark them as resolved with
+hint: "git add/rm <conflicted_files>", then run "git rebase --continue".
+hint: You can instead skip this commit: run "git rebase --skip".
+hint: To abort and get back to the state before "git rebase", run "git rebase --abort".
+Could not apply 73e14f7... Raise the white loaf to 3.00
+$ printf '# Sunrise Bakery menu\n\n- White loaf: 2.95\n- Rolls (six): 3.00\n- Coconut cake (slice): 4.00\n' > menu.md
+$ git add menu.md
+$ git rebase --continue
+hint: Waiting for your editor to close the file...
+[detached HEAD 608311e] Raise the white loaf to 3.00
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+Successfully rebased and updated refs/heads/raise-bread.
+$ git log --oneline --all --graph
+* 608311e (HEAD -> raise-bread) Raise the white loaf to 3.00
+* 4afeda6 (main) Raise the white loaf to 2.90
+* 81f772e Add coconut cake
+* 9f10b43 Raise the price of the white loaf
+* 8a52ffe Add the menu
