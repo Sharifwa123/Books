@@ -18,7 +18,7 @@ git clone -q hub.git w3
 cd w3
 printf 'x\n' > a.txt
 git add a.txt
-git commit -m "Add a" 2>&1 | grep -E '^(Author identity unknown|fatal: unable to auto-detect)' | cut -c1-40
+git commit -m "Add a" 2>&1 | grep -E '^Author identity unknown'
 cd ..
 echo "== E4: nothing to commit"
 git config --global user.name "Ada Learner"
@@ -75,7 +75,7 @@ git switch -q -c idea
 printf 'i\n' > idea.txt && git add idea.txt && git commit -q -m "Idea"
 git switch -q main
 git branch idea 2>&1 | grep -E '^fatal'
-git branch -d idea 2>&1 | grep -E '^error'
+git branch -d idea 2>&1 | grep -E '^error' | sed 's/[.]$//'
 cd ..
 echo "== E10: bad revision"
 git clone -q hub.git w10

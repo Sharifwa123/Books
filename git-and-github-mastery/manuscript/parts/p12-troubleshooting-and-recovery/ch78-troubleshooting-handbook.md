@@ -111,9 +111,8 @@ $ git clone -q hub.git w3
 $ cd w3
 $ printf 'x\n' > a.txt
 $ git add a.txt
-$ git commit -m "Add a" 2>&1 | grep -E '^(Author identity unknown|fatal: unable to auto-detect)' | cut -c1-40
+$ git commit -m "Add a" 2>&1 | grep -E '^Author identity unknown'
 Author identity unknown
-fatal: unable to auto-detect email addre
 $ cd ..
 ```
 
@@ -341,8 +340,8 @@ $ printf 'i\n' > idea.txt && git add idea.txt && git commit -q -m "Idea"
 $ git switch -q main
 $ git branch idea 2>&1 | grep -E '^fatal'
 fatal: a branch named 'idea' already exists
-$ git branch -d idea 2>&1 | grep -E '^error'
-error: the branch 'idea' is not fully merged.
+$ git branch -d idea 2>&1 | grep -E '^error' | sed 's/[.]$//'
+error: the branch 'idea' is not fully merged
 $ cd ..
 ```
 
