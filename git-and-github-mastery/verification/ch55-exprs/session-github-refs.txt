@@ -1,0 +1,12 @@
+#!git
+git config --global user.name "Ada Learner"
+git config --global user.email "ada@example.org"
+git config --global init.defaultBranch main
+@ mkdir bakery-menu && cd bakery-menu && git init -q && printf "# Sunrise Bakery menu\n\n- White loaf: 2.80\n" > menu.md && git add menu.md && git commit -q -m "Add the menu" && git tag v1.0 && git switch -q -c feature-tea && cd ..
+cd bakery-menu
+git symbolic-ref HEAD
+git rev-parse --abbrev-ref HEAD
+git rev-parse HEAD
+git rev-parse --symbolic-full-name v1.0
+git rev-parse --abbrev-ref v1.0
+git for-each-ref --format='%(refname)'
