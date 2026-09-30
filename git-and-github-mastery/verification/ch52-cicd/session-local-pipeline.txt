@@ -1,0 +1,13 @@
+#!git
+git config --global user.name "Ada Learner"
+git config --global user.email "ada@example.org"
+git config --global init.defaultBranch main
+@ mkdir bakery-menu && cd bakery-menu && git init -q && printf "# Sunrise Bakery menu\n\n- White loaf: 2.80\n- Rolls (six): 3.00\n" > menu.md && printf %s IyEvYmluL3NoCmVjaG8gImxpbnQ6IG5vIHRhYiBjaGFyYWN0ZXJzIgppZiBncmVwIC1xICIkKHByaW50ZiAnXHQnKSIgbWVudS5tZDsgdGhlbiBlY2hvICJGQUlMIGxpbnQ6IGEgdGFiIHdhcyBmb3VuZCI7IGV4aXQgMTsgZmkKZWNobyAidGVzdDogZXZlcnkgaXRlbSBoYXMgYSBwcmljZSIKaWYgZ3JlcCAnXi0gJyBtZW51Lm1kIHwgZ3JlcCAtdiAtRSAnOiBbMC05XStcLlswLTldezJ9JCc7IHRoZW4gZWNobyAiRkFJTCB0ZXN0OiBhIGxpbmUgaGFzIG5vIHByaWNlIjsgZXhpdCAxOyBmaQplY2hvICJidWlsZDogd3JpdGUgZGlzdC9tZW51LnR4dCIKbWtkaXIgLXAgZGlzdCAmJiBjcCBtZW51Lm1kIGRpc3QvbWVudS50eHQKZWNobyAiUEFTUyIK | base64 -d > ci.sh && git add . && git commit -q -m "Add the menu and a check script" && cd ..
+cd bakery-menu
+cat ci.sh
+sh ci.sh
+echo "exit code: $?"
+ls dist
+printf -- '- Coffee: two pounds\n' >> menu.md
+sh ci.sh
+echo "exit code: $?"
