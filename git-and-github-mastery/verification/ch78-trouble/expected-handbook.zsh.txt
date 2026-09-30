@@ -1,0 +1,190 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ echo "== E1: not a git repository"
+== E1: not a git repository
+$ mkdir empty && cd empty
+$ git status 2>&1 | grep -E '^fatal'
+fatal: not a git repository (or any of the parent directories): .git
+$ cd ..
+$ echo "== E2: pathspec did not match"
+== E2: pathspec did not match
+$ git clone -q hub.git w2
+$ cd w2
+$ git add missing.txt 2>&1 | grep -E '^fatal'
+fatal: pathspec 'missing.txt' did not match any files
+$ git checkout no-such-branch 2>&1 | grep -E '^error'
+error: pathspec 'no-such-branch' did not match any file(s) known to git
+$ cd ..
+$ echo "== E3: identity unknown"
+== E3: identity unknown
+$ git clone -q hub.git w3
+$ cd w3
+$ printf 'x\n' > a.txt
+$ git add a.txt
+$ git commit -m "Add a" 2>&1 | grep -E '^(Author identity unknown|fatal: unable to auto-detect)' | cut -c1-40
+Author identity unknown
+fatal: unable to auto-detect email addre
+$ cd ..
+$ echo "== E4: nothing to commit"
+== E4: nothing to commit
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git clone -q hub.git w4
+$ cd w4
+$ git commit -m "Nothing" 2>&1 | head -2
+On branch main
+Your branch is up to date with 'origin/main'.
+$ printf 'new\n' > new.txt
+$ git commit -m "Nothing" 2>&1 | head -3
+On branch main
+Your branch is up to date with 'origin/main'.
+
+$ cd ..
+$ echo "== E5: checkout would overwrite"
+== E5: checkout would overwrite
+$ git clone -q hub.git w5
+$ cd w5
+$ git switch -q -c other
+$ printf -- '- Rolls: 3.00\n' >> menu.md
+$ git commit -q -am "Rolls"
+$ git switch -q main
+$ printf -- '- Tea: 1.50\n' >> menu.md
+$ git switch other 2>&1 | grep -E '^error'
+error: Your local changes to the following files would be overwritten by checkout:
+$ git stash -q
+$ git switch -q other
+$ git stash pop 2>&1 | grep -E '^(CONFLICT|Auto-merging)'
+Auto-merging menu.md
+CONFLICT (content): Merge conflict in menu.md
+$ cd ..
+$ echo "== E6: push rejected"
+== E6: push rejected
+$ git clone -q hub.git a6
+$ git clone -q hub.git b6
+$ cd a6
+$ printf -- '- Tea: 1.50\n' >> menu.md
+$ git commit -q -am "Tea"
+$ git push -q origin main
+$ cd ../b6
+$ printf -- '- Coffee: 2.00\n' >> menu.md
+$ git commit -q -am "Coffee"
+$ git push origin main 2>&1 | grep -E '^ ! \[rejected\]|^error'
+ ! [rejected]        main -> main (fetch first)
+error: failed to push some refs to '/home/learner/hub.git'
+$ cd ..
+$ echo "== E7: unrelated histories"
+== E7: unrelated histories
+$ git init -q solo && cd solo
+$ printf 'x\n' > x.txt && git add x.txt && git commit -q -m "Solo"
+$ git remote add origin ../hub.git
+$ git fetch -q origin
+$ git merge origin/main 2>&1 | grep -E '^fatal'
+fatal: refusing to merge unrelated histories
+$ cd ..
+$ echo "== E8: remote exists / bad remote"
+== E8: remote exists / bad remote
+$ git clone -q hub.git w8
+$ cd w8
+$ git remote add origin ../hub.git 2>&1 | grep -E '^error'
+error: remote origin already exists.
+$ git remote add backup ../nowhere.git
+$ git fetch backup 2>&1 | grep -E '^fatal'
+fatal: '../nowhere.git' does not appear to be a git repository
+fatal: Could not read from remote repository.
+$ cd ..
+$ echo "== E9: branch exists / not merged"
+== E9: branch exists / not merged
+$ git clone -q hub.git w9
+$ cd w9
+$ git switch -q -c idea
+$ printf 'i\n' > idea.txt && git add idea.txt && git commit -q -m "Idea"
+$ git switch -q main
+$ git branch idea 2>&1 | grep -E '^fatal'
+fatal: a branch named 'idea' already exists
+$ git branch -d idea 2>&1 | grep -E '^error'
+error: the branch 'idea' is not fully merged.
+$ cd ..
+$ echo "== E10: bad revision"
+== E10: bad revision
+$ git clone -q hub.git w10
+$ cd w10
+$ git log no-such-ref 2>&1 | grep -E '^fatal'
+fatal: ambiguous argument 'no-such-ref': unknown revision or path not in the working tree.
+$ git show HEAD~5 2>&1 | grep -E '^fatal'
+fatal: ambiguous argument 'HEAD~5': unknown revision or path not in the working tree.
+$ cd ..
+$ echo "== E11: index.lock"
+== E11: index.lock
+$ git clone -q hub.git w11
+$ cd w11
+$ touch .git/index.lock
+$ git add -A 2>&1 | head -1 | cut -c1-60
+fatal: Unable to create '/home/learner/w1
+$ rm .git/index.lock
+$ git status -sb
+## main...origin/main
+$ cd ..
+$ echo "== E12: gitignore not working"
+== E12: gitignore not working
+$ git clone -q hub.git w12
+$ cd w12
+$ printf 'secret\n' > notes.txt
+$ git add notes.txt && git commit -q -m "Add notes"
+$ printf 'notes.txt\n' > .gitignore
+$ printf 'more\n' >> notes.txt
+$ git status --short
+ M notes.txt
+?? .gitignore
+$ git rm -q --cached notes.txt
+$ git status --short
+D  notes.txt
+?? .gitignore
+$ cd ..
+$ echo "== E13: detached HEAD"
+== E13: detached HEAD
+$ git clone -q hub.git w13
+$ cd w13
+$ git switch -q --detach HEAD
+$ git branch --show-current | wc -c | tr -d ' '
+0
+$ git status | head -1
+HEAD detached at bbc2826
+$ git switch -q -c rescue
+$ git branch --show-current
+rescue
+$ cd ..
+$ echo "== E14: merge conflict"
+== E14: merge conflict
+$ git clone -q hub.git p14
+$ git clone -q hub.git q14
+$ cd p14
+$ sed -i 's/2.50/2.60/' menu.md
+$ git commit -q -am "Price up"
+$ git push -q origin main
+$ cd ../q14
+$ sed -i 's/2.50/2.70/' menu.md
+$ git commit -q -am "Price different"
+$ git -c advice.mergeConflict=false pull -q --no-rebase --no-edit 2>&1 | grep -E '^(CONFLICT|Automatic)'
+CONFLICT (content): Merge conflict in menu.md
+Automatic merge failed; fix conflicts and then commit the result.
+$ git status --short
+UU menu.md
+$ git merge --abort
+$ git status --short | wc -l | tr -d ' '
+0
+$ cd ..
+$ echo "== E15: pull with diverged branches"
+== E15: pull with diverged branches
+$ git clone -q hub.git p15
+$ git clone -q hub.git q15
+$ cd p15
+$ printf -- '- Tea: 1.50\n' >> menu.md
+$ git commit -q -am "Tea"
+$ git push -q origin main
+$ cd ../q15
+$ printf -- '- Coffee: 2.00\n' >> menu.md
+$ git commit -q -am "Coffee"
+$ git pull 2>&1 | grep -E '^fatal'
+fatal: Need to specify how to reconcile divergent branches.
+$ cd ..
