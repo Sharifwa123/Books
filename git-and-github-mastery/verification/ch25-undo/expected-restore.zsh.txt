@@ -1,0 +1,46 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ cd bakery-menu
+$ printf '# Sunrise Bakery menu\n\n- White loaf: 9.99\n- Rolls (six): 3.00\n- Coconut cake (slice): 4.00\n' > menu.md
+$ git status --short
+ M menu.md
+$ git diff
+diff --git a/menu.md b/menu.md
+index 97e3bea..d71ff95 100644
+--- a/menu.md
++++ b/menu.md
+@@ -1,5 +1,5 @@
+ # Sunrise Bakery menu
+
+-- White loaf: 2.80
++- White loaf: 9.99
+ - Rolls (six): 3.00
+ - Coconut cake (slice): 4.00
+$ git restore menu.md
+$ git status --short
+$ cat menu.md
+# Sunrise Bakery menu
+
+- White loaf: 2.80
+- Rolls (six): 3.00
+- Coconut cake (slice): 4.00
+$ printf '# Sunrise Bakery menu\n\n- White loaf: 2.80\n- Rolls (six): 3.00\n- Coconut cake (slice): 4.00\n- Tea: 1.50\n' > menu.md
+$ git add menu.md
+$ git status --short
+M  menu.md
+$ git restore --staged menu.md
+$ git status --short
+ M menu.md
+$ git restore menu.md
+$ git status --short
+$ git restore --source=HEAD~2 menu.md
+$ cat menu.md
+# Sunrise Bakery menu
+
+- White loaf: 2.50
+- Rolls (six): 3.00
+$ git status --short
+ M menu.md
+$ git restore menu.md
+$ git status --short
