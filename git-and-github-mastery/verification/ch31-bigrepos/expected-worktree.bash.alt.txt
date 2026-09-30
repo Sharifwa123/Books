@@ -1,0 +1,27 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ cd bakery-menu
+$ git worktree add ../bakery-hotfix -b hotfix
+Preparing worktree (new branch 'hotfix')
+HEAD is now at 81f772e Add coconut cake
+$ git worktree list
+/home/learner/bakery-menu   81f772e [main]
+/home/learner/bakery-hotfix 81f772e [hotfix]
+$ cd ../bakery-hotfix
+$ printf -- '- Bagels: 1.20\n' >> menu.md
+$ git commit -am "Add bagels"
+[hotfix 0a5f828] Add bagels
+ 1 file changed, 1 insertion(+)
+$ cd ../bakery-menu
+$ git log --oneline --all --graph
+* 0a5f828 (hotfix) Add bagels
+* 81f772e (HEAD -> main) Add coconut cake
+* 9f10b43 Raise the price of the white loaf
+* 8a52ffe Add the menu
+$ git worktree remove ../bakery-hotfix
+$ git worktree list
+/home/learner/bakery-menu 81f772e [main]
+$ git branch
+  hotfix
+* main
