@@ -153,3 +153,4 @@ Annotated tag,A tag with a message and tagger.,"A tag stored as its own object w
 git restore,Bring a file back from the index or an older commit.,"Restores content into the working tree or, with --staged, into the index, from the index or a named commit.",git restore menu.md,git reset; index,undo
 git reset,Move the current branch to another commit.,"Moves the current branch to a commit; --soft keeps index and working tree, the default resets the index, --hard resets both.",git reset --soft HEAD~1,git revert; reflog,undo
 git revert,Undo a commit by adding a new one.,"Creates a new commit that applies the inverse of an earlier commit, leaving history intact.",git revert --no-edit HEAD,git reset,undo
+Reflog,Git's private diary of where HEAD has been.,"A local, temporary log of the positions of HEAD and each branch, used to recover commits that are no longer reachable.",git reflog,HEAD; git reset,reflog
