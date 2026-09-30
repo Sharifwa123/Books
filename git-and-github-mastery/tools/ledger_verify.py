@@ -12,7 +12,8 @@ CLS = {"docs": ("Officially verified (docs only)", "VERIFIED against official so
        "both": ("Both officially verified and locally tested", "VERIFIED against official source text and locally tested"),
        "local": ("Locally tested", "LOCALLY TESTED; official source NOT consulted")}
 today = time.strftime("%Y-%m-%d", time.gmtime())
-for e in json.load(sys.stdin):
+entries = json.load(sys.stdin)
+for e in entries:
     r = by[e["id"]]; c, st = CLS[e["cls"]]
     r["evidence_class"] = c; r["status"] = st; r["date_verified"] = today
     r["url"] = e["url"]; r["verification_scope"] = e["scope"]
@@ -22,4 +23,4 @@ for e in json.load(sys.stdin):
     r["needs_reverification"] = "yes" if e.get("reverify") else "no"
     if e["cls"] != "local" and r.get("source_location", "") == "": r["source_location"] = "official source repository via raw.githubusercontent.com"
 w = csv.DictWriter(open(p, "w", newline=""), fieldnames=H); w.writeheader(); w.writerows(R)
-print("updated", len(json.load(open("/dev/null")) if False else []) or "ok")
+print("updated", len(entries), "rows")

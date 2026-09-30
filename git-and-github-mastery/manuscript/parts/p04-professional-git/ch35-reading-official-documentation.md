@@ -17,7 +17,7 @@ ledger: [R221, R222, R223]
 - how to check that what you read matches the version you have
 - how to treat a source, including this book
 
-**Before you start.** Chapter 13<!--ref:install--> and Chapter 15<!--ref:model-->. The recordings ran in Bash and zsh on Git 2.43.0 and were re-run in CI on Git 2.55.0.
+**Before you start.** Chapter [[install]] and Chapter [[model]]. The recordings ran in Bash and zsh on Git 2.43.0 and were re-run in CI on Git 2.55.0.
 
 This chapter closes Part IV. Everything so far was taught by running commands. From now on you will meet commands and features that this book does not cover, and Git and GitHub both change over time. The skill that lasts is being able to look up the answer yourself, and to judge whether it applies to you.
 
@@ -35,7 +35,7 @@ This chapter closes Part IV. Everything so far was taught by running commands. F
 
 Two of these you can read **without the internet**, and they always match the version that you have installed. That makes them the first place to look.
 
-> **Verification pending [R221].** How to open the full manual pages differs by system. On some systems, `git help <command>` opens a manual page; on others (for example a minimal server image), the manual pages are not installed, and Git says so. On Git for Windows, the help may open in a web browser. The test computer had its manual pages removed, so none of these ways was run. Check the way your own system works: try `git help commit` and read what happens.
+> **Checked against the documentation (R221).** The `git help` manual page (Git 2.56.0) says the `man` program is used by default; `-m`/`--man`, `-i`/`--info` and `-w`/`--web` choose the format; the `help.format` setting sets the default (`man`, `info`, or `web`/`html`); and with `--web` "a web browser will be used", chosen by `help.browser` or `web.browser`. `git help -a` lists all available commands and `git help -g` lists the concept guides. Whether your system has the manual pages installed, and what Git for Windows opens, depends on your installation: try `git help commit` and read what happens. (The test computer had its manual pages removed, so the message for that case is the one in the recording.)
 
 ---
 
@@ -50,9 +50,9 @@ git version <version>
 
 *Recorded in Bash; `ch35-docs/expected-synopsis.bash.txt`.*
 
-(The recording shows `<version>` in place of the number, because the number depends on your computer. In your terminal you will see it in full, such as the versions named in Chapter 13<!--ref:install-->.) Documentation that says "since version 2.x" or "new in..." is only useful when you know your own number. Documents on the web usually carry a version too, often selectable in a menu; look for it, and use the one that matches.
+(The recording shows `<version>` in place of the number, because the number depends on your computer. In your terminal you will see it in full, such as the versions named in Chapter [[install]].) Documentation that says "since version 2.x" or "new in..." is only useful when you know your own number. Documents on the web usually carry a version too, often selectable in a menu; look for it, and use the one that matches.
 
-The same applies to any tutorial, video or answer that you find: **check its date and the version it describes.** Advice about Git that is five years old can be wrong now, because the defaults and the messages change. This book has met that several times: the same command printed different advice text on Git 2.43.0 and on 2.55.0 (Chapter 20<!--ref:branching-->, Chapter 27<!--ref:rebase-->, Chapter 33<!--ref:gitsec-->).
+The same applies to any tutorial, video or answer that you find: **check its date and the version it describes.** Advice about Git that is five years old can be wrong now, because the defaults and the messages change. This book has met that several times: the same command printed different advice text on Git 2.43.0 and on 2.55.0 (Chapter [[branching]], Chapter [[rebase]], Chapter [[gitsec]]).
 
 ---
 
@@ -85,9 +85,9 @@ The notation is a convention that Git's documentation follows:
 
 *(The synopsis grows as Git grows. On Git 2.55.0 the first form has one more optional part, `[(--trailer <token>[(=|:)<value>])...]`, which the 2.43.0 recording above does not have. Round brackets group alternatives, so `(=|:)` means "either `=` or `:`". This is a live example of why you must read the documentation for your own version.)*
 
-Read the first form: `git tag`, optionally one of `-a`, `-s` or `-u <key-id>`, optionally `-f`, optionally a message with `-m <msg>` (or from a file with `-F <file>`), optionally `-e`; then the required `<tagname>`; then optionally a `<commit>` or `<object>`. That is what you used in Chapter 24<!--ref:stash--> and Chapter 29<!--ref:tags-->: `git tag -a v1.0 -m "..."`, with an optional commit at the end. The second form, `git tag -d <tagname>...`, deletes one or more tags.
+Read the first form: `git tag`, optionally one of `-a`, `-s` or `-u <key-id>`, optionally `-f`, optionally a message with `-m <msg>` (or from a file with `-F <file>`), optionally `-e`; then the required `<tagname>`; then optionally a `<commit>` or `<object>`. That is what you used in Chapter [[stash]] and Chapter [[tags]]: `git tag -a v1.0 -m "..."`, with an optional commit at the end. The second form, `git tag -d <tagname>...`, deletes one or more tags.
 
-> **Verification pending [R222].** The notation table above is how Git's usage text reads in the recording. Whether the official reference manual defines the notation in exactly these words was not checked; the manual pages could not be opened on the test computer.
+> **Checked against the documentation (R222).** Git's `CodingGuidelines` (Git 2.56.0), section "Synopsis Syntax", states the notation: three dots mean "one or more" (`<file>...`); square brackets mean optional (`[<file>...]` is zero or more); a vertical bar separates alternatives (`[-q | --quiet]`); parentheses group (`[(<rev>|<range>)...]`); and placeholders are lowercase words in angle brackets. The table above agrees with these rules.
 
 After the synopsis, the reference manual explains each option, gives examples, and often lists related commands ("See also"). Read the description of one option at a time, with a scratch repository open beside it, and *try it*. That is the method of this whole book.
 
@@ -113,7 +113,7 @@ Git says what it did not understand, points to help, and suggests the most simil
 2. **Why** (often on the same line).
 3. **What you can do** (lines that start with `hint:`, or indented suggestions).
 
-In this book's examples, `error:` usually marks something that Git refused, and `fatal:` marks a command that Git could not carry on with; the exact rules were not checked in the official documentation. Advice lines (`hint:`) can be switched off; the recordings in this book show several of them (Chapter 24<!--ref:stash--> and others).
+In this book's examples, `error:` usually marks something that Git refused, and `fatal:` marks a command that Git could not carry on with; the exact rules were not checked in the official documentation. Advice lines (`hint:`) can be switched off; the recordings in this book show several of them (Chapter [[stash]] and others).
 
 ---
 
@@ -121,9 +121,9 @@ In this book's examples, `error:` usually marks something that Git refused, and 
 
 Hosting platforms publish their own documents about their own features: accounts, repositories, pull requests, automation and security settings. Three cautions:
 
-- **They describe the service as it is now, not as it was.** Interfaces and limits change (Chapter 36<!--ref:whatgh-->).
+- **They describe the service as it is now, not as it was.** Interfaces and limits change (Chapter [[whatgh]]).
 - **They may depend on your plan or account type.** A feature described on a page may not be available to you.
-- **They are not Git's documentation.** Whether something is a Git feature or a platform feature decides where to look (Chapter 12<!--ref:platforms--> introduced the difference).
+- **They are not Git's documentation.** Whether something is a Git feature or a platform feature decides where to look (Chapter [[platforms]] introduced the difference).
 
 > **Verification pending [R223].** This book's own statements about GitHub could not be checked against the official documentation while writing Part IV, because the documentation site was not reachable from the test environment. Every such statement is marked *Verification pending* and recorded in the research ledger. When you meet a GitHub fact in this book, check it against GitHub's current documentation before you rely on it.
 
@@ -183,7 +183,7 @@ Do the exercises in [`exercises/ch35-exercises.md`](../../../exercises/ch35-exer
 
 ## Before Moving On
 
-You are ready for Chapter 36<!--ref:whatgh--> if you can:
+You are ready for Chapter [[whatgh]] if you can:
 
 - [ ] find and read the usage text of any Git command
 - [ ] read a synopsis, including optional and repeated parts
@@ -195,9 +195,10 @@ You are ready for Chapter 36<!--ref:whatgh--> if you can:
 | Claim | Evidence class | Ledger |
 |---|---|---|
 | `git --version`, `git tag -h`, the "most similar command" message | Locally tested: Bash 5.2 and zsh 5.9, Git 2.43.0; CI on Git 2.55.0 | R221 |
-| Synopsis notation as it reads in usage text | Locally tested (usage text); the reference manual's own definition **not checked** | R222 |
-| How manual pages open on each system; platform documentation | **Not verified** (manual pages absent on the test computer; official host blocked) | R221, R223 |
+| Synopsis notation as it reads in usage text | Locally tested (usage text); definition checked in `CodingGuidelines` | R222 |
+| `git help` options and `help.format` | Checked against the `git help` manual page; not run (no manual pages installed on the test computer) | R221 |
+| How manual pages open on each system; platform documentation | **Not verified** | R223 |
 
 ## Where this leads
 
-Part V begins with Chapter 36<!--ref:whatgh-->: what a hosting platform is, and what it is not. Every platform fact in it will be marked until it can be checked against the official documentation.
+Part V begins with Chapter [[whatgh]]: what a hosting platform is, and what it is not. Every platform fact in it will be marked until it can be checked against the official documentation.
