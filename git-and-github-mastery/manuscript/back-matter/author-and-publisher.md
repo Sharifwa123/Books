@@ -2,17 +2,19 @@
 
 ## The author
 
-**Sharif Tingane Issah.**
+Sharif Tingane Issah is the founder of SHARIF TECHNOLOGIES, the name under which Sharif writes and publishes software and books. Based in Ghana, Sharif describes the work on a public GitHub profile as software, artificial intelligence and cybersecurity, with the aim of building practical technology.
 
-[AUTHOR BIOGRAPHY: to be supplied by the publisher. No qualifications, employment, awards or memberships are stated here, because none were supplied.]
+One project is Sharif NOVA, a programming language and toolchain that Sharif began as an independent project. It has an interpreter, a compiler for web pages and a web server mode, is released under the MIT licence, and was published on npm in September 2026. It is still at an early version number, and this note makes no claim about its use by others.
 
-## The brand
+This book comes from the same habit. Every command in it was run and recorded, every statement about Git or GitHub is tied to the source it was checked against, and what could not be checked is written down. The working record is published beside the book, in its repository, so that readers can follow it.
 
-**SHARIF TECHNOLOGIES** is the name under which this book is issued. The legal publisher or imprint has not yet been confirmed.
+## The imprint
+
+**SHARIF TECHNOLOGIES** is the name under which Sharif Tingane Issah writes and publishes software and books. This book is published under the SHARIF TECHNOLOGIES imprint. The name is not licensed by the book's licences.
 
 *Knowledge Is Power*
 
-[Address, website, email and contact details: to be supplied by the publisher.]
+Website: www.shariftechnologies.online
 
 ## Final competency checklist
 

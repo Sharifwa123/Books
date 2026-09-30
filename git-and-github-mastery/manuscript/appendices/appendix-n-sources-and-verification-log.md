@@ -1,6 +1,6 @@
 # Appendix N — Sources and Verification Log
 
-This book separates what was **checked** from what was **assumed**. Every claim that could be wrong was entered in a research ledger with an evidence class. This appendix summarises the ledger and lists what remains open. The full ledger is the file `research/research-ledger.csv` in the book's repository, and the list of fetched sources with their SHA-256 values is `research/sources-manifest.csv`.
+This book separates what was **checked** from what was **assumed**. Every claim that could be wrong was entered in a research ledger with an evidence class. This appendix summarises the ledger and lists what remains open. The full ledger is the file `research/research-ledger.csv` in the book's companion repository (https://github.com/Sharifwa123/Books, folder `git-and-github-mastery`), and the list of fetched sources with their SHA-256 values is `research/sources-manifest.csv` in the same place.
 
 ## N.1 Evidence classes
 
@@ -19,14 +19,15 @@ Total rows: 356.
 
 - **Git:** every command shown was run in Bash and zsh on Git 2.43.0 (the Linux package on the author's computer) and re-run in continuous integration on the runner's Git (2.55.0) and on Git 2.56.0 built from source. Where newer versions print different text, alternate recordings are kept and noted.
 - **GitHub:** statements were compared with the `github/docs` repository at commit `2eaab0b` (29 September 2026) and the `github/site-policy` repository, both read from their public sources. **No statement about GitHub was checked on a live account**; the book says so wherever it matters (a signed-in account of the plan).
-- **Licences:** licence summaries come from GitHub's `choosealicense.com` data and the SPDX licence list (secondary sources); the official pages could not be read. **The book contains no licence statement for itself**, because that is a decision for its rights holder.
+- **Licences:** licence summaries come from GitHub's `choosealicense.com` data and the SPDX licence list (secondary sources); the official pages could not be read. The book's own licences (Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International for the text, the MIT License for code samples) are stated on its copyright page; the official Creative Commons pages could not be read from the testing computer, and the complete legal code is not reproduced in the book.
+- **Quotations:** short quotations from GitHub's documentation are used with attribution; that documentation is published under the Creative Commons Attribution 4.0 licence (as stated in its repository), and the quoted passages stay under it, not under this book's licence. Quotations from other sources stay under their own terms.
 - **Other tools:** the GitHub CLI 2.102.0 (checksum-verified download), `git-filter-repo` 2.47.0, PyYAML 6.0.1, OpenSSL.
 
 ## N.3 Where the sources came from
 
 | Host | Files fetched |
 |---|---|
-| raw.githubusercontent.com | 133 |
+| raw.githubusercontent.com | 138 |
 
 Files fetched with the book's tool are hashed in the manifest, so a reader can check that a source has not changed since it was read.
 

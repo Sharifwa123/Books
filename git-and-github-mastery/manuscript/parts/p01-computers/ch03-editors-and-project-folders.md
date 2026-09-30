@@ -191,7 +191,7 @@ The starter files have been checked mechanically: every page has balanced tags, 
 
 The starter files come with the book, in the folder `companion/sunrise-bakery-starter`. Because you have not installed Git yet, the simplest way to obtain them is as a single ZIP archive.
 
-> **[BOOK DOWNLOAD LOCATION: to be supplied by the publisher.]** This placeholder marks where the edition will tell you where to download the companion files. Until then, use the copy that came with your edition.
+> **Where to get them.** The companion repository, https://github.com/Sharifwa123/Books (folder `git-and-github-mastery/companion`), holds the files. On that page, look for the option that downloads the whole repository as one ZIP archive; its label and place change from time to time, so look for the idea. If your edition came with a copy of the files, you may use that copy instead.
 
 Once you have the ZIP archive:
 

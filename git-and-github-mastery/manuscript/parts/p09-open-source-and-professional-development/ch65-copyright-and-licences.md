@@ -103,7 +103,7 @@ Two cautions from the sources:
 - The list of licences GitHub can detect includes the Creative Commons family, and the SPDX list does not mark the Creative Commons licences as approved by the Open Source Initiative. Whether a NonCommercial licence counts as "open source" depends on the definition used, and Chapter 64<!--ref:oss-->'s three-way split (public, source-available, open source) shows why the words matter.
 - Creative Commons is said to advise against using its licences for software (the source read for this chapter is only the choosealicense summary, so treat this as unconfirmed). Use a software licence for code and a Creative Commons licence for text.
 
-**This book's own licence.** A book has text and code samples, which may need different licences. **That decision has not been made in this draft**, and the book carries no licence statement until it is. Nobody may assume one from this chapter.
+**This book's own licence.** A book has text and code samples, which may need different licences, and this book uses two. Its original text is licensed under Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International, and its code examples under the MIT License; the copyright page states both, with the address of the official text of the Creative Commons licence. The book is still copyrighted: the licences grant permissions, they do not remove the copyright. They cover only what the rights holder may license, so quotations and other people's material keep their own terms. Use the copyright page and the official licence texts, not this chapter, to know what you may do.
 
 > **Checked against sources (R320).** SPDX's copy of the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International legal code (definitions of License Elements and NonCommercial; ShareAlike condition), and the SPDX list. The official Creative Commons pages were not readable.
 
@@ -139,7 +139,7 @@ A checklist for someone who wants to **share** their own work:
 - Permissive licences ask little; copyleft licences require sharing under the same licence; strong and weak copyleft differ in reach.
 - SPDX identifiers name licences; prefer the current identifiers.
 - Creative Commons licences suit text; they are built from elements such as BY, SA and NC.
-- This book is not legal advice, and its own licence is not yet decided.
+- This book is not legal advice; its own licences (CC BY-NC-SA 4.0 for text, MIT for code) are on its copyright page.
 
 ## New Vocabulary
 

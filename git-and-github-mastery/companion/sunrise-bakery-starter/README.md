@@ -9,4 +9,4 @@ You do not need to write or understand HTML or CSS to follow the book; you only 
 
 Sunrise Bakery is fictional. Address and telephone number are placeholders.
 
-Licence for these code samples: MIT (intended; wording pending verification, see `publishing/metadata.md`).
+Licence for these code samples: MIT (see `LICENSE-CODE` in the book folder).

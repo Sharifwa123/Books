@@ -23,8 +23,10 @@ files += ["@solutions", f"{M}/back-matter/glossary.md", f"{M}/back-matter/author
 FORBIDDEN = [(r"STOPPED HERE", "drafting marker"), (r"\bTBD\b|FIXME|lorem ipsum", "unfinished text"), (r"Claude|session_[0-9A-Za-z]", "AI working note"),
              (r"gate [A-F]\b", "internal process gate"), (r"planning/", "internal repository path"), (r"\[\[[a-z0-9_]+\]\]", "unresolved cross-reference"),
              ]
-WARN = [(r"research/[a-z-]+", "citation of a published evidence file in the repository (decide whether the printed book should name it)")]
+WARN = []
+INFO = r"research/[a-z-]+"   # references to the public evidence files are kept by decision: see publishing/research-file-references-audit.md
 problems, warns, parts, manifest = [], [], [], []
+named = 0
 for f in files:
     t = BP.solutions_text([(i + 1, c[2]) for i, c in enumerate(T.C)]) if f == "@solutions" else open(f, encoding="utf-8").read()
     mm = re.search(r"/ch(\d+)-", f)
@@ -36,6 +38,7 @@ for f in files:
         for m in re.finditer(pat, t, flags=re.M):
             line = t[:m.start()].count("\n") + 1
             problems.append(f"{rel}:{line}: {why}: {m.group(0)!r}")
+    named += len(re.findall(INFO, t))
     for pat, why in WARN:
         for m in re.finditer(pat, t): warns.append(f"{rel}:{t[:m.start()].count(chr(10)) + 1}: {why}: {m.group(0)!r}")
     parts.append(t.strip()); manifest.append(f"{hashlib.sha256(t.encode()).hexdigest()}  {rel}")
@@ -45,6 +48,7 @@ ph = sorted(set(re.findall(r"\*{0,2}\[[^\]\n]*(?:TO BE [A-Z]+|to be supplied|PLA
 open(os.path.join(out, "MANIFEST.txt"), "w").write("\n".join(manifest) + "\n")
 print(f"exported {len(files)} files, {len(book.split())} words -> {os.path.relpath(out, root)}/book.md")
 print("intentional placeholders present:", len(ph))
+print(f"{named} reference(s) to public evidence files under research/ (kept by decision)")
 for p in ph[:20]: print("  ", p)
 if warns:
     print(f"{len(warns)} warning(s):")

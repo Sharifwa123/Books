@@ -16,7 +16,7 @@ The book follows a small set of rules, written down before the chapters:
 4. **Every claim has an evidence class:** officially verified, locally tested, both, time-sensitive, or needing re-verification. A locally tested claim is never called officially verified.
 5. **Surprises are investigated before they are taught.** Where Git's behaviour and its manual disagreed, the book followed the behaviour and said so.
 6. **Interface is taught as an idea first.** Screens change; principles last.
-7. **Nothing is invented.** Where a fact was not supplied or could not be verified (an ISBN, an address, a licence wording, a biography), the book leaves a visible placeholder.
+7. **Nothing is invented.** Where a fact was not supplied or could not be verified (an ISBN, a publication date, a contact address), the book leaves a visible placeholder. The author's biography states only what public evidence supports.
 
 **What this book did not do.** Nothing was run on a live GitHub account by hand: statements about GitHub come from its documentation, and every chapter says so. Windows and macOS environments were not available for testing. Appendix N lists exactly what was checked, with what, and what is still open.
 
