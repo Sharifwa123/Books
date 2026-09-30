@@ -72,6 +72,14 @@ jobs:
           printf '#!/bin/sh\nPYTHONPATH="%s" exec python3 -c "from git_filter_repo import main; main()" "$@"\n' "$FR_DIR" > "$HOME/.local/bin/git-filter-repo"
           chmod +x "$HOME/.local/bin/git-filter-repo"
           echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+      - name: Install GitHub CLI 2.102.0 (pinned, checksum verified)
+        run: |
+          curl -sSL -o "$RUNNER_TEMP/gh.tgz" "https://github.com/cli/cli/releases/download/v2.102.0/gh_2.102.0_linux_amd64.tar.gz"
+          echo "bb766f710eef8ede859c18578c72c327597cd4c8a85b06001b1f3843c6019386  $RUNNER_TEMP/gh.tgz" | sha256sum -c -
+          tar -xzf "$RUNNER_TEMP/gh.tgz" -C "$RUNNER_TEMP"
+          mkdir -p "$HOME/.local/bin"
+          cp "$RUNNER_TEMP/gh_2.102.0_linux_amd64/bin/gh" "$HOME/.local/bin/gh"
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
       - name: Tool versions
         run: |
           bash --version | head -1
@@ -80,6 +88,7 @@ jobs:
           python3 --version
           git filter-repo --version
           gpg --version | head -1
+          gh --version | head -1
       - name: Re-run recorded transcripts and compare
         run: git-and-github-mastery/verification/run_all.sh
 
@@ -108,6 +117,14 @@ jobs:
           make -C "$RUNNER_TEMP/git-src/contrib/subtree" prefix="$HOME/git-2.56" install >/dev/null
           echo "$HOME/.local/bin" >> "$GITHUB_PATH"
           echo "$HOME/git-2.56/bin" >> "$GITHUB_PATH"
+      - name: Install GitHub CLI 2.102.0 (pinned, checksum verified)
+        run: |
+          curl -sSL -o "$RUNNER_TEMP/gh.tgz" "https://github.com/cli/cli/releases/download/v2.102.0/gh_2.102.0_linux_amd64.tar.gz"
+          echo "bb766f710eef8ede859c18578c72c327597cd4c8a85b06001b1f3843c6019386  $RUNNER_TEMP/gh.tgz" | sha256sum -c -
+          tar -xzf "$RUNNER_TEMP/gh.tgz" -C "$RUNNER_TEMP"
+          mkdir -p "$HOME/.local/bin"
+          cp "$RUNNER_TEMP/gh_2.102.0_linux_amd64/bin/gh" "$HOME/.local/bin/gh"
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
       - name: Tool versions
         run: |
           which git
