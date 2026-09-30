@@ -1,0 +1,23 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ cd bakery-menu
+$ mkdir docs src
+$ printf 'How to bake\n' > docs/guide.md
+$ printf 'print\n' > src/main.py
+$ git add .
+$ git commit -m "Add docs and src"
+[main ca85072] Add docs and src
+ 2 files changed, 2 insertions(+)
+ create mode 100644 docs/guide.md
+ create mode 100644 src/main.py
+$ ls
+docs  menu.md  src
+$ git sparse-checkout set docs
+$ ls
+docs  menu.md
+$ git sparse-checkout list
+docs
+$ git sparse-checkout disable
+$ ls
+docs  menu.md  src

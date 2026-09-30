@@ -1,0 +1,35 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ mkdir lib-repo
+$ cd lib-repo
+$ git init -q
+$ printf 'shared code\n' > lib.txt
+$ git add lib.txt
+$ git commit -q -m "Add lib"
+$ cd ../bakery-menu
+$ git submodule add ../lib-repo vendor/lib
+Cloning into '/home/learner/bakery-menu/vendor/lib'...
+fatal: transport 'file' not allowed
+fatal: clone of '/home/learner/lib-repo' into submodule path '/home/learner/bakery-menu/vendor/lib' failed
+$ git -c protocol.file.allow=always submodule add ../lib-repo vendor/lib
+Cloning into '/home/learner/bakery-menu/vendor/lib'...
+done.
+$ git status --short
+A  .gitmodules
+A  vendor/lib
+$ cat .gitmodules
+[submodule "vendor/lib"]
+	path = vendor/lib
+	url = ../lib-repo
+$ git submodule status
+ 2e4ae7032781338fb40d5d24c3d4e709ac2eea22 vendor/lib (heads/main)
+$ git commit -m "Add the lib submodule"
+[main b3a8826] Add the lib submodule
+ 2 files changed, 4 insertions(+)
+ create mode 100644 .gitmodules
+ create mode 160000 vendor/lib
+$ git ls-tree -r HEAD
+100644 blob 098fc94ae95f14ae76c1b1142e20206bb58df196	.gitmodules
+100644 blob 97e3bea37ef238e599134c082bd1ebca865bdb2b	menu.md
+160000 commit 2e4ae7032781338fb40d5d24c3d4e709ac2eea22	vendor/lib
