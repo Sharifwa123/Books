@@ -8,7 +8,7 @@ Status at 30 September 2026. "Ready" means a value exists and is supported; "Ope
 |---|---|---|
 | Title | Git & GitHub: From Zero to Mastery | Ready |
 | Subtitle | A Complete Beginner-to-Expert Guide to Version Control, Collaboration, Automation, Security, and Modern Software Development | Ready |
-| Author | Sharif Tingane Issah | Ready |
+| Author | Sharif Issah Tingane | Ready |
 | Imprint | SHARIF TECHNOLOGIES (*Knowledge Is Power*) | Ready |
 | Legal publisher | not established | Open |
 | Copyright | © 2026 SHARIF TECHNOLOGIES, as instructed | Ready as instructed; legal basis open |

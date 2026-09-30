@@ -5,7 +5,7 @@
 **Rule:** no invented legal identifiers. Anything not supplied stays a bracketed placeholder.
 
 ## Metadata (supplied)
-- Author: Sharif Tingane Issah
+- Author: Sharif Issah Tingane
 - Publisher / rights holder / brand: SHARIF TECHNOLOGIES
 - Slogan: *Knowledge Is Power*
 
@@ -13,7 +13,7 @@
 [ISBN TO BE ASSIGNED] · [PUBLICATION DATE] · [YEAR] · [EDITION] · [SHARIF TECHNOLOGIES REGISTERED ADDRESS] · [OFFICIAL PUBLISHER ADDRESS] · [OFFICIAL WEBSITE] · [OFFICIAL PUBLISHING EMAIL] · [CONTACT INFORMATION] · [MONTH YEAR of technical verification] · [MANUSCRIPT VERSION] · [LICENCE CHOICE] · [AUTHOR BIOGRAPHY — publisher to supply verified facts]
 
 ## Front-matter templates (to be written into `manuscript/front-matter/`)
-1. **Half title / Title page** – title, subtitle, "Written by Sharif Tingane Issah", "Published by SHARIF TECHNOLOGIES", *Knowledge Is Power*.
+1. **Half title / Title page** – title, subtitle, "Written by Sharif Issah Tingane", "Published by SHARIF TECHNOLOGIES", *Knowledge Is Power*.
 2. **Copyright page** – "Copyright © [YEAR] SHARIF TECHNOLOGIES. All rights reserved." (unless the publisher selects another licence); author/publisher lines; edition; ISBN placeholder; date placeholder; statement that third-party names/marks belong to their owners; statement that the text is original and that quoted third-party material (licence texts etc.) remains under its own terms.
 3. **Copyright explainer (short)** – copyright generally arises automatically when an original work is created; registration or deposit systems exist in some jurisdictions and may add benefits; consult local rules. Public availability ≠ copyright-free.
 4. **Edition/version statement** – 1st Edition; Technical information verified: [MONTH YEAR]; Manuscript version: [VERSION]; note that Git/GitHub change and pointing to official docs.

@@ -16,7 +16,7 @@ This licensing notice is a plain-language summary and does not replace the terms
 
 ## AI assistance
 
-This book was written with the help of an AI assistant, Claude, made by Anthropic and used through Claude Code, working with the author, Sharif Tingane Issah, who set the goals and rules and is responsible for the book. The assistant drafted the text, exercises, solutions and code, ran and recorded the commands, did the research and checking, built the editions and drew the draft cover. The Preface and Appendix N give the details; the repository's history credits the assistant as contributor and co-author.
+This book was written with the help of an AI assistant, Claude, made by Anthropic and used through Claude Code, working with the author, Sharif Issah Tingane, who set the goals and rules and is responsible for the book. The assistant drafted the text, exercises, solutions and code, ran and recorded the commands, did the research and checking, built the editions and drew the draft cover. The Preface and Appendix N give the details; the repository's history credits the assistant as contributor and co-author.
 
 ## What the licence does and does not mean
 
@@ -25,14 +25,13 @@ This book was written with the help of an AI assistant, Claude, made by Anthropi
 | | |
 |---|---|
 | Title | Git & GitHub: From Zero to Mastery |
-| Author | Sharif Tingane Issah |
-| Published | Under the SHARIF TECHNOLOGIES imprint |
-| Edition | 1st Edition |
-| ISBN | [ISBN TO BE ASSIGNED] |
-| Publication date | [PUBLICATION DATE] |
-| Technical information verified | [MONTH YEAR OF FINAL VERIFICATION] (see Appendix N for what was checked and what remains open) |
+| Author | Sharif Issah Tingane |
+| Published by | Sharif Issah Tingane, under the SHARIF TECHNOLOGIES imprint |
+| Edition | 1st Edition, electronic book |
+| ISBN | Not yet assigned |
+| First published | 2026 |
+| Technical information | Checked in September 2026; Appendix N says what was checked and what remains open |
 | Website | www.shariftechnologies.online |
-| Contact | [OFFICIAL PUBLISHING EMAIL] |
 
 ## Disclaimer
 
@@ -40,7 +39,7 @@ This book is educational. Commands change the state of your computer and your re
 
 ## Trademarks and non-affiliation
 
-This book is an independent educational work by Sharif Tingane Issah, issued under the SHARIF TECHNOLOGIES name. It is not affiliated with, endorsed by, sponsored by, or published by Git, GitHub, Microsoft, or any other third party mentioned. Git, GitHub, Microsoft, Linux, Windows, macOS, Docker, GitLab, Bitbucket and other names may be trademarks of their respective owners, and this book claims no rights in them. The name SHARIF TECHNOLOGIES is not licensed by the licences above.
+This book is an independent educational work by Sharif Issah Tingane, issued under the SHARIF TECHNOLOGIES name. It is not affiliated with, endorsed by, sponsored by, or published by Git, GitHub, Microsoft, or any other third party mentioned. Git, GitHub, Microsoft, Linux, Windows, macOS, Docker, GitLab, Bitbucket and other names may be trademarks of their respective owners, and this book claims no rights in them. The name SHARIF TECHNOLOGIES is not licensed by the licences above.
 
 ## Third-party material
 

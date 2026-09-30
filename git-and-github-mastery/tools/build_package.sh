@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # Assembles the publication package under publishing/build/package/ from the manuscript:
 #   manuscript/ (clean text export + manifest)   ebook/ (EPUB, PDFs)   cover/   metadata/
-# It builds every format from the same manuscript. It does NOT publish anything (gate B) and does not invent
-# any identifier: the ISBN and the legal publisher remain empty until they are assigned and established.
+# It builds the electronic-book formats from the same manuscript (the book is an ebook only; no print edition).
+# It does NOT upload or publish anything and does not invent any identifier: the ISBN stays empty until one is assigned.
 # Needs the diagrams pre-rendered (tools/render_diagrams.py) and the packages named in .github/workflows/validate.yml.
 set -eu
 cd "$(dirname "$0")/.."
@@ -12,8 +12,6 @@ rm -rf "$out"; mkdir -p "$out/manuscript" "$out/ebook" "$out/cover" "$out/metada
 python3 tools/export_clean.py --out "$out/manuscript"
 python3 tools/build_epub.py --out "$out/ebook/git-and-github-from-zero-to-mastery.epub"
 python3 tools/build_pdf.py --profile screen --out "$out/ebook/git-and-github-from-zero-to-mastery-screen.pdf"
-python3 tools/build_pdf.py --profile print --out "$out/ebook/git-and-github-from-zero-to-mastery-print.pdf"
-python3 tools/build_pdf.py --profile print --variant pdf/a-2b --out "$out/ebook/git-and-github-from-zero-to-mastery-print-pdfa-2b.pdf"
 cp publishing/cover/cover-front.svg publishing/cover/cover-front.png "$out/cover/"
 rm -f "$out"/ebook/*.html   # intermediate files written by the PDF builder
 python3 - "$out" <<'PY'
@@ -22,7 +20,7 @@ out = sys.argv[1]
 meta = {
   "title": "Git & GitHub: From Zero to Mastery",
   "subtitle": "A Complete Beginner-to-Expert Guide to Version Control, Collaboration, Automation, Security, and Modern Software Development",
-  "author": "Sharif Tingane Issah",
+  "author": "Sharif Issah Tingane",
   "language": "en-GB",
   "edition": "1st Edition",
   "brand": "SHARIF TECHNOLOGIES",
@@ -34,7 +32,7 @@ meta = {
   "licences": {"text": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)", "code_samples": "MIT"},
   "website": "www.shariftechnologies.online",
   "ai_assistance": "Written with the help of an AI assistant, Claude (Anthropic, via Claude Code), under the author's direction; see AI-ASSISTANCE.md. Claude is credited as contributor and co-author.",
-  "author_biography_short": 'Sharif Tingane Issah writes and builds software under the name SHARIF TECHNOLOGIES, from Ghana. Among the projects is Sharif NOVA, an early-stage, open-source programming language published on npm in September 2026. This book, written for first-time learners with the help of an AI assistant, Claude, follows one habit: run the command, read the source, and say what was and was not checked.',
+  "author_biography_short": 'Sharif Issah Tingane builds software from Wenchi, Ghana, and founded SHARIF TECHNOLOGIES. Public projects include SAIBA, an AI business assistant; Sharif NOVA, an open-source programming language; and CodeCast, an Android app. A public ORCID record lists interests in software development, AI, cybersecurity and networking. This book, for first-time learners, was written with the help of an AI assistant, Claude.',
   "isbn": None, "legal_publisher": None, "publisher_address": None, "publication_date": None,
   "status_of_null_fields": "Not assigned, not established or not yet supplied. They are deliberately empty and must not be invented.",
   "files": {os.path.relpath(f, out): hashlib.sha256(open(f, "rb").read()).hexdigest() for f in sorted(glob.glob(out + "/ebook/*") + glob.glob(out + "/cover/*"))},

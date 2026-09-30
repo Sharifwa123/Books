@@ -17,7 +17,7 @@ w("manuscript/front-matter/00-title-page.md", """# Git & GitHub: From Zero to Ma
 
 ## A Complete Beginner-to-Expert Guide to Version Control, Collaboration, Automation, Security, and Modern Software Development
 
-**Written by Sharif Tingane Issah**
+**Written by Sharif Issah Tingane**
 
 **SHARIF TECHNOLOGIES**
 
@@ -44,7 +44,7 @@ This licensing notice is a plain-language summary and does not replace the terms
 
 ## AI assistance
 
-This book was written with the help of an AI assistant, Claude, made by Anthropic and used through Claude Code, working with the author, Sharif Tingane Issah, who set the goals and rules and is responsible for the book. The assistant drafted the text, exercises, solutions and code, ran and recorded the commands, did the research and checking, built the editions and drew the draft cover. The Preface and Appendix N give the details; the repository's history credits the assistant as contributor and co-author.
+This book was written with the help of an AI assistant, Claude, made by Anthropic and used through Claude Code, working with the author, Sharif Issah Tingane, who set the goals and rules and is responsible for the book. The assistant drafted the text, exercises, solutions and code, ran and recorded the commands, did the research and checking, built the editions and drew the draft cover. The Preface and Appendix N give the details; the repository's history credits the assistant as contributor and co-author.
 
 ## What the licence does and does not mean
 
@@ -53,14 +53,13 @@ This book was written with the help of an AI assistant, Claude, made by Anthropi
 | | |
 |---|---|
 | Title | Git & GitHub: From Zero to Mastery |
-| Author | Sharif Tingane Issah |
-| Published | Under the SHARIF TECHNOLOGIES imprint |
-| Edition | 1st Edition |
-| ISBN | [ISBN TO BE ASSIGNED] |
-| Publication date | [PUBLICATION DATE] |
-| Technical information verified | [MONTH YEAR OF FINAL VERIFICATION] (see Appendix N for what was checked and what remains open) |
+| Author | Sharif Issah Tingane |
+| Published by | Sharif Issah Tingane, under the SHARIF TECHNOLOGIES imprint |
+| Edition | 1st Edition, electronic book |
+| ISBN | Not yet assigned |
+| First published | 2026 |
+| Technical information | Checked in September 2026; Appendix N says what was checked and what remains open |
 | Website | www.shariftechnologies.online |
-| Contact | [OFFICIAL PUBLISHING EMAIL] |
 
 ## Disclaimer
 
@@ -68,7 +67,7 @@ This book is educational. Commands change the state of your computer and your re
 
 ## Trademarks and non-affiliation
 
-This book is an independent educational work by Sharif Tingane Issah, issued under the SHARIF TECHNOLOGIES name. It is not affiliated with, endorsed by, sponsored by, or published by Git, GitHub, Microsoft, or any other third party mentioned. Git, GitHub, Microsoft, Linux, Windows, macOS, Docker, GitLab, Bitbucket and other names may be trademarks of their respective owners, and this book claims no rights in them. The name SHARIF TECHNOLOGIES is not licensed by the licences above.
+This book is an independent educational work by Sharif Issah Tingane, issued under the SHARIF TECHNOLOGIES name. It is not affiliated with, endorsed by, sponsored by, or published by Git, GitHub, Microsoft, or any other third party mentioned. Git, GitHub, Microsoft, Linux, Windows, macOS, Docker, GitLab, Bitbucket and other names may be trademarks of their respective owners, and this book claims no rights in them. The name SHARIF TECHNOLOGIES is not licensed by the licences above.
 
 ## Third-party material
 
@@ -114,7 +113,7 @@ The book follows a small set of rules, written down before the chapters:
 
 ## How this book was made, and the part AI played
 
-This book was written with an AI assistant. The assistant is Claude, made by Anthropic and used through Claude Code, working in sessions with the author, Sharif Tingane Issah. The author set the goals, the scope and the rules that the book follows (run the commands, label the evidence, invent nothing), chose the licences and the imprint name, approved the plan, and is responsible for the book.
+This book was written with an AI assistant. The assistant is Claude, made by Anthropic and used through Claude Code, working in sessions with the author, Sharif Issah Tingane. The author set the goals, the scope and the rules that the book follows (run the commands, label the evidence, invent nothing), chose the licences and the imprint name, approved the plan, and is responsible for the book.
 
 The assistant did the work of **every area** of the book: it drafted the chapters, the exercises, the solutions, the glossary and the appendices; wrote the code samples and the scripts; ran the commands in a sandbox and recorded the output printed here; searched and read the official sources and kept the research ledger; read the whole book for errors; built the PDF and EPUB editions and the automatic checks; drew the draft cover and the diagrams; and drafted the author information and the licensing pages. It also made most of the commits in the project's repository, which therefore lists Claude as a contributor and co-author.
 
@@ -124,7 +123,7 @@ What that means for you: the recorded output is real output from a sandbox, not 
 
 Use the book the way it asks you to use everything else: run the commands, read the output, look at the date and compare with the current documentation. If you find that something differs, trust the source and let the book's ledger tell you where its claim came from.
 
-*Sharif Tingane Issah*
+*Sharif Issah Tingane*
 """)
 
 full = [(n, c) for n, c in [(i + 1, c) for i, c in enumerate(C)] if c[4] == "full"]
@@ -164,15 +163,15 @@ w("manuscript/back-matter/author-and-publisher.md", """# Author and Publisher
 
 ## The author
 
-Sharif Tingane Issah is the founder of SHARIF TECHNOLOGIES, the name under which Sharif writes and publishes software and books. Based in Ghana, Sharif describes the work on a public GitHub profile as software, artificial intelligence and cybersecurity, with the aim of building practical technology.
+Sharif Issah Tingane is the founder of SHARIF TECHNOLOGIES, the name under which Sharif builds and publishes software and books from Wenchi, Ghana. The SHARIF TECHNOLOGIES website lists custom web and mobile software, cybersecurity, networking and ICT training.
 
-One project is Sharif NOVA, a programming language and toolchain that Sharif began as an independent project. It has an interpreter, a compiler for web pages and a web server mode, is released under the MIT licence, and was published on npm in September 2026. It is still at an early version number; no claim is made about its use by others.
+Public projects include SAIBA, an AI assistant for business customer support; Sharif NOVA, an open-source programming language and toolchain, still at an early version number; and CodeCast, an Android app that its repository describes as turning a codebase into a video tutorial. Sharif's public ORCID record lists interests in software development, artificial intelligence, cybersecurity, networking and developer tools, and an education entry in General Science at Techiman Senior High School, Ghana.
 
-This book comes from the same habit. Every command in it was run and recorded, each statement about Git or GitHub is tied to its source, and what could not be checked is written down. The book was written with the help of an AI assistant, Claude, and says so on its copyright page. The working record, including the assistant's commits, is published beside the book, in its repository, so that readers can follow it.
+This book follows one habit: every command was run and recorded, each claim is tied to its source, and what could not be checked is written down. It was written with the help of an AI assistant, Claude, as the copyright page explains.
 
 ## The imprint
 
-**SHARIF TECHNOLOGIES** is the name under which Sharif Tingane Issah writes and publishes software and books. This book is published under the SHARIF TECHNOLOGIES imprint. The name is not licensed by the book's licences.
+**SHARIF TECHNOLOGIES** is the name under which Sharif Issah Tingane writes and publishes software and books. This book is published under the SHARIF TECHNOLOGIES imprint. The name is not licensed by the book's licences.
 
 *Knowledge Is Power*
 

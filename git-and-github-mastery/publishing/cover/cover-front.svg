@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 2560" width="1600" height="2560" role="img" aria-labelledby="t d">
-  <title id="t">Cover: Git &amp; GitHub: From Zero to Mastery, by Sharif Tingane Issah</title>
+  <title id="t">Cover: Git &amp; GitHub: From Zero to Mastery, by Sharif Issah Tingane</title>
   <desc id="d">A dark blue cover with a graph of commits and branches in warm yellow and light blue, the title in white capitals, the author's name and the words Knowledge Is Power.</desc>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0d1b3d"/><stop offset="1" stop-color="#14213d"/></linearGradient>
@@ -23,7 +23,7 @@
     <text x="800" y="760" font-size="38" fill="#c9d6ee">A Complete Beginner-to-Expert Guide to Version Control,</text>
     <text x="800" y="815" font-size="38" fill="#c9d6ee">Collaboration, Automation, Security,</text>
     <text x="800" y="870" font-size="38" fill="#c9d6ee">and Modern Software Development</text>
-    <text x="800" y="2260" font-size="64" font-weight="700" letter-spacing="4">SHARIF TINGANE ISSAH</text>
+    <text x="800" y="2260" font-size="64" font-weight="700" letter-spacing="4">SHARIF ISSAH TINGANE</text>
     <text x="800" y="2390" font-size="34" letter-spacing="8" fill="#c9d6ee">SHARIF TECHNOLOGIES</text>
     <text x="800" y="2445" font-size="30" font-style="italic" fill="#f4b942">Knowledge Is Power</text>
   </g>

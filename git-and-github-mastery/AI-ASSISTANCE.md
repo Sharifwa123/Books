@@ -1,8 +1,10 @@
 # AI Assistance: how this book and its repository were made
 
-**This book was written with an AI assistant.** The assistant is Claude, made by Anthropic, used through Claude Code, working in sessions with the author, Sharif Tingane Issah. This page says where the assistant worked, what the author decided, how the repository records it, and what remains uncertain. The printed book carries a shorter statement (copyright page, Preface, author page and Appendix N); this page is the full version.
+**This book was written with an AI assistant.** The assistant is Claude, made by Anthropic, used through Claude Code, working in sessions with the author, Sharif Issah Tingane. This page says where the assistant worked, what the author decided, how the repository records it, and what remains uncertain. The printed book carries a shorter statement (copyright page, Preface, author page and Appendix N); this page is the full version.
 
 ## Who did what
+
+The author describes their own use of AI as running research and automating the compilation of the book. The repository's history shows more than that: the assistant also drafted the chapters, exercises, solutions, glossary, appendices and code, and this page follows the history. If the author wrote or rewrote parts personally, this table is extended to say which.
 
 | Area | What the AI assistant did | What the author did and decided |
 |---|---|---|
@@ -16,7 +18,7 @@
 | Editorial read-through | Read all 81 chapters and the appendices and made the corrections | Required the read-through |
 | Build and checks | Wrote the PDF, EPUB, clean-export and package builders, the validators' set-up and the continuous-integration workflow | Required the formats and the brand and publisher distinctions |
 | Cover and diagrams | Drew the draft cover (SVG) and wrote the diagram sources | May replace the cover |
-| Author and publisher information | Researched public sources, drafted the biographies, the imprint profile and the publication documents, and recorded what could not be established | Gave the authorisation to research; must confirm the biography and the facts in it |
+| Author and publisher information | Researched the public sources it could reach, drafted the biographies, the imprint profile and the publication documents, and recorded what could not be established | Gave the authorisation to research; supplied a research dossier (from sources the assistant could not reach) that the biographies use; must confirm the biography and the facts in it |
 | Licensing and rights documents | Drafted the copyright page, licence notices, rights register and checklists to the author's wording | Chose CC BY-NC-SA 4.0 for the text and MIT for code; chose SHARIF TECHNOLOGIES as holder and imprint |
 | Repository administration | Created branches and pull requests, ran the checks, fixed failures and merged pull requests, using GitHub tools under the author's standing authorisation | Owns the repository and the account; decides on publication and on the default branch |
 

@@ -1,2 +1,2 @@
 # Solutions
-Mirrors `../exercises/` (`chNN-solutions.md`). Also holds project reference solutions and, later, the capstone reference and the assessment key/rubric (instructor edition only).
+Mirrors `../exercises/` (`chNN-solutions.md`). Also holds the answer key and rubric for the final assessment and the reference solutions for the advanced challenges.

@@ -15,7 +15,7 @@ Working title must not imply GitHub affiliation and should avoid generic "AI-boo
 **Decision (recorded):** title 1 selected, with the long subtitle in publishing/metadata.md.
 
 ## Presentation
-- Written by Sharif Tingane Issah
+- Written by Sharif Issah Tingane
 - Published by SHARIF TECHNOLOGIES
 - *Knowledge Is Power*
 - Includes a non-affiliation notice (see 07).

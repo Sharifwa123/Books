@@ -15,7 +15,7 @@ def ok(c, msg):
 n = len(r.pages); ok(n > 3, f"pages: {n}")
 md = r.metadata or {}
 ok((md.get("/Title") or "").startswith("Git & GitHub"), f"title: {md.get('/Title')}")
-ok(md.get("/Author") == "Sharif Tingane Issah", f"author: {md.get('/Author')}")
+ok(md.get("/Author") == "Sharif Issah Tingane", f"author: {md.get('/Author')}")
 ok(bool(md.get("/Keywords")) and bool(md.get("/Subject")), "keywords and subject present")
 root = r.trailer["/Root"]
 ok(str(root.get("/Lang", "")).startswith("en"), f"language: {root.get('/Lang')}")
@@ -65,7 +65,7 @@ ok(not bad, f"all fonts embedded (not embedded: {sorted(bad) or 'none'})")
 txt = "".join((r.pages[i].extract_text() or "") for i in range(min(n, 12)))
 ok(len(txt) > 500, f"extractable text on the first pages ({len(txt)} characters)")
 ok("Git & GitHub: From Zero to Mastery" in txt.replace("\n", " ") or "Git & GitHub" in txt, "title text present")
-ok("Sharif Tingane Issah" in txt, "author text present")
+ok("Sharif Issah Tingane" in txt, "author text present")
 flat = re.sub(r"\s+", "", "".join((r.pages[i].extract_text() or "") for i in range(min(n, 20))))   # line breaks may fall inside a hyphenated name
 ok("CCBY-NC-SA4.0" in flat and "MITLicense" in flat, "copyright page states the book text and code licences")
 ok(not re.search(r"ISBN[: ]+97[89]", txt), "no invented ISBN")
