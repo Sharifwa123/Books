@@ -116,7 +116,7 @@ Parts are separated by **spaces**, so spaces matter. Names are **case-sensitive*
 
 > **UI-VERSION NOTE.** How to open a terminal depends on your system and its version. On macOS and Linux, search your applications for "Terminal". On Windows, after Git for Windows is installed, search for "Git Bash". If you cannot find it, search your system's help for "open a terminal".
 
-When a terminal opens, you are normally in your **home folder** (Chapter 2<!--ref:files-->). The recordings in this chapter start there and use the fictional user name `learner`, so your paths will differ: `/home/learner` will be your own home folder, and on Windows, Git Bash is expected to show Windows drives in a Unix style, such as `/c/Users/yourname` (**verification pending [R126]**: not run here).
+When a terminal opens, you are normally in your **home folder** (Chapter 2<!--ref:files-->). The recordings in this chapter start there and use the fictional user name `learner`, so your paths will differ: `/home/learner` will be your own home folder, and on Windows, Git Bash is expected to show Windows drives in a Unix style, such as `/c/Users/yourname` (this drive style was not checked; see the note in section 7.2).
 
 ---
 
@@ -294,7 +294,8 @@ x.txt
 ```
 
 *Recorded in Bash and zsh (identical); `ch07-terminal/expected-errors.bash.txt`.*
- There is an option that deletes a folder and everything in it. This book will not use it until Git recovery gives you a safety net, and you should treat it as the most dangerous ordinary command that you will meet.
+
+There is an option that deletes a folder and everything in it. This book will not use it until Git recovery gives you a safety net, and you should treat it as the most dangerous ordinary command that you will meet.
 
 ---
 
@@ -610,10 +611,10 @@ You are ready for Chapter 8<!--ref:markdown--> if you can:
 | Behaviour and output of every command and error shown, in Bash 5.2 and zsh 5.9, including the differences in error wording, `cd -`, and unmatched wildcards | Locally tested: interactive sessions via a pseudo-terminal, recorded in `verification/ch07-terminal/expected-*.txt`, re-run in CI on the runner's Bash and zsh; GNU manuals not yet consulted | R125 |
 | Exported versus unexported variables; `PATH` lookup; `command -v` | Locally tested (as above) | R130 |
 | `ls -l` permission string | Locally tested on Linux | R116 |
-| Git Bash is installed with Git for Windows and is not Git | Needs re-verification | R126 |
-| PowerShell and Command Prompt equivalents | Needs re-verification; not executed | R127 |
+| Git Bash is installed with Git for Windows and is not Git | Partly verified: the Git for Windows README (`git-bash.exe`, `git-cmd.exe`); installer bundling and drive-path style unchecked | R126 |
+| PowerShell and Command Prompt equivalents | PowerShell names and aliases verified against Microsoft's PowerShell 7.5 reference; Command Prompt column unchecked; nothing executed on Windows | R127 |
 | macOS Terminal defaults to zsh | Needs re-verification | R128 |
-| Wording of Windows "not recognized" messages | Needs re-verification; not recorded | R129 |
+| Wording of Windows "not recognized" messages | PowerShell wording verified against Microsoft's documentation; Command Prompt wording unchecked; not recorded | R129 |
 
 ## Where this leads
 

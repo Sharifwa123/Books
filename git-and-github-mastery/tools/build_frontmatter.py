@@ -19,7 +19,7 @@ w("manuscript/front-matter/00-title-page.md", """# Git & GitHub: From Zero to Ma
 
 **Written by Sharif Tingane Issah**
 
-**Published by SHARIF TECHNOLOGIES**
+**SHARIF TECHNOLOGIES**
 
 *Knowledge Is Power*
 
@@ -28,7 +28,7 @@ w("manuscript/front-matter/00-title-page.md", """# Git & GitHub: From Zero to Ma
 
 w("manuscript/front-matter/01-copyright-page.md", """# Copyright and Notices
 
-Copyright © [YEAR] SHARIF TECHNOLOGIES. All rights reserved.
+Copyright © [YEAR] [COPYRIGHT HOLDER: TO BE CONFIRMED]. All rights reserved.
 
 > **Licence: undecided.** The publisher intends to release the book text and its code samples under licences that permit reading, downloading and sharing on stated conditions. **The wording of any licence has not been inserted, because it has not yet been verified and decided.** Until the publisher adds it here, treat the book as protected by copyright with all rights reserved. Copyright is not removed by making a work public or free to read: **the book is not "copyright-free"**. Chapter [[licences]] explains the difference between copyright and a licence and the seven questions to ask of any work: who owns it, and whether you may read it, download it, redistribute it, modify it, use it commercially, or reuse its code.
 
@@ -36,12 +36,13 @@ Copyright © [YEAR] SHARIF TECHNOLOGIES. All rights reserved.
 |---|---|
 | Title | Git & GitHub: From Zero to Mastery |
 | Author | Sharif Tingane Issah |
-| Publisher | SHARIF TECHNOLOGIES |
+| Brand | SHARIF TECHNOLOGIES |
+| Legal publisher or imprint | [LEGAL PUBLISHER OR IMPRINT: TO BE CONFIRMED] |
 | Edition | 1st Edition |
 | ISBN | [ISBN TO BE ASSIGNED] |
 | Publication date | [PUBLICATION DATE] |
 | Technical information verified | [MONTH YEAR OF FINAL VERIFICATION] (see Appendix N for what was checked and what remains open) |
-| Publisher address | [SHARIF TECHNOLOGIES REGISTERED ADDRESS] |
+| Publisher address | [PUBLISHER ADDRESS: TO BE SUPPLIED] |
 | Website and contact | [OFFICIAL WEBSITE] · [OFFICIAL PUBLISHING EMAIL] |
 
 ## Disclaimer
@@ -50,7 +51,7 @@ This book is educational. Commands change the state of your computer and your re
 
 ## Trademarks and non-affiliation
 
-This book is an independent educational publication by SHARIF TECHNOLOGIES. It is not affiliated with, endorsed by, sponsored by, or published by Git, GitHub, Microsoft, or any other third party mentioned. Git, GitHub, Microsoft, Linux, Windows, macOS, Docker, GitLab, Bitbucket and other names may be trademarks of their respective owners.
+This book is an independent educational work by Sharif Tingane Issah, issued under the SHARIF TECHNOLOGIES name. It is not affiliated with, endorsed by, sponsored by, or published by Git, GitHub, Microsoft, or any other third party mentioned. Git, GitHub, Microsoft, Linux, Windows, macOS, Docker, GitLab, Bitbucket and other names may be trademarks of their respective owners.
 
 ## Third-party material
 
@@ -138,9 +139,9 @@ w("manuscript/back-matter/author-and-publisher.md", """# Author and Publisher
 
 [AUTHOR BIOGRAPHY: to be supplied by the publisher. No qualifications, employment, awards or memberships are stated here, because none were supplied.]
 
-## The publisher
+## The brand
 
-**SHARIF TECHNOLOGIES**
+**SHARIF TECHNOLOGIES** is the name under which this book is issued. The legal publisher or imprint has not yet been confirmed.
 
 *Knowledge Is Power*
 
@@ -161,3 +162,7 @@ You have finished the book when you can tick every line. The assessment in Chapt
 - [ ] I know the difference between a licence and copyright, and I know that choosing a licence is my decision.
 - [ ] I read the current documentation before I rely on a fact about a platform.
 """)
+
+# expand the [[key]] cross-references in the generated files so that they are committed final
+import subprocess, sys, os
+subprocess.run([sys.executable, os.path.join(os.path.dirname(os.path.abspath(__file__)), "resolve_refs.py"), "--expand"], check=True)

@@ -18,7 +18,7 @@ ledger: [R136, R137, R138]
 
 **Before you start.** Chapter 9<!--ref:problem-->: the six difficulties of changing files and the eight requirements of a version-control system. This chapter is optional on a first read (its tag is Core, but the First-Read Path skips it); return to it when you are curious about *why* Git is designed as it is.
 
-> **Verification pending [R136, R137, R138].** History is a matter of record, and this chapter has not yet been checked against the primary sources (the projects' own documentation, the archives of the communities involved, and the published accounts of the people who made these tools). Every named system, every date, and every statement of cause in this chapter is given from general knowledge and is marked for re-verification. The *structure* of the story, that each stage solved a problem left by the one before, is the part to remember. This chapter deliberately contains **no exact dates and no quotations**, so that nothing in it can be wrong in a way that matters until it is verified.
+> **Verification pending [R136, R137, R138].** History is a matter of record, and this chapter has not yet been checked against the primary sources (the projects' own documentation, the archives of the communities involved, and the published accounts of the people who made these tools). Every named system, every date, and every statement of cause in this chapter is given from general knowledge and is marked for re-verification. The *structure* of the story, that each stage solved a problem left by the one before, is the part to remember. Apart from the one verified note on Git's first commit (section 10.6), this chapter deliberately contains **no exact dates and no quotations**, so that nothing in it can be wrong in a way that matters until it is verified.
 
 ---
 
@@ -152,7 +152,7 @@ You are ready for Chapter 11<!--ref:distributed--> if you can:
 | Claim | Evidence class | Ledger |
 |---|---|---|
 | The staged account of version control (copies; locking tools; central servers; distributed systems) | Needs re-verification; no system or date is stated | R136 |
-| Git's origin, creator, reasons and design goals | Needs re-verification | R137 |
+| Git's origin: creator and year | Officially verified (docs only): the first commit in Git's own history; the reason and the goals remain unverified | R137 |
 | Why Git became widely used | Needs re-verification; synthesis of general accounts | R138 |
 
 ## Where this leads
