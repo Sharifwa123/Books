@@ -48,11 +48,11 @@ curl --include --request GET \
   --header "Accept: application/vnd.github+json"
 ```
 
-`--include` shows the response headers, which matter, as the next sections show. **I made an equivalent read-only request for the commits of this book's repository, asking for one item per page** (the API was reached through the session's proxy). Observed:
+`--include` shows the response headers, which matter, as the next sections show. **An equivalent read-only request for the commits of this book's repository, asking for one item per page, was made by the author** (the API was reached through the session's proxy). Observed:
 
 - Status **200** and a JSON list with one item; each item had the keys `sha`, `commit`, `author`, `committer`, `parents`, `url`, `html_url` and others.
 - A **`Link`** header holding a `rel="next"` and a `rel="last"` address, because there were more pages than the one that was returned (section 74.3).
-- **`X-GitHub-Api-Version-Selected: 2022-11-28`** although I sent no version (section 74.4).
+- **`X-GitHub-Api-Version-Selected: 2022-11-28`** although no version was sent (section 74.4).
 - Headers whose names start with `X-RateLimit-` (section 74.5).
 - A `Cache-Control` and an `ETag`, which a client can use to avoid re-downloading unchanged data.
 
