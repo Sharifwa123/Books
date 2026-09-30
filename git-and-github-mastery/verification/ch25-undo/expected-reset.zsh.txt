@@ -1,0 +1,73 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ cd bakery-menu
+$ printf -- '- Tea: 1.50\n' >> menu.md
+$ git commit -am "Add tea"
+[main 60cb0bb] Add tea
+ 1 file changed, 1 insertion(+)
+$ printf -- '- Coffee: 2.00\n' >> menu.md
+$ git commit -am "Add coffee"
+[main bf6d066] Add coffee
+ 1 file changed, 1 insertion(+)
+$ git log --oneline
+bf6d066 (HEAD -> main) Add coffee
+60cb0bb Add tea
+81f772e Add coconut cake
+9f10b43 Raise the price of the white loaf
+8a52ffe Add the menu
+$ git reset --soft HEAD~1
+$ git status --short
+M  menu.md
+$ git log --oneline
+60cb0bb (HEAD -> main) Add tea
+81f772e Add coconut cake
+9f10b43 Raise the price of the white loaf
+8a52ffe Add the menu
+$ git commit -m "Add coffee"
+[main 1558157] Add coffee
+ 1 file changed, 1 insertion(+)
+$ git reset HEAD~1
+Unstaged changes after reset:
+M	menu.md
+$ git status --short
+ M menu.md
+$ git log --oneline
+60cb0bb (HEAD -> main) Add tea
+81f772e Add coconut cake
+9f10b43 Raise the price of the white loaf
+8a52ffe Add the menu
+$ git commit -am "Add coffee"
+[main df83910] Add coffee
+ 1 file changed, 1 insertion(+)
+$ git reset --hard HEAD~1
+HEAD is now at 60cb0bb Add tea
+$ git status --short
+$ cat menu.md
+# Sunrise Bakery menu
+
+- White loaf: 2.80
+- Rolls (six): 3.00
+- Coconut cake (slice): 4.00
+- Tea: 1.50
+$ git reflog -4
+60cb0bb (HEAD -> main) HEAD@{0}: reset: moving to HEAD~1
+df83910 HEAD@{1}: commit: Add coffee
+60cb0bb (HEAD -> main) HEAD@{2}: reset: moving to HEAD~1
+1558157 HEAD@{3}: commit: Add coffee
+$ git reset --hard HEAD@{1}
+HEAD is now at df83910 Add coffee
+$ cat menu.md
+# Sunrise Bakery menu
+
+- White loaf: 2.80
+- Rolls (six): 3.00
+- Coconut cake (slice): 4.00
+- Tea: 1.50
+- Coffee: 2.00
+$ git log --oneline
+df83910 (HEAD -> main) Add coffee
+60cb0bb Add tea
+81f772e Add coconut cake
+9f10b43 Raise the price of the white loaf
+8a52ffe Add the menu

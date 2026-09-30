@@ -1,0 +1,28 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ cd bakery-menu
+$ printf -- '- Mystery pie: 0.01\n' >> menu.md
+$ git commit -am "Add a mystery pie"
+[main 1080a4c] Add a mystery pie
+ 1 file changed, 1 insertion(+)
+$ git revert --no-edit HEAD
+[main 3075407] Revert "Add a mystery pie"
+ Date: Mon Jan 5 09:10:00 2026 +0000
+ 1 file changed, 1 deletion(-)
+$ git log --oneline
+3075407 (HEAD -> main) Revert "Add a mystery pie"
+1080a4c Add a mystery pie
+81f772e Add coconut cake
+9f10b43 Raise the price of the white loaf
+8a52ffe Add the menu
+$ cat menu.md
+# Sunrise Bakery menu
+
+- White loaf: 2.80
+- Rolls (six): 3.00
+- Coconut cake (slice): 4.00
+$ git show --stat --oneline HEAD
+3075407 (HEAD -> main) Revert "Add a mystery pie"
+ menu.md | 1 -
+ 1 file changed, 1 deletion(-)

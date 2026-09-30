@@ -150,3 +150,6 @@ Stash,A shelf for unfinished changes.,A stack of saved working-tree and index st
 Tag,A fixed name for one commit.,"A reference that names a commit and, unlike a branch, does not move when new commits are made.",v1.0,branch; annotated tag,stash
 Lightweight tag,A tag that is just a name.,"A tag that is only a reference to a commit, with no tagger, date or message of its own.",git tag v0.1,tag; annotated tag,stash
 Annotated tag,A tag with a message and tagger.,"A tag stored as its own object with tagger, date and message; the usual choice for releases.","git tag -a v1.0 -m ""First public menu""",tag,stash
+git restore,Bring a file back from the index or an older commit.,"Restores content into the working tree or, with --staged, into the index, from the index or a named commit.",git restore menu.md,git reset; index,undo
+git reset,Move the current branch to another commit.,"Moves the current branch to a commit; --soft keeps index and working tree, the default resets the index, --hard resets both.",git reset --soft HEAD~1,git revert; reflog,undo
+git revert,Undo a commit by adding a new one.,"Creates a new commit that applies the inverse of an earlier commit, leaving history intact.",git revert --no-edit HEAD,git reset,undo

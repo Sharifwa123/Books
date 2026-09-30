@@ -1,0 +1,19 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ cd bakery-menu
+$ printf -- '- Precious draft: 5.00\n' >> menu.md
+$ git status --short
+ M menu.md
+$ git reset --hard
+HEAD is now at 81f772e Add coconut cake
+$ git status --short
+$ cat menu.md
+# Sunrise Bakery menu
+
+- White loaf: 2.80
+- Rolls (six): 3.00
+- Coconut cake (slice): 4.00
+$ git reflog -2
+81f772e (HEAD -> main) HEAD@{0}: reset: moving to HEAD
+81f772e (HEAD -> main) HEAD@{1}: commit: Add coconut cake
