@@ -5,7 +5,7 @@ tag: Core
 first_read: full
 status: draft
 requires: [commits, merging]
-ledger: [R184, R185, R186]
+ledger: [R184, R185, R186, R355]
 ---
 # Chapter 25 — Undoing Things Safely [Core]
 
@@ -325,7 +325,9 @@ $ git reflog -2
 
 *Recorded in Bash; `ch25-undo/expected-lost.bash.txt`.*
 
-Both entries describe commits and moves; neither mentions your edit. **There is no way to get the draft back with Git.**
+Both entries describe commits and moves; neither mentions your edit. Because the edit was never even staged (never passed to `git add`), **there is no way to get the draft back with Git.**
+
+> **Deep.** Staging changes this. If the edit had been staged with `git add` before the reset, Git would already have stored its contents as an object, and `git fsck --lost-found` would list it as a *dangling blob* that you could read and save. Staging before a risky command is therefore a cheap safety net. This was tried once on Git 2.43.0 and is not part of the recorded sessions; Chapter 80<!--ref:challenges--> uses `git fsck --lost-found` for a lost commit.
 
 > **⚠️ CAUTION.** `git reset --hard` is the most dangerous everyday command. Before you run it, run `git status` and `git stash` (Chapter 24<!--ref:stash-->) if there is anything you want to keep. Commits can be recovered from the reflog. Uncommitted changes cannot.
 
@@ -537,6 +539,7 @@ You are ready for Chapter 26<!--ref:reflog--> if you can:
 | `restore`, `restore --staged`, `restore --source` | Locally tested: Bash 5.2 and zsh 5.9, Git 2.43.0; CI on Git 2.55.0 | R184 |
 | `reset --soft/--mixed/--hard`, reflog recovery, loss of uncommitted work | Locally tested (as above); wording of the `Unstaged changes after reset` message may vary | R185 |
 | `revert` of an ordinary commit, and of a merge commit with `-m 1` | Locally tested (as above), and checked against the `git revert` documentation (Git 2.56.0) for `-m` and its warning | R186 |
+| A staged edit survives `reset --hard` as a dangling blob (`git fsck --lost-found`); an unstaged edit does not | Locally tested once on Git 2.43.0; not a recorded session; documentation not yet consulted | R355 |
 | `revert` of an empty commit | Behaviour characterised in the research folder; **documentation is silent**; deliberately not taught | R186 |
 
 ## Where this leads

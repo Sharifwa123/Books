@@ -64,7 +64,7 @@ The folder looks the same as before, but it now has a memory.
 
 > **New term: git status.** Shows which files are untracked, modified or staged, and which branch you are on.
 
-Run `git status` before and after nearly everything you do. It never changes anything, so it is always safe. Chapter 15<!--ref:model--> introduced the four file states; here they are again in a real session:
+Run `git status` before and after nearly everything you do. It does not change your files or your history, so it is always safe to run. Chapter 15<!--ref:model--> introduced the four file states; here they are again in a real session:
 
 ```text
 $ git status
@@ -447,7 +447,7 @@ You can turn any folder into a repository, see what state its files are in, choo
 ## What You Learned
 
 - `git init` makes the current folder a repository by creating `.git`; run it in the right folder only.
-- `git status` reports the state of every file, is always safe, and suggests the next command.
+- `git status` reports the state of every file, is safe to run at any time (it changes neither your files nor your history), and suggests the next command.
 - `git add` stages; `git commit -m` records what is staged, with a message.
 - The commit output tells you the branch, `(root-commit)` for the first commit, the short hash, the message and a summary.
 - A commit records only what is staged; `git commit -am` stages tracked, modified files for you.
