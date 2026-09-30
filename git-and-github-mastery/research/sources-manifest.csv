@@ -99,3 +99,4 @@ https://raw.githubusercontent.com/git-for-windows/build-extra/main/installer/ins
 https://raw.githubusercontent.com/Homebrew/homebrew-core/HEAD/Formula/g/git.rb,2026-09-30T02:29:07Z,8586,19810d48c27ffda1a56258a455d7135fc2d9af0ea620b861c2437fd47f5b828b
 git+https://github.com/github/docs (sparse: content/) @ 2eaab0bd200255beb8d1b2d8d743a3d3e76428da (committed 2026-09-29),2026-09-30T02:30:47Z,,commit-id
 git+https://github.com/github/site-policy @ b9578b546d2506febda1da2cd7431644d58e512c (committed 2026-05-29),2026-09-30T02:30:47Z,,commit-id
+https://raw.githubusercontent.com/git/git/v2.56.0/builtin/pull.c,2026-09-30T06:21:33Z,36060,538aa964818a9e90fc281f555f440e868388a54f1c8be38af0da1e55d52f00d1

@@ -373,7 +373,7 @@ nothing to commit, working tree clean
 
 > **⚠️ CAUTION.** When a push is rejected, do **not** reach for `--force`. Forcing tells the remote to discard the commits you do not have, which would delete Alice's work. Fetch, integrate, then push normally. Chapter 33<!--ref:gitsec--> returns to why force-pushing shared branches is dangerous.
 
-> **Checked against the documentation (R180), with one discrepancy.** The `pull.rebase` and `pull.ff` settings are documented (Git 2.56.0): `pull.rebase` set to true rebases "instead of merging", and the manual calls this "a possibly dangerous operation"; `pull.ff` set to `only` allows only fast-forwards. The `git pull` manual of Git 2.50.0 said that on divergent branches "the user needs to specify how to reconcile the divergent branches with `--rebase` or `--no-rebase`", which is what the recording shows. The manual of Git 2.55.0 and 2.56.0 instead lists `git pull --ff-only` as the default ("it fails if your local branch has diverged from the remote branch"). The recorded run on Git 2.43.0, 2.55.0 and 2.56.0 gave the same result, the message `Need to specify how to reconcile divergent branches`, so what happens on your computer is what the recording shows; whether the manual or the message describes the intended default was not resolved, and it is a reason to always set the behaviour yourself.
+> **Checked against the documentation and the source (R180).** The `pull.rebase` and `pull.ff` settings are documented (Git 2.56.0): `pull.rebase` set to true rebases "instead of merging", and the manual calls this "a possibly dangerous operation"; `pull.ff` set to `only` allows only fast-forwards. The `git pull` manual of Git 2.50.0 said that on divergent branches "the user needs to specify how to reconcile the divergent branches with `--rebase` or `--no-rebase`". The manual of Git 2.55.0 and 2.56.0 instead lists `git pull --ff-only` as "the default". The source code settles which is right: in `builtin/pull.c` of Git v2.56.0, when no `--ff`, `--ff-only` or rebase choice is set (on the command line or in configuration) and the branches have diverged, Git shows the advice and stops with `Need to specify how to reconcile divergent branches.` So a plain `git pull` still fast-forwards when it can, still refuses when the branches have diverged, and the recordings on Git 2.43.0, 2.55.0 and 2.56.0 agree with the source. The 2.55+ manual sentence is looser than the behaviour; the book follows the behaviour.
 
 ---
 
@@ -532,7 +532,7 @@ You are ready for Chapter 24<!--ref:stash--> if you can:
 |---|---|---|
 | Bare repository, clone, `remote -v`, `push -u`, tracking, `origin/main` | Locally tested: Bash 5.2 and zsh 5.9, Git 2.43.0; identical on CI's Git 2.55.0 | R178 |
 | Fetch changes only `origin/...`; status wording after fetch; pull fast-forward | Locally tested (as above) | R179 |
-| Rejected push, divergence, pull advice, `git remote` subcommands | Locally tested (as above), same result on Git 2.43.0, 2.55.0 and 2.56.0; `pull.rebase`/`pull.ff` and the `git pull` default checked in the manuals, with the discrepancy noted above; hosting-platform behaviour not covered | R180 |
+| Rejected push, divergence, pull advice, `git remote` subcommands | Locally tested (as above), same result on Git 2.43.0, 2.55.0 and 2.56.0; `pull.rebase`/`pull.ff` and the `git pull` default checked in the manuals, source `builtin/pull.c` v2.56.0 confirms the refusal, the manual's "default" wording is looser; hosting-platform behaviour not covered | R180 |
 
 ## Where this leads
 
