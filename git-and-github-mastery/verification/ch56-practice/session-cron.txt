@@ -1,0 +1,10 @@
+#!git
+git config --global user.name "Ada Learner"
+git config --global user.email "ada@example.org"
+git config --global init.defaultBranch main
+@ printf %s aW1wb3J0IHN5cwpMSU1JVFMgPSBbKCJtaW51dGVzIiwgMCwgNTkpLCAoImhvdXJzIiwgMCwgMjMpXQpkZWYgZXhwYW5kKGZpZWxkLCBsbywgaGkpOgogICAgb3V0ID0gc2V0KCkKICAgIGZvciBwYXJ0IGluIGZpZWxkLnNwbGl0KCIsIik6CiAgICAgICAgaWYgIi8iIGluIHBhcnQ6CiAgICAgICAgICAgIHN0YXJ0LCBzdGVwID0gcGFydC5zcGxpdCgiLyIpCiAgICAgICAgICAgIGZpcnN0ID0gbG8gaWYgc3RhcnQgPT0gIioiIGVsc2UgaW50KHN0YXJ0KQogICAgICAgICAgICBvdXQudXBkYXRlKHJhbmdlKGZpcnN0LCBoaSArIDEsIGludChzdGVwKSkpCiAgICAgICAgZWxpZiBwYXJ0ID09ICIqIjoKICAgICAgICAgICAgb3V0LnVwZGF0ZShyYW5nZShsbywgaGkgKyAxKSkKICAgICAgICBlbGlmICItIiBpbiBwYXJ0OgogICAgICAgICAgICBhLCBiID0gcGFydC5zcGxpdCgiLSIpCiAgICAgICAgICAgIG91dC51cGRhdGUocmFuZ2UoaW50KGEpLCBpbnQoYikgKyAxKSkKICAgICAgICBlbHNlOgogICAgICAgICAgICBvdXQuYWRkKGludChwYXJ0KSkKICAgIHJldHVybiBzb3J0ZWQob3V0KQpmaWVsZHMgPSBzeXMuYXJndlsxXS5zcGxpdCgpCmZvciAobmFtZSwgbG8sIGhpKSwgZiBpbiB6aXAoTElNSVRTLCBmaWVsZHMpOgogICAgdmFsdWVzID0gZXhwYW5kKGYsIGxvLCBoaSkKICAgIHByaW50KG5hbWUgKyAiOiIsIHZhbHVlcyBpZiBsZW4odmFsdWVzKSA8IDEwIGVsc2Ugc3RyKGxlbih2YWx1ZXMpKSArICIgdmFsdWVzIGZyb20gIiArIHN0cih2YWx1ZXNbMF0pICsgIiB0byAiICsgc3RyKHZhbHVlc1stMV0pKQo= | base64 -d > cron.py
+python3 cron.py '15 * * * *'
+python3 cron.py '2,10 4,5 * * *'
+python3 cron.py '30 4-6 * * *'
+python3 cron.py '20/15 * * * *'
+python3 cron.py '15 4,5 * * *'
