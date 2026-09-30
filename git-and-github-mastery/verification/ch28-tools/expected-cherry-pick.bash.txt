@@ -1,0 +1,45 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ cd bakery-menu
+$ git switch -c drinks
+Switched to a new branch 'drinks'
+$ printf -- '- Tea: 1.50\n' >> menu.md
+$ git commit -am "Add tea"
+[drinks 73ad7ed] Add tea
+ 1 file changed, 1 insertion(+)
+$ printf -- '- Coffee: 2.00\n' >> menu.md
+$ git commit -am "Add coffee"
+[drinks 398a33e] Add coffee
+ 1 file changed, 1 insertion(+)
+$ git switch main
+Switched to branch 'main'
+$ git log --oneline --all --graph
+* 398a33e (drinks) Add coffee
+* 73ad7ed Add tea
+* 81f772e (HEAD -> main) Add coconut cake
+* 9f10b43 Raise the price of the white loaf
+* 8a52ffe Add the menu
+$ git cherry-pick drinks~1
+[main eb86246] Add tea
+ Date: Mon Jan 5 09:10:00 2026 +0000
+ 1 file changed, 1 insertion(+)
+$ git log --oneline --all --graph
+* eb86246 (HEAD -> main) Add tea
+| * 398a33e (drinks) Add coffee
+| * 73ad7ed Add tea
+|/
+* 81f772e Add coconut cake
+* 9f10b43 Raise the price of the white loaf
+* 8a52ffe Add the menu
+$ git status --short
+$ git cherry-pick drinks
+[main 8b679d1] Add coffee
+ Date: Mon Jan 5 09:11:00 2026 +0000
+ 1 file changed, 1 insertion(+)
+$ git log --oneline
+8b679d1 (HEAD -> main) Add coffee
+eb86246 Add tea
+81f772e Add coconut cake
+9f10b43 Raise the price of the white loaf
+8a52ffe Add the menu

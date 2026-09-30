@@ -155,3 +155,6 @@ git reset,Move the current branch to another commit.,"Moves the current branch t
 git revert,Undo a commit by adding a new one.,"Creates a new commit that applies the inverse of an earlier commit, leaving history intact.",git revert --no-edit HEAD,git reset,undo
 Reflog,Git's private diary of where HEAD has been.,"A local, temporary log of the positions of HEAD and each branch, used to recover commits that are no longer reachable.",git reflog,HEAD; git reset,reflog
 Rebase,Replay your commits on top of another commit.,"Reapply the commits of a branch, one by one, on a new base, producing new commits with new hashes.",git rebase main,merge; squash,rebase
+Cherry-pick,Copy one commit onto another branch.,Apply the change introduced by an existing commit as a new commit on the current branch.,git cherry-pick drinks~1,rebase; patch,tools
+Bisect,Find the commit that broke something by halving.,A binary search through history that repeatedly checks out the middle of the remaining range to find the first bad commit.,git bisect run ./test.sh,commit,tools
+Patch,A text file that describes a change.,"A text file describing changes to files so that they can be applied elsewhere, for example with git apply or git am.",0001-Add-tea.patch,diff; cherry-pick,tools

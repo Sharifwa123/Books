@@ -1,0 +1,31 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ cd bakery-menu
+$ git switch -c tea
+Switched to a new branch 'tea'
+$ printf -- '- Tea: 1.50\n' >> menu.md
+$ git commit -am "Add tea"
+[tea 73ad7ed] Add tea
+ 1 file changed, 1 insertion(+)
+$ git format-patch -1 HEAD
+0001-Add-tea.patch
+$ head -n 8 0001-Add-tea.patch
+From 73ad7ed97c9b9d17ef5c51e3e0f15a8e9e8a0638 Mon Sep 17 00:00:00 2001
+From: Ada Learner <ada@example.org>
+Date: Mon, 5 Jan 2026 09:10:00 +0000
+Subject: [PATCH] Add tea
+
+---
+ menu.md | 1 +
+ 1 file changed, 1 insertion(+)
+$ git switch main
+Switched to branch 'main'
+$ git apply --check 0001-Add-tea.patch
+$ git am 0001-Add-tea.patch
+Applying: Add tea
+$ git log --oneline
+eb86246 (HEAD -> main) Add tea
+81f772e Add coconut cake
+9f10b43 Raise the price of the white loaf
+8a52ffe Add the menu
