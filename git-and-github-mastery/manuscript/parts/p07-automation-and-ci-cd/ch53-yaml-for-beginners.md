@@ -78,7 +78,7 @@ $ printf 'answer: "no"\n' | python3 y.py
 *Recorded in Bash; `ch53-yaml/expected-parse.bash.txt`.*
 
 - `version: 3.10` became the **number 3.1**: the trailing zero is gone. A version like `3.10` must be written in quotes, `"3.10"`, to stay text. This trap is in YAML 1.1 and 1.2 alike, because `3.10` matches the pattern for a number.
-- `answer: no` became **False** in this parser, which follows the older YAML 1.1 habit of reading words such as `yes`, `no`, `on` and `off` as Booleans (that habit was not checked against a 1.1 source here; the recording shows it). The Core schema of the **1.2.2** specification recognises only `true`, `True`, `TRUE`, `false`, `False` and `FALSE` as Booleans, so `no` is a string there. Different tools follow different versions, so when in doubt, **quote the value**: `"no"`.
+- `answer: no` became **False** in this parser, which follows the older YAML 1.1 habit of reading words such as `yes`, `no`, `on` and `off` as Booleans (the YAML 1.1 working draft for the Boolean type, dated 2005-01-18, lists `y`, `yes`, `n`, `no`, `true`, `false`, `on` and `off` in several capitalisations, and the recording shows the parser doing it). The Core schema of the **1.2.2** specification recognises only `true`, `True`, `TRUE`, `false`, `False` and `FALSE` as Booleans, so `no` is a string there. Different tools follow different versions, so when in doubt, **quote the value**: `"no"`.
 - `"no"` in quotes is always the text `no`.
 
 The same rule explains why quoting is the safe habit for anything that must stay text: version numbers, words like `no`, values starting with special characters, and anything that looks like a number but is an identifier (a ZIP code with a leading zero, for instance).
@@ -180,7 +180,7 @@ You are ready for Chapter 54<!--ref:actions--> if you can:
 | Claim | Evidence class | Ledger |
 |---|---|---|
 | Parse results, error classes, `3.10`, `no`, `on` | Locally tested with PyYAML 6.0.1 and Python 3: Bash 5.2 and zsh 5.9; CI | R282 |
-| Indentation rule, no tabs, comments, Core schema and Boolean spellings in YAML 1.2.2 | Officially verified against the YAML 1.2.2 specification (open repository) | R281 |
+| Indentation rule, no tabs, comments, Core schema and Boolean spellings in YAML 1.2.2; the 1.1 Boolean spellings | Officially verified against the YAML 1.2.2 specification and the YAML 1.1 Boolean type draft (open repository) | R281 |
 | What GitHub's parser does with `on` | **Not tested** | R282 |
 
 ## Where this leads

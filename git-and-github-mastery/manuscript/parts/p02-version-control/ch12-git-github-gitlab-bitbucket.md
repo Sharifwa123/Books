@@ -21,7 +21,7 @@ ledger: [R140, R141]
 
 > **Independent publication.** This book is an independent educational work by Sharif Tingane Issah, issued under the SHARIF TECHNOLOGIES name. It is not affiliated with, endorsed by, sponsored by, or published by Git, GitHub, GitLab, Bitbucket, Microsoft, or any company mentioned. Names of products and companies are trademarks of their respective owners and are used here only to identify them.
 
-> **Verification pending [R140].** Descriptions of products and companies in this chapter are general and have not yet been checked against each product's own documentation. Products change quickly; the chapter avoids statements about specific features, prices or ownership for that reason, and the release gate will not pass until the ledger rows are verified against current official sources.
+> **Verification pending [R140].** Descriptions of products and companies in this chapter are general and have not yet been checked against each product's own documentation. Products change quickly; the chapter avoids statements about specific features, prices or ownership for that reason. Check current official sources before relying on any product detail.
 
 ---
 
@@ -99,7 +99,7 @@ Because they all host Git repositories, **your Git skills transfer**: the comman
 
 There is no universal winner. When a team chooses, it weighs questions such as:
 
-1. **Where must the code live?** Some organisations must keep code on servers they control.
+1. **Where must the code live?** Some organizations must keep code on servers they control.
 2. **What features does the team need?** Issue tracking, review, automated tests and deployment differ in style and depth.
 3. **Who else is here?** If you want to contribute to open-source projects, you go where they are.
 4. **Cost and limits.** Plans, limits and prices change; consult the current official pages.
@@ -190,7 +190,7 @@ You are ready for Part III if you can:
 | Claim | Evidence class | Ledger |
 |---|---|---|
 | Descriptions of Git, GitHub, GitLab and Bitbucket; what belongs to tool versus platform | Time-sensitive; unverified (no feature, price or ownership claim is made) | R140 |
-| A Git repository needs no hosting platform; a local shared repository works as a meeting place | Locally tested on Git 2.43.0 and the CI runner's Git (bare-repository checks). Concept and option statements also checked in the Git 2.56.0 manual (git-init). | R141 |
+| A Git repository needs no hosting platform; a local shared repository works as a meeting place | Locally tested on Git 2.43.0 and the CI runner's Git (bare-repository checks). Some concept and option statements for this row were also checked in the Git 2.56.0 manual (git-init); the ledger row says which. | R141 |
 
 ## Where this leads
 

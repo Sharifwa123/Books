@@ -99,7 +99,7 @@ That is right: nothing has been pushed, so `main` does not follow any `origin/ma
 
 ## 36.4 What a repository has beyond Git
 
-A GitHub repository contains your Git repository, and around it a set of services. As a **map for the next chapters** (all of it to be checked):
+A GitHub repository contains your Git repository, and around it a set of services. As a **map for the next chapters**:
 
 | Piece | What it is for | Chapter |
 |---|---|---|
@@ -159,7 +159,7 @@ Do the exercises in [`exercises/ch36-exercises.md`](../../../exercises/ch36-exer
 2. Name two things in this book that worked without GitHub.
 3. Which pieces of a GitHub repository come with `git clone`, and which do not?
 4. What does `git remote add origin <url>` do, and what does it not do?
-5. Why are the GitHub facts in this part marked as pending?
+5. Why are the GitHub facts in this part labelled with how they were checked?
 
 ## Before Moving On
 
@@ -174,10 +174,10 @@ You are ready for Chapter 37<!--ref:ghaccount--> if you can:
 
 | Claim | Evidence class | Ledger |
 |---|---|---|
-| `git remote add`, `remote -v`, `config --get`, no upstream before a push | Locally tested: Bash 5.2 and zsh 5.9, Git 2.43.0; CI on Git 2.55.0; **no network access to GitHub**. Concept and option statements also checked in the Git 2.56.0 manual (git-remote). | R226 |
+| `git remote add`, `remote -v`, `config --get`, no upstream before a push | Locally tested: Bash 5.2 and zsh 5.9, Git 2.43.0; CI on Git 2.55.0; **no network access to GitHub**. Some concept and option statements for this row were also checked in the Git 2.56.0 manual (git-remote); the ledger row says which. | R226 |
 | What GitHub offers, and the map of features | Checked against `github/docs` (commit `2eaab0b`); plan availability not checked | R224, R227 |
 | Terms, ownership, removal of content | Quoted from `site-policy` (commit `b9578b5`); plans not checked | R225 |
 
 ## Where this leads
 
-Chapter 37<!--ref:ghaccount--> covers accounts and profiles, Chapter 38<!--ref:ghauth--> covers signing in from Git, and Chapter 39<!--ref:ghrepo--> creates a first repository. Each will be verified against the official documentation before it is finished.
+Chapter 37<!--ref:ghaccount--> covers accounts and profiles, Chapter 38<!--ref:ghauth--> covers signing in from Git, and Chapter 39<!--ref:ghrepo--> creates a first repository.

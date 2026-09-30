@@ -764,7 +764,7 @@ Every term that the book defines, in alphabetical order. Each entry gives a simp
 
 **Governance.** The written rules by which a group runs a project.
 
-*Technically:* The decisions, roles and rules of a project or organisation, expressed on GitHub through permissions, rulesets, code owners and community files. *Example:* A CONTRIBUTING file and a ruleset.
+*Technically:* The decisions, roles and rules of a project or organization, expressed on GitHub through permissions, rulesets, code owners and community files. *Example:* A CONTRIBUTING file and a ruleset.
 
 *Related:* organization; code of conduct. *First explained in* Chapter 75<!--ref:platformextras-->.
 

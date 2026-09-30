@@ -16,7 +16,7 @@
 **3.2** Copies that other people already have (clones, forks, downloads), copies held by a hosting platform (caches, pull requests), and the fact that the secret itself is still valid.
 
 ## Level 4
-**4.1** 1) Revoke the token. 2) Check the service's logs for misuse. 3) Tell the team (following your organisation's rules). 4) Rewrite history if needed, agreed with everyone who shares the repository. 5) Add a prevention. Revoking comes first because it is the only step that makes the leaked value useless.
+**4.1** 1) Revoke the token. 2) Check the service's logs for misuse. 3) Tell the team (following your organization's rules). 4) Rewrite history if needed, agreed with everyone who shares the repository. 5) Add a prevention. Revoking comes first because it is the only step that makes the leaked value useless.
 
 **4.2** `gpg --batch --passphrase '' --quick-gen-key "Name <email>" default default never`, `git config user.signingkey <email>`, `git commit -S`, and `git log --format='%G? %s'` shows `G` for the signed commit and `N` for the unsigned one.
 

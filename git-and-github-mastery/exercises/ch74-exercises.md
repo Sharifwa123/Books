@@ -22,7 +22,7 @@ Attempt each exercise before you open `solutions/ch74-solutions.md`. Exercises 2
 
 ## Level 4 — Professional scenario
 
-**4.1 Choose.** Your team wants a service that comments on pull requests in every repository of the organisation. Compare a personal access token, an OAuth app and a GitHub App using the chapter, and recommend one.
+**4.1 Choose.** Your team wants a service that comments on pull requests in every repository of the organization. Compare a personal access token, an OAuth app and a GitHub App using the chapter, and recommend one.
 
 ## Level 5 — Troubleshooting
 

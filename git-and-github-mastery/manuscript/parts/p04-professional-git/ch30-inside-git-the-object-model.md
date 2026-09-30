@@ -471,8 +471,8 @@ You are ready for Chapter 31<!--ref:bigrepos--> if you can:
 
 | Claim | Evidence class | Ledger |
 |---|---|---|
-| `hash-object`, `cat-file`, loose storage, hash = SHA-1 of header plus content | Locally tested: Bash 5.2 and zsh 5.9, Git 2.43.0; CI on Git 2.55.0 (the hash was also recomputed with `sha1sum`). Concept and option statements also checked in the Git 2.56.0 manual (git-cat-file, git-hash-object). | R199 |
-| Commit, tree, `ls-tree`, index, refs, tag objects | Locally tested (as above). Concept and option statements also checked in the Git 2.56.0 manual (git-ls-tree, gitrepository-layout). | R200 |
+| `hash-object`, `cat-file`, loose storage, hash = SHA-1 of header plus content | Locally tested: Bash 5.2 and zsh 5.9, Git 2.43.0; CI on Git 2.55.0 (the hash was also recomputed with `sha1sum`). Some concept and option statements for this row were also checked in the Git 2.56.0 manual (git-cat-file, git-hash-object); the ledger row says which. | R199 |
+| Commit, tree, `ls-tree`, index, refs, tag objects | Locally tested (as above). Some concept and option statements for this row were also checked in the Git 2.56.0 manual (git-ls-tree, gitrepository-layout); the ledger row says which. | R200 |
 | Packfiles, `gc`, `fsck`, dangling objects, `archive` | Locally tested (as above) | R201 |
 | Default hash function and the planned change in Git 3.0; `gc` grace period and automatic `gc` thresholds | Checked against the Git 2.56.0 documentation (`BreakingChanges`, `technical/hash-function-transition`, `config/gc`) | R201, R202 |
 

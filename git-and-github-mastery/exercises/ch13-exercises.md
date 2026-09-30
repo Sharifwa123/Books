@@ -22,7 +22,7 @@ Attempt each exercise before you open `solutions/ch13-solutions.md`. Use your pr
 
 ## Level 4 — Professional scenario
 
-**4.1** Your organisation has 20 new employees who will each install Git. Write a one-page checklist for them: where to download it from, how to verify the installation, which three settings to make, and what to do if `git` is "not found". Add one item about safe installation from Chapter 1<!--ref:computer-->.
+**4.1** Your organization has 20 new employees who will each install Git. Write a one-page checklist for them: where to download it from, how to verify the installation, which three settings to make, and what to do if `git` is "not found". Add one item about safe installation from Chapter 1<!--ref:computer-->.
 
 ## Level 5 — Troubleshooting
 

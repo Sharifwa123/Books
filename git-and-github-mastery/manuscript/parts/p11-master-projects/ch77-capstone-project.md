@@ -40,7 +40,7 @@ $ git status -sb
 
 *Recorded in Bash; `ch77-capstone/expected-capstone.bash.txt`.*
 
-**On GitHub.** On GitHub: create an empty repository (Chapter 39<!--ref:ghrepo-->) and clone it; do not let the website add files yet, so that your first push is simple.
+**On GitHub.** Create an empty repository (Chapter 39<!--ref:ghrepo-->) and clone it; do not let the website add files yet, so that your first push is simple.
 
 
 ## Step 2. First files, tests and the ignore file
@@ -99,7 +99,7 @@ note: no LICENSE yet (the owner decides)
 
 *Recorded in Bash; `ch77-capstone/expected-capstone.bash.txt`.*
 
-**On GitHub.** On GitHub the same script becomes a workflow step (Chapters 52<!--ref:cicd--> and 56<!--ref:workflows_practice-->); pin actions to commits and set minimal permissions (Chapter 60<!--ref:wfsec-->).
+**On GitHub.** The same script becomes a workflow step (Chapters 52<!--ref:cicd--> and 56<!--ref:workflows_practice-->); pin actions to commits and set minimal permissions (Chapter 60<!--ref:wfsec-->).
 
 
 ## Step 5. First commit and push
@@ -118,7 +118,7 @@ $ git status -sb
 
 *Recorded in Bash; `ch77-capstone/expected-capstone.bash.txt`.*
 
-**On GitHub.** On GitHub: look at the commit list and the files.
+**On GitHub.** Look at the commit list and the files.
 
 
 ## Step 6. A server rule that protects the shared branch
@@ -135,7 +135,7 @@ true
 
 *Recorded in Bash; `ch77-capstone/expected-capstone.bash.txt`.*
 
-**On GitHub.** On GitHub: configure a branch protection rule or ruleset (Chapter 50<!--ref:protect-->): require a pull request, require the checks, block force pushes.
+**On GitHub.** Configure a branch protection rule or ruleset (Chapter 50<!--ref:protect-->): require a pull request, require the checks, block force pushes.
 
 
 ## Step 7. A feature branch and a test that fails first
@@ -177,7 +177,7 @@ $ git push -q -u origin feature/discount
 
 *Recorded in Bash; `ch77-capstone/expected-capstone.bash.txt`.*
 
-**On GitHub.** On GitHub: open a pull request from the branch (Chapter 45<!--ref:pr-->); link the issue that asked for the feature (Chapter 44<!--ref:issues-->).
+**On GitHub.** Open a pull request from the branch (Chapter 45<!--ref:pr-->); link the issue that asked for the feature (Chapter 44<!--ref:issues-->).
 
 
 ## Step 9. A colleague reviews the branch on their computer
@@ -209,7 +209,7 @@ $ cd ../bakery
 
 *Recorded in Bash; `ch77-capstone/expected-capstone.bash.txt`.*
 
-**On GitHub.** On GitHub: the reviewer uses the Files changed tab and writes comments; the checks appear on the pull request.
+**On GitHub.** The reviewer uses the Files changed tab and writes comments; the checks appear on the pull request.
 
 
 ## Step 10. Review feedback: add a follow-up commit
@@ -229,7 +229,7 @@ Support a discount in total()
 
 *Recorded in Bash; `ch77-capstone/expected-capstone.bash.txt`.*
 
-**On GitHub.** On GitHub: reply to each comment and resolve threads when addressed.
+**On GitHub.** Reply to each comment and resolve threads when addressed.
 
 
 ## Step 11. Meanwhile, main moved: a second developer changes the docs
@@ -248,7 +248,7 @@ $ git -C ../ben push -q origin main
 
 *Recorded in Bash; `ch77-capstone/expected-capstone.bash.txt`.*
 
-**On GitHub.** This happens all the time.
+**On GitHub.** Nothing to do; this is an ordinary event in shared work.
 
 
 ## Step 12. Bring main into your branch and check again
@@ -277,7 +277,7 @@ Support a discount in total()
 
 *Recorded in Bash; `ch77-capstone/expected-capstone.bash.txt`.*
 
-**On GitHub.** On GitHub the pull request shows whether it can be merged; some teams prefer rebase, which Chapter 27<!--ref:rebase--> explains.
+**On GitHub.** The pull request shows whether it can be merged; some teams prefer rebase, which Chapter 27<!--ref:rebase--> explains.
 
 
 ## Step 13. A conflict: both changed the same line
@@ -312,7 +312,7 @@ $ git push -q origin feature/discount
 
 *Recorded in Bash; `ch77-capstone/expected-capstone.bash.txt`.*
 
-**On GitHub.** On GitHub: the conflict editor or the local steps above.
+**On GitHub.** Use the conflict editor or the local steps above.
 
 
 ## Step 14. Maintainer merges the pull request (squash)
@@ -334,7 +334,7 @@ $ cd ../bakery
 
 *Recorded in Bash; `ch77-capstone/expected-capstone.bash.txt`.*
 
-**On GitHub.** On GitHub: choose *Squash and merge* on the pull request, if the repository allows it.
+**On GitHub.** Choose *Squash and merge* on the pull request, if the repository allows it.
 
 
 ## Step 15. Clean up and update your main
@@ -365,7 +365,7 @@ note: no LICENSE yet (the owner decides)
 
 *Recorded in Bash; `ch77-capstone/expected-capstone.bash.txt`.*
 
-**On GitHub.** On GitHub: use *Delete branch* if you did not already.
+**On GitHub.** Use *Delete branch* if you did not already.
 
 
 ## Step 16. Tag the first release
@@ -383,7 +383,7 @@ v0.1.0          Version 0.1.0: initial development
 
 *Recorded in Bash; `ch77-capstone/expected-capstone.bash.txt`.*
 
-**On GitHub.** On GitHub: create a release from the tag with notes.
+**On GitHub.** Create a release from the tag with notes.
 
 
 ## Step 17. Package the release and publish a checksum
@@ -405,7 +405,7 @@ bakery-0.1.0.tar.gz: OK
 
 *Recorded in Bash; `ch77-capstone/expected-capstone.bash.txt`.*
 
-**On GitHub.** On GitHub: attach the archive and the checksum to the release.
+**On GitHub.** Attach the archive and the checksum to the release.
 
 
 ## Step 18. A bug report: discounts above 100 percent
@@ -422,7 +422,7 @@ FAILED (failures=1)
 
 *Recorded in Bash; `ch77-capstone/expected-capstone.bash.txt`.*
 
-**On GitHub.** On GitHub: the issue links to the fix through the pull request.
+**On GitHub.** The issue links to the fix through the pull request.
 
 
 ## Step 19. Fix it and release 0.1.1
@@ -451,7 +451,7 @@ v0.1.1
 
 *Recorded in Bash; `ch77-capstone/expected-capstone.bash.txt`.*
 
-**On GitHub.** On GitHub: publish release 0.1.1 with a note about what it fixes.
+**On GitHub.** Publish release 0.1.1 with a note about what it fixes.
 
 
 ## Step 20. A bad change reaches main, and you revert it
@@ -483,7 +483,7 @@ Reject discounts outside 0 to 1
 
 *Recorded in Bash; `ch77-capstone/expected-capstone.bash.txt`.*
 
-**On GitHub.** On GitHub: a required check would have blocked the merge in the first place.
+**On GitHub.** A required check would have blocked the merge in the first place.
 
 
 ## Step 21. A secret is committed by mistake
@@ -507,7 +507,7 @@ $ git ls-files | grep -c '^.env$' || true
 
 *Recorded in Bash; `ch77-capstone/expected-capstone.bash.txt`.*
 
-**On GitHub.** On GitHub: secret scanning and push protection (Chapter 62<!--ref:ghsec-->) act at this point.
+**On GitHub.** Secret scanning and push protection (Chapter 62<!--ref:ghsec-->) act at this point.
 
 
 ## Step 22. Release notes from the history
@@ -523,7 +523,7 @@ $ git log --format='- %s' v0.1.0..v0.1.1
 
 *Recorded in Bash; `ch77-capstone/expected-capstone.bash.txt`.*
 
-**On GitHub.** On GitHub: generated notes list merged pull requests.
+**On GitHub.** Generated notes list merged pull requests.
 
 
 ## Step 23. Final audit
@@ -551,7 +551,7 @@ note: no LICENSE yet (the owner decides)
 
 *Recorded in Bash; `ch77-capstone/expected-capstone.bash.txt`.*
 
-**On GitHub.** On GitHub: check Insights and the Security tab (Chapters 51<!--ref:insights--> and 62<!--ref:ghsec-->).
+**On GitHub.** Check Insights and the Security tab (Chapters 51<!--ref:insights--> and 62<!--ref:ghsec-->).
 
 
 ---

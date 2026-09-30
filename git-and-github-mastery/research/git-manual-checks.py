@@ -23,6 +23,8 @@ def page(name):
         except Exception: pass
     return re.sub(r"\s+", " ", t.replace("`", ""))
 C = [
+ ("R355", "git-fsck", r"--lost-found:: Write dangling objects into .git/lost-found/commit/ or .git/lost-found/other/, depending on type. If the object is a blob, the contents are written into the file", "fsck --lost-found writes dangling blobs into .git/lost-found/other/"),
+ ("R355", "git-fsck", r"dangling:: --no-dangling:: Print objects that exist but that are never .directly. used", "fsck prints dangling objects by default"),
  ("R153", "gitrepository-layout", r"HEAD:: A symref \(see glossary\) to the refs/heads/ namespace describing the currently active branch", "the HEAD file is a symref to the current branch"),
  ("R153", "gitrepository-layout", r"HEAD can also record a specific commit directly", "HEAD can record a commit directly (detached)"),
  ("R141", "git-init", r"--bare", "git init --bare exists"),

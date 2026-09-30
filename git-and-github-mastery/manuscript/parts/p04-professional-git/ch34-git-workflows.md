@@ -195,7 +195,7 @@ The cycle is: **branch, commit, push, review, merge, delete.** Everything else i
 
 ## 34.4 Named models
 
-Teams have described their workflows with names. The descriptions below are **general**, and are not statements about any organisation's official practice.
+Teams have described their workflows with names. The descriptions below are **general**, and are not statements about any organization's official practice.
 
 | Model | Shape in one line |
 |---|---|

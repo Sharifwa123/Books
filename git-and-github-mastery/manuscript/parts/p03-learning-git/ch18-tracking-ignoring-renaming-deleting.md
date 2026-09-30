@@ -220,7 +220,7 @@ $ git check-ignore -v app.log important.log todo.txt docs/todo.txt build/output.
 
 Read each line as *file, line number and pattern, then the path it applied to*. Notice that `important.log` was reported with the exception rule `!important.log`, that is, it matched an exception and is therefore **not** ignored; and `docs/todo.txt` does not appear because no rule matched it. (Git also stops looking inside an ignored folder: `build/output.js` was ignored because the folder `build/` was.)
 
-### 18.4.1 Comments and organisation
+### 18.4.1 Comments and organization
 
 A `.gitignore` can carry comments to say *why*, which is kind to the next person:
 
@@ -607,7 +607,7 @@ You are ready for Chapter 19<!--ref:commits--> if you can:
 |---|---|---|
 | The behaviour and output of ignoring, check-ignore, status --ignored, the global ignore file, and of the five patterns | Locally tested: Bash 5.2, zsh 5.9, Git 2.43.0; identical on the CI runner's Git 2.55.0; pattern rules checked in `gitignore` (Git 2.56.0) | R161 |
 | The `.gitignore` starting points for a website, JavaScript and Python projects | Compared with GitHub's `Node.gitignore` and `Python.gitignore` templates; not run | R162 |
-| Ignoring does not untrack; `git rm --cached`; `git mv`; `git rm`; deleted-outside-Git and `git restore` | Locally tested (as above). Concept and option statements also checked in the Git 2.56.0 manual (git-mv, git-rm). | R163 |
+| Ignoring does not untrack; `git rm --cached`; `git mv`; `git rm`; deleted-outside-Git and `git restore` | Locally tested (as above). Some concept and option statements for this row were also checked in the Git 2.56.0 manual (git-mv, git-rm); the ledger row says which. | R163 |
 | A secret stays in history after the file is deleted | Locally tested with a made-up token (`session-secret-history`); Chapter 33<!--ref:gitsec--> shows the full incident response | R164 |
 
 ## Where this leads

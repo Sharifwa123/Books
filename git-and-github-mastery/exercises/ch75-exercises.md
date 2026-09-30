@@ -18,7 +18,7 @@ Attempt each exercise before you open `solutions/ch75-solutions.md`. Exercises 2
 
 **3.1 A rule the parser did not enforce.** Explain why the chapter tells you to follow the documentation's quoting rule even though the parser accepted an unquoted URL.
 
-**3.2 A property plan.** Design two custom properties for an organisation with 40 repositories and say which ruleset each would help you write.
+**3.2 A property plan.** Design two custom properties for an organization with 40 repositories and say which ruleset each would help you write.
 
 ## Level 4 — Professional scenario
 

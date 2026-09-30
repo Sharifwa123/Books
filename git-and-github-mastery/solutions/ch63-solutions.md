@@ -1,7 +1,7 @@
 # Chapter 63 solutions
 
 ## Level 1
-**1.1** Repository (a secret one project's workflows use), environment (a production credential gated by required reviewers) and organisation (a shared secret limited by a policy to chosen repositories).
+**1.1** Repository (a secret one project's workflows use), environment (a production credential gated by required reviewers) and organization (a shared secret limited by a policy to chosen repositories).
 
 **1.2** Verified, Unverified, and no status for an unsigned commit.
 

@@ -4,7 +4,7 @@ Attempt each exercise before you open `solutions/ch49-solutions.md`. Exercises 1
 
 ## Level 1 — Guided
 
-**1.1 Roles.** List the five roles of an organisation repository from least to most access.
+**1.1 Roles.** List the five roles of an organization repository from least to most access.
 
 **1.2 A fork stand-in.** Create a bare repository `upstream.git` with one commit, and make `fork.git` with `git clone --bare upstream.git fork.git`. Clone the fork to `my-clone`. Run `git remote -v`.
 
@@ -28,4 +28,4 @@ Attempt each exercise before you open `solutions/ch49-solutions.md`. Exercises 1
 
 **5.1** A maintainer says code owners are never requested on pull requests to the `release` branch, although they work for `main`. Give a likely reason.
 
-**5.2** A team wants shared issue templates for all repositories of the organisation, but one repository already has its own `.github/ISSUE_TEMPLATE` folder with a template. What will that repository show?
+**5.2** A team wants shared issue templates for all repositories of the organization, but one repository already has its own `.github/ISSUE_TEMPLATE` folder with a template. What will that repository show?

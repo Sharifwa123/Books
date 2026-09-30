@@ -3,7 +3,7 @@
 ## Level 1
 **1.1** The stand-in repository `demo.wiki.git` has its own history (the commit that created `Home.md`), and your clone has a copy of it. A real wiki's history is separate from the code repository's.
 
-**1.2** Visibility, your role, the plan, and the settings of the repository and its organisation.
+**1.2** Visibility, your role, the plan, and the settings of the repository and its organization.
 
 ## Level 2
 **2.1** The pull brings the commit that added `Recipes.md`; it is an ordinary fetch and merge.

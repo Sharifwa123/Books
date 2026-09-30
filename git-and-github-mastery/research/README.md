@@ -29,7 +29,7 @@ I cannot change the environment's network policy. Hosts to add (minimum set you 
 `git-verification/run-all.sh` re-runs everything with whichever `git` is on PATH and stores results per Git version under `results/`; `git-version-matrix.csv` records runs. **These are regression tests, not the publication baseline** — see `git-version-test-plan.md`.
 
 ## Ledger (109 rows)
-Migrated from 94 rows; added the evidence-class, scope, conditions (account type, repository visibility, organisation context, permissions, plan limitations, feature availability) and re-verification columns, plus 15 rows for licences and new v2 topics. Counts: Time-sensitive (unverified) 55 · Needs re-verification 21 · Both 19 · Locally tested 7 · Officially verified (docs only) 7. **All 55 GitHub rows remain unverified; their condition columns read `TO RECORD`.**
+Migrated from 94 rows; added the evidence-class, scope, conditions (account type, repository visibility, organization context, permissions, plan limitations, feature availability) and re-verification columns, plus 15 rows for licences and new v2 topics. Counts: Time-sensitive (unverified) 55 · Needs re-verification 21 · Both 19 · Locally tested 7 · Officially verified (docs only) 7. **All 55 GitHub rows remain unverified; their condition columns read `TO RECORD`.**
 
 ## Findings
 1. `git revert` has **no `-q`/`--quiet` option** (usage text, runtime exit 129, and absent from the 2.43.0 docs). Methodology point: commands are executed and verified, not recalled.

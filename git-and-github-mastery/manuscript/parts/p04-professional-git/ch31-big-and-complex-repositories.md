@@ -496,8 +496,8 @@ You are ready for Chapter 32<!--ref:custom--> if you can:
 
 | Claim | Evidence class | Ledger |
 |---|---|---|
-| Worktree add, list, remove | Locally tested: Bash 5.2 and zsh 5.9, Git 2.43.0; CI on Git 2.55.0. Concept and option statements also checked in the Git 2.56.0 manual (git-clone, git-sparse-checkout, git-worktree). | R203 |
-| Shallow clone, unshallow; sparse checkout | Locally tested (as above), with local bare repositories. Concept and option statements also checked in the Git 2.56.0 manual (git-clone, git-sparse-checkout, git-worktree). | R203 |
+| Worktree add, list, remove | Locally tested: Bash 5.2 and zsh 5.9, Git 2.43.0; CI on Git 2.55.0. Some concept and option statements for this row were also checked in the Git 2.56.0 manual (git-clone, git-sparse-checkout, git-worktree); the ledger row says which. | R203 |
+| Shallow clone, unshallow; sparse checkout | Locally tested (as above), with local bare repositories. Some concept and option statements for this row were also checked in the Git 2.56.0 manual (git-clone, git-sparse-checkout, git-worktree); the ledger row says which. | R203 |
 | Submodule add, the `file` transport refusal, `.gitmodules`, mode 160000 | Locally tested (as above); the reason and the release that introduced the rule checked against the Git documentation and the 2.30.6 release notes | R205 |
 | Git LFS install, track, pointer file | Locally tested with git-lfs 3.4.1 (CI: runner's git-lfs), and the pointer format checked against the Git LFS specification; no LFS server | R207 |
 | Partial clone (`--filter=blob:none`) and `git subtree add` | Locally tested (as above); checked against the Git 2.56.0 documentation | R204 |

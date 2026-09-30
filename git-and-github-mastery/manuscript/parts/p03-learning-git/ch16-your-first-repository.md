@@ -499,7 +499,7 @@ You are ready for Chapter 17<!--ref:history_view--> if you can:
 
 | Claim | Evidence class | Ledger |
 |---|---|---|
-| `git init`, `git status`, `git add`, `git commit`, `git log`, `git ls-files` outputs for the study-notes and bakery projects | Locally tested: Bash 5.2 and zsh 5.9 on Git 2.43.0; re-run in CI on Git 2.55.0 with identical output. Concept and option statements also checked in the Git 2.56.0 manual (git-add, git-commit, git-init). | R155 |
+| `git init`, `git status`, `git add`, `git commit`, `git log`, `git ls-files` outputs for the study-notes and bakery projects | Locally tested: Bash 5.2 and zsh 5.9 on Git 2.43.0; re-run in CI on Git 2.55.0 with identical output. Some concept and option statements for this row were also checked in the Git 2.56.0 manual (git-add, git-commit, git-init); the ledger row says which. | R155 |
 | The error and refusal messages of section 16.7 | Locally tested; the initial-branch hint differs between 2.43.0 and 2.55.0 (both recorded) | R156, R157 |
 | The `Author identity unknown` message | Described, not recorded: depends on the computer's name | R156 |
 

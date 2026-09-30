@@ -55,7 +55,7 @@ $ command -v git
 
 ## 13.3 Before you install: three rules
 
-1. **Use the official source.** Get Git from the project's own download page, from your operating system's official package manager, or from your organisation's approved source, as Chapter 1<!--ref:computer--> advised. Do not use a link from a message, an advertisement, or a "free tools" website.
+1. **Use the official source.** Get Git from the project's own download page, from your operating system's official package manager, or from your organization's approved source, as Chapter 1<!--ref:computer--> advised. Do not use a link from a message, an advertisement, or a "free tools" website.
 2. **Expect an administrator prompt.** Installing a program for all users changes system folders (Chapter 1<!--ref:computer-->). The prompt is legitimate *if you just started the installation*. Refuse an administrator prompt that appears when you did not.
 3. **Read each installer screen.** Do not click "Next" without looking. The questions matter (section 13.4), and you learn what your tools do.
 

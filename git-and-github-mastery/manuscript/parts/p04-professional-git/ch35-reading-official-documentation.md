@@ -201,4 +201,4 @@ You are ready for Chapter 36<!--ref:whatgh--> if you can:
 
 ## Where this leads
 
-Part V begins with Chapter 36<!--ref:whatgh-->: what a hosting platform is, and what it is not. Every platform fact in it will be marked until it can be checked against the official documentation.
+Part V begins with Chapter 36<!--ref:whatgh-->: what a hosting platform is, and what it is not. Every platform fact in it is labelled with how it was checked.
