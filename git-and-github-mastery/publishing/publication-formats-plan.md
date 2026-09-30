@@ -1,6 +1,6 @@
 # Publication Formats Plan (EPUB, PDF, source, cover, metadata)
 
-Status: plan only. Nothing here overrides the master plan; it records the format principles so they are applied when the manuscript reaches the publication stage. The PDF edition is already built (see `pdf-build-plan.md`).
+Status (2026-09-30): partly implemented; see the table below. Nothing here overrides the master plan; it records the format principles so they are applied when the manuscript reaches the publication stage. The PDF edition is already built (see `pdf-build-plan.md`).
 
 ## Principle
 CONTENT -> STRUCTURE -> ACCESSIBILITY -> NAVIGATION -> REFLOWABLE PRESENTATION -> VISUAL DESIGN.
@@ -40,3 +40,16 @@ A separate export contains only the published book: cover, title page, copyright
 - Author, consistently: Sharif Tingane Issah.
 - SHARIF TECHNOLOGIES is the intended brand identity. The legal publisher or imprint is undecided and is not asserted as a legal fact anywhere until the rights holder decides (gates A and B).
 - ISBN, address and author biography stay placeholders until officially assigned or supplied. Licence wording stays undecided (gate A).
+
+## Implementation status (2026-09-30)
+| Item | Status |
+|---|---|
+| EPUB 3, reflowable, built from the manuscript (`tools/build_epub.py`) | done; EPUBCheck 5.2.1 reports no errors or warnings (run in CI); includes the cover, a navigation document, landmarks, accessibility metadata and diagrams as SVG with text alternatives |
+| Kindle-compatible ebook | not built: the EPUB is the upload format, and Amazon's current requirements were not checked (no access to their documentation) |
+| PDF screen and print editions, tagged, PDF/UA-1 | done; validated with veraPDF |
+| PDF/A-2b archival edition | done as a separate untagged file; validated with veraPDF |
+| Clean export of the book text only (`tools/export_clean.py`) | done; fails on development artefacts; lists placeholders and evidence-file citations |
+| Cover | **draft** typographic front cover (`publishing/cover/`); no back cover, spine or print wrap (they need trim size, page count and an ISBN) |
+| Publication package (`tools/build_package.sh`) | done as a script; nothing is published |
+| Editable source | the Markdown manuscript and `tools/toc_data.py` in the repository |
+| ISBN, legal publisher, copyright holder, licence wording, address, author biography | **not decided or not supplied**; placeholders remain (gates A, B, D) |
