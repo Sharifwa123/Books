@@ -19,7 +19,7 @@ ledger: [R224, R225, R226, R227]
 
 > **Independent publication.** This book is an independent educational publication by SHARIF TECHNOLOGIES. It is not affiliated with, endorsed by, sponsored by, or published by Git, GitHub, Microsoft, or any company mentioned. Names of products and companies are trademarks of their respective owners and are used here only to identify them.
 
-> **⚠️ Read this first: how GitHub facts appear in this book.** Everything so far (Parts I to IV) was tested by running Git on a computer. Part V is different. GitHub is a *service on the internet* that changes over time, and its official documentation could not be reached while this part was written. So **every statement about how GitHub looks or behaves is marked *Verification pending*** and is recorded in the research ledger. Treat those statements as a map that must be checked against GitHub's current documentation and your own screen before you rely on them. The parts about **Git** (commands, the remote, URLs) were run and tested.
+> **How GitHub facts are checked in this book.** Parts I to IV were tested by running Git on a computer. GitHub is a *service on the internet* that changes over time, so its statements are checked differently: against GitHub's own documentation, whose source is published as the open `github/docs` repository (checked at commit `2eaab0b`, 29 September 2026), and, for legal terms, against GitHub's `site-policy` repository (commit `b9578b5`, 29 May 2026). Both are recorded in `research/sources-manifest.csv`. What the *website looks like* was not seen on a live account, so descriptions of screens are labelled, and anything the sources do not cover stays marked *Verification pending*. The parts about **Git** (commands, the remote, URLs) were run and tested.
 
 **Before you start.** Chapter 12<!--ref:platforms--> and Chapter 23<!--ref:remotes-->. The recording ran in Bash and zsh on Git 2.43.0 and was re-run in CI on Git 2.55.0.
 
@@ -33,7 +33,7 @@ ledger: [R224, R225, R226, R227]
 
 In terms of what you learned, GitHub is **a remote with a website and services attached**. A remote is a place that holds a copy of your repository, that you `push` to and `fetch` from. The shared folder `hub.git` in Chapter 23<!--ref:remotes--> and Chapter 34<!--ref:workflows--> did the first part of that job. GitHub does the same, from anywhere on the internet, and adds features for working together: discussing changes, reviewing them, tracking tasks, and running automatic checks.
 
-> **Verification pending [R224].** That summary of what GitHub offers is general knowledge. The precise list of features, and which of them are available on which plan, is time-sensitive and was not verified. The following chapters return to each feature in turn.
+> **Checked against GitHub's documentation (R224).** GitHub's page "What is GitHub?" says GitHub "is a platform for building software" that supports the stages Plan, Create, Review, Test, Deploy and Operate, and that it "is based on the open-source software, Git" and builds on it "by hosting your Git projects, called repositories, in the cloud, as well as adding planning and collaboration tools". Which features are available on which plan is time-sensitive; look at the current plans page before relying on one.
 
 ---
 
@@ -46,9 +46,9 @@ In terms of what you learned, GitHub is **a remote with a website and services a
 | "Everything on GitHub is Git." | A repository's *code and history* are Git. Features such as issues and pull requests belong to the platform, and are stored by it (not in your `.git` folder). |
 | "A repository on GitHub is public." | Chapter 39<!--ref:ghrepo--> |
 | "GitHub is a backup." | Chapter 23<!--ref:remotes--> |
-| "GitHub is neutral and permanent." | Chapter 65<!--ref:licences--> |
+| "GitHub is neutral and permanent." | GitHub's Terms of Service (site-policy repository) say "You own Your Content", that GitHub "may refuse or remove User-Generated Content that violates applicable law or our terms and policies", and that after an account is cancelled GitHub will, barring legal requirements, "delete your full profile and the Content of your repositories within 90 days" and that this "cannot be recovered". The same terms name Microsoft as an Affiliate of GitHub. Chapter 65<!--ref:licences--> returns to ownership and licences. |
 
-> **Verification pending [R225].** The last two rows are general statements about services. The terms of service, the ownership of GitHub, and what happens to content when an account or a repository is removed were not checked against official documents.
+> **Checked against the Terms of Service (R225).** The row above quotes GitHub's Terms of Service as published in its `site-policy` repository on the date given at the start of this chapter. The book quotes it to show that a hosting service is not a permanent archive; it is not legal advice, and terms change. Read the current terms before you rely on any of it.
 
 ---
 
@@ -93,7 +93,7 @@ That is right: nothing has been pushed, so `main` does not follow any `origin/ma
 
 **The anatomy of that address.** `https://github.com/example-owner/sunrise-bakery.git` has the parts that Chapter 5<!--ref:internet--> described: a scheme (`https`), a host (`github.com`), and a path: an **owner** (`example-owner`, a person or an organisation) and a **repository name** (`sunrise-bakery`). The `.git` at the end is common but often optional.
 
-> **Verification pending [R226].** That the same commands work against GitHub, that `.git` is optional in the address, and the other address styles (SSH addresses, for example) were not tested; there was no internet access to GitHub for this chapter. Chapter 39<!--ref:ghrepo--> runs them, with a real account and the current documentation, when its facts can be checked.
+> **Checked in part against GitHub's documentation (R226).** "About remote repositories" says that you can push to two kinds of address, an HTTPS URL like `https://github.com/user/repo.git` and an SSH URL like `git@github.com:user/repo.git`, that HTTPS clone URLs "are available on all repositories, regardless of visibility" and "work even if you are behind a firewall or proxy", and that SSH needs a key pair with the public key added to your account. That `.git` at the end of the address is optional was **not** found in these pages and is not relied on. The `git remote add` commands here were run locally without contacting GitHub.
 
 ---
 
@@ -111,7 +111,7 @@ A GitHub repository contains your Git repository, and around it a set of service
 | Releases | Named, downloadable versions built on tags | Chapter 66<!--ref:releases--> |
 | Settings and security | Access, protection, scanning and secrets | Chapter 49<!--ref:collab--> and Chapter 62<!--ref:ghsec--> |
 
-> **Verification pending [R227].** This table is general knowledge of what GitHub offers at the time of writing. Names, availability and the exact scope of each piece must be checked in the official documentation and on a real account. The chapter numbers refer to where this book covers each one.
+> **Checked against GitHub's documentation (R227).** Each row names a feature that has its own section in the current documentation: repositories, issues, pull requests, GitHub Actions and releases. For releases, "About releases" says that they "are based on Git tags", that a tag date "may be different" from a release date, and that GitHub "will automatically include links to download a zip file and a tarball containing the contents of the repository at the point of the tag's creation". Names and availability can change; the chapter numbers refer to where this book covers each one.
 
 **Where does it live?** The first row is in your Git repository, and you can clone it. The other pieces, such as issues and pull requests, are stored by the platform; a normal `git clone` does **not** bring them with you. If you want to keep them, you need another way (Chapter 74<!--ref:api-->).
 
@@ -131,7 +131,7 @@ This book taught computers first, then Git, then GitHub, on purpose. Because you
 - You do not need GitHub to use Git.
 - To Git, a GitHub repository is a remote with a web address; `git remote add` only records it.
 - A repository's code is Git; issues, pull requests and similar features are stored by the platform.
-- Every GitHub statement in this book is marked *Verification pending* until checked.
+- GitHub statements in this book are checked against GitHub's own documentation and are labelled where they could not be.
 
 ## New Vocabulary
 
@@ -175,8 +175,8 @@ You are ready for Chapter 37<!--ref:ghaccount--> if you can:
 | Claim | Evidence class | Ledger |
 |---|---|---|
 | `git remote add`, `remote -v`, `config --get`, no upstream before a push | Locally tested: Bash 5.2 and zsh 5.9, Git 2.43.0; CI on Git 2.55.0; **no network access to GitHub** | R226 |
-| What GitHub offers, and the map of features | **Not verified** (official documentation not reachable) | R224, R227 |
-| Terms, ownership, permanence, plans | **Not verified** | R225 |
+| What GitHub offers, and the map of features | Checked against `github/docs` (commit `2eaab0b`); plan availability not checked | R224, R227 |
+| Terms, ownership, removal of content | Quoted from `site-policy` (commit `b9578b5`); plans not checked | R225 |
 
 ## Where this leads
 

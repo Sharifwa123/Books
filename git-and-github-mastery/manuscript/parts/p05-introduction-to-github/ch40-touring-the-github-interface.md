@@ -16,7 +16,7 @@ ledger: [R241, R242, R243]
 - the tabs, and which of them belong to the platform and not to Git
 - how to find your way when the interface changes
 
-> **⚠️ How to read this chapter.** A web interface changes often: names, positions and icons move between visits. The official documentation could not be reached and no live account was used, so **the description of the interface is *Verification pending*** and deliberately **avoids exact button names and positions**. What is stable is the *idea* behind each part, which is a piece of Git that you already know. The Git equivalents below were run and recorded.
+> **How to read this chapter.** A web interface changes often: names, positions and icons move between visits. The chapter was checked against GitHub's own documentation (the `github/docs` repository at commit `2eaab0b`, 29 September 2026), which describes each feature but not a fixed screen, and no live account was used; so the description of the interface **avoids exact button names and positions**. What is stable is the *idea* behind each part, which is a piece of Git that you already know. The Git equivalents below were run and recorded.
 
 **Before you start.** Chapter 39<!--ref:ghrepo--> (a repository on a platform), Chapter 17<!--ref:history_view-->, Chapter 20<!--ref:branching-->, Chapter 29<!--ref:tags-->. The recordings ran in Bash and zsh on Git 2.43.0 and were re-run in CI on Git 2.55.0.
 
@@ -26,7 +26,7 @@ ledger: [R241, R242, R243]
 
 A repository's page is a **window onto a Git repository**, with extra services beside it. Almost everything in the window can be reproduced with a command that you already know, and knowing the command tells you what the page is *really* showing.
 
-> **Verification pending [R241].** The layout of the repository page (which sections exist, their names and their order) is time-sensitive and was not verified. Use the table below as a list of things to *look for*, not as a description of exact wording.
+> **Checked in part against GitHub's documentation (R241).** The documentation has a section for each feature in the table below: issues, pull requests, GitHub Actions, GitHub Discussions, projects, wikis, code security and repository settings. It also mentions, for example, the **Pulse** view under the **Insights** tab of a repository, and that the contents of the README are "automatically shown on the front page of your repository". The documentation does not fix the order or the labels of the page, so the table is a list of things to *look for*, not a description of exact wording.
 
 ---
 
@@ -108,7 +108,7 @@ Some tabs and sections belong to the **platform**. They are stored by the servic
 | Insights | Chapter 51<!--ref:insights--> |
 | Settings | Chapter 43<!--ref:settings--> |
 
-> **Verification pending [R242].** Which of these appear for a given repository depends on its settings, on your role, on the plan, and on the repository's visibility. Some may be hidden or switched off. Do not assume that a missing tab is a mistake.
+> **Checked in part against GitHub's documentation (R242).** That availability varies is confirmed for the parts the documentation covers: repository visibility (public, private, and internal for enterprise organisations), permissions, and the plan (for example, private repositories on the free plan have a limited feature set). Do not assume that a missing tab is a mistake.
 
 ---
 
@@ -137,7 +137,7 @@ With a repository of your own (Chapter 39<!--ref:ghrepo-->), or any **public** r
 
 For each, name the Git command that gives the same information. If you cannot, look at Chapter 17<!--ref:history_view--> again.
 
-> **Verification pending [R243].** These steps depend on the current interface. If a step does not match what you see, use the "idea, not label" rule, and tell the author.
+> **Note (R243).** These steps were not run on a live interface. If a step does not match what you see, use the "idea, not label" rule, and tell the author.
 
 ---
 
@@ -191,7 +191,7 @@ You are ready for Chapter 41<!--ref:notify--> if you can:
 | Claim | Evidence class | Ledger |
 |---|---|---|
 | Git equivalents: file history, latest commit, diff summary, branches, tag, archive | Locally tested: Bash 5.2 and zsh 5.9, Git 2.43.0; CI on Git 2.55.0 | R243 (Git side) |
-| The layout and names of the repository page, and which sections exist | **Not verified** (official documentation not reachable; no live account) | R241, R242 |
+| The layout and names of the repository page, and which sections exist | Feature sections checked against `github/docs`; exact layout **not** fixed by the documentation and not seen on a live account | R241, R242 |
 | The tour steps | **Not run** on a live interface | R243 |
 
 ## Where this leads

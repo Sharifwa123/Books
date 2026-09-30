@@ -97,3 +97,5 @@ https://raw.githubusercontent.com/git/git/v2.55.0/Documentation/git-pull.adoc,20
 https://raw.githubusercontent.com/git/git/v2.50.0/Documentation/git-pull.adoc,2026-09-30T02:26:28Z,8364,193c750752a18c3586cd6c81ff187a03b27f2ba90987619a1a7ad1e79b1bbe0d
 https://raw.githubusercontent.com/git-for-windows/build-extra/main/installer/install.iss,2026-09-30T02:28:26Z,174111,28aad263ae7b8caf086df5515a4fb86b5353dfb397d013df509107b1158f3a71
 https://raw.githubusercontent.com/Homebrew/homebrew-core/HEAD/Formula/g/git.rb,2026-09-30T02:29:07Z,8586,19810d48c27ffda1a56258a455d7135fc2d9af0ea620b861c2437fd47f5b828b
+git+https://github.com/github/docs (sparse: content/) @ 2eaab0bd200255beb8d1b2d8d743a3d3e76428da (committed 2026-09-29),2026-09-30T02:30:47Z,,commit-id
+git+https://github.com/github/site-policy @ b9578b546d2506febda1da2cd7431644d58e512c (committed 2026-05-29),2026-09-30T02:30:47Z,,commit-id

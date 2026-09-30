@@ -17,7 +17,7 @@ ledger: [R237, R238, R239, R240]
 - cloning, and the daily cycle of push, fetch and pull
 - **Project 3**: publish the Sunrise Bakery website
 
-> **⚠️ How to read this chapter.** The **Git** commands here were run against local bare repositories that behave like a new, empty remote. What the **website** shows, the exact names of its options, and its buttons could not be verified (official documentation unreachable; no live account), so those parts are marked *Verification pending*. Confirm them on your own screen.
+> **How to read this chapter.** The **Git** commands here were run against local bare repositories that behave like a new, empty remote. What the **website** offers is checked against GitHub's own documentation (the `github/docs` repository at commit `2eaab0b`, 29 September 2026), but was **not** run on a live account, so the chapter names the *choices* and not the exact position of buttons.
 
 **Before you start.** Chapter 38<!--ref:ghauth--> (a way to sign in), Chapter 23<!--ref:remotes--> and Chapter 36<!--ref:whatgh-->. The recordings ran in Bash and zsh on Git 2.43.0 and were re-run in CI on Git 2.55.0.
 
@@ -40,15 +40,15 @@ Both end in the same place: a local repository and a hosted one that follow each
 
 On the platform you create a repository from a web form, choosing a name and a few options.
 
-> **Verification pending [R237].** The location of the "create" button and the names, defaults and order of the options in the form were not verified. As a guide to what to look for, these are the choices that a form of this kind normally offers:
+> **Checked against GitHub's documentation (R237).** "Creating a new repository" and the quickstart describe the form: choose the plus icon in the upper-right corner of any page and then **New repository**; choose an owner and a name ("the repository name must not exceed 100 characters, and can only contain ASCII letters, digits, and the characters `.`, `-`, and `_`"), an optional description, and a visibility. The optional items are a README, a `.gitignore` file and a software licence. The choices, in the words of this book:
 >
 > - **Owner and name.** The owner is you or an organisation (Chapter 37<!--ref:ghaccount-->); the name becomes part of every address (Chapter 36<!--ref:whatgh-->).
-> - **Visibility.** *Public* (anyone can see it) or *private* (only people you allow). Decide deliberately. A public repository, and everything in its history, can be copied by anyone (Chapter 33<!--ref:gitsec-->).
+> - **Visibility.** *Public* ("accessible to everyone on the internet") or *private* ("only accessible to you, people you explicitly share access with, and, for organization repositories, certain organization members"; organisations that are part of an enterprise can also have *internal* repositories). Decide deliberately. A public repository, and everything in its history, can be copied by anyone (Chapter 33<!--ref:gitsec-->).
 > - **A README.** A file that describes the project (Chapter 42<!--ref:readme-->).
 > - **A `.gitignore`.** A starter list of files to ignore (Chapter 18<!--ref:tracking-->).
 > - **A licence.** The terms under which others may reuse your work (Chapter 65<!--ref:licences-->).
 
-**The important consequence** is this: if you tick any of the "add a file" options, the platform makes the *first commit* itself. Your hosted repository is then **not empty**. That matters for Route B (section 39.4).
+**The important consequence** is this: if you tick any of the "add a file" options, the platform makes the *first commit* itself. Your hosted repository is then **not empty**. That matters for Route B (section 39.4), and GitHub's documentation says the same: "If you're importing an existing repository to GitHub, don't choose any of these options, as you may introduce a merge conflict." It also describes an "empty repository" as one that "contains no files" and is "often made if you don't initialize the repository with a README when creating it", and shows its quick-setup page with the clone address.
 
 ---
 
@@ -221,7 +221,7 @@ After the first push, open the repository's page in a browser and check three th
 - **Is the visibility what you intended?**
 - **Is the default branch the one you expect?**
 
-> **Verification pending [R238].** What the repository page shows (file list, README display and branch selector) is covered in Chapter 40<!--ref:ghtour--> and was not verified.
+> **Checked against GitHub's documentation (R238).** The quickstart says the contents of the README "are automatically shown on the front page of your repository". What else the repository page shows is covered in Chapter 40<!--ref:ghtour-->.
 
 ---
 
@@ -297,7 +297,7 @@ You are ready for Chapter 40<!--ref:ghtour--> if you can:
 | Clone of an empty remote, first push, `status -sb` | Locally tested: Bash 5.2 and zsh 5.9, Git 2.43.0; CI on Git 2.55.0; local bare repository | R239 |
 | Connecting an existing repository; `ls-remote --heads` | Locally tested (as above) | R239 |
 | Rejected push and `unrelated histories`; the merge that joins them | Locally tested (as above) | R240 |
-| The website's create form, its options and defaults, and the repository page | **Not verified** (official documentation not reachable; no live account) | R237, R238 |
+| The website's create form, its options and defaults, and the repository page | Checked against `github/docs` (commit `2eaab0b`); not run on a live account | R237, R238 |
 
 ## Where this leads
 
