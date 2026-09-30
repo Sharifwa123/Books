@@ -34,7 +34,7 @@ meta = {
   "licences": {"text": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)", "code_samples": "MIT"},
   "website": "www.shariftechnologies.online",
   "ai_assistance": "Written with the help of an AI assistant, Claude (Anthropic, via Claude Code), under the author's direction; see AI-ASSISTANCE.md. Claude is credited as contributor and co-author.",
-  "author_biography_short": 'Sharif Tingane Issah writes and builds software under the name SHARIF TECHNOLOGIES, from Ghana. Among the projects is Sharif NOVA, an early-stage, open-source programming language published on npm in September 2026. This book, written for first-time learners with the help of an AI assistant, Claude, follows one habit: run the command, read the source, and say what was and was not checked.',
+  "author_biography_short": 'Sharif Tingane Issah (also styled Sharif Issah Tingane) builds software from Ghana and founded SHARIF TECHNOLOGIES. Sharif reports more than seven years of building web and desktop applications in PHP. Public projects include SAIBA, an AI business assistant, Sharif NOVA, an open-source programming language, and CodeCast, an Android app. This book, for first-time learners, was written with the help of an AI assistant, Claude.',
   "isbn": None, "legal_publisher": None, "publisher_address": None, "publication_date": None,
   "status_of_null_fields": "Not assigned, not established or not yet supplied. They are deliberately empty and must not be invented.",
   "files": {os.path.relpath(f, out): hashlib.sha256(open(f, "rb").read()).hexdigest() for f in sorted(glob.glob(out + "/ebook/*") + glob.glob(out + "/cover/*"))},

@@ -70,7 +70,7 @@ What this supports: Sharif Tingane Issah's GitHub account is associated with a l
 
 ## 4. Education and credentials
 
-**No public evidence of any formal education, degree, certification, professional licence, employment, award, research appointment or publication (other than this book and the software above) was found.** The biography therefore states none. Nothing was invented, and the biography also does not say or imply "self-taught" or "no qualifications": the evidence neither shows nor rules out either. If the author wishes to add a qualification or an employer, the author supplies it with a source, and it is added then.
+*Superseded in part by section 8: the author's dossier supplies an ORCID education entry.* From the sources this project could reach itself, **no public evidence of any formal education, degree, certification, professional licence, employment, award, research appointment or publication (other than this book and the software above) was found.** Nothing was invented, and the biography also does not say or imply "self-taught" or "no qualifications": the evidence neither shows nor rules out either. If the author wishes to add a qualification or an employer, the author supplies it with a source, and it is added then.
 
 ## 5. SHARIF TECHNOLOGIES: what is established
 
@@ -94,3 +94,29 @@ Not published anywhere in the book or repository: the contact address shown in t
 1. Confirm that `www.shariftechnologies.online` is the official site and is live at publication time (it could not be opened here). It is shown in the book only as the website the author's own profile lists.
 2. Supply a public contact address for the book if wanted (none is used now).
 3. Supply any credential or employment the author wants in the biography, with a source.
+
+## 8. The author's research dossier (added 30 September 2026)
+
+The author supplied a 16-page "Author Research Dossier" made from public sources (ORCID, LinkedIn, Facebook, the SHARIF TECHNOLOGIES website, GitHub, Hugging Face). Most of those hosts cannot be reached from the authoring environment, so this project **did not re-check them**; it used the dossier as the author's own evidence and kept its own caveats. The dossier itself is not committed to the repository (it aggregates personal details; the biographies and this report use only what is needed).
+
+**What the dossier adds and how it is used**
+
+| Finding | Use |
+|---|---|
+| ORCID record (public API): given names "Sharif Issah", family name "Tingane"; links to the company website and the Facebook page; keywords (software, AI, cybersecurity, networking, ICT, developer tools, programming languages and others); works list empty | The name order "Sharif Issah Tingane" is listed as a public variant. Interests are attributed to the ORCID record. No publications claimed |
+| ORCID education entry: General Science / WASSCE, Techiman Senior High School, Ghana, December 2023 to June 2026; no result stated | Used in the standard and extended biographies as "an education entry" in General Science, without dates, result or certificate. **The author can remove it** |
+| LinkedIn (sign-in-gated): headline "Startup Founder, CEO, Tech Builder"; education previews conflict (a university and the school) | "Founder" used as the author's own description; "CEO" and any university claim **not** used |
+| Facebook website-launch post: more than seven years of PHP web and desktop applications | Used, attributed ("reports"); not independently audited |
+| Website: based in Wenchi, Bono Region; services: custom web and system development, mobile apps, maintenance, cybersecurity, networking, ICT training; calls itself a technology company | Services used. Only the country is printed. The website's word "company" is **not** adopted: no registration or legal status is established |
+| SAIBA (AI business assistant, Android builds, source said to be private), NOVA (repository: README mentions v0.1 to v0.14, HANDOFF describes milestones to v0.18, 323 unit tests reported), CodeCast (Android/Kotlin; build 25 and v1.0.0), a Hugging Face Space with runtime errors | SAIBA, NOVA and CodeCast named with cautious wording. The Space is not used (it showed errors). The npm record read here shows 0.14.0 to 0.15.1, so "early version number" is used instead of a version |
+| Cybersecurity: a service category and a website article whose author is not established | Listed only as a stated area; no security work is claimed |
+| AI: profile wording, SAIBA, the Space | Listed only as an area and as SAIBA; no expertise claimed |
+| Conflict inside this project: `manuscript/README.md` said "Drafting has NOT started" | **Fixed** in this revision (the file was a missed leftover); the tools, references and solutions READMEs were also brought up to date |
+
+**Unsupported claims the dossier lists, all respected:** civil-identity authentication; SHARIF TECHNOLOGIES as incorporated, registered, a separate legal person or registered publisher; a WASSCE result; a university degree or enrolment; proven employer, client or delivered product behind the PHP statement; verified cybersecurity expertise; independent testing, security or adoption of SAIBA, NOVA, CodeCast or the Space; publication, ISBN or rights clearance of this book; who wrote each passage of the book; authorship of the company's blog articles.
+
+**Points for the author**
+1. **Name order.** The book credits "Sharif Tingane Issah"; ORCID has family name "Tingane". Decide the order for the cover and for ISBN and library records (the variant can be listed as an alternate name).
+2. **Education entry.** It is the author's own public ORCID entry, but it names a secondary school; say if it should stay in the printed biography.
+3. **PHP experience.** Self-reported; say if it should stay.
+4. **Wenchi.** The business location is public on the company website; the book prints only "Ghana".

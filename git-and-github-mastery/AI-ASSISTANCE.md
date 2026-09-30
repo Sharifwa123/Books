@@ -16,7 +16,7 @@
 | Editorial read-through | Read all 81 chapters and the appendices and made the corrections | Required the read-through |
 | Build and checks | Wrote the PDF, EPUB, clean-export and package builders, the validators' set-up and the continuous-integration workflow | Required the formats and the brand and publisher distinctions |
 | Cover and diagrams | Drew the draft cover (SVG) and wrote the diagram sources | May replace the cover |
-| Author and publisher information | Researched public sources, drafted the biographies, the imprint profile and the publication documents, and recorded what could not be established | Gave the authorisation to research; must confirm the biography and the facts in it |
+| Author and publisher information | Researched the public sources it could reach, drafted the biographies, the imprint profile and the publication documents, and recorded what could not be established | Gave the authorisation to research; supplied a research dossier (from sources the assistant could not reach) that the biographies use; must confirm the biography and the facts in it |
 | Licensing and rights documents | Drafted the copyright page, licence notices, rights register and checklists to the author's wording | Chose CC BY-NC-SA 4.0 for the text and MIT for code; chose SHARIF TECHNOLOGIES as holder and imprint |
 | Repository administration | Created branches and pull requests, ran the checks, fixed failures and merged pull requests, using GitHub tools under the author's standing authorisation | Owns the repository and the account; decides on publication and on the default branch |
 

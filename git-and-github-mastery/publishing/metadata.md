@@ -6,7 +6,7 @@ Updated 30 September 2026. Details behind each row are in the files named in the
 |-------|-------|--------|--------|
 | Title | Git & GitHub: From Zero to Mastery | Decided | |
 | Subtitle | A Complete Beginner-to-Expert Guide to Version Control, Collaboration, Automation, Security, and Modern Software Development | Decided | |
-| Author | Sharif Tingane Issah | Supplied | `author-biographies.md` |
+| Author | Sharif Tingane Issah (also styled Sharif Issah Tingane in public records; the author confirms the order for ISBN and library records) | Supplied | `author-biographies.md` |
 | Imprint (name on the title page) | SHARIF TECHNOLOGIES | Supplied; in public use by the author | `publisher-imprint-profile.md` |
 | Legal publisher | Not established | **Open**: no registry or document found; nothing registered is claimed | `publisher-imprint-profile.md` |
 | Copyright holder | SHARIF TECHNOLOGIES | As instructed by the author on 30 Sept 2026; **legal basis to be confirmed** | `rights-and-licensing.md`, `final-publication-blockers.md` |

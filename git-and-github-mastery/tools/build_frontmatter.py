@@ -164,11 +164,11 @@ w("manuscript/back-matter/author-and-publisher.md", """# Author and Publisher
 
 ## The author
 
-Sharif Tingane Issah is the founder of SHARIF TECHNOLOGIES, the name under which Sharif writes and publishes software and books. Based in Ghana, Sharif describes the work on a public GitHub profile as software, artificial intelligence and cybersecurity, with the aim of building practical technology.
+Sharif Tingane Issah (also styled Sharif Issah Tingane) is the founder of SHARIF TECHNOLOGIES, the name under which Sharif builds and publishes software and books from Ghana. The SHARIF TECHNOLOGIES website lists custom web and mobile software, cybersecurity, networking and ICT training. In a public post, Sharif reports more than seven years of building web and desktop applications in PHP.
 
-One project is Sharif NOVA, a programming language and toolchain that Sharif began as an independent project. It has an interpreter, a compiler for web pages and a web server mode, is released under the MIT licence, and was published on npm in September 2026. It is still at an early version number; no claim is made about its use by others.
+Public projects include SAIBA, an AI assistant for business customer support; Sharif NOVA, an open-source programming language and toolchain, still at an early version number; and CodeCast, an Android app that its repository describes as turning a codebase into a video tutorial. Sharif's public ORCID record lists interests in software development, artificial intelligence, cybersecurity, networking and developer tools, and an education entry in General Science at Techiman Senior High School, Ghana.
 
-This book comes from the same habit. Every command in it was run and recorded, each statement about Git or GitHub is tied to its source, and what could not be checked is written down. The book was written with the help of an AI assistant, Claude, and says so on its copyright page. The working record, including the assistant's commits, is published beside the book, in its repository, so that readers can follow it.
+This book follows one habit: every command was run and recorded, each claim is tied to its source, and what could not be checked is written down. It was written with the help of an AI assistant, Claude, as the copyright page explains.
 
 ## The imprint
 

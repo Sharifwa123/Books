@@ -18,7 +18,7 @@
 |---|---|---|
 | Title | Git & GitHub: From Zero to Mastery | Ready |
 | Subtitle | A Complete Beginner-to-Expert Guide to Version Control, Collaboration, Automation, Security, and Modern Software Development | Ready |
-| Author / contributor role | Sharif Tingane Issah, author | Ready |
+| Author / contributor role | Sharif Tingane Issah, author. Public records also show the order Sharif Issah Tingane (ORCID: family name Tingane); **the author decides the order used for ISBN and library records** | Ready, order to confirm |
 | Other contributors | None to list (no editor, illustrator or translator is recorded; the use of AI assistance is addressed in `final-publication-blockers.md` item 3) | Ready |
 | Publisher / imprint | SHARIF TECHNOLOGIES (imprint); legal registrant **to be confirmed** | Open |
 | Copyright holder | SHARIF TECHNOLOGIES, as instructed; **legal basis to be confirmed** | Open |
