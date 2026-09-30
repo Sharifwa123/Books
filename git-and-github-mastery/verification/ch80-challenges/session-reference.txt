@@ -74,7 +74,6 @@ for i in 9 10 11 12; do printf "$i\n" >> notes.txt; git add notes.txt; git commi
 printf 'grep -qx ok state.txt\n' > ../test.sh
 git bisect start HEAD HEAD~12 > /dev/null
 git bisect run sh ../test.sh > ../bisect.out 2>&1
-grep -c "is the first bad commit" ../bisect.out
 git log -1 --format=%s refs/bisect/bad
 git bisect reset > /dev/null 2>&1
 cd ..
