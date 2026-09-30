@@ -1,0 +1,21 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ git init -q lib && cd lib
+$ printf '{\n  "name": "@ada/wordcount",\n  "version": "0.1.0",\n  "repository": "https://github.com/ada/wordcount"\n}\n' > package.json
+$ printf '@ada:registry=https://npm.pkg.github.com\n' > .npmrc
+$ printf '//npm.pkg.github.com/:_authToken=not-a-real-token\n' > ~/.npmrc
+$ name=$(sed -n 's/.*"name": "\(.*\)",/\1/p' package.json); echo "$name"
+@ada/wordcount
+$ [ "$name" = "$(printf %s "$name" | tr A-Z a-z)" ] && echo "lowercase: ok"
+lowercase: ok
+$ case "$name" in @*/*) echo "scoped: ok";; *) echo "not scoped";; esac
+scoped: ok
+$ git add -A && git commit -q -m "Add package metadata and scope mapping"
+$ git ls-files
+.npmrc
+package.json
+$ git grep -n '_authToken' || echo "no token in the repository"
+no token in the repository
+$ grep -c '_authToken' ~/.npmrc
+1
