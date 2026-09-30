@@ -1,0 +1,29 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ cd bakery-menu
+$ mkdir -p .github/ISSUE_TEMPLATE
+$ printf 'name: Bug report\ndescription: Something on the menu is wrong\nbody:\n  - type: textarea\n    id: what\n    attributes:\n      label: What is wrong?\n    validations:\n      required: true\n' > .github/ISSUE_TEMPLATE/bug.yml
+$ cat .github/ISSUE_TEMPLATE/bug.yml
+name: Bug report
+description: Something on the menu is wrong
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What is wrong?
+    validations:
+      required: true
+$ git add .github
+$ git commit -q -m "Add a bug report form"
+$ git ls-files .github
+.github/ISSUE_TEMPLATE/bug.yml
+$ printf -- '- Rolls (six): 3.20\n' >> menu.md
+$ git commit -q -am "Correct the price of the rolls" -m "Fixes #12"
+$ git log -1 --format=%B
+Correct the price of the rolls
+
+Fixes #12
+
+$ git log --oneline --grep='#12'
+8bd8b2b (HEAD -> main) Correct the price of the rolls
