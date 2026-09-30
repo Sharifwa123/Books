@@ -23,7 +23,8 @@ cur = ""
 for r in gl:
     ch = r["term"][0].upper()
     if ch != cur: cur = ch; L += [f"## {cur}", ""]
-    L += [f"**{r['term']}.** {r['simple_definition']}", "", f"*Technically:* {r['technical_definition']} *Example:* {r['example']}", "",
+    esc = lambda x: x.replace("<", "\\<")   # a bare <name> would be swallowed as an HTML tag
+    L += [f"**{r['term']}.** {esc(r['simple_definition'])}", "", f"*Technically:* {esc(r['technical_definition'])} *Example:* {esc(r['example'])}", "",
           f"*Related:* {r['related'] or 'none listed'}. *First explained in* Chapter [[{r['first_chapter_key']}]].", ""]
 w("manuscript/back-matter/glossary.md", "\n".join(L))
 

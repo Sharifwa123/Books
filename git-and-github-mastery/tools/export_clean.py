@@ -3,9 +3,12 @@
 Markdown file plus a manifest, and fails if development artefacts are found in the text.
 Output: publishing/build/clean/book.md and MANIFEST.txt.  Usage: export_clean.py [--out DIR]
 Included: manuscript/front-matter, parts, appendices, back-matter.  Excluded by construction: planning/, research/,
-verification/, tools/, exercises and solutions (published separately), .github/.
+verification/, tools/, .github/. Exercises are appended to their chapters and the solutions form one back-matter section.
 Placeholders that are intentionally part of the text (ISBN, address, author biography) are listed, not hidden."""
 import glob, hashlib, os, re, sys
+sys.path.insert(0, os.path.dirname(__file__))
+import bookparts as BP
+import toc_data as T
 root = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 out = os.path.join(root, "publishing", "build", "clean")
 if "--out" in sys.argv: out = sys.argv[sys.argv.index("--out") + 1]
@@ -16,17 +19,19 @@ def key(f):
 files = sorted(glob.glob(f"{M}/front-matter/*.md"))
 files += sorted(glob.glob(f"{M}/parts/*/ch*.md"), key=key)
 files += sorted(glob.glob(f"{M}/appendices/*.md"))
-files += [f"{M}/back-matter/glossary.md", f"{M}/back-matter/author-and-publisher.md"]
+files += ["@solutions", f"{M}/back-matter/glossary.md", f"{M}/back-matter/author-and-publisher.md"]
 FORBIDDEN = [(r"STOPPED HERE", "drafting marker"), (r"\bTBD\b|FIXME|lorem ipsum", "unfinished text"), (r"Claude|session_[0-9A-Za-z]", "AI working note"),
              (r"gate [A-F]\b", "internal process gate"), (r"planning/", "internal repository path"), (r"\[\[[a-z0-9_]+\]\]", "unresolved cross-reference"),
              ]
 WARN = [(r"research/[a-z-]+", "citation of a published evidence file in the repository (decide whether the printed book should name it)")]
 problems, warns, parts, manifest = [], [], [], []
 for f in files:
-    t = open(f, encoding="utf-8").read()
+    t = BP.solutions_text([(i + 1, c[2]) for i, c in enumerate(T.C)]) if f == "@solutions" else open(f, encoding="utf-8").read()
+    mm = re.search(r"/ch(\d+)-", f)
+    if mm: t = BP.with_exercises(int(mm.group(1)), re.sub(r"\A---\n.*?\n---\n", "", t, flags=re.S))
     t = re.sub(r"\A---\n.*?\n---\n", "", t, flags=re.S)
     t = re.sub(r"<!--.*?-->", "", t, flags=re.S)
-    rel = os.path.relpath(f, root)
+    rel = "solutions" if f == "@solutions" else os.path.relpath(f, root)
     for pat, why in FORBIDDEN:
         for m in re.finditer(pat, t, flags=re.M):
             line = t[:m.start()].count("\n") + 1

@@ -161,11 +161,26 @@ jobs:
         run: |
           cd git-and-github-mastery
           for f in publishing/build/*.pdf; do python3 tools/check_pdf.py "$f" --full; done
-          sha256sum publishing/build/*.pdf | tee publishing/build/SHA256SUMS
-      - name: Upload the PDFs
+      - name: Build the reflowable EPUB
+        run: |
+          cd git-and-github-mastery
+          export SOURCE_DATE_EPOCH=1790000000
+          python3 tools/build_epub.py
+      - name: Validate the EPUB with EPUBCheck 5.2.1 (release archive pinned by checksum recorded on first download)
+        run: |
+          curl -sSL -o "$RUNNER_TEMP/epubcheck.zip" "https://github.com/w3c/epubcheck/releases/download/v5.2.1/epubcheck-5.2.1.zip"
+          echo "0532f6291faa2bb729dd253f958868a2a57dbd2c32f881a97c7c980c5940309e  $RUNNER_TEMP/epubcheck.zip" | sha256sum -c -
+          unzip -q "$RUNNER_TEMP/epubcheck.zip" -d "$RUNNER_TEMP/epc"
+          java -jar "$RUNNER_TEMP/epc/epubcheck-5.2.1/epubcheck.jar" git-and-github-mastery/publishing/build/*.epub
+      - name: Checksums
+        run: |
+          cd git-and-github-mastery
+          sha256sum publishing/build/*.pdf publishing/build/*.epub | tee publishing/build/SHA256SUMS
+      - name: Upload the PDFs and EPUB
         uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
         with:
           name: pdf-edition
           path: |
             git-and-github-mastery/publishing/build/*.pdf
+            git-and-github-mastery/publishing/build/*.epub
             git-and-github-mastery/publishing/build/SHA256SUMS

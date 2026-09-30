@@ -30,7 +30,7 @@ def strip_front(text):
             if ":" in l: k, v = l.split(":", 1); meta[k.strip()] = v.strip()
         text = text[m.end():]
     return meta, text
-import hashlib
+import hashlib, bookparts as BP
 DIAG = os.path.join(root, "publishing", "build", "diagrams")
 FIGS = []
 CUR = {"title": ""}
@@ -111,6 +111,7 @@ for pi, (pn, pt) in enumerate(T.PARTS):
         key = C[n - 1][1]
         text = open(chapter_files[n], encoding="utf-8").read()
         meta, text = strip_front(text)
+        text = BP.with_exercises(n, text)
         chapter_text[key] = text
         CUR["title"] = re.search(r"# (.*)", text).group(1)
         h = render(text, key, "chapter")
@@ -129,6 +130,10 @@ if not a.limit:
         h = h.replace('<h1 class="top">', f'<h1 class="top" id="{ident}">', 1)
         add_toc(1, re.search(r"# (.*)", text).group(1), "#" + ident)
         back_html.append(f'<section class="appendix">{h}</section>')
+    sol = BP.solutions_text([(i + 1, c[2]) for i, c in enumerate(C)])
+    h = render(sol, "solutions", "top").replace('<h1 class="top">', '<h1 class="top" id="solutions">', 1)
+    add_toc(1, "Solutions to the Exercises", "#solutions")
+    back_html.append(f'<section class="back">{h}</section>')
     for name in ["glossary", "INDEX", "author-and-publisher"]:
         if name == "INDEX":
             # index of terms: term -> chapters that mention it
