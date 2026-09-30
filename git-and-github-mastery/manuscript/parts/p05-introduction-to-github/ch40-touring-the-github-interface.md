@@ -192,7 +192,7 @@ You are ready for Chapter 41<!--ref:notify--> if you can:
 |---|---|---|
 | Git equivalents: file history, latest commit, diff summary, branches, tag, archive | Locally tested: Bash 5.2 and zsh 5.9, Git 2.43.0; CI on Git 2.55.0 | R243 (Git side) |
 | The layout and names of the repository page, and which sections exist | Feature sections checked against `github/docs`; exact layout **not** fixed by the documentation and not seen on a live account | R241, R242 |
-| The tour steps | **Not run** on a live interface. Some concept and option statements for this row were also checked in the Git 2.56.0 manual (git-archive); the ledger row says which. | R243 |
+| The tour steps | **Not run** on a live interface. | R243 |
 
 ## Where this leads
 
