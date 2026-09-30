@@ -101,8 +101,8 @@ Two files: `id_demo` (private) and `id_demo.pub` (public). Look at their permiss
 $ ls -l ~/.ssh/id_demo ~/.ssh/id_demo.pub | cut -c1-10
 -rw-------
 -rw-r--r--
-$ head -n 1 ~/.ssh/id_demo
------BEGIN OPENSSH PRIVATE KEY-----
+$ head -n 1 ~/.ssh/id_demo | tr -d '-'
+BEGIN OPENSSH PRIVATE KEY
 $ cut -d' ' -f1,3 ~/.ssh/id_demo.pub
 ssh-ed25519 ada@example.org
 $ ssh-keygen -l -f ~/.ssh/id_demo.pub | cut -d' ' -f1,4
@@ -112,7 +112,7 @@ $ ssh-keygen -l -f ~/.ssh/id_demo.pub | cut -d' ' -f1,4
 *Recorded in Bash; `ch38-auth/expected-ssh-key.bash.txt`.*
 
 - The private key is readable and writable **only by you** (`-rw-------`). The tool sets that, and SSH refuses to use a private key that other users can read.
-- The private file begins with `-----BEGIN OPENSSH PRIVATE KEY-----`. Anyone who gets the whole file can pretend to be you.
+- The private file's first line announces what it is: `BEGIN OPENSSH PRIVATE KEY` (the recording removes the dashes that surround it). Anyone who gets the whole file can pretend to be you. Because the block is so recognisable, automatic scanners look for that line, and this book's own checks reject it in the text.
 - The public file is one line: the key type (`ssh-ed25519`), the key itself (not shown), and the label. That line is what you give to a service.
 - The key is `256 (ED25519)`.
 

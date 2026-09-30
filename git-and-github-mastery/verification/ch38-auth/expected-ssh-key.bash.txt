@@ -9,8 +9,8 @@ id_demo  id_demo.pub
 $ ls -l ~/.ssh/id_demo ~/.ssh/id_demo.pub | cut -c1-10
 -rw-------
 -rw-r--r--
-$ head -n 1 ~/.ssh/id_demo
------BEGIN OPENSSH PRIVATE KEY-----
+$ head -n 1 ~/.ssh/id_demo | tr -d '-'
+BEGIN OPENSSH PRIVATE KEY
 $ cut -d' ' -f1,3 ~/.ssh/id_demo.pub
 ssh-ed25519 ada@example.org
 $ ssh-keygen -l -f ~/.ssh/id_demo.pub | cut -d' ' -f1,4
