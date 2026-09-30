@@ -1,0 +1,39 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ cd bakery-menu
+$ git switch -q -c raise-bread
+$ printf '# Sunrise Bakery menu\n\n- White loaf: 3.00\n- Rolls (six): 3.00\n- Coconut cake (slice): 4.00\n' > menu.md
+$ git commit -qam "Raise the white loaf to 3.00"
+$ git switch -q main
+$ printf '# Sunrise Bakery menu\n\n- White loaf: 2.90\n- Rolls (six): 3.00\n- Coconut cake (slice): 4.00\n' > menu.md
+$ git commit -qam "Raise the white loaf to 2.90"
+$ git merge -X theirs --no-edit raise-bread
+Auto-merging menu.md
+Merge made by the 'ort' strategy.
+ menu.md | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+$ cat menu.md
+# Sunrise Bakery menu
+
+- White loaf: 3.00
+- Rolls (six): 3.00
+- Coconut cake (slice): 4.00
+$ git reset -q --hard HEAD~1
+$ git merge -s ours --no-edit raise-bread
+Merge made by the 'ours' strategy.
+$ cat menu.md
+# Sunrise Bakery menu
+
+- White loaf: 2.90
+- Rolls (six): 3.00
+- Coconut cake (slice): 4.00
+$ git log --oneline --graph
+*   e791484 (HEAD -> main) Merge branch 'raise-bread'
+|\
+| * 73e14f7 (raise-bread) Raise the white loaf to 3.00
+* | 4afeda6 Raise the white loaf to 2.90
+|/
+* 81f772e Add coconut cake
+* 9f10b43 Raise the price of the white loaf
+* 8a52ffe Add the menu

@@ -1,0 +1,42 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ cd bakery-menu
+$ printf -- '- Tea: 1.50\n' >> menu.md
+$ git commit -qam "Add tea"
+$ printf 'Coffee: 2.00\n' > coffee.md
+$ git add coffee.md
+$ git commit -qm "Add coffee"
+$ printf 'Juice: 2.20\n' > juice.md
+$ git add juice.md
+$ git commit -qm "Add juice"
+$ git log --oneline -3
+b68f4e3 (HEAD -> main) Add juice
+28638f5 Add coffee
+60cb0bb Add tea
+$ GIT_SEQUENCE_EDITOR="sed -i '2s/^pick/drop/'" git rebase -i HEAD~3
+hint: Waiting for your editor to close the file...
+Successfully rebased and updated refs/heads/main.
+$ git log --oneline -3
+ecea039 (HEAD -> main) Add juice
+60cb0bb Add tea
+81f772e Add coconut cake
+$ GIT_SEQUENCE_EDITOR="sed -i '1{h;d};\$G'" git rebase -i HEAD~2
+hint: Waiting for your editor to close the file...
+Successfully rebased and updated refs/heads/main.
+$ git log --oneline -3
+f80220e (HEAD -> main) Add tea
+41c5eb6 Add juice
+81f772e Add coconut cake
+$ GIT_SEQUENCE_EDITOR="sed -i '1s/^pick/reword/'" GIT_EDITOR="sed -i '1s/.*/Add juice to the drinks menu/'" git rebase -i HEAD~2
+hint: Waiting for your editor to close the file...
+hint: Waiting for your editor to close the file...
+[detached HEAD 4cf07c0] Add juice to the drinks menu
+ Date: Mon Jan 5 09:13:00 2026 +0000
+ 1 file changed, 1 insertion(+)
+ create mode 100644 juice.md
+Successfully rebased and updated refs/heads/main.
+$ git log --oneline -3
+bd7866c (HEAD -> main) Add tea
+4cf07c0 Add juice to the drinks menu
+81f772e Add coconut cake

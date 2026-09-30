@@ -1,0 +1,32 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ cd bakery-menu
+$ git -c protocol.file.allow=always submodule add -q ../lib-repo vendor/lib
+$ git commit -qm "Add the lib submodule"
+$ cd ..
+$ git -c protocol.file.allow=always clone -q --recurse-submodules bakery-menu bakery-copy
+$ cd bakery-copy
+$ git submodule status
+ 2e4ae7032781338fb40d5d24c3d4e709ac2eea22 vendor/lib (heads/main)
+$ ls vendor/lib
+lib.txt
+$ cd ../lib-repo
+$ printf 'more shared code\n' >> lib.txt
+$ git commit -qam "Update lib"
+$ cd ../bakery-copy
+$ git -c protocol.file.allow=always submodule update --remote vendor/lib
+From /home/learner/lib-repo
+   2e4ae70..41273bf  main       -> origin/main
+Submodule path 'vendor/lib': checked out '41273bf3125415fc50ec5b8cbdb76d5821d39af7'
+$ git status --short
+ M vendor/lib
+$ git commit -qam "Use the newer lib"
+$ git submodule deinit -f vendor/lib
+Cleared directory 'vendor/lib'
+Submodule 'vendor/lib' (../lib-repo) unregistered for path 'vendor/lib'
+$ git rm -q -f vendor/lib
+$ git commit -qm "Remove the lib submodule"
+$ git ls-files
+.gitmodules
+menu.md

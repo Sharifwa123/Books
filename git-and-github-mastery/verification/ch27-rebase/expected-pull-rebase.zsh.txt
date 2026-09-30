@@ -1,0 +1,24 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ cd alice
+$ printf -- '- Tea: 1.50\n' >> menu.md
+$ git commit -qam "Add tea"
+$ git push -q origin main
+$ cd ../bob
+$ printf 'Open Monday to Saturday.\n' > hours.md
+$ git add hours.md
+$ git commit -qm "Add opening hours"
+$ git pull --rebase
+From /home/learner/hub
+   81f772e..965e160  main       -> origin/main
+Successfully rebased and updated refs/heads/main.
+$ git log --oneline --graph
+* 872b896 (HEAD -> main) Add opening hours
+* 965e160 (origin/main, origin/HEAD) Add tea
+* 81f772e Add coconut cake
+* 9f10b43 Raise the price of the white loaf
+* 8a52ffe Add the menu
+$ git push origin main
+To /home/learner/hub.git
+   965e160..872b896  main -> main

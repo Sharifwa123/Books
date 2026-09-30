@@ -45,3 +45,17 @@ https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-config.adoc,
 https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-check-ignore.adoc,2026-09-30T02:10:54Z,4159,940177c7385eb3cf0ffb1f22ffba35661d16800f8ce787ac676e9a8c89d68208
 https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/gitignore.adoc,2026-09-30T02:10:54Z,9535,338221577b4f47ea61b10eb6e57e7b0aab71e3f7ff8ce8bc067676aede805e71
 https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/RelNotes/2.30.6.adoc,2026-09-30T02:11:02Z,2252,1479519fa2076c438769a0e55c615fae0750bec6bb572a0b5a05e8c9c7f23d03
+https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-cherry-pick.adoc,2026-09-30T02:12:04Z,9496,89c50911d1c5ca05148104bbd9e8daec79f3b109f2d41bc57ecb81076c4b4f7c
+https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/sequencer.adoc,2026-09-30T02:13:27Z,472,3cbd44896eff9db75ae2b61b378f5368139f3fbff4fac30b9cb116730f9ddd90
+https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/CodingGuidelines,2026-09-30T02:14:46Z,36558,775a38e4d9152784db3eeafa377eab4d5d6d5eea1094c82fa697542b86935ee0
+https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-am.adoc,2026-09-30T02:16:29Z,10129,eab75273b138ca48e34604b15701bddc2ec9753eaad3871dc27b3a5bae4a20ac
+https://raw.githubusercontent.com/semver/semver/master/semver.md,2026-09-30T02:16:35Z,17474,33ebae1a97845991d0b916f3295a88b499e2ec71a6c1fe84c12429077b19ce08
+https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/versionsort.adoc,2026-09-30T02:16:44Z,1779,78fc03588f2680f55a210db266f6824eb20b37910dd716594bf2457816e3e19f
+https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/technical/partial-clone.adoc,2026-09-30T02:17:37Z,14948,9512d7ee0b79680f61d3f98c9eae42cc1dbaeef63535c5502cff66d7bce19264
+https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/uploadpack.adoc,2026-09-30T02:17:38Z,4137,66ae6a63da96ef5ab79c0f1dc158d563cd8e45fe2857929e6313ed43d363b18a
+https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/rev-list-options.adoc,2026-09-30T02:17:42Z,51451,8414be814954bad98c510c44a5bbf477c07072b185c0c079600fceedf5f5b371
+https://raw.githubusercontent.com/git-lfs/git-lfs/main/docs/spec.md,2026-09-30T02:17:47Z,6184,14ea5fc720fbfe037d4a20991bdf272c3688d84b4cd49ae981805ec5c5e23fcd
+https://raw.githubusercontent.com/git-lfs/git-lfs/main/docs/man/git-lfs-track.adoc,2026-09-30T02:17:47Z,2852,2f46f08aae60606a9bab7bcc78fe1346a1a696fcb40c0455181c2dbf8895b7e8
+https://raw.githubusercontent.com/git-lfs/git-lfs/main/docs/man/git-lfs-install.adoc,2026-09-30T02:17:48Z,2598,81c764bf162cfd26043f86c07974939bb41aa3f6f87170a050b450912b7a8c89
+https://raw.githubusercontent.com/git-lfs/git-lfs/main/docs/man/git-lfs-ls-files.adoc,2026-09-30T02:17:48Z,2002,f4c38099d96dabfe4395f5e27a4f6944b1c4d45517c721264b55b43c2382fe81
+https://raw.githubusercontent.com/git-lfs/git-lfs/main/docs/man/git-lfs-migrate.adoc,2026-09-30T02:17:48Z,23958,9eea6b23f4e442eedebaa4ade5bbc02e29f2bd11e04e4c8780d61b6ed4d6bfb7

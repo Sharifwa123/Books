@@ -105,7 +105,69 @@ eb86246 Add tea
 
 **Two cautions.**
 
-- A copied commit can **conflict**, just as in Chapter 22<!--ref:conflicts-->, if the code around it differs. Git then stops; you resolve, `git add`, and `git cherry-pick --continue`, or you give up with `git cherry-pick --abort`. (The recordings in this chapter did not conflict, and these three commands were not run.)
+- A copied commit can **conflict**, just as in Chapter 22<!--ref:conflicts-->, if the code around it differs. Git then stops; you resolve, `git add`, and `git cherry-pick --continue`, or you give up with `git cherry-pick --abort`. Here is a conflict on purpose: `main` and `raise-bread` both changed the price of the loaf, and `main` cherry-picks the branch's commit:
+
+```text
+$ git cherry-pick raise-bread
+Auto-merging menu.md
+CONFLICT (content): Merge conflict in menu.md
+error: could not apply 73e14f7... Raise the white loaf to 3.00
+hint: After resolving the conflicts, mark them with
+hint: "git add/rm <pathspec>", then run
+hint: "git cherry-pick --continue".
+hint: You can instead skip this commit with "git cherry-pick --skip".
+hint: To abort and get back to the state before "git cherry-pick",
+hint: run "git cherry-pick --abort".
+$ git status --short
+UU menu.md
+```
+
+*Recorded in Bash; `ch28-tools/expected-cherry-pick-conflict.bash.txt`.*
+
+Git stops and leaves `menu.md` unmerged (`UU`), with the same kind of message as a conflicted merge. Abort, and everything returns to the state before:
+
+```text
+$ git cherry-pick --abort
+$ git status --short
+```
+
+*Recorded in Bash; `ch28-tools/expected-cherry-pick-conflict.bash.txt`.*
+
+Or resolve and continue: try again, write the resolved file, `git add` it, and `git cherry-pick --continue`:
+
+```text
+$ git cherry-pick raise-bread
+Auto-merging menu.md
+CONFLICT (content): Merge conflict in menu.md
+error: could not apply 73e14f7... Raise the white loaf to 3.00
+hint: After resolving the conflicts, mark them with
+hint: "git add/rm <pathspec>", then run
+hint: "git cherry-pick --continue".
+hint: You can instead skip this commit with "git cherry-pick --skip".
+hint: To abort and get back to the state before "git cherry-pick",
+hint: run "git cherry-pick --abort".
+$ printf '# Sunrise Bakery menu\n\n- White loaf: 2.95\n- Rolls (six): 3.00\n- Coconut cake (slice): 4.00\n' > menu.md
+$ git add menu.md
+$ git cherry-pick --continue --no-edit
+[main df67f32] Raise the white loaf to 3.00
+ Date: Mon Jan 5 09:10:00 2026 +0000
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+```
+
+*Recorded in Bash; `ch28-tools/expected-cherry-pick-conflict.bash.txt`.*
+
+```text
+$ git log --oneline
+df67f32 (HEAD -> main) Raise the white loaf to 3.00
+4afeda6 Raise the white loaf to 2.90
+81f772e Add coconut cake
+9f10b43 Raise the price of the white loaf
+8a52ffe Add the menu
+```
+
+*Recorded in Bash; `ch28-tools/expected-cherry-pick-conflict.bash.txt`.*
+
+The new commit keeps the original message and author date, and has your resolution.
 - Because the copy is a different commit, merging `drinks` into `main` later will not know that the changes are already there. Usually Git handles that well, but the history contains the same change twice.
 
 ---
@@ -212,7 +274,71 @@ $ git status --short
 
 > *On Git 2.55.0, bisect puts quotes around the words: `waiting for both 'good' and 'bad' commits` and `is the first 'bad' commit`.*
 
-> **Verification pending [R195].** The exact wording of bisect's messages (for instance the `running` line, and the "roughly N steps" estimate) may differ between Git versions. Manual bisecting (`git bisect good` and `git bisect bad` typed by hand) was not run for this chapter.
+### Bisecting by hand
+
+`bisect run` needs a command that can judge a commit. When the judgement is yours (you read the file, or try the program), you answer `git bisect good` or `git bisect bad` at each step. Same five commits, same bad third commit:
+
+```text
+$ git bisect start
+status: waiting for both good and bad commits
+$ git bisect bad
+status: waiting for good commit(s), bad commit known
+$ git bisect good HEAD~5
+Bisecting: 2 revisions left to test after this (roughly 1 step)
+[bf6d06696d870f97a07b7fc658a78580e0976059] Add coffee
+```
+
+*Recorded in Bash; `ch28-tools/expected-bisect-manual.bash.txt`.*
+
+Git checked out the middle commit. Test it (here, count the lines that contain `Mystery`), and tell Git what you found:
+
+```text
+$ grep -c Mystery menu.md
+0
+$ git bisect good
+Bisecting: 0 revisions left to test after this (roughly 1 step)
+[59d1a45ac75c3ce66c8226746cdb12c9cf8f311a] Add juice
+$ grep -c Mystery menu.md
+1
+```
+
+*Recorded in Bash; `ch28-tools/expected-bisect-manual.bash.txt`.*
+
+The count was 0, so that commit was good, and Git moved on. The next commit has the bad line, so answer `bad`, and repeat until Git names the culprit:
+
+```text
+$ git bisect bad
+Bisecting: 0 revisions left to test after this (roughly 0 steps)
+[7a5ee8a1ad6ad0d61d041c66d9346164b5a51b96] Add a mystery pie
+$ grep -c Mystery menu.md
+1
+$ git bisect bad
+7a5ee8a1ad6ad0d61d041c66d9346164b5a51b96 is the first bad commit
+commit 7a5ee8a1ad6ad0d61d041c66d9346164b5a51b96
+Author: Ada Learner <ada@example.org>
+Date:   Mon Jan 5 09:11:00 2026 +0000
+
+    Add a mystery pie
+
+ menu.md | 1 +
+ 1 file changed, 1 insertion(+)
+```
+
+*Recorded in Bash; `ch28-tools/expected-bisect-manual.bash.txt`.*
+
+`git bisect log` records what you told Git (six lines here, one per command), which is useful if you must repeat the search:
+
+```text
+$ git bisect log | grep -c '^git bisect'
+6
+$ git bisect reset
+Previous HEAD position was 7a5ee8a Add a mystery pie
+Switched to branch 'main'
+```
+
+*Recorded in Bash; `ch28-tools/expected-bisect-manual.bash.txt`.*
+
+The count of steps is what the messages say: "roughly N steps". The estimate is a *halving* estimate, and the official documentation describes the method as a binary search. Wording of the messages varies a little between Git versions (the quoted `'good'` and `'bad'` above).
 
 ---
 
@@ -279,9 +405,74 @@ eb86246 (HEAD -> main) Add tea
 
 The commit has a new hash (`eb86246`) because its parent is different, as with cherry-pick.
 
-There is also a plain `git apply`, which changes the files but does **not** commit. Use `git apply --check` first, as above. In this chapter, only the `--check` form was run.
+There is also a plain `git apply`, which changes the files but does **not** commit. A diff that you saved as a file works too. Here a change is saved, reverted, checked, and applied:
 
-> **Verification pending [R194].** `git apply` without `--check`, `git am` with a conflict (`--continue`, `--abort`, `--skip`), and sending patches by email were not run. The chapter describes only what was recorded.
+```text
+$ printf -- '- Tea: 1.50\n' >> menu.md
+$ git diff > tea.patch
+$ git restore menu.md
+$ git apply --check tea.patch
+$ git apply tea.patch
+$ git status --short
+ M menu.md
+?? tea.patch
+$ git diff --stat
+ menu.md | 1 +
+ 1 file changed, 1 insertion(+)
+```
+
+*Recorded in Bash; `ch28-tools/expected-apply.bash.txt`.*
+
+The file is modified but nothing is staged or committed, and `tea.patch` is an untracked file. Now the patch is *already* applied, so a second check fails, which is what `--check` is for:
+
+```text
+$ git apply --check tea.patch
+error: patch failed: menu.md:3
+error: menu.md: patch does not apply
+```
+
+*Recorded in Bash; `ch28-tools/expected-apply.bash.txt`.*
+
+When `git am` meets a patch that does not apply, it stops in the middle, like a rebase. Here `main` got a different commit in the same place, so the tea patch does not fit:
+
+```text
+$ cd bakery-menu
+$ git switch -q -c tea
+$ printf -- '- Tea: 1.50\n' >> menu.md
+$ git commit -qam "Add tea"
+$ git format-patch -q -1 HEAD
+$ git switch -q main
+$ printf -- '- Bagels: 1.20\n' >> menu.md
+$ git commit -qam "Add bagels"
+$ git am 0001-Add-tea.patch
+Applying: Add tea
+error: patch failed: menu.md:3
+error: menu.md: patch does not apply
+Patch failed at 0001 Add tea
+hint: Use 'git am --show-current-patch=diff' to see the failed patch
+When you have resolved this problem, run "git am --continue".
+If you prefer to skip this patch, run "git am --skip" instead.
+To restore the original branch and stop patching, run "git am --abort".
+```
+
+*Recorded in Bash; `ch28-tools/expected-am-conflict.bash.txt`.*
+
+Git lists the three ways out: fix and `git am --continue`, `git am --skip`, or `git am --abort`. The abort restores the branch:
+
+```text
+$ git status --short
+?? 0001-Add-tea.patch
+$ git am --abort
+$ git status --short
+?? 0001-Add-tea.patch
+$ git log --oneline -2
+85fe3dd (HEAD -> main) Add bagels
+81f772e Add coconut cake
+```
+
+*Recorded in Bash; `ch28-tools/expected-am-conflict.bash.txt`.*
+
+> Sending patches by **email** (`git send-email`) was not run in this book, and is not needed here: the patch files can be attached to any message.
 
 ---
 
@@ -347,8 +538,8 @@ You are ready for Chapter 29<!--ref:tags--> if you can:
 | Claim | Evidence class | Ledger |
 |---|---|---|
 | `git cherry-pick` of one and of two commits; new hashes; author date kept | Locally tested: Bash 5.2 and zsh 5.9, Git 2.43.0; CI on Git 2.55.0 | R193 |
-| `git bisect run` narrows to the first bad commit; `bisect reset` | Locally tested (as above); message wording may vary by version | R195 |
-| `format-patch`, `apply --check`, `am` | Locally tested (as above); conflicts and email not run | R194 |
+| `git bisect run` and manual `good`/`bad` narrow to the first bad commit; `bisect log`; `bisect reset` | Locally tested (as above); message wording varies by version | R195 |
+| `format-patch`, `apply` (with and without `--check`), `am` and `am --abort`; cherry-pick conflict, abort and continue | Locally tested (as above); email (`send-email`) not run | R194 |
 
 ## Where this leads
 

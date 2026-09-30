@@ -1,0 +1,18 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ git clone -q --filter=blob:none file://$PWD/hub.git partial
+$ cd partial
+$ git config remote.origin.partialclonefilter
+blob:none
+$ git config extensions.partialclone
+$ git log --oneline
+81f772e (HEAD -> main, origin/main, origin/HEAD) Add coconut cake
+9f10b43 Raise the price of the white loaf
+8a52ffe Add the menu
+$ git cat-file -p HEAD:menu.md
+# Sunrise Bakery menu
+
+- White loaf: 2.80
+- Rolls (six): 3.00
+- Coconut cake (slice): 4.00
