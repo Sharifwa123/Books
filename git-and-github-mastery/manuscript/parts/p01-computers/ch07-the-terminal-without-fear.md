@@ -66,7 +66,7 @@ The words "terminal" and "shell" are used loosely, and different systems supply 
 
 > **Git is not Git Bash.** *Git* is the version-control program, the subject of this book. *Git Bash* is a separate shell that is bundled with the Windows installer so that Windows users can type the same commands as everyone else. You can run Git from Command Prompt, PowerShell, Git Bash, zsh or Bash. They are different things that happen to be installed together.
 
-> **Verification pending [R126].** The description of Git Bash and its installation with Git for Windows is from general knowledge; it has not yet been checked against the Git for Windows documentation.
+> **Partly checked [R126].** The Git for Windows project's own README confirms that the Git for Windows package provides `git-bash.exe` (a Bash window) and `git-cmd.exe` (a Command Prompt window) as separate programs. That the installer bundles them for ordinary users, and how Git Bash writes drive paths such as `/c/Users/name`, is from general knowledge and has not been checked.
 
 ### 7.2.1 The book's primary path
 
@@ -485,7 +485,7 @@ The zsh recording differs only in the wording of the error: `zsh: command not fo
 
 **This is the reason behind one of the most common beginner errors.** After you install a program, typing its name gives `command not found` (or, in Windows shells, a message that the name "is not recognized") when the program's folder is not on the `PATH`, or when the terminal was opened before the installation. The cure is to fix the `PATH`, or to close and reopen the terminal. Chapter 13<!--ref:install--> will show how to check.
 
-> **Verification pending [R129].** The exact wording of the "not recognized" message in Windows shells has not been checked; it is not recorded here.
+> **Partly checked [R129].** Microsoft's PowerShell documentation shows the message *The term 'NonsenseString' is not recognized as the name of a cmdlet, function, script file, or operable program.* for a program that is not found. The wording of the Command Prompt message was not checked, and wording can change between versions.
 
 ---
 
@@ -514,14 +514,14 @@ The zsh recording differs only in the wording of the error: `zsh: command not fo
 
 If you are using PowerShell or Command Prompt, these are the equivalents of the commands in this chapter. **They are not recorded or checked**; the Windows environments could not be run in the book's test environment.
 
-> **Verification pending [R127].** The Windows commands in this table are from general knowledge and have not been executed or checked against Microsoft's documentation. Check each on your own machine; the `--help`-style summary for Command Prompt is `command /?`, and PowerShell has `Get-Help`. Appendix M will contain a verified version.
+> **Partly checked [R127].** The PowerShell cmdlet names and the aliases shown in the PowerShell column (`pwd`, `ls`, `cd`, `cat`, `cp`, `mv`, `rm`, `ni`) were checked against Microsoft's PowerShell 7.5 reference (the `MicrosoftDocs/PowerShell-Docs` repository). Nothing was run on Windows, and the Command Prompt column was not checked against Microsoft's documentation. Check each entry on your own machine; the `--help`-style summary for Command Prompt is `command /?`, and PowerShell has `Get-Help`. Windows PowerShell 5.1 can differ from PowerShell 7.
 
 | Task | Git Bash / Bash / zsh | PowerShell | Command Prompt |
 |---|---|---|---|
 | Where am I? | `pwd` | `Get-Location` (alias `pwd`) | `cd` (with no argument) |
 | List files | `ls` | `Get-ChildItem` (alias `ls`) | `dir` |
 | Change folder | `cd folder` | `Set-Location folder` (alias `cd`) | `cd folder` |
-| Make a folder | `mkdir folder` | `New-Item -ItemType Directory folder` (alias `mkdir`) | `mkdir folder` |
+| Make a folder | `mkdir folder` | `New-Item -ItemType Directory folder` (alias `ni`) | `mkdir folder` |
 | Show a file | `cat file` | `Get-Content file` (alias `cat`) | `type file` |
 | Copy | `cp a b` | `Copy-Item a b` (alias `cp`) | `copy a b` |
 | Move / rename | `mv a b` | `Move-Item a b` (alias `mv`) | `move a b` or `ren a b` |

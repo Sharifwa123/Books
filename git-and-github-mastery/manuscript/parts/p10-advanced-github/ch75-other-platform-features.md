@@ -25,9 +25,9 @@ ledger: [R344, R345, R346, R347]
 
 ## 75.1 GitHub Sponsors
 
-GitHub's documentation says that anyone can sponsor open-source maintainers on GitHub: "Anyone in any region can sponsor eligible maintainers, but you must reside in a supported region to receive funds." When you become a sponsored developer or sponsored organisation, "additional terms" apply, and a matching programme exists with its own conditions, for example that "payments to sponsored organizations and payments from organizations are not eligible". **The details of eligibility, regions, fees and matching are on GitHub's pages and change**; read them before you rely on Sponsors for income or plan a budget around it.
+GitHub's documentation says that anyone can sponsor open-source maintainers on GitHub: "Anyone in any region can sponsor eligible maintainers, but you must reside in a supported region to receive funds." When you become a sponsored developer or sponsored organization, "additional terms" apply, and a matching programme exists with its own conditions, for example that "payments to sponsored organizations and payments from organizations are not eligible". **The details of eligibility, regions, fees and matching are on GitHub's pages and change**; read them before you rely on Sponsors for income or plan a budget around it.
 
-**The sponsor button.** A repository can show a **Sponsor** button. The documentation: "You can configure your sponsor button by editing a `FUNDING.yml` file in your repository's `.github` folder, on the default branch." Rules stated there: "one username, package name, or project name per external funding platform and up to four custom URLs", and "one organization and up to four sponsored developers" on GitHub Sponsors. Each platform goes on its own line. Anyone with admin permissions can enable the button in the repository settings, and you can also set a default for your organisation or account (Chapter 64<!--ref:oss--> on default community health files). **Funding links are for supporting open-source projects**: the documentation says they are not supported for other purposes such as advertising or for political, community or charity groups.
+**The sponsor button.** A repository can show a **Sponsor** button. The documentation: "You can configure your sponsor button by editing a `FUNDING.yml` file in your repository's `.github` folder, on the default branch." Rules stated there: "one username, package name, or project name per external funding platform and up to four custom URLs", and "one organization and up to four sponsored developers" on GitHub Sponsors. Each platform goes on its own line. Anyone with admin permissions can enable the button in the repository settings, and you can also set a default for your organization or account (Chapter 64<!--ref:oss--> on default community health files). **Funding links are for supporting open-source projects**: the documentation says they are not supported for other purposes such as advertising or for political, community or charity groups.
 
 The recording writes the documentation's example file and reads it with PyYAML (Chapter 53<!--ref:yaml-->), counting entries per key:
 
@@ -77,7 +77,7 @@ problems: ['more than four custom URLs']
 
 The **Marketplace** is a directory of tools that extend GitHub's workflows. The documentation: it "connects you to developers who want to extend and improve their GitHub workflows. You can list free and paid tools for developers to use in GitHub." It has two kinds of listing: **GitHub Actions** (Chapter 54<!--ref:actions-->) and **apps** (Chapter 74<!--ref:api-->).
 
-Points from the documentation about *publishing*: "Anyone can share their apps with other users for free on GitHub Marketplace but only apps owned by organizations can sell their app." Paid plans need "publisher verification" of the organisation and a financial onboarding process. Free listings need to meet the general requirements for listing.
+Points from the documentation about *publishing*: "Anyone can share their apps with other users for free on GitHub Marketplace but only apps owned by organizations can sell their app." Paid plans need "publisher verification" of the organization and a financial onboarding process. Free listings need to meet the general requirements for listing.
 
 For a **user** of the Marketplace, the rules of Chapter 60<!--ref:wfsec--> and Chapter 74<!--ref:api--> apply: an entry in the Marketplace is not a guarantee of safety. Before you install an app, look at the permissions it asks for (least privilege), who publishes it, and whether the publisher is verified; before you use an action, pin it to a commit and read its source.
 
@@ -97,7 +97,7 @@ What does not change, whatever tool produced a change:
 - **Least privilege** applies to any tool's access to your repositories (Chapter 63<!--ref:secpractice-->).
 - **Tests and checks** (Chapter 52<!--ref:cicd-->) are the same for human and machine changes.
 
-Plans, features, limits and policies for these tools differ by account and change often; read the current documentation and your organisation's policy.
+Plans, features, limits and policies for these tools differ by account and change often; read the current documentation and your organization's policy.
 
 > **Checked against GitHub's documentation (R346).** "About GitHub Copilot" (first sections only). No AI feature was used to write or check this chapter's claims about it.
 
@@ -105,7 +105,7 @@ Plans, features, limits and policies for these tools differ by account and chang
 
 ## 75.4 Custom properties and governance
 
-In an organisation with many repositories, you need to organise and control them. **Custom properties** are one tool. The documentation: "With custom properties, you can add metadata to repositories in your organization. You can use those properties to target repositories with rulesets." Organisation owners can define the properties (and, where the plan supports it, people with a specific permission). Other points: the visibility of a property matches the repository's visibility, so on a public repository anyone can see its custom properties; a REST API endpoint exists for managing them; and properties can be synced with an external system.
+In an organization with many repositories, you need to organise and control them. **Custom properties** are one tool. The documentation: "With custom properties, you can add metadata to repositories in your organization. You can use those properties to target repositories with rulesets." Organization owners can define the properties (and, where the plan supports it, people with a specific permission). Other points: the visibility of a property matches the repository's visibility, so on a public repository anyone can see its custom properties; a REST API endpoint exists for managing them; and properties can be synced with an external system.
 
 A small example of the idea: define a property such as "team" or "criticality", set it on each repository, then write a ruleset (Chapter 50<!--ref:protect-->) that applies to all repositories with `criticality = high`. That gives **one rule for many repositories**.
 
@@ -146,7 +146,7 @@ This whole Part depends on a platform that changes faster than a book. Habits th
 
 - Sponsors: anyone can sponsor; receiving funds depends on region and terms; the sponsor button is configured with `.github/FUNDING.yml`, with documented limits.
 - A tool can accept what documentation forbids (unquoted URL): follow the documentation.
-- The Marketplace lists actions and apps; only organisations can sell apps; a listing is not a safety guarantee.
+- The Marketplace lists actions and apps; only organizations can sell apps; a listing is not a safety guarantee.
 - AI tools do not change accountability, licensing, secrets or review rules.
 - Custom properties add metadata to repositories and can target rulesets; governance is written down in the repository.
 

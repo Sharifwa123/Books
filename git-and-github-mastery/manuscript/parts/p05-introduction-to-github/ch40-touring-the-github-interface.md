@@ -108,7 +108,7 @@ Some tabs and sections belong to the **platform**. They are stored by the servic
 | Insights | Chapter 51<!--ref:insights--> |
 | Settings | Chapter 43<!--ref:settings--> |
 
-> **Checked in part against GitHub's documentation (R242).** That availability varies is confirmed for the parts the documentation covers: repository visibility (public, private, and internal for enterprise organisations), permissions, and the plan (for example, private repositories on the free plan have a limited feature set). Do not assume that a missing tab is a mistake.
+> **Checked in part against GitHub's documentation (R242).** That availability varies is confirmed for the parts the documentation covers: repository visibility (public, private, and internal for enterprise organizations), permissions, and the plan (for example, private repositories on the free plan have a limited feature set). Do not assume that a missing tab is a mistake.
 
 ---
 

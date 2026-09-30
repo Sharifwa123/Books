@@ -23,7 +23,8 @@ cur = ""
 for r in gl:
     ch = r["term"][0].upper()
     if ch != cur: cur = ch; L += [f"## {cur}", ""]
-    L += [f"**{r['term']}.** {r['simple_definition']}", "", f"*Technically:* {r['technical_definition']} *Example:* {r['example']}", "",
+    esc = lambda x: x.replace("<", "\\<")   # a bare <name> would be swallowed as an HTML tag
+    L += [f"**{r['term']}.** {esc(r['simple_definition'])}", "", f"*Technically:* {esc(r['technical_definition'])} *Example:* {esc(r['example'])}", "",
           f"*Related:* {r['related'] or 'none listed'}. *First explained in* Chapter [[{r['first_chapter_key']}]].", ""]
 w("manuscript/back-matter/glossary.md", "\n".join(L))
 
@@ -53,7 +54,7 @@ for k, v in cls.most_common(): L.append(f"| {k} | {v} | {meaning.get(k, '')} |")
 L += ["", f"Total rows: {len(R)}.", "",
  "## N.2 What was tested, and where", "",
  "- **Git:** every command shown was run in Bash and zsh on Git 2.43.0 (the Linux package on the author's computer) and re-run in continuous integration on the runner's Git (2.55.0) and on Git 2.56.0 built from source. Where newer versions print different text, alternate recordings are kept and noted.",
- "- **GitHub:** statements were compared with the `github/docs` repository at commit `2eaab0b` (29 September 2026) and the `github/site-policy` repository, both read from their public sources. **No statement about GitHub was checked on a live account**; the book says so wherever it matters (gate D of the plan).",
+ "- **GitHub:** statements were compared with the `github/docs` repository at commit `2eaab0b` (29 September 2026) and the `github/site-policy` repository, both read from their public sources. **No statement about GitHub was checked on a live account**; the book says so wherever it matters (a signed-in account of the plan).",
  "- **Licences:** licence summaries come from GitHub's `choosealicense.com` data and the SPDX licence list (secondary sources); the official pages could not be read. **The book contains no licence statement for itself**, because that is a decision for its rights holder.",
  "- **Other tools:** the GitHub CLI 2.102.0 (checksum-verified download), `git-filter-repo` 2.47.0, PyYAML 6.0.1, OpenSSL.", "",
  "## N.3 Where the sources came from", "", "| Host | Files fetched |", "|---|---|"]
@@ -65,3 +66,7 @@ L += ["", "Files fetched with the book's tool are hashed in the manifest, so a r
 for r in open_rows: L.append(f"| {r['id']} | {cell(r['topic'])} | {cell(r['claim_to_verify'][:120])} |")
 L += ["", "## N.5 How to use this log", "", "1. Before relying on a fact about GitHub, find its chapter's ledger row and read its status and date.", "2. Prefer GitHub's current documentation for your plan over this book for anything time-sensitive.", "3. If you find an error, the ledger tells you where the claim came from, so it can be corrected at the source."]
 w("manuscript/appendices/appendix-n-sources-and-verification-log.md", "\n".join(L))
+
+# the generated files contain [[key]] cross-references: expand them so the committed files are always final
+import subprocess, sys
+subprocess.run([sys.executable, os.path.join(os.path.dirname(os.path.abspath(__file__)), "resolve_refs.py"), "--expand"], check=True)

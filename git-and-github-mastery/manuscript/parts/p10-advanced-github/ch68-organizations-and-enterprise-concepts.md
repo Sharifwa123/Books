@@ -99,7 +99,7 @@ The documentation has a page called "Creating a new organization from scratch"; 
 6. **Two-factor authentication** for members (Chapter 38<!--ref:ghauth-->).
 7. **Security defaults** (Chapter 62<!--ref:ghsec-->).
 
-Do the exercises on paper first; creating an organization on a live account is a step outside this chapter (gate D of the book's plan: an authenticated person must do it).
+Do the exercises on paper first; creating an organization on a live account is a step outside this chapter (it needs a person signed in to a live account, which the book's author has not yet done).
 
 ---
 

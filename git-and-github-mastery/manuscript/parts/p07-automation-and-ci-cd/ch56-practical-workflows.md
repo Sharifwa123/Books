@@ -25,7 +25,7 @@ ledger: [R288, R289, R290, R291]
 
 ## 56.1 Variables, secrets and passing values
 
-**Environment variables.** A workflow can define variables with the `env` key, at three levels. GitHub's documentation lists them: for "the entire workflow, by using `env` at the top level", for "the contents of a job", and for "a specific step". "The scope of a custom variable set by this method is limited to the element in which it is defined." For values you want to share across many workflows, you can define a **configuration variable** at the organisation, repository or environment level. The documentation warns: "By default, variables render unmasked in your build outputs. If you need greater security for sensitive information, such as passwords, use secrets instead."
+**Environment variables.** A workflow can define variables with the `env` key, at three levels. GitHub's documentation lists them: for "the entire workflow, by using `env` at the top level", for "the contents of a job", and for "a specific step". "The scope of a custom variable set by this method is limited to the element in which it is defined." For values you want to share across many workflows, you can define a **configuration variable** at the organization, repository or environment level. The documentation warns: "By default, variables render unmasked in your build outputs. If you need greater security for sensitive information, such as passwords, use secrets instead."
 
 **Secrets.** A **secret** is a named value that you store on the platform (Chapter 38<!--ref:ghauth--> told you why a token never belongs in a file). A workflow reads it through the `secrets` context. GitHub's documentation gives these rules:
 

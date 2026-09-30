@@ -6,11 +6,11 @@ This book separates what was **checked** from what was **assumed**. Every claim 
 
 | Evidence class | Rows | Meaning |
 |---|---|---|
-| Officially verified (docs only) | 107 | compared with an official source; not run |
-| Both officially verified and locally tested | 90 | compared with an official source and run on the author's computer |
-| Locally tested | 70 | run on the author's computer; no official source consulted |
+| Officially verified (docs only) | 112 | compared with an official source; not run |
+| Both officially verified and locally tested | 91 | compared with an official source and run on the author's computer |
+| Locally tested | 69 | run on the author's computer; no official source consulted |
 | Time-sensitive (unverified) | 56 | about a platform that changes; not yet checked |
-| Needs re-verification | 28 | checked once; must be checked again before publication |
+| Needs re-verification | 23 | checked once; must be checked again before publication |
 | Not applicable | 3 | a general concept with no product claim |
 
 Total rows: 354.
@@ -18,7 +18,7 @@ Total rows: 354.
 ## N.2 What was tested, and where
 
 - **Git:** every command shown was run in Bash and zsh on Git 2.43.0 (the Linux package on the author's computer) and re-run in continuous integration on the runner's Git (2.55.0) and on Git 2.56.0 built from source. Where newer versions print different text, alternate recordings are kept and noted.
-- **GitHub:** statements were compared with the `github/docs` repository at commit `2eaab0b` (29 September 2026) and the `github/site-policy` repository, both read from their public sources. **No statement about GitHub was checked on a live account**; the book says so wherever it matters (gate D of the plan).
+- **GitHub:** statements were compared with the `github/docs` repository at commit `2eaab0b` (29 September 2026) and the `github/site-policy` repository, both read from their public sources. **No statement about GitHub was checked on a live account**; the book says so wherever it matters (a signed-in account of the plan).
 - **Licences:** licence summaries come from GitHub's `choosealicense.com` data and the SPDX licence list (secondary sources); the official pages could not be read. **The book contains no licence statement for itself**, because that is a decision for its rights holder.
 - **Other tools:** the GitHub CLI 2.102.0 (checksum-verified download), `git-filter-repo` 2.47.0, PyYAML 6.0.1, OpenSSL.
 
@@ -26,11 +26,11 @@ Total rows: 354.
 
 | Host | Files fetched |
 |---|---|
-| raw.githubusercontent.com | 111 |
+| raw.githubusercontent.com | 113 |
 
 Files fetched with the book's tool are hashed in the manifest, so a reader can check that a source has not changed since it was read.
 
-## N.4 What is still open (84 ledger rows)
+## N.4 What is still open (79 ledger rows)
 
 These rows were planned during research and could not be verified from an official source at the time (the official hosts were blocked, or the claim needs a live account). Many are covered in part by later, chapter-level rows; they remain open until each claim is checked. Treat each as an **individual dependency**, not as a reason to distrust the rest.
 
@@ -57,7 +57,7 @@ These rows were planned during research and could not be verified from an offici
 | R051 | Actions overview | workflow syntax basics, events, jobs, steps, contexts/expressions |
 | R052 | Actions runners | GitHub-hosted labels/images, self-hosted security notes, larger runners |
 | R053 | Actions limits & billing | included minutes, storage, concurrency limits by plan/visibility, pricing |
-| R054 | Actions secrets & variables | repository/environment/organisation scope, naming, availability to forks |
+| R054 | Actions secrets & variables | repository/environment/organization scope, naming, availability to forks |
 | R055 | Actions environments | required reviewers, protection rules, secrets scoping, plan limits |
 | R056 | Actions permissions & GITHUB_TOKEN | default permissions, permissions key, fork PR restrictions |
 | R057 | Actions artifacts & caching | retention, size limits, actions/cache & actions/upload-artifact current major versions |
@@ -108,14 +108,9 @@ These rows were planned during research and could not be verified from an offici
 | R122 | Reserved example domains | example.org/example.com are reserved for documentation (Ch 5) |
 | R123 | HTTPS meaning | Encryption in transit and server identity; not a guarantee of trustworthiness (Ch 5) |
 | R124 | Authentication vs authorization; 2FA; keys | General security concepts used in Ch 6 |
-| R126 | Git for Windows and Git Bash | Git Bash is a shell environment supplied with Git for Windows; Git is not Git Bash (Ch 7); Git Bash shows Windows drives |
-| R127 | PowerShell and Command Prompt equivalents | Equivalents shown for pwd/ls/cd/mkdir/cp/mv/rm/cat (Ch 7, Appendix M) |
 | R128 | macOS Terminal default shell | macOS Terminal uses zsh by default (Ch 7) |
-| R129 | Windows 'not recognized' message | Wording of Command Prompt/PowerShell error when a program is not found (Ch 7) |
-| R132 | GitHub Flavored Markdown on GitHub | Autolinks, task lists, tables and other GitHub behaviours differ from plain CommonMark (Ch 8) |
 | R134 | Backups, synchronised folders and tracked changes: general behaviour | General descriptions of what backups, synchronised/cloud folders and word-processor tracked changes do and do not record |
 | R136 | History of version-control systems | Eras (manual copies, local file-versioning tools, centralised systems, distributed systems) and example systems (Ch 10) |
-| R137 | Origin of Git | Git was created in the mid-2000s for developing the Linux kernel, after a previously used tool became unavailable; who c |
 | R138 | Why Git became widely used | Causes given in Ch 10: speed, distributed design, cheap branching, integrity, hosting platforms |
 | R139 | Centralised versus distributed version control | Definitions, trade-offs, and classification of example systems (Subversion-style centralised; Git and Mercurial distribu |
 | R140 | Git, GitHub, GitLab, Bitbucket: what each is | Git is a version-control tool; GitHub, GitLab and Bitbucket are hosting platforms built around Git repositories with col |

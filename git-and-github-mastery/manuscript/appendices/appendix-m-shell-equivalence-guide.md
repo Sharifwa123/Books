@@ -2,7 +2,7 @@
 
 Git commands are the same in every shell. What differs is the surrounding shell: file commands, variables, quoting, paths and line endings. This appendix extends the table of Chapter 7<!--ref:terminal-->.
 
-> **Verification pending [R127].** The Windows columns come from general knowledge. They were **not run**: the Windows environments could not be used in the book's test environment, and Microsoft's documentation was not consulted. Check each entry on your own machine. The Bash and zsh column was run throughout the book.
+> **Partly checked [R127].** The PowerShell cmdlet names, aliases and the `-Force` and `-Recurse` parameters shown here were checked against Microsoft's PowerShell 7.5 reference (the `MicrosoftDocs/PowerShell-Docs` repository); an earlier draft wrongly listed `mkdir` as an alias of `New-Item`, and the reference lists only `ni`. **Nothing was run on Windows**, and the Command Prompt column was not checked against Microsoft's documentation. Check each entry on your own machine. The Bash and zsh column was run throughout the book.
 
 ## M.1 File and folder commands
 
@@ -11,7 +11,7 @@ Git commands are the same in every shell. What differs is the surrounding shell:
 | Where am I? | `pwd` | `Get-Location` (alias `pwd`) | `cd` |
 | List files | `ls` (`ls -a` shows hidden) | `Get-ChildItem` (alias `ls`; `-Force` shows hidden) | `dir` (`dir /a`) |
 | Change folder | `cd folder` | `Set-Location folder` (alias `cd`) | `cd folder` |
-| Make a folder | `mkdir folder` | `New-Item -ItemType Directory folder` (alias `mkdir`) | `mkdir folder` |
+| Make a folder | `mkdir folder` | `New-Item -ItemType Directory folder` (alias `ni`) | `mkdir folder` |
 | Show a file | `cat file` | `Get-Content file` (alias `cat`) | `type file` |
 | Copy | `cp a b` | `Copy-Item a b` | `copy a b` |
 | Move or rename | `mv a b` | `Move-Item a b` | `move a b` or `ren a b` |

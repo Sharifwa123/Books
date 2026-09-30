@@ -49,7 +49,7 @@ $ command -v git
 - If you see a line starting `git version`, Git is installed. Note the version, and you may skip to section 13.6.
 - If you see `command not found` (or a message that `git` is "not recognized"), Git is not installed, or its folder is not on your `PATH` (Chapter 7<!--ref:terminal-->). Continue with the section for your system.
 
-> **Verification pending [R145].** The recordings show the behaviour of Git 2.43.0 and of the CI runner's Git on Linux. The wording of the "not found" message on Windows shells has not been checked.
+> **Partly checked [R145].** The recordings show the behaviour of Git 2.43.0 and of the CI runner's Git on Linux, and Git's manual (2.56.0) confirms that `git --version` prints the version of the Git program. The PowerShell wording of the "not recognized" message is documented by Microsoft (Chapter 7<!--ref:terminal-->); the Command Prompt wording has not been checked.
 
 ---
 

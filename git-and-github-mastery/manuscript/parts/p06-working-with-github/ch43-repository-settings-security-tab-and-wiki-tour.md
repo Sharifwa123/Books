@@ -26,10 +26,10 @@ ledger: [R250, R251, R252, R253]
 
 Not everybody sees the same tabs. What appears on a repository depends on four things:
 
-- the **visibility** (public, private, or, for enterprise organisations, internal);
+- the **visibility** (public, private, or, for enterprise organizations, internal);
 - your **role** on the repository (Chapter 49<!--ref:collab-->);
 - the **plan** of the owner (some features exist only on paid plans);
-- the **settings** of the repository and of its organisation.
+- the **settings** of the repository and of its organization.
 
 If a section named in this chapter is missing on your screen, do not assume a mistake. Check these four things first.
 
@@ -41,7 +41,7 @@ If a section named in this chapter is missing on your screen, do not assume a mi
 
 | Setting | What it does | What to know |
 |---|---|---|
-| **Visibility** | Public or private (and internal in enterprise organisations) | Changing it has consequences. Making a repository private detaches public forks into a new network; making it public makes its Actions history and logs visible to everyone. |
+| **Visibility** | Public or private (and internal in enterprise organizations) | Changing it has consequences. Making a repository private detaches public forks into a new network; making it public makes its Actions history and logs visible to everyone. |
 | **Features** | Switches issues, wiki, discussions, projects and other sections on or off | If you switch issues off and on again, "any issues that were previously added will be available". |
 | **Default branch** | The branch that the page shows and that new clones check out | Your account also has a setting for the default branch name of *new* repositories. |
 | **Danger zone** | Change visibility, transfer or delete | Deleting is not always undoable, see below. |

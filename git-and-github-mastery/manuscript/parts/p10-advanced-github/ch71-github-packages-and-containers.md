@@ -31,7 +31,7 @@ Chapter 67<!--ref:ossproject--> built a small library that others would copy by 
 
 GitHub's documentation: "GitHub Packages is a platform for hosting and managing packages, including containers and other dependencies. GitHub Packages combines your source code and packages in one place to provide integrated permissions management and billing." It offers registries for "commonly used package managers, such as npm, RubyGems, Apache Maven, Gradle, Docker, and NuGet", and a separate **container registry** "optimized for containers" that supports "Docker and OCI images". The documentation's table lists the package formats and clients: for example `package.json` and `npm` for JavaScript, `pom.xml` and `mvn` for Maven, and `nupkg` with the `dotnet` command-line tool for .NET. Other ecosystems (Python's public index, for example) are not in that list; check the current documentation for what is supported.
 
-You can view a package's README and metadata such as licence, download statistics and version history on GitHub. For organisations there is also a "linked artifacts" view that records metadata about builds without hosting the files.
+You can view a package's README and metadata such as licence, download statistics and version history on GitHub. For organizations there is also a "linked artifacts" view that records metadata about builds without hosting the files.
 
 > **Checked against GitHub's documentation (R334).** "Introduction to GitHub Packages".
 
@@ -91,7 +91,7 @@ Which kind of token? The documentation says that to manage a package on some reg
 
 Two models exist, depending on the registry:
 
-- **Granular permissions**: the package belongs to a personal account or organisation, and you set its access and visibility "separately from a repository that is connected (or linked) to a package".
+- **Granular permissions**: the package belongs to a personal account or organization, and you set its access and visibility "separately from a repository that is connected (or linked) to a package".
 - **Repository-scoped permissions**: the package "inherits the permissions and visibility of the repository in which the package is published". Some registries support only this model.
 
 For linked packages the documentation says: "By default, if you publish a package that is linked to a repository, the package automatically inherits the access permissions (but not the visibility) of the linked repository. For example, a user who has read access to the linked repository will also have read access to the package." This only happens if you link the repository **before** publishing; linking later from the package settings leaves the existing permissions unchanged. When permissions are inherited, you change them in the repository's settings. For packages scoped to a personal account you can assign read, write or admin roles to other users.

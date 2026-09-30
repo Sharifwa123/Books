@@ -44,7 +44,7 @@ Every term that the book defines, in alphabetical order. Each entry gives a simp
 
 **Alias.** Your own short name for a Git command.
 
-*Technically:* A name defined in configuration (alias.<name>) as a shortcut for another Git command, or for a shell command when it starts with !. *Example:* git config --global alias.st "status --short"
+*Technically:* A name defined in configuration (alias.\<name>) as a shortcut for another Git command, or for a shell command when it starts with !. *Example:* git config --global alias.st "status --short"
 
 *Related:* configuration. *First explained in* Chapter 32<!--ref:custom-->.
 
@@ -336,7 +336,7 @@ Every term that the book defines, in alphabetical order. Each entry gives a simp
 
 **Conflict markers.** The lines Git writes into a conflicted file.
 
-*Technically:* The <<<<<<<, ======= and >>>>>>> lines that delimit the two versions; all must be removed before committing. *Example:* <<<<<<< HEAD
+*Technically:* The \<\<\<\<\<\<\<, ======= and >>>>>>> lines that delimit the two versions; all must be removed before committing. *Example:* \<\<\<\<\<\<\< HEAD
 
 *Related:* merge conflict. *First explained in* Chapter 22<!--ref:conflicts-->.
 
@@ -424,9 +424,9 @@ Every term that the book defines, in alphabetical order. Each entry gives a simp
 
 *Related:* relative path; path. *First explained in* Chapter 2<!--ref:files-->.
 
-**Custom property.** A label with a value that you attach to repositories in an organisation.
+**Custom property.** A label with a value that you attach to repositories in an organization.
 
-*Technically:* Organisation-defined metadata on repositories that can be used, for example, to target rulesets. *Example:* criticality = high
+*Technically:* Organization-defined metadata on repositories that can be used, for example, to target rulesets. *Example:* criticality = high
 
 *Related:* ruleset; organization. *First explained in* Chapter 75<!--ref:platformextras-->.
 
@@ -746,7 +746,7 @@ Every term that the book defines, in alphabetical order. Each entry gives a simp
 
 **GitHub Sponsors.** GitHub's way of supporting open-source maintainers with money.
 
-*Technically:* A GitHub program through which people and organisations sponsor maintainers, with additional terms and regional eligibility for those who receive funds. *Example:* A sponsor button on a repository.
+*Technically:* A GitHub program through which people and organizations sponsor maintainers, with additional terms and regional eligibility for those who receive funds. *Example:* A sponsor button on a repository.
 
 *Related:* open source; FUNDING.yml. *First explained in* Chapter 75<!--ref:platformextras-->.
 
@@ -832,7 +832,7 @@ Every term that the book defines, in alphabetical order. Each entry gives a simp
 
 **HTML.** A text format that marks up web pages so a browser knows how to show them.
 
-*Technically:* HyperText Markup Language: a markup language using tags to describe the structure of a web page. *Example:* <h1>Sunrise Bakery</h1>
+*Technically:* HyperText Markup Language: a markup language using tags to describe the structure of a web page. *Example:* \<h1>Sunrise Bakery\</h1>
 
 *Related:* CSS; web page. *First explained in* Chapter 3<!--ref:editors-->.
 
@@ -1440,7 +1440,7 @@ Every term that the book defines, in alphabetical order. Each entry gives a simp
 
 **Sign-off.** A line in a commit message saying the author has the right to submit the change.
 
-*Technically:* A Signed-off-by trailer added with git commit -s; it is text, not a cryptographic signature. *Example:* Signed-off-by: Ada Learner <ada@example.org>
+*Technically:* A Signed-off-by trailer added with git commit -s; it is text, not a cryptographic signature. *Example:* Signed-off-by: Ada Learner \<ada@example.org>
 
 *Related:* signed commit; trailer. *First explained in* Chapter 64<!--ref:oss-->.
 
@@ -1572,7 +1572,7 @@ Every term that the book defines, in alphabetical order. Each entry gives a simp
 
 **Synopsis.** The short line showing how to write a command.
 
-*Technically:* The compact notation at the start of a command's usage or manual page that shows its options and arguments, with brackets for optional parts and angle brackets for placeholders. *Example:* git tag -d <tagname>...
+*Technically:* The compact notation at the start of a command's usage or manual page that shows its options and arguments, with brackets for optional parts and angle brackets for placeholders. *Example:* git tag -d \<tagname>...
 
 *Related:* command; option. *First explained in* Chapter 35<!--ref:readdocs-->.
 
@@ -1666,7 +1666,7 @@ Every term that the book defines, in alphabetical order. Each entry gives a simp
 
 **Upstream branch.** The remote branch a local branch follows.
 
-*Technically:* The branch named by branch.<name>.remote and branch.<name>.merge, used by plain push, pull and status. *Example:* main follows origin/main
+*Technically:* The branch named by branch.\<name>.remote and branch.\<name>.merge, used by plain push, pull and status. *Example:* main follows origin/main
 
 *Related:* remote-tracking branch. *First explained in* Chapter 23<!--ref:remotes-->.
 

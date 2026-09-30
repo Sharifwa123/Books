@@ -48,7 +48,7 @@ Some details that change how to read them:
 
 > **Checked against GitHub's documentation (R277).** "About repository graphs", "Viewing a project's contributors", "Using Pulse to view a summary of repository activity", "Analyzing changes to a repository's content", "Understanding connections between repositories" and "Viewing traffic to a repository". The quotations above are from these pages.
 
-**Which repositories have which graphs.** The documentation says that on the Free plan some graphs (Pulse, Contributors, Traffic, Commits, Code frequency, Network) "are available only in public repositories", while all graphs are available in public and private repositories on paid plans; the traffic page also names Free plans for organisations. Plans and their names change (Chapter 43<!--ref:settings-->): check the current page.
+**Which repositories have which graphs.** The documentation says that on the Free plan some graphs (Pulse, Contributors, Traffic, Commits, Code frequency, Network) "are available only in public repositories", while all graphs are available in public and private repositories on paid plans; the traffic page also names Free plans for organizations. Plans and their names change (Chapter 43<!--ref:settings-->): check the current page.
 
 ---
 

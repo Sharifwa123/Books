@@ -15,7 +15,7 @@ ledger: [R349]
 - every step recorded, and what to do on GitHub at each step
 - a checklist to assess yourself
 
-> **How to read this chapter.** This is the last project. It joins everything from Parts III to X. **The 23 steps were run and recorded** in Bash and zsh on Git 2.43.0 and are re-run in CI on newer Git. A local bare repository stands in for GitHub, and the "colleagues" are extra clones. **Nothing was run on GitHub**: the right-hand column of each step says what to do on GitHub, from the earlier chapters, and doing it needs your own account (gate D of the book's plan). Names and prices are made up; the token in step 21 is a made-up value. **The project has no licence, because that is the owner's decision** (Chapter 65<!--ref:licences-->); when you do this for real, choose one.
+> **How to read this chapter.** This is the last project. It joins everything from Parts III to X. **The 23 steps were run and recorded** in Bash and zsh on Git 2.43.0 and are re-run in CI on newer Git. A local bare repository stands in for GitHub, and the "colleagues" are extra clones. **Nothing was run on GitHub**: the right-hand column of each step says what to do on GitHub, from the earlier chapters, and doing it needs your own account (a step the book's author has not yet done on a live account). Names and prices are made up; the token in step 21 is a made-up value. **The project has no licence, because that is the owner's decision** (Chapter 65<!--ref:licences-->); when you do this for real, choose one.
 
 **Before you start.** Chapter 76<!--ref:scenarios--> and the chapters it links. Set aside two to three hours. Type the commands yourself, in a sandbox folder.
 

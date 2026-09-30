@@ -99,7 +99,7 @@ The second call shows an answer with only a `next` relation: the rest are `(none
 
 Polling asks "anything new?" again and again. A **webhook** reverses it: "Webhooks let you subscribe to events happening in a software system and automatically receive a delivery of data to your server whenever those events occur." You give GitHub a URL and choose the events (a push, a pull request opened, a Pages build, a new team member); when one occurs GitHub "will send an HTTP request with data about the event to the URL that you specified". Uses listed in the documentation: triggering CI on an external server (Chapter 61<!--ref:externalci-->), notifying a chat service, updating an issue tracker, deploying (Chapter 72<!--ref:deploy-->), and audit logging.
 
-Webhooks belong to a **repository**, an **organisation** or another installation point, and only see what is there. "You cannot create webhooks for individual user accounts." Creating one in a repository needs admin access; in an organisation, an owner. A limit exists per event type and changes.
+Webhooks belong to a **repository**, an **organization** or another installation point, and only see what is there. "You cannot create webhooks for individual user accounts." Creating one in a repository needs admin access; in an organization, an owner. A limit exists per event type and changes.
 
 **Verify what you receive.** Your webhook URL is public: anyone can send a request to it. GitHub's documentation therefore says you should "validate the webhook signature before processing the delivery further". You create a **secret token** (a random, high-entropy string), store it securely ("Never hardcode a token into an application or push a token to any repository"), and GitHub sends, with each delivery, a header `X-Hub-Signature-256`. It is computed as an **HMAC** (a keyed hash: a fingerprint that only someone with the secret can produce) with SHA-256 over the payload. Points from the documentation: "The hash signature always starts with `sha256=`", it is a hex digest, handle the payload as UTF-8, and "Never use a plain `==` operator": use a **constant-time comparison**, so that the time taken does not leak information.
 
@@ -125,7 +125,7 @@ Both methods printed the documented value; the genuine delivery was accepted and
 
 ## 74.6 GitHub Apps and OAuth apps
 
-Sometimes your program must act on GitHub for other people or for an organisation. GitHub distinguishes:
+Sometimes your program must act on GitHub for other people or for an organization. GitHub distinguishes:
 
 - **GitHub Apps**: "tools that extend GitHub's functionality. GitHub Apps can do things on GitHub like open issues, comment on pull requests, and manage projects. They can also do things outside of GitHub based on events that happen on GitHub." (For example, post to a chat service when an issue is opened.)
 - **OAuth apps**: an older way, where a user authorises an app to act with the user's scopes.

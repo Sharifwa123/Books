@@ -44,7 +44,7 @@ Projects use different words. This is one common description, the author's, not 
 | User | Uses the software; may report problems |
 | Contributor | Sends a change, a report, a translation or a documentation fix |
 | Maintainer | Reviews and merges changes, triages issues, makes releases |
-| Owner | Controls the repository or organisation and its settings |
+| Owner | Controls the repository or organization and its settings |
 
 GitHub's permission levels (Chapter 49<!--ref:collab-->) are separate: they say what an account **can do**, while a role says what a person **does**. A maintainer with write access is common; a contributor with no access at all, working from a fork, is the normal case for a stranger.
 
@@ -75,7 +75,7 @@ GitHub's documentation describes these files:
 - **Templates** for issues and pull requests (Chapters 44<!--ref:issues--> and 45<!--ref:pr-->) and `SECURITY.md` (Chapter 62<!--ref:ghsec-->).
 - **The licence** (Chapter 65<!--ref:licences-->).
 
-Organisations and personal accounts can also supply **default** community health files for all their repositories, from a special `.github` repository.
+Organizations and personal accounts can also supply **default** community health files for all their repositories, from a special `.github` repository.
 
 > **Checked against GitHub's documentation (R314).** "Setting guidelines for repository contributors", "Adding a code of conduct to your project", "About community profiles for public repositories", "Creating a default community health file".
 
@@ -120,7 +120,7 @@ Add greeting | Ada Learner <ada@example.org>
 
 *Recorded in Bash; `ch64-oss/expected-signoff.bash.txt`.*
 
-GitHub's documentation on the web interface: "Commit signoffs enable users to affirm that a commit complies with the rules and licensing governing a repository." A repository or organisation can require sign-off for commits made **through the web interface**; the documentation describes that setting only for web-based commits. What a given project means by sign-off is stated in that project's own contribution guide: read it, and do not sign off if you do not have the right to submit the work.
+GitHub's documentation on the web interface: "Commit signoffs enable users to affirm that a commit complies with the rules and licensing governing a repository." A repository or organization can require sign-off for commits made **through the web interface**; the documentation describes that setting only for web-based commits. What a given project means by sign-off is stated in that project's own contribution guide: read it, and do not sign off if you do not have the right to submit the work.
 
 > **Checked against GitHub's documentation (R316) and locally tested.** "Managing the commit signoff policy for your repository". The recording ran on Git 2.43.0 in Bash and zsh and is re-run in CI on newer Git.
 

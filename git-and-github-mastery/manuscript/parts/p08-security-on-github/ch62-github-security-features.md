@@ -41,7 +41,7 @@ For public repositories the graph also lists **dependents**: other public reposi
 
 **Dependabot** is the name for three related things.
 
-1. **Dependabot alerts.** GitHub "scans your repository's default branch and sends alerts" when a new vulnerability is added to the GitHub Advisory Database, or when your dependency graph changes. An alert shows the affected file, the vulnerability's details and severity, and a fixed version "when available". Repository administrators and organisation owners can enable alerts.
+1. **Dependabot alerts.** GitHub "scans your repository's default branch and sends alerts" when a new vulnerability is added to the GitHub Advisory Database, or when your dependency graph changes. An alert shows the affected file, the vulnerability's details and severity, and a fixed version "when available". Repository administrators and organization owners can enable alerts.
 2. **Dependabot security updates.** If enabled, when an alert is raised, Dependabot "automatically tries to fix it": it "raises a pull request to update the dependency to the minimum version that includes the patch and links the pull request to the ... alert". You review and merge it like any pull request (Chapter 45<!--ref:pr-->). Alerts close when the related pull request is merged.
 3. **Dependabot version updates.** Not about vulnerabilities: it keeps dependencies **up to date**. "You enable ... by checking a `dependabot.yml` configuration file into your repository." When a dependency is outdated it raises a pull request to update the manifest. It also can keep the versions of **actions** in your workflow files up to date, which suits Chapter 60<!--ref:wfsec-->'s advice to pin.
 
@@ -74,7 +74,7 @@ The script only reads the file with PyYAML and prints what it found, so you see 
 
 **Secret scanning** "scans your entire Git history on all branches of your repository for hardcoded credentials, including API keys, passwords, tokens, and other known secret types", and periodically rescans when new secret types are added. It raises an alert on the repository's Security tab. GitHub's advice on an alert: "rotate the affected credential immediately to prevent unauthorized access. While you can also remove secrets from your Git history, this is time-intensive and often unnecessary if you've already revoked the credential." That is exactly the order of Chapter 33<!--ref:gitsec-->: **revoke first**. For many providers GitHub also notifies the provider, "so they can take action, such as revoking the credential". You can add **custom patterns** (regular expressions) for secrets of your own.
 
-**Push protection** works earlier: it "blocks pushes that contain secrets *before* they reach your repository". It applies to pushes from the command line, to commits and uploads in the web interface, and to REST API requests. A blocked push comes with a message; you remove the secret and push again. For repositories it "is disabled by default" and can be enabled by a repository administrator, an organisation owner or a security manager.
+**Push protection** works earlier: it "blocks pushes that contain secrets *before* they reach your repository". It applies to pushes from the command line, to commits and uploads in the web interface, and to REST API requests. A blocked push comes with a message; you remove the secret and push again. For repositories it "is disabled by default" and can be enabled by a repository administrator, an organization owner or a security manager.
 
 Neither feature is a reason to be careless: they find *known patterns*. Chapter 33<!--ref:gitsec-->'s habits still apply.
 
@@ -124,7 +124,7 @@ The practice behind all of this is called **coordinated disclosure**: fix first,
 
 ## 62.7 Security overview
 
-For organisations, **security overview** gives "insights into the overall security landscape of your organization" and helps "identify repositories that require intervention". It is an organisation feature and is outside a single-repository beginner's needs; Chapter 68<!--ref:orgs--> returns to organisations.
+For organizations, **security overview** gives "insights into the overall security landscape of your organization" and helps "identify repositories that require intervention". It is an organization feature and is outside a single-repository beginner's needs; Chapter 68<!--ref:orgs--> returns to organizations.
 
 ---
 
