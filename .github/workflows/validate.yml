@@ -64,7 +64,7 @@ jobs:
       - name: Install zsh and Markdown renderer
         run: |
           sudo apt-get update -qq
-          sudo apt-get install -y -qq zsh gnupg
+          sudo apt-get install -y -qq zsh gnupg openssh-client
           python3 -m pip install --quiet markdown-it-py==4.2.0 python-docx==1.2.0 git-filter-repo==2.47.0
           # The recording tool runs with its own HOME, so a pip --user install is not visible to it: point the wrapper at the module's real folder.
           mkdir -p "$HOME/.local/bin"

@@ -1,0 +1,18 @@
+#!git
+git config --global user.name "Ada Learner"
+git config --global user.email "ada@example.org"
+git config --global init.defaultBranch main
+@ mkdir bakery-menu && cd bakery-menu && git init -q && printf "# Sunrise Bakery menu\n\n- White loaf: 2.50\n- Rolls (six): 3.00\n" > menu.md && git add menu.md && git commit -q -m "Add the menu" && printf "# Sunrise Bakery menu\n\n- White loaf: 2.80\n- Rolls (six): 3.00\n" > menu.md && git commit -q -am "Raise the price of the white loaf" && printf "# Sunrise Bakery menu\n\n- White loaf: 2.80\n- Rolls (six): 3.00\n- Coconut cake (slice): 4.00\n" > menu.md && git commit -q -am "Add coconut cake" && cd ..
+cd bakery-menu
+mkdir -p ~/.ssh
+ssh-keygen -q -t ed25519 -f ~/.ssh/id_sign -N "" -C "ada@example.org"
+printf 'ada@example.org %s\n' "$(cut -d' ' -f1,2 ~/.ssh/id_sign.pub)" > ~/.ssh/allowed_signers
+git config gpg.format ssh
+git config user.signingkey ~/.ssh/id_sign.pub
+git config gpg.ssh.allowedSignersFile ~/.ssh/allowed_signers
+printf -- '- Tea: 1.50\n' >> menu.md
+git commit -q -S -am "Add tea (signed with an SSH key)"
+printf -- '- Coffee: 2.00\n' >> menu.md
+git commit -q -am "Add coffee (unsigned)"
+git log --format='%G? %GS: %s' -3
+git verify-commit HEAD~1 2>&1 | sed 's/ with ED25519 key.*//; s/^Good "git" signature for/Good signature for/'

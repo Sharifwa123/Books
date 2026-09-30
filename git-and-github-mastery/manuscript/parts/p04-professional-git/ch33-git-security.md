@@ -218,9 +218,9 @@ Two things a signature proves, and two that it does not:
 - It **proves** that the holder of the key made the commit, and that the commit was not changed afterwards.
 - It does **not** prove that the person is who they say (that depends on how you came to trust the key), and it does not prove that the code is safe.
 
-Chapter 14<!--ref:config--> showed the other side: what happens if signing is switched on but the key is unavailable. Git can also sign with an SSH key. The commands, and the way hosting platforms show a "verified" mark, were **not run** for this chapter (the SSH tools were not available on the test computer).
+Chapter 14<!--ref:config--> showed the other side: what happens if signing is switched on but the key is unavailable. Git can also sign with an SSH key; Chapter 38<!--ref:ghauth--> runs that (with a demonstration key). The way hosting platforms show a "verified" mark was **not** run.
 
-> **Verification pending [R216].** SSH-key signing, key generation, and how hosting platforms decide and display "Verified" are not verified. They will be covered in Chapter 38<!--ref:ghauth--> and Chapter 62<!--ref:ghsec--> after checking.
+> **Verification pending [R216].** How hosting platforms decide and display "Verified" is not verified. SSH-key signing on the Git side is in Chapter 38<!--ref:ghauth-->; the platform side will be covered in Chapter 38<!--ref:ghauth--> and Chapter 62<!--ref:ghsec--> after checking.
 
 ---
 
@@ -319,7 +319,8 @@ You are ready for Chapter 34<!--ref:workflows--> if you can:
 | `.gitignore`, `check-ignore`, `add` refusal and `-f` | Locally tested (as above) | R213 |
 | `git filter-repo` removes a path from all history (no remote) | Locally tested with git-filter-repo 2.47.0 (also installed in CI) | R215 |
 | GPG-signed commit shows `G`; unsigned shows `N` | Locally tested with GnuPG and a throw-away key | R216 |
-| Platform secret scanning, protections, "Verified" marks, SSH signing, recommendations in the official documentation | **Not verified** | R214, R216 |
+| Platform secret scanning, protections, "Verified" marks, recommendations in the official documentation | **Not verified** | R214, R216 |
+| SSH-key signing | Run in Chapter 38<!--ref:ghauth--> (Git side only) | R236 |
 | Supply-chain and incident guidance | General practice, **not tested**; no incident named | R217 |
 
 ## Where this leads

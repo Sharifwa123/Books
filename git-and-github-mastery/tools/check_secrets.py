@@ -11,7 +11,7 @@ PATTERNS = {
  "Slack token": r"\bxox[baprs]-[A-Za-z0-9-]{10,}",
  "generic assignment of long secret": r"(?i)\b(?:api[_-]?key|secret|token|passwd|password)\s*[:=]\s*['\"][A-Za-z0-9/+_\-]{24,}['\"]",
 }
-files = subprocess.run(["git", "-C", root, "ls-files"], capture_output=True, text=True, check=True).stdout.split("\n")
+files = subprocess.run(["git", "-C", root, "ls-files", "--cached", "--others", "--exclude-standard"], capture_output=True, text=True, check=True).stdout.split("\n")
 bad = 0
 for f in files:
     if not f or f.endswith((".png", ".jpg", ".pdf")): continue
