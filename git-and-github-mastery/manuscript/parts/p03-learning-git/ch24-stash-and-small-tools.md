@@ -15,7 +15,7 @@ ledger: [R181, R182, R183]
 - a first look at tags, which are names for particular commits
 - `git clean`: remove untracked files, carefully
 - `git grep`, `git blame` and `git log -S`: find things in a repository
-- **Project 6**: a small tidy-up session on the Sunrise Bakery site
+- a **practice session** that tidies up the Sunrise Bakery site
 
 **Before you start.** Chapter 21<!--ref:merging--> and Chapter 17<!--ref:history_view-->. The recordings use the `bakery-menu` repository and were run in Bash and zsh on Git 2.43.0, then re-run in CI on Git 2.55.0.
 
@@ -318,6 +318,8 @@ $ git blame -s -L 3,3 menu.md
 
 *Recorded in Bash; `ch24-stash/expected-search.bash.txt`.*
 
+> **Your Git may show a longer hash.** With `git blame -s -L 3,3`, Git 2.43.0 and 2.55.0 print the hash as 8 characters (`9f10b436`) and Git 2.56.0 prints 7 (`9f10b43`). Hashes shortened to different lengths still name the same commit.
+
 `-s` hides names and dates so the output is short. The hash on each line is the commit that last changed it. A leading `^` (as in `^8a52ffe`) marks a line from the very first commit. `-L 3,3` limits the output to line 3. Despite the name, blame is not about fault: it is how you find the commit that explains a line, and then `git show <hash>` tells you why.
 
 **"When did this text first appear (or disappear)?"** `git log -S` finds commits that added or removed a given string:
@@ -331,9 +333,9 @@ $ git log -S"Coconut" --oneline
 
 ---
 
-## 24.5 Project 6: a tidy-up session
+## 24.5 Practice session: a tidy-up
 
-> **Project 6.** *Goal:* use the small tools on the Sunrise Bakery site. *Time:* about 30 minutes. *You need:* the `sunrise-bakery` repository with a few commits.
+> **Practice session.** *Goal:* use the small tools on the Sunrise Bakery site. *Time:* about 30 minutes. *You need:* the `sunrise-bakery` repository with a few commits.
 
 1. Edit a tracked file without committing, and create a new untracked file. Use `git stash -u`, check that the tree is clean, then `git stash pop`.
 2. Tag the current commit `v0.1` (lightweight) and `v1.0` (annotated, with a message). List them and run `git show v1.0`.
@@ -377,7 +379,7 @@ $ git log -S"Coconut" --oneline
 
 ## Practice
 
-Do the exercises in [`exercises/ch24-exercises.md`](../../../exercises/ch24-exercises.md), including Project 6 (section 24.5).
+Do the exercises in [`exercises/ch24-exercises.md`](../../../exercises/ch24-exercises.md), including the practice session (section 24.5).
 
 ## Self-Test
 

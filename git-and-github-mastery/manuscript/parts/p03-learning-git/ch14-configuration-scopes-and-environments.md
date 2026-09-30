@@ -54,7 +54,7 @@ Git reads settings from up to four places, from the widest to the narrowest.
 | **Local** | One repository | The file `.git/config` inside that repository | `git config --local` (the default when you are inside a repository and give no scope) |
 | **Worktree** | One working tree of a repository (Chapter 31<!--ref:bigrepos-->) | A separate file, and only when enabled | `git config --worktree` |
 
-> **Verification pending [R148].** The scopes, the files and the flags were tested on Git 2.43.0 and checked against the documentation that ships with that version (including the statement that writing defaults to the local file). They have not yet been checked against the current online documentation. Where the system file lives on Windows and macOS was not tested.
+> **Checked against the documentation (R148).** The `git config` manual (Git 2.56.0) lists the files: the system file `$(prefix)/etc/gitconfig`; the user files `$XDG_CONFIG_HOME/git/config` and `~/.gitconfig` (with `$HOME/.config/` used when `XDG_CONFIG_HOME` is not set), "also called 'global'", both read if both exist; the repository file `$GIT_DIR/config`; and the optional `$GIT_DIR/config.worktree`, which is "only searched when `extensions.worktreeConfig` is present". The files are read in that order, "with last value found taking precedence". "By default, options are only written to the repository specific configuration file", and `git config` "will only ever change one file at a time". Where the system file lives on Windows and macOS was not tested: the documentation gives only the build-time `$(prefix)/etc/gitconfig`.
 
 The rule for *conflicts* is simple and worth memorising: **the narrower scope wins.** If `user.email` is set globally and again locally, Git uses the local one in that repository. In order of increasing priority: system, global, local, worktree.
 
@@ -210,7 +210,7 @@ worktree	worktree
 
 **Precedence, summarised.** For one command Git combines: system, then global, then local, then worktree, then `-c` on the command line, in that increasing order of priority. (A few settings can also be overridden by their own environment variables.) `-c` and the environment variables are the tools to use when you need an *exact*, reproducible environment, which is the subject of section 14.7.
 
-> **Verification pending [R149].** The environment variables and their effects were tested on Git 2.43.0 and are documented in the manual of that version; the current online documentation has not been consulted.
+> **Checked against the documentation (R149).** The `git` manual (Git 2.56.0) says of `GIT_CONFIG_GLOBAL` and `GIT_CONFIG_SYSTEM`: they "take the configuration from the given files instead from global or system-level configuration files", and can be set to `/dev/null` to skip reading the files of that level. `GIT_CONFIG_NOSYSTEM` is a Boolean that skips the system-wide file, and the manual says it can be used with `$HOME` and `$XDG_CONFIG_HOME` "to create a predictable environment for a picky script", which is how the recordings are made.
 
 ---
 
@@ -269,7 +269,7 @@ Two things solved the puzzle:
 
 The last line, with `GIT_CONFIG_GLOBAL=/dev/null`, showed that with no global file the setting does not exist. (You would then decide whether to change the global file, or to keep signing and configure a key properly.)
 
-> **Verification pending [R150].** The error text shown is what Git 2.43.0 printed in this exact configuration. Other configurations produce other messages, and other Git versions may word them differently; the CI run on a newer Git will show whether this one changed.
+> **Note on the error text (R150).** The error text shown is what Git 2.43.0 printed in this exact configuration. Other configurations produce other messages. The same recording is re-run in CI on Git 2.55.0, and a difference in Git's wording would show up there as a failing check.
 
 ### 14.5.1 Settings that commonly differ between computers
 
@@ -323,7 +323,7 @@ A configuration file can *include* another, and the include can apply only insid
 
 The `includeIf "gitdir:~/work/"` line means: for repositories whose `.git` folder is under `~/work/`, also read the given file. Inside `work/project`, `git config user.email` printed the work address, and `--show-origin` proved that it came from `.gitconfig-work`; in `personal/project`, the global address applied.
 
-> **Verification pending [R151].** Conditional includes were tested on Git 2.43.0 and the CI runner's Git, and their existence is confirmed in the documentation that ships with 2.43.0. Behaviour of `gitdir:` patterns for unusual paths (for example on Windows) was not tested.
+> **Checked against the documentation (R151).** The `git config` manual (Git 2.56.0) documents `includeIf` with the conditions `gitdir`, `gitdir/i` (case-insensitive), `onbranch`, `hasconfig:remote.*.url` and `worktree`. For `gitdir`, a pattern ending in `/` gets `**` added ("it matches 'foo' and everything inside, recursively"), a pattern that does not start with `~/`, `./` or `/` gets `**/` put in front, and `../` "is not special and will match literally". Both the symlink and the real path of a directory match. Behaviour of `gitdir:` patterns for unusual paths (for example on Windows) was not tested.
 
 ---
 
@@ -413,10 +413,10 @@ You are ready for Chapter 15<!--ref:model--> if you can:
 
 | Claim | Evidence class | Ledger |
 |---|---|---|
-| Scopes, precedence, `--show-origin`, `--show-scope`, `--get-all`, unset behaviour and exit codes; worktree scope with `extensions.worktreeConfig` | Both: run in Bash 5.2 and zsh 5.9 on Git 2.43.0 and re-run in CI on a newer Git; checked against the documentation shipped with Git 2.43.0 (not the current online manual) | R148 |
-| `-c`, `GIT_CONFIG_GLOBAL`, `GIT_CONFIG_SYSTEM`, `GIT_CONFIG_NOSYSTEM` | Same | R149 |
+| Scopes, precedence, `--show-origin`, `--show-scope`, `--get-all`, unset behaviour and exit codes; worktree scope with `extensions.worktreeConfig` | Both: run in Bash 5.2 and zsh 5.9 on Git 2.43.0 and re-run in CI on a newer Git; checked against the Git 2.56.0 manual | R148 |
+| `-c`, `GIT_CONFIG_GLOBAL`, `GIT_CONFIG_SYSTEM`, `GIT_CONFIG_NOSYSTEM` | Same; variables checked in the `git` manual | R149 |
 | The inherited-signing failure and its message | Locally tested; the message is version- and configuration-specific | R150 |
-| `includeIf "gitdir:"` | Locally tested; documented in 2.43.0 | R151 |
+| `includeIf "gitdir:"` | Locally tested; conditions and matching rules checked in the Git 2.56.0 manual | R151 |
 
 ## Where this leads
 

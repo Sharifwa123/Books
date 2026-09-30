@@ -1,0 +1,27 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ cd bakery-menu
+$ printf -- '- Tea: 1.50\n' >> menu.md
+$ git commit -qam "Add tea"
+$ printf -- '- Coffee: 2.00\n' >> menu.md
+$ git commit -qam "Add coffee"
+$ printf -- '- Juice: 2.20\n' >> menu.md
+$ git commit -qam "Add juice"
+$ GIT_SEQUENCE_EDITOR="sed -i '2s/^pick/drop/'" git rebase -i HEAD~3
+hint: Waiting for your editor to close the file...
+Auto-merging menu.md
+CONFLICT (content): Merge conflict in menu.md
+error: could not apply bde8e38... Add juice
+hint: Resolve all conflicts manually, mark them as resolved with
+hint: "git add/rm <conflicted_files>", then run "git rebase --continue".
+hint: You can instead skip this commit: run "git rebase --skip".
+hint: To abort and get back to the state before "git rebase", run "git rebase --abort".
+Could not apply bde8e38... Add juice
+$ git status --short
+UU menu.md
+$ git rebase --abort
+$ git log --oneline -3
+bde8e38 (HEAD -> main) Add juice
+bf6d066 Add coffee
+60cb0bb Add tea

@@ -1,0 +1,18 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ cd bakery-menu
+$ printf -- '- Tea: 1.50\n' >> menu.md
+$ git diff > tea.patch
+$ git restore menu.md
+$ git apply --check tea.patch
+$ git apply tea.patch
+$ git status --short
+ M menu.md
+?? tea.patch
+$ git diff --stat
+ menu.md | 1 +
+ 1 file changed, 1 insertion(+)
+$ git apply --check tea.patch
+error: patch failed: menu.md:3
+error: menu.md: patch does not apply

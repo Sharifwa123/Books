@@ -1,0 +1,33 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ cd bakery-menu
+$ git switch -q -c add-tea
+$ printf -- '- Tea: 1.50\n' >> menu.md
+$ git commit -qam "Add tea"
+$ git switch -q main
+$ printf 'Open Monday to Saturday.\n' > hours.md
+$ git add hours.md
+$ git commit -qm "Add opening hours"
+$ git merge -q --no-ff --no-edit add-tea
+$ git revert --no-edit HEAD
+error: commit 0f412999532a95752723706687e3813749d8e86b is a merge but no -m option was given.
+fatal: revert failed
+$ git revert --no-edit -m 1 HEAD
+[main f999f2d] Revert "Merge branch 'add-tea'"
+ Date: Mon Jan 5 09:16:00 2026 +0000
+ 1 file changed, 1 deletion(-)
+$ git log --oneline
+f999f2d (HEAD -> main) Revert "Merge branch 'add-tea'"
+0f41299 Merge branch 'add-tea'
+1e5eef8 Add opening hours
+73ad7ed (add-tea) Add tea
+81f772e Add coconut cake
+9f10b43 Raise the price of the white loaf
+8a52ffe Add the menu
+$ cat menu.md
+# Sunrise Bakery menu
+
+- White loaf: 2.80
+- Rolls (six): 3.00
+- Coconut cake (slice): 4.00

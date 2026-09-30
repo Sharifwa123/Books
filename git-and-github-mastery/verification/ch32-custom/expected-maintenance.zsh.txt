@@ -1,0 +1,13 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ cd bakery-menu
+$ ls .git/objects/info
+$ git maintenance run --task=commit-graph
+$ ls .git/objects/info
+commit-graphs
+$ git maintenance run --task=gc
+$ git count-objects -v | grep -E '^(count|in-pack|packs):'
+count: 0
+in-pack: 9
+packs: 1

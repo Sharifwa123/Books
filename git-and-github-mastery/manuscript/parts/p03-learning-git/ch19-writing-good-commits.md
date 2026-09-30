@@ -57,7 +57,7 @@ Refs: menu-42                                          <- footer: references (op
 | **Body** | *Why* the change was made, and anything a reader could not guess from the diff | Write sentences; the diff already says *what* |
 | **Footer** | References to related work items, and similar | Optional; team rules vary |
 
-> **Verification pending [R165].** These are widely shared conventions for commit messages, not rules of Git. They come from general practice and have not been checked against a specific source. Your team may have its own rules; follow them.
+> **Checked against the documentation (R165).** Git itself asks for very little. `git commit` (Git 2.56.0, section DISCUSSION) says: "Though not required, it's a good idea to begin the commit message with a single short (no more than 50 characters) line summarizing the change, followed by a blank line and then a more thorough description. The text up to the first blank line in a commit message is treated as the commit title, and that title is used throughout Git." The Git project's own `SubmittingPatches` asks contributors to "describe your changes in imperative mood, e.g. 'make xyzzy do frotz'", calls 50 characters "the soft limit", to "skip the full stop", and to convey "the _why_ behind your change". Those are that project's conventions for its own contributors. The capital letter in the table above is another common habit (the Git project itself does not capitalise after its `area:` prefix), so treat every row as a convention and follow your team's.
 
 ### 19.2.1 Good and bad subjects
 
@@ -387,7 +387,7 @@ You are ready for Chapter 20<!--ref:branching--> if you can:
 
 | Claim | Evidence class | Ledger |
 |---|---|---|
-| Message conventions (imperative subject, length, body, footer) | Needs re-verification: general practice, no source cited | R165 |
+| Message conventions (imperative subject, length, body, footer) | Blank line and 50-character title checked in `git commit`; imperative mood in the project's `SubmittingPatches`; the rest is convention | R165 |
 | Amend behaviour: new hash, retained author date, forgotten file, old commit in the reflog and readable by hash | Locally tested: Bash 5.2 and zsh 5.9, Git 2.43.0; identical on the CI runner's Git 2.55.0 | R166 |
 | Author versus committer, `--author`, `fuller` format | Locally tested (as above) | R167 |
 | Atomic commits by staging files separately; empty commits | Locally tested (as above) | R168 |

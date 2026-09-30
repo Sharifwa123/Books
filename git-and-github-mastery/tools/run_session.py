@@ -36,7 +36,7 @@ pid, fd = pty.fork()
 if pid == 0:
     os.chdir(home); os.execvpe(argv[0], argv, env)
 buf = b""
-def read_until_prompt(timeout=15):
+def read_until_prompt(timeout=60):
     global buf
     end = time.time() + timeout
     while time.time() < end:

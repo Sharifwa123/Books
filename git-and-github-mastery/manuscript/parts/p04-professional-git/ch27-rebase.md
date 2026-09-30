@@ -328,7 +328,123 @@ $ git show --stat --oneline HEAD
 
 The three commits are now one, and the message shows all three original messages.
 
-> **Verification pending [R192].** Only the `squash` action of `git rebase -i` was run, with the list edited by a program. The other actions (`reword`, `edit`, `drop`, reorder) and the real interactive editor flow were not run and are not described here. The official documentation could not be reached to check the current list of actions.
+### The other actions
+
+The list of commands in the editor is longer than `pick` and `squash`. According to Git's documentation (checked against Git 2.56.0):
+
+| Command | What it does |
+|---|---|
+| `pick` | use the commit as it is |
+| `reword` | use the commit, but stop to let you edit its message |
+| `edit` | stop after applying the commit, so that you can change the files or the message, amend, and continue |
+| `squash` | fold the commit into the one before it, and combine the messages |
+| `fixup` | fold the commit into the one before it, and **discard** its message |
+| `drop` | remove the commit (or delete its line) |
+| `break` | stop at this point, without applying a commit |
+
+You can also **reorder** the commits by moving lines. The recordings below drive the todo list with `sed` (through `GIT_SEQUENCE_EDITOR`) instead of an editor, so that they can run unattended. Three small commits touch three different files: tea, coffee and juice:
+
+```text
+$ cd bakery-menu
+$ printf -- '- Tea: 1.50\n' >> menu.md
+$ git commit -qam "Add tea"
+$ printf 'Coffee: 2.00\n' > coffee.md
+$ git add coffee.md
+$ git commit -qm "Add coffee"
+$ printf 'Juice: 2.20\n' > juice.md
+$ git add juice.md
+$ git commit -qm "Add juice"
+$ git log --oneline -3
+b68f4e3 (HEAD -> main) Add juice
+28638f5 Add coffee
+60cb0bb Add tea
+```
+
+*Recorded in Bash; `ch27-rebase/expected-interactive-actions.bash.txt`.*
+
+**Drop** the second commit (coffee): change `pick` to `drop` on line 2:
+
+```text
+$ GIT_SEQUENCE_EDITOR="sed -i '2s/^pick/drop/'" git rebase -i HEAD~3
+hint: Waiting for your editor to close the file...
+Successfully rebased and updated refs/heads/main.
+$ git log --oneline -3
+ecea039 (HEAD -> main) Add juice
+60cb0bb Add tea
+81f772e Add coconut cake
+```
+
+*Recorded in Bash; `ch27-rebase/expected-interactive-actions.bash.txt`.*
+
+Coffee is gone from the history (and from the files). The other two commits were replayed with new hashes. **Reorder** the two that remain: move the first line to the end:
+
+```text
+$ GIT_SEQUENCE_EDITOR="sed -i '1{h;d};\$G'" git rebase -i HEAD~2
+hint: Waiting for your editor to close the file...
+Successfully rebased and updated refs/heads/main.
+$ git log --oneline -3
+f80220e (HEAD -> main) Add tea
+41c5eb6 Add juice
+81f772e Add coconut cake
+```
+
+*Recorded in Bash; `ch27-rebase/expected-interactive-actions.bash.txt`.*
+
+Tea and juice have swapped places. **Reword** the oldest commit: the recording also gives Git a message-editing program through `GIT_EDITOR`, which replaces the message:
+
+```text
+$ GIT_SEQUENCE_EDITOR="sed -i '1s/^pick/reword/'" GIT_EDITOR="sed -i '1s/.*/Add juice to the drinks menu/'" git rebase -i HEAD~2
+hint: Waiting for your editor to close the file...
+hint: Waiting for your editor to close the file...
+[detached HEAD 4cf07c0] Add juice to the drinks menu
+ Date: Mon Jan 5 09:13:00 2026 +0000
+ 1 file changed, 1 insertion(+)
+ create mode 100644 juice.md
+Successfully rebased and updated refs/heads/main.
+$ git log --oneline -3
+bd7866c (HEAD -> main) Add tea
+4cf07c0 Add juice to the drinks menu
+81f772e Add coconut cake
+```
+
+*Recorded in Bash; `ch27-rebase/expected-interactive-actions.bash.txt`.*
+
+The message changed, and, again, so did every hash from that commit onward.
+
+> **⚠️ CAUTION.** Dropping a commit removes its *changes*, and later commits may depend on them. Here coffee and juice touched **different files**, so the drop was clean. When the later commits build on the dropped one, the replay **conflicts**. Three commits appended to the same file, and the middle one dropped:
+
+```text
+$ GIT_SEQUENCE_EDITOR="sed -i '2s/^pick/drop/'" git rebase -i HEAD~3
+hint: Waiting for your editor to close the file...
+Auto-merging menu.md
+CONFLICT (content): Merge conflict in menu.md
+error: could not apply bde8e38... Add juice
+hint: Resolve all conflicts manually, mark them as resolved with
+hint: "git add/rm <conflicted_files>", then run "git rebase --continue".
+hint: You can instead skip this commit: run "git rebase --skip".
+hint: To abort and get back to the state before "git rebase", run "git rebase --abort".
+Could not apply bde8e38... Add juice
+```
+
+*Recorded in Bash; `ch27-rebase/expected-drop-conflict.bash.txt`.*
+
+> **Your Git may word this differently.** Git 2.55.0 and 2.56.0 (recorded and re-run in CI) print one more hint line, `Disable this message with "git config set advice.mergeConflict false"`, and name the dropped commit as `# Add juice` in the `Could not apply` line. The meaning is the same.
+
+```text
+$ git status --short
+UU menu.md
+$ git rebase --abort
+$ git log --oneline -3
+bde8e38 (HEAD -> main) Add juice
+bf6d066 Add coffee
+60cb0bb Add tea
+```
+
+*Recorded in Bash; `ch27-rebase/expected-drop-conflict.bash.txt`.*
+
+`git rebase --abort` (section 27.3) put everything back. The message is the conflict from Chapter 22<!--ref:conflicts-->: the juice commit expected the coffee line to be there.
+
+The real editor flow (the list opens in your editor and you edit it by hand) is what these `sed` commands imitate; the commands in the list are the ones above.
 
 ---
 
@@ -340,7 +456,97 @@ Because rebase **replaces commits with new ones**, it is safe only for commits t
 
 A rebased branch that was already pushed can only be pushed again by **forcing** the push, which overwrites the remote's branch. Chapter 33<!--ref:gitsec--> returns to the dangers of forced pushes.
 
-> **Verification pending [R191].** Two options are commonly used with rebase and are *not* demonstrated here: `git pull --rebase` (fetch, then rebase instead of merge) and `git push --force-with-lease` (a safer forced push). Their exact behaviour was not tested for this chapter and must be checked before the book relies on them.
+### Two safer companions: `git pull --rebase` and `--force-with-lease`
+
+**`git pull --rebase`** does a `fetch` and then *rebases* your local commits on top of what arrived, instead of merging. It is the way to avoid the merge commit that Chapter 23<!--ref:remotes--> created when two people pushed at once. Alice pushes a commit; Bob, who has a local commit of his own, pulls with `--rebase` and then pushes:
+
+```text
+$ cd alice
+$ printf -- '- Tea: 1.50\n' >> menu.md
+$ git commit -qam "Add tea"
+$ git push -q origin main
+$ cd ../bob
+$ printf 'Open Monday to Saturday.\n' > hours.md
+$ git add hours.md
+$ git commit -qm "Add opening hours"
+```
+
+*Recorded in Bash; `ch27-rebase/expected-pull-rebase.bash.txt`.*
+
+```text
+$ git pull --rebase
+From /home/learner/hub
+   81f772e..965e160  main       -> origin/main
+Successfully rebased and updated refs/heads/main.
+$ git log --oneline --graph
+* 872b896 (HEAD -> main) Add opening hours
+* 965e160 (origin/main, origin/HEAD) Add tea
+* 81f772e Add coconut cake
+* 9f10b43 Raise the price of the white loaf
+* 8a52ffe Add the menu
+$ git push origin main
+To /home/learner/hub.git
+   965e160..872b896  main -> main
+```
+
+*Recorded in Bash; `ch27-rebase/expected-pull-rebase.bash.txt`.*
+
+The history stays a straight line, with Bob's commit on top and a new hash (`872b896`), and the push is now a plain fast-forward. This only rewrote Bob's **own, unpublished** commit, so the golden rule holds. (Git's `git pull` documentation lists `--rebase` and the settings `pull.rebase` and `branch.<name>.rebase` that make it the default.)
+
+**`git push --force-with-lease`** is a forced push with a safety check. Suppose Alice has pushed a branch `topic` and then amends her commit. A plain push is refused, because the remote branch is not an ancestor of hers:
+
+```text
+$ cd alice
+$ git switch -c topic
+Switched to a new branch 'topic'
+$ printf -- '- Tea: 1.50\n' >> menu.md
+$ git commit -qam "Add tea"
+$ git push -q -u origin topic
+$ git commit -q --amend -m "Add tea to the menu"
+$ git push origin topic
+To /home/learner/hub.git
+ ! [rejected]        topic -> topic (non-fast-forward)
+error: failed to push some refs to '/home/learner/hub.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. If you want to integrate the remote changes,
+hint: use 'git pull' before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+```
+
+*Recorded in Bash; `ch27-rebase/expected-force-with-lease.bash.txt`.*
+
+`--force-with-lease` says: "overwrite the remote branch, **but only if it is still where I last saw it**":
+
+```text
+$ git push --force-with-lease origin topic
+To /home/learner/hub.git
+ + cece341...19c0972 topic -> topic (forced update)
+```
+
+*Recorded in Bash; `ch27-rebase/expected-force-with-lease.bash.txt`.*
+
+`+ cece341...19c0972 ... (forced update)` shows that the remote branch was replaced. Now let Bob add a commit to `topic` behind Alice's back, and let Alice amend again *without fetching*:
+
+```text
+$ cd ../bob
+$ git fetch -q
+$ git switch -q topic
+$ printf -- '- Coffee: 2.00\n' >> menu.md
+$ git commit -qam "Add coffee"
+$ git push -q origin topic
+$ cd ../alice
+$ git commit -q --amend -m "Add tea, again"
+$ git push --force-with-lease origin topic
+To /home/learner/hub.git
+ ! [rejected]        topic -> topic (stale info)
+error: failed to push some refs to '/home/learner/hub.git'
+```
+
+*Recorded in Bash; `ch27-rebase/expected-force-with-lease.bash.txt`.*
+
+The lease protects Bob: Alice's push is **rejected with `stale info`**, because the remote branch is no longer at the commit that her remote-tracking branch remembers. A plain `--force` would have destroyed Bob's commit. Git's documentation calls it "like taking a 'lease' on the ref without explicitly locking it".
+
+> **⚠️ CAUTION.** The protection compares the remote branch with your *remote-tracking branch*. If you run `git fetch` first, that note is updated and the lease will be granted, even though it means overwriting the commit that you have just fetched. Fetch, **look** at what arrived, and only then decide to force. The documentation also states that the forms of the option other than `--force-with-lease=<ref>:<expected>` are "still experimental", so treat the plain form as a helpful check and not a guarantee.
 
 If a rebase goes wrong and you have already finished it, the reflog (Chapter 26<!--ref:reflog-->) still holds the state from before: find the entry from before `rebase (start)` and reset to it.
 
@@ -399,8 +605,8 @@ You are ready for Chapter 28<!--ref:tools--> if you can:
 |---|---|---|
 | Rebase of a diverged branch, new hashes, fast-forward afterwards | Locally tested: Bash 5.2 and zsh 5.9, Git 2.43.0; CI on Git 2.55.0 | R190 |
 | Rebase conflict, `--abort`, `--continue` | Locally tested (as above) | R190 |
-| Interactive `squash` (list edited by a program) | Locally tested (as above); other actions and the real editor flow not run | R192 |
-| `pull --rebase`, `--force-with-lease` | **Not tested** | R191 |
+| Interactive `squash`, `drop`, reorder and `reword` (todo list edited by a program), and the drop conflict | Locally tested (as above); the list of commands checked against the Git 2.56.0 documentation | R192 |
+| `pull --rebase`, `--force-with-lease` (rejection with `stale info`) | Locally tested (as above); semantics checked against the `git pull` and `git push` documentation (Git 2.56.0) | R191 |
 
 ## Where this leads
 

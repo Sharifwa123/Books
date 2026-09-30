@@ -1,0 +1,48 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ cd bakery-menu
+$ git switch -q -c raise-bread
+$ printf '# Sunrise Bakery menu\n\n- White loaf: 3.00\n- Rolls (six): 3.00\n- Coconut cake (slice): 4.00\n' > menu.md
+$ git commit -qam "Raise the white loaf to 3.00"
+$ git switch -q main
+$ printf '# Sunrise Bakery menu\n\n- White loaf: 2.90\n- Rolls (six): 3.00\n- Coconut cake (slice): 4.00\n' > menu.md
+$ git commit -qam "Raise the white loaf to 2.90"
+$ git cherry-pick raise-bread
+Auto-merging menu.md
+CONFLICT (content): Merge conflict in menu.md
+error: could not apply 73e14f7... Raise the white loaf to 3.00
+hint: After resolving the conflicts, mark them with
+hint: "git add/rm <pathspec>", then run
+hint: "git cherry-pick --continue".
+hint: You can instead skip this commit with "git cherry-pick --skip".
+hint: To abort and get back to the state before "git cherry-pick",
+hint: run "git cherry-pick --abort".
+hint: Disable this message with "git config set advice.mergeConflict false"
+$ git status --short
+UU menu.md
+$ git cherry-pick --abort
+$ git status --short
+$ git cherry-pick raise-bread
+Auto-merging menu.md
+CONFLICT (content): Merge conflict in menu.md
+error: could not apply 73e14f7... Raise the white loaf to 3.00
+hint: After resolving the conflicts, mark them with
+hint: "git add/rm <pathspec>", then run
+hint: "git cherry-pick --continue".
+hint: You can instead skip this commit with "git cherry-pick --skip".
+hint: To abort and get back to the state before "git cherry-pick",
+hint: run "git cherry-pick --abort".
+hint: Disable this message with "git config set advice.mergeConflict false"
+$ printf '# Sunrise Bakery menu\n\n- White loaf: 2.95\n- Rolls (six): 3.00\n- Coconut cake (slice): 4.00\n' > menu.md
+$ git add menu.md
+$ git cherry-pick --continue --no-edit
+[main df67f32] Raise the white loaf to 3.00
+ Date: Mon Jan 5 09:10:00 2026 +0000
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+$ git log --oneline
+df67f32 (HEAD -> main) Raise the white loaf to 3.00
+4afeda6 Raise the white loaf to 2.90
+81f772e Add coconut cake
+9f10b43 Raise the price of the white loaf
+8a52ffe Add the menu

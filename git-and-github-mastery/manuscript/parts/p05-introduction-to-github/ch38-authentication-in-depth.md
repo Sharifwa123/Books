@@ -17,7 +17,7 @@ ledger: [R232, R233, R234, R235, R236]
 - signing commits with an SSH key
 - a checklist for a safe setup
 
-> **⚠️ How to read this chapter.** The **Git and SSH side** was run and tested: addresses, key generation, and signing. Everything that happens **on the platform's website** (adding a key to an account, creating a token, two-factor settings) could not be verified: the official documentation was not reachable and no live account was used. Those statements are marked *Verification pending* and must be checked on your own screen.
+> **How to read this chapter.** The **Git and SSH side** was run and tested: addresses, key generation, and signing. Everything that happens **on the platform's website** (adding a key to an account, creating a token, two-factor settings) is checked against GitHub's own documentation (the `github/docs` repository at commit `2eaab0b`, 29 September 2026), and was **not** run on a live account, so menus and buttons are described by their idea.
 
 **Before you start.** Chapter 37<!--ref:ghaccount-->, Chapter 33<!--ref:gitsec-->, Chapter 32<!--ref:custom--> (credential helpers) and Chapter 6<!--ref:accounts-->. The recordings ran in Bash and zsh on Git 2.43.0 with OpenSSH 9.6 and were re-run in CI on Git 2.55.0.
 
@@ -73,7 +73,7 @@ https://github.com/example-owner/sunrise-bakery.git
 
 `git remote set-url` changes an address without touching anything else (Chapter 23<!--ref:remotes-->). Both forms reach the same repository.
 
-> **Verification pending [R232].** The address forms above, and the fact that a platform accepts a *token* in place of a password on HTTPS (and no longer accepts an ordinary account password there), come from general knowledge and were not verified against the platform's documentation. Which method is the current recommendation may also change.
+> **Checked against GitHub's documentation (R232).** "About authentication to GitHub" says that you can reach repositories from the command line in two ways, HTTPS and SSH, and that "the method of authenticating is determined based on whether you choose an HTTPS or SSH remote URL". On HTTPS you "must authenticate with a personal access token": "when Git prompts you for your password, enter your personal access token", and "password-based authentication for Git has been removed in favor of more secure authentication methods". Unless you use a credential helper, Git prompts every time. HTTPS works "even if you are behind a firewall or proxy". Which method GitHub currently recommends first is not stated as one choice: the documentation offers both, and it may change.
 
 ---
 
@@ -120,7 +120,7 @@ $ ssh-keygen -l -f ~/.ssh/id_demo.pub | cut -d' ' -f1,4
 
 **On the platform.** To use the key you add the **public** line to your account's settings, and the platform then accepts connections that prove possession of the matching private key. A helper program called an *agent* can hold an unlocked key in memory for a while, so that you do not type the passphrase every time.
 
-> **Verification pending [R233].** Where in the platform's settings a public key is added, how to test the connection, how the agent is started on each operating system, and which key types the platform accepts today were **not** run or verified. Follow the platform's current instructions for your system.
+> **Checked against GitHub's documentation (R233).** To use SSH you generate a key pair, add the private key to the SSH agent, and add the **public** key to your account. The documentation's example generates an `ed25519` key, and says to use `rsa -b 4096` "if you are using a legacy system that doesn't support the Ed25519 algorithm"; hardware-backed `ed25519-sk` keys are covered too. To test: `ssh -T git@github.com`, check that the fingerprint matches GitHub's published one, and expect the reply "Hi USERNAME! You've successfully authenticated, but GitHub does not provide shell access." A key unused for a year is deleted automatically. How the agent is started differs by operating system; follow GitHub's current instructions for yours.
 
 ---
 
@@ -137,7 +137,7 @@ Good habits, whichever platform you use:
 - If it leaks, **revoke it first** (Chapter 33<!--ref:gitsec-->).
 - Let a credential helper store it, rather than typing it into every command. Chapter 32<!--ref:custom--> showed the mechanism, and warned that the simple `store` helper keeps it in **plain text**.
 
-> **Verification pending [R234].** The kinds of token that GitHub offers, their names, their permission models, their lifetimes, and where they are created are time-sensitive and were not verified. Look them up in the platform's current documentation before creating one.
+> **Checked against GitHub's documentation (R234).** "Managing your personal access tokens" says GitHub currently supports two types, **fine-grained** personal access tokens and **classic** ones, and recommends fine-grained tokens "whenever possible". A fine-grained token is limited to one user or organisation, can be limited to specific repositories, and has specific permissions. Both types "are tied to the user who generated them". GitHub recommends setting an expiration, and after it a token "is automatically revoked"; an expired or revoked token cannot be restored. A valid token pushed to a public repository or gist "will be automatically revoked". Token names, limits and pages change; check the current page before creating one.
 
 ---
 
@@ -145,7 +145,7 @@ Good habits, whichever platform you use:
 
 A **credential manager** is a credential helper (Chapter 32<!--ref:custom-->) that stores passwords and tokens in a protected place provided by the operating system, or asks you to sign in through a browser and then remembers the result. Installers for Git often include one.
 
-> **Verification pending [R235].** Which helpers ship with Git for Windows, macOS and Linux, and how each stores secrets, was not tested (Chapter 32<!--ref:custom--> already recorded this gap).
+> **Checked in part against GitHub's documentation (R235).** "Caching your GitHub credentials in Git" recommends two ways: the GitHub CLI (`gh auth login`, choosing HTTPS), and **Git Credential Manager**, which manages authentication "including 2FA" so that you need not create and store a token by hand, and which on macOS stores credentials in the keychain. Which helpers ship with Git for Windows, macOS and Linux, and how each stores secrets, was not tested here (Chapter 32<!--ref:custom--> lists the helpers in Git's own documentation).
 
 ---
 
@@ -158,7 +158,7 @@ A password alone is the weakest form of protection: it can be guessed, stolen or
 - Use a **password manager**, and a different password for every service (Chapter 6<!--ref:accounts-->).
 - Never approve a sign-in prompt that you did not start.
 
-> **Verification pending [R236].** Which second factors the platform supports, how to set them up, how recovery works, and how passkeys are offered are time-sensitive and were not verified.
+> **Checked against GitHub's documentation (R236).** "About authentication to GitHub" lists the ways to sign in to the website: username and password (or a social login with Google or Apple), two-factor authentication, which it calls recommended, and a passkey. With 2FA on, you enter a code from a time-based one-time password (TOTP) app or one sent as a text message; you can add a security key or GitHub Mobile as further methods. A **passkey** gives "a secure, passwordless login" and "satisfies both password and 2FA requirements". GitHub asks you to keep recovery codes ("one-time codes for account recovery if you can't access your two-factor authentication method") and recommends "two or more authentication methods". The same page says GitHub recommends a password manager for the password.
 
 ---
 
@@ -213,7 +213,7 @@ Good signature for ada@example.org
 
 **What a platform adds.** Hosting platforms can show a mark next to signed commits when they can match the signature to a key on an account. That mark says that *some key on the account* made the signature. It is not a certificate of good code.
 
-> **Verification pending [R236].** How the platform verifies SSH signatures, where the signing key must be registered, and how the mark is displayed were not verified.
+> **Checked against GitHub's documentation (R236).** "About commit signature verification" says a commit or tag with a signature that is cryptographically verifiable, whether GPG, SSH or S/MIME, is marked "Verified" (or "Partially verified"); by default the statuses are Verified, Unverified and no status for an unsigned commit, and "vigilant mode" is off by default. It calls SSH signatures "the simplest to generate", and says you can even upload an existing authentication key to use as a signing key. A GPG key can expire or be revoked, which SSH does not offer. Once verified when pushed, a signature stays verified within the repository's network. As this chapter said above, the mark is about *who signed*; it does not say the code is good.
 
 ---
 
@@ -284,7 +284,7 @@ You are ready for Chapter 39<!--ref:ghrepo--> if you can:
 | HTTPS and SSH address forms; `remote set-url` | Locally tested: Bash 5.2 and zsh 5.9, Git 2.43.0; CI on Git 2.55.0 | R232 |
 | Key generation, file permissions, key type | Locally tested with OpenSSH 9.6 (CI: the runner's OpenSSH) | R233 |
 | SSH commit signing and verification with an allowed-signers file | Locally tested (as above) | R236 |
-| Tokens, credential managers, 2FA, passkeys, the platform's key settings and "Verified" marks | **Not verified** (official documentation not reachable; no live account) | R232-R236 |
+| Tokens, credential managers, 2FA, passkeys, the platform's key settings and "Verified" marks | Checked against `github/docs` (commit `2eaab0b`); not run on a live account | R232-R236 |
 
 ## Where this leads
 

@@ -61,7 +61,7 @@ Names such as `v0.1.0` and `v1.0.0` follow a convention called **semantic versio
 
 > **New term: semantic versioning.** A convention for numbering releases as `MAJOR.MINOR.PATCH`: the first number changes when the change is *incompatible* with earlier versions, the second when features are *added* in a compatible way, and the third for compatible bug *fixes*. A hyphen and a label, as in `1.0.0-rc.1`, mark a pre-release.
 
-> **Verification pending [R198].** The rules of semantic versioning above come from general knowledge. The official specification (semver.org) could not be reached, so this description must be checked against it before publication. The tag names in this chapter are *examples of the convention*, not a requirement of Git: Git accepts any name (Chapter 20<!--ref:branching--> listed the rules for names).
+> **Checked against the specification (Semantic Versioning 2.0.0, R198).** The specification says: "Given a version number MAJOR.MINOR.PATCH, increment the MAJOR version when you make incompatible API changes, the MINOR version when you add functionality in a backward compatible manner, the PATCH version when you make backward compatible bug fixes". A pre-release "MAY be denoted by appending a hyphen and a series of dot separated identifiers", and "pre-release versions have a lower precedence than the associated normal version" (`1.0.0-alpha < 1.0.0`). The specification also says of the letter `v`: `v1.2.3` "is not a semantic version", but prefixing one with a `v` is "a common way ... to indicate it is a version number", and it even uses `git tag v1.2.3 -m "Release version 1.2.3"` as its example. The tag names in this chapter are *examples of the convention*, not a requirement of Git: Git accepts any name (Chapter 20<!--ref:branching--> listed the rules for names).
 
 A leading `v` (as in `v1.0.0`) is common but not part of the number.
 
@@ -119,9 +119,52 @@ v0.1.0
 
 *Recorded in Bash; `ch29-tags/expected-versions.bash.txt`.*
 
-At a tagged commit it prints just the tag. On a commit *after* a tag, it adds the number of commits since the tag and a short hash; that form is not shown here. Note the second command: `git describe` looks at *annotated* tags only, unless you add `--tags`. Here both forms found a tag, because both were annotated.
+At a tagged commit it prints just the tag. The second command asks about another commit (the first one), and finds the tag `v0.1.0` on it. Both tags here were annotated, so both were found.
 
-> **Verification pending [R197].** The form of `git describe` output after a tag (`v1.0.0-3-g<hash>`) and the rule about annotated versus lightweight tags come from general knowledge, and were not run for this chapter.
+On a commit *after* the tag, `git describe` adds the number of commits since the tag and a short hash. Two commits were added after `v1.0`:
+
+```text
+$ cd bakery-menu
+$ git tag -a v1.0 -m "First public menu"
+$ printf -- '- Tea: 1.50\n' >> menu.md
+$ git commit -qam "Add tea"
+$ printf -- '- Coffee: 2.00\n' >> menu.md
+$ git commit -qam "Add coffee"
+$ git describe
+v1.0-2-g398a33e
+```
+
+*Recorded in Bash; `ch29-tags/expected-describe-after.bash.txt`.*
+
+`v1.0-2-g398a33e` reads: tag `v1.0`, **2** commits after it, and `g` (for "git") followed by the abbreviated hash of the current commit. `--abbrev=4` shortens the hash:
+
+```text
+$ git describe --abbrev=4
+v1.0-2-g398a
+```
+
+*Recorded in Bash; `ch29-tags/expected-describe-after.bash.txt`.*
+
+By default `git describe` only looks at **annotated** tags (Git's documentation: "By default (without `--all` or `--tags`) `git describe` only shows annotated tags"). A lightweight tag is ignored until you say `--tags`:
+
+```text
+$ git tag v1.1-light
+$ git describe
+v1.0-2-g398a33e
+$ git describe --tags
+v1.1-light
+```
+
+*Recorded in Bash; `ch29-tags/expected-describe-after.bash.txt`.*
+
+`--always` prints a bare abbreviated hash when no tag can be used, and `--dirty` adds a mark if the working tree has uncommitted changes (there were none here):
+
+```text
+$ git describe --always --dirty
+v1.0-2-g398a33e
+```
+
+*Recorded in Bash; `ch29-tags/expected-describe-after.bash.txt`.*
 
 ---
 
@@ -203,7 +246,7 @@ $ git ls-remote --tags origin
 
 > **⚠️ CAUTION.** Deleting a tag that other people may have already fetched does not remove it from *their* repositories, and re-using the name for a different commit causes confusion. Treat published tags as permanent: if a release is wrong, make a new tag (`v1.0.1`) rather than moving the old one.
 
-> **Verification pending [R196].** How hosting platforms display tags, and how a **release** on a platform differs from a tag, is covered in Chapter 66<!--ref:releases-->. None of it was verified for this chapter.
+> **Checked against GitHub's documentation (R196).** "About releases" says releases "are based on Git tags", that a tag's date "may be different" from the release date, and that GitHub "will automatically include links to download a zip file and a tarball containing the contents of the repository at the point of the tag's creation". Chapter 66<!--ref:releases--> covers them in full.
 
 ---
 
@@ -261,7 +304,8 @@ You are ready for Chapter 33<!--ref:gitsec--> if you can:
 |---|---|---|
 | Tagging older commits, listing, `--sort`, `versionsort.suffix`, `describe` on tagged commits | Locally tested: Bash 5.2 and zsh 5.9, Git 2.43.0; CI on Git 2.55.0 | R196 |
 | Pushing, listing (`ls-remote`) and deleting tags on a remote | Locally tested (as above), with a local bare repository | R197 |
-| Semantic versioning rules; `describe` output after a tag | **Not verified** (official source blocked; not run) | R198 |
+| Semantic versioning rules (`MAJOR.MINOR.PATCH`, pre-release precedence, the `v` prefix) | Checked against the Semantic Versioning 2.0.0 specification text | R198 |
+| `describe` after a tag (`<tag>-<n>-g<hash>`), `--abbrev`, `--tags`, `--always`, `--dirty`; `versionsort.suffix` | Locally tested (as above); checked against the `git describe` and `versionsort.suffix` documentation (Git 2.56.0) | R198 |
 
 ## Where this leads
 

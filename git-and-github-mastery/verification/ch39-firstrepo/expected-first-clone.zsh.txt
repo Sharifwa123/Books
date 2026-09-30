@@ -1,0 +1,22 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ git clone new-repo.git fresh
+Cloning into 'fresh'...
+warning: You appear to have cloned an empty repository.
+done.
+$ cd fresh
+$ printf '# Sunrise Bakery\n\nFresh bread every morning.\n' > README.md
+$ git add README.md
+$ git commit -m "Add a README"
+[main (root-commit) 3034e23] Add a README
+ 1 file changed, 3 insertions(+)
+ create mode 100644 README.md
+$ git push -u origin main
+To /home/learner/new-repo.git
+ * [new branch]      main -> main
+branch 'main' set up to track 'origin/main'.
+$ git status -sb
+## main...origin/main
+$ git log --oneline
+3034e23 (HEAD -> main, origin/main) Add a README

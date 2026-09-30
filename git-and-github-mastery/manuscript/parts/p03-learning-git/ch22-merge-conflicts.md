@@ -16,6 +16,7 @@ ledger: [R176, R177]
 - how to resolve a conflict by hand, and how to conclude the merge
 - how to walk away with `git merge --abort`
 - a clearer marker style, `diff3`
+- **Project 6**: resolve a real conflict on the Sunrise Bakery site
 
 **Before you start.** Chapter 21<!--ref:merging-->. The recordings use the `bakery-menu` repository and were run in Bash and zsh on Git 2.43.0 and re-run in CI on Git 2.55.0.
 
@@ -276,7 +277,7 @@ $ git merge --abort
 
 *Recorded in Bash; `ch22-conflicts/expected-diff3.bash.txt`.*
 
-> **Verification pending [R177].** Newer Git versions offer a further style, `zdiff3`, and the default may change in the future. This book has recorded only `diff3`. The official documentation for `merge.conflictStyle` could not be reached when this chapter was written.
+> **Checked against the documentation (R177).** Git's `merge.conflictStyle` documentation (Git 2.56.0) says the default is `merge`, which shows the two sides; `diff3` "adds a `|||||||` marker and the original text before the `=======` marker"; and a third style, `zdiff3`, "is similar to `diff3` but removes matching lines on the two sides from the conflict region when those matching lines appear near either the beginning or the end of a conflict region". The documentation also says the `merge` style "tends to produce smaller conflict regions than diff3". A change of the default is not announced in Git 2.56.0's `BreakingChanges` document. This book recorded `merge` and `diff3`, not `zdiff3`.
 
 Whichever style you choose, remember: the extra section is only for reading. You still delete all the marker lines.
 
@@ -305,6 +306,24 @@ Editors and dedicated merge tools can show the two sides next to each other. The
 7. **Stage** each resolved file: `git add <file>`.
 8. **Commit** to finish the merge: `git commit`.
 9. **Or abort**: `git merge --abort`, at any time before step 8.
+
+---
+
+## 22.9 Project 6: resolve a merge conflict
+
+> **Project 6.** *Goal:* cause, read and resolve a real conflict on the Sunrise Bakery site, and practise leaving one. *Time:* about 30 minutes. *You need:* the `sunrise-bakery` repository with a few commits and a clean `git status`.
+
+1. Create a branch `heading-warm` and change the first heading of `index.html` to "Warm bread, every morning". Commit. Switch back to `main`.
+2. Create a branch `heading-fresh` and change the **same heading** to "Fresh bread, every morning". Commit. Switch back to `main`.
+3. Merge `heading-warm` into `main` (a fast-forward). Then merge `heading-fresh`. Read what Git says.
+4. Open `index.html`. Find the markers, and say which side is `HEAD`.
+5. Run `git merge --abort`. Check with `git status` that everything is as before.
+6. Merge again. This time write a heading that combines both ideas, remove all markers, `git add index.html`, and commit.
+7. Show the graph with `git log --oneline --graph --all`.
+
+*Expected result:* the first merge fast-forwards, the second stops with `CONFLICT (content)`, the abort restores the previous state, and the second attempt ends in a merge commit that holds your combined heading.
+
+*Checkpoint questions:* Why did the first merge not conflict? How did you make sure that no marker was left in the file? What would have changed if you had used `git config merge.conflictStyle diff3` first?
 
 ---
 
@@ -338,7 +357,7 @@ Editors and dedicated merge tools can show the two sides next to each other. The
 
 ## Practice
 
-Do the exercises in [`exercises/ch22-exercises.md`](../../../exercises/ch22-exercises.md).
+Do the exercises in [`exercises/ch22-exercises.md`](../../../exercises/ch22-exercises.md), including Project 6 (section 22.9).
 
 ## Self-Test
 
@@ -362,7 +381,7 @@ You are ready for Chapter 23<!--ref:remotes--> if you can:
 | Claim | Evidence class | Ledger |
 |---|---|---|
 | Conflict output, status, markers, resolution and merge commit | Locally tested: Bash 5.2 and zsh 5.9, Git 2.43.0; identical on CI's Git 2.55.0 | R176 |
-| `--abort` restores the pre-merge state; `diff3` shows the ancestor | Locally tested (as above); `zdiff3` and defaults in newer versions not tested | R177 |
+| `--abort` restores the pre-merge state; `diff3` shows the ancestor | Locally tested (as above); the three styles and the default checked in the `merge.conflictStyle` documentation; `zdiff3` not run | R177 |
 
 ## Where this leads
 

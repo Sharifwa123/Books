@@ -35,7 +35,7 @@ This chapter closes Part IV. Everything so far was taught by running commands. F
 
 Two of these you can read **without the internet**, and they always match the version that you have installed. That makes them the first place to look.
 
-> **Verification pending [R221].** How to open the full manual pages differs by system. On some systems, `git help <command>` opens a manual page; on others (for example a minimal server image), the manual pages are not installed, and Git says so. On Git for Windows, the help may open in a web browser. The test computer had its manual pages removed, so none of these ways was run. Check the way your own system works: try `git help commit` and read what happens.
+> **Checked against the documentation (R221).** The `git help` manual page (Git 2.56.0) says the `man` program is used by default; `-m`/`--man`, `-i`/`--info` and `-w`/`--web` choose the format; the `help.format` setting sets the default (`man`, `info`, or `web`/`html`); and with `--web` "a web browser will be used", chosen by `help.browser` or `web.browser`. `git help -a` lists all available commands and `git help -g` lists the concept guides. Whether your system has the manual pages installed, and what Git for Windows opens, depends on your installation: try `git help commit` and read what happens. (The test computer had its manual pages removed, so the message for that case is the one in the recording.)
 
 ---
 
@@ -87,7 +87,7 @@ The notation is a convention that Git's documentation follows:
 
 Read the first form: `git tag`, optionally one of `-a`, `-s` or `-u <key-id>`, optionally `-f`, optionally a message with `-m <msg>` (or from a file with `-F <file>`), optionally `-e`; then the required `<tagname>`; then optionally a `<commit>` or `<object>`. That is what you used in Chapter 24<!--ref:stash--> and Chapter 29<!--ref:tags-->: `git tag -a v1.0 -m "..."`, with an optional commit at the end. The second form, `git tag -d <tagname>...`, deletes one or more tags.
 
-> **Verification pending [R222].** The notation table above is how Git's usage text reads in the recording. Whether the official reference manual defines the notation in exactly these words was not checked; the manual pages could not be opened on the test computer.
+> **Checked against the documentation (R222).** Git's `CodingGuidelines` (Git 2.56.0), section "Synopsis Syntax", states the notation: three dots mean "one or more" (`<file>...`); square brackets mean optional (`[<file>...]` is zero or more); a vertical bar separates alternatives (`[-q | --quiet]`); parentheses group (`[(<rev>|<range>)...]`); and placeholders are lowercase words in angle brackets. The table above agrees with these rules.
 
 After the synopsis, the reference manual explains each option, gives examples, and often lists related commands ("See also"). Read the description of one option at a time, with a scratch repository open beside it, and *try it*. That is the method of this whole book.
 
@@ -125,7 +125,7 @@ Hosting platforms publish their own documents about their own features: accounts
 - **They may depend on your plan or account type.** A feature described on a page may not be available to you.
 - **They are not Git's documentation.** Whether something is a Git feature or a platform feature decides where to look (Chapter 12<!--ref:platforms--> introduced the difference).
 
-> **Verification pending [R223].** This book's own statements about GitHub could not be checked against the official documentation while writing Part IV, because the documentation site was not reachable from the test environment. Every such statement is marked *Verification pending* and recorded in the research ledger. When you meet a GitHub fact in this book, check it against GitHub's current documentation before you rely on it.
+> **Checked against GitHub's documentation source (R223).** GitHub's documentation is open source, in the `github/docs` repository, and each page carries a `versions` header saying which products it applies to (for example `fpt` for Free, Pro and Team, `ghes` for GitHub Enterprise Server and `ghec` for GitHub Enterprise Cloud). This book's GitHub statements were checked against that source at commit `2eaab0b` (29 September 2026) and are labelled with their ledger row. The service changes, so when you meet a GitHub fact, check the page for your kind of account and its date before you rely on it.
 
 ---
 
@@ -195,8 +195,9 @@ You are ready for Chapter 36<!--ref:whatgh--> if you can:
 | Claim | Evidence class | Ledger |
 |---|---|---|
 | `git --version`, `git tag -h`, the "most similar command" message | Locally tested: Bash 5.2 and zsh 5.9, Git 2.43.0; CI on Git 2.55.0 | R221 |
-| Synopsis notation as it reads in usage text | Locally tested (usage text); the reference manual's own definition **not checked** | R222 |
-| How manual pages open on each system; platform documentation | **Not verified** (manual pages absent on the test computer; official host blocked) | R221, R223 |
+| Synopsis notation as it reads in usage text | Locally tested (usage text); definition checked in `CodingGuidelines` | R222 |
+| `git help` options and `help.format` | Checked against the `git help` manual page; not run (no manual pages installed on the test computer) | R221 |
+| How manual pages open on each system; platform documentation | Page `versions` headers checked in `github/docs`; how manual pages open on your system depends on your installation | R223 |
 
 ## Where this leads
 

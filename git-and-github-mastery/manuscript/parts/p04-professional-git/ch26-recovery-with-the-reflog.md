@@ -52,7 +52,7 @@ Read one line: `81f772e HEAD@{0}: commit: Add coconut cake`.
 
 The list is newest first. `HEAD@{1}` is where you were one step earlier.
 
-> **Verification pending [R189].** Git removes old reflog entries after an expiry time, and unreachable commits are eventually deleted by garbage collection. The default periods were not verified against the official documentation, and this book does not state them. Treat the reflog as a safety net that lasts *days to weeks*, not forever, and do not rely on it for anything old.
+> **Checked against the documentation (Git 2.56.0, R189).** Two settings control how long the reflog keeps entries: `gc.reflogExpire`, which "defaults to 90 days", applies to entries whose commits are still reachable from a branch; `gc.reflogExpireUnreachable`, "defaults to 30 days", applies to entries whose commits are **not** reachable from the current tip (as after a `git reset --hard`, or a deleted branch). Separately, `git gc` prunes unreachable *objects* only after a grace period, `gc.pruneExpire`, which is **two weeks** by default. The documentation explains why the unreachable period is shorter: such entries are "generally created as a result of using `git commit --amend` or `git rebase`" and are the commits from *before* the amend or rebase, which most users want to expire sooner. In practice: treat a lost commit as recoverable for **about a month**, but not for anything old, and remember that these are *defaults* that a system or a team can change (Chapter 14<!--ref:config-->).
 
 ---
 
@@ -221,7 +221,7 @@ Chapter 25<!--ref:undo--> showed the same technique for `git reset --hard`: `git
 ## 26.5 What the reflog cannot save
 
 - **Uncommitted changes.** Work that was never committed was never recorded (Chapter 25<!--ref:undo-->, section on `--hard`).
-- **Old work,** once entries have expired and garbage collection has run (see the pending note in section 26.1).
+- **Old work,** once entries have expired and garbage collection has run (see the defaults in section 26.1).
 - **Work in a different clone.** The reflog is per repository.
 - **A repository you deleted.**
 
@@ -294,7 +294,7 @@ You are ready for Chapter 27<!--ref:rebase--> if you can:
 |---|---|---|
 | Reflog lines and `HEAD@{n}`; deleted-branch recovery | Locally tested: Bash 5.2 and zsh 5.9, Git 2.43.0; CI on Git 2.55.0 | R187 |
 | Detached `HEAD`, the leaving-commits warning, rescue with `git branch` | Locally tested (as above) | R188 |
-| Reflog expiry and garbage collection | **Not verified** (official source blocked; no test) | R189 |
+| Reflog expiry defaults (90 days, 30 days) and the `gc.pruneExpire` grace period (two weeks) | Checked against the Git 2.56.0 documentation (`config/gc`); not measured by test | R189 |
 
 ## Where this leads
 

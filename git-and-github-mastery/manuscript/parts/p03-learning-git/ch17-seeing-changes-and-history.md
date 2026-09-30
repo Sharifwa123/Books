@@ -90,7 +90,7 @@ For each commit, `git log` shows:
 
 Commits are listed **newest first**, and each is the parent of the one above it.
 
-> **Verification pending [R158].** In a real terminal, Git shows long output through a *pager*, a program that displays one screenful at a time (press `q` to quit and the space bar for the next page). The recordings switch the pager off, so this is not shown here; the statement is from general knowledge.
+> **Checked against the documentation (R158).** The `git` manual (Git 2.56.0) says that `-p`/`--paginate` pipes output "into `less` (or if set, `$PAGER`) if standard output is a terminal", and that `--no-pager` turns the pager off; `GIT_PAGER` overrides `$PAGER`. The `core.pager` documentation adds that when the `LESS` environment variable is unset, Git sets it to `FRX`. In a real terminal, Git shows long output through the pager (press `q` to quit and the space bar for the next page); the recordings switch it off, so it is not shown here.
 
 ### 17.2.1 Useful forms of `git log`
 
@@ -235,7 +235,7 @@ Most Git commands take a commit as an argument. There are several ways to name o
 | `HEAD^` | The parent of `HEAD` (for a normal commit, the same as `HEAD~1`; merges, Chapter 21<!--ref:merging-->, have two parents and make the two forms differ) |
 | `HEAD~2..HEAD` | A **range**: the commits reachable from `HEAD` but not from `HEAD~2` |
 
-> **New term: revision.** Any way of naming a commit, such as a hash, a branch name, `HEAD` or `HEAD~2`. Git's manuals call these "revisions".
+> **New term: revision.** Any way of naming a commit: a hash, a branch name, `HEAD`, `HEAD~2`. Git's manuals call these "revisions".
 
 The command `git rev-parse` turns any revision into its full hash, which makes the relations visible:
 
@@ -253,7 +253,7 @@ $ git log --oneline HEAD~2..HEAD
 
 `HEAD~1` was the third commit ("Add coconut cake"), and `HEAD^` gave the same commit in short form. The range `HEAD~2..HEAD` showed the two newest commits: the new one ("Raise the price of rolls", made in the same recording) and the one before it.
 
-> **Verification pending [R160].** The revision forms shown here were recorded on Git 2.43.0 and 2.55.0. The full list of revision syntax in Git's official documentation has not been consulted; only the forms above are used in this book until it has.
+> **Checked against the documentation (R160).** The revision syntax is documented in `gitrevisions` (Git 2.56.0). Its worked example shows that `A^` is `A^1` and `A~1` (the parent), that `A^^` is `A~2`, and that `A^2` is the second parent of a merge; `<rev1>..<rev2>` means "commits that are reachable from `<rev2>` but exclude those that are reachable from `<rev1>`", and an omitted side "defaults to `HEAD`". The forms above are a small part of that page, which also lists forms such as `<rev>@{n}`, `<rev>^{/text}` and `:/text`.
 
 **Why a hash, and not a number?** In a distributed system (Chapter 11<!--ref:distributed-->) two people make commits at the same time on different computers. Sequence numbers would collide. A hash is calculated from a commit's content, so every commit has its own name without any central authority. (Chapter 30<!--ref:objects--> explains how.)
 
@@ -515,7 +515,7 @@ Chapter 24<!--ref:stash--> adds `git blame`, which shows for every line who last
 ## New Vocabulary
 
 - **git log**: shows the history of commits.
-- **Revision**: any way of naming a commit (a hash, a branch name, `HEAD` or `HEAD~2`).
+- **Revision**: any way of naming a commit (hash, branch, `HEAD~2`).
 - **Diff**: a report of line-by-line differences between two versions.
 - **Hunk**: one contiguous chunk of changes in a diff.
 - **git show**: displays one commit's message and changes.
@@ -560,8 +560,8 @@ You are ready for Chapter 18<!--ref:tracking--> if you can:
 |---|---|---|
 | All `git log` forms and their output | Locally tested: Bash 5.2, zsh 5.9, Git 2.43.0; identical on the CI runner's Git 2.55.0 (including hashes) | R158 |
 | The four `git diff` comparisons and their output at each stage | Locally tested (as above) | R159 |
-| `HEAD~n`, `HEAD^`, ranges, `git rev-parse` | Locally tested (as above); the official revision syntax not yet consulted | R160 |
-| The behaviour of the pager | General knowledge; not shown in the recordings | R158 |
+| `HEAD~n`, `HEAD^`, ranges, `git rev-parse` | Locally tested (as above); forms checked against `gitrevisions` (Git 2.56.0) | R160 |
+| The behaviour of the pager | Checked against the `git` and `core.pager` documentation (not shown in the recordings) | R158 |
 
 ## Where this leads
 

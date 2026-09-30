@@ -1,0 +1,37 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ cd bakery-menu
+$ git remote add origin ../hub-with-readme.git
+$ git push -u origin main
+To ../hub-with-readme.git
+ ! [rejected]        main -> main (fetch first)
+error: failed to push some refs to '../hub-with-readme.git'
+hint: Updates were rejected because the remote contains work that you do not
+hint: have locally. This is usually caused by another repository pushing to
+hint: the same ref. If you want to integrate the remote changes, use
+hint: 'git pull' before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+$ git fetch -q origin
+$ git pull --no-rebase origin main
+From ../hub-with-readme
+ * branch            main       -> FETCH_HEAD
+fatal: refusing to merge unrelated histories
+$ git pull --no-rebase --allow-unrelated-histories --no-edit origin main
+From ../hub-with-readme
+ * branch            main       -> FETCH_HEAD
+Merge made by the 'ort' strategy.
+ README.md | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 README.md
+$ git log --oneline --graph
+*   68c8568 (HEAD -> main) Merge branch 'main' of ../hub-with-readme
+|\
+| * 36b17f4 (origin/main) Initial commit
+* 81f772e Add coconut cake
+* 9f10b43 Raise the price of the white loaf
+* 8a52ffe Add the menu
+$ git push -u origin main
+To ../hub-with-readme.git
+   36b17f4..68c8568  main -> main
+branch 'main' set up to track 'origin/main'.

@@ -205,7 +205,7 @@ Teams have described their workflows with names. The descriptions below are **ge
 | **A model with long-lived `develop` and release branches** | Work is collected on a `develop` branch; `main` holds only released versions; more branch types exist for releases and urgent fixes. It has many rules and suits projects with formal release cycles. |
 | **Forking** | People without direct write access copy ("fork") the project, work in their copy, and propose changes back (Chapter 49<!--ref:collab-->). Common in open source. |
 
-> **Verification pending [R219].** These descriptions come from general knowledge. The official descriptions of the models that carry names (in particular the ones hosting platforms publish), and who first proposed them, were not consulted; the official hosts could not be reached. This chapter does not attribute any model to any person or company.
+> **Checked in part against official sources (R219).** Three of the models have an official description. **Feature branch:** GitHub's documentation calls "GitHub flow" "a lightweight, branch-based workflow" in which you create a branch, make changes, and open a pull request. **Forking:** GitHub defines a fork as "a new repository that shares code and visibility settings with the original 'upstream' repository". **Release and topic branches:** Git's own `gitworkflows` manual describes how the Git project works: the integration branches `maint` ("the next maintenance release"), `master` ("the next release"), `next` ("a testing branch for topics being tested for stability") and `seen`, plus **topic branches**, which solve the problem that "bad commits cannot be undone" when everything goes straight to an integration branch. The **trunk-based** model and the model with long-lived `develop` branches have named published descriptions whose sources were not reached, so their rows stay general descriptions; this chapter attributes no model to any person or company.
 
 **Comparing them.**
 
@@ -288,7 +288,7 @@ You are ready for Chapter 35<!--ref:readdocs--> if you can:
 | Claim | Evidence class | Ledger |
 |---|---|---|
 | Feature-branch cycle with a shared bare repository (push, fetch, diff, `--no-ff` merge, remote branch deletion, `fetch --prune`, `branch -d`) | Locally tested: Bash 5.2 and zsh 5.9, Git 2.43.0; CI on Git 2.55.0 | R218 |
-| Descriptions of named models | **Not verified** (general knowledge; no attribution) | R219 |
+| Descriptions of named models | Feature branch, forking and topic/integration branches checked against official sources; trunk-based and `develop` models general description, no attribution | R219 |
 | Advice on choosing | General experience, **not tested** | R220 |
 
 ## Where this leads

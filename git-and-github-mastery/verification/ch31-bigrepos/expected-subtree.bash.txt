@@ -1,0 +1,16 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ cd bakery-menu
+$ git subtree add -q --prefix=vendor/lib ../lib-repo main --squash
+git fetch ../lib-repo main
+From ../lib-repo
+ * branch            main       -> FETCH_HEAD
+$ ls vendor/lib
+lib.txt
+$ git log --oneline
+75db5cc (HEAD -> main) Merge commit '3747446675b9f9036312d68ab8f0bd7e40fc9c87' as 'vendor/lib'
+3747446 Squashed 'vendor/lib/' content from commit 2e4ae70
+81f772e Add coconut cake
+9f10b43 Raise the price of the white loaf
+8a52ffe Add the menu

@@ -171,7 +171,38 @@ hook not copied
 2. They can be skipped (`--no-verify`), so they are a help and not a security barrier. Anything that must be enforced needs a check on the server too (Chapter 54<!--ref:actions-->).
 3. They run **code on your computer**. Never copy a hook from a source that you do not trust.
 
-> **Verification pending [R209].** Git has many hook types (before and after commit, merge, push, and others), and there are server-side hooks that hosting platforms do not offer in the same way. Only `pre-commit` was run. The official list was not checked.
+### More hooks
+
+Git's `githooks` documentation (Git 2.56.0) lists many more hooks than `pre-commit`. On the **commit** side: `pre-commit`, `prepare-commit-msg`, `commit-msg` and `post-commit`; around **merges and rebases**: `pre-merge-commit`, `post-merge`, `pre-rebase`, `post-rewrite`; around **checkouts and pushes**: `post-checkout` and `pre-push`; and on the **server** that receives a push: `pre-receive`, `update`, `proc-receive` and `post-receive`, among others. The documentation says that `pre-commit` and `commit-msg` "can be bypassed with the `--no-verify` option", and that a non-zero exit status makes the command abort.
+
+The `commit-msg` hook receives the name of the file that holds the proposed message and may refuse it. This one rejects messages shorter than twelve characters:
+
+```text
+$ cd bakery-menu
+$ printf '#!/bin/sh\nif [ "$(wc -c < "$1")" -lt 12 ]; then\n  echo "commit-msg: message is too short"\n  exit 1\nfi\n' > .git/hooks/commit-msg
+$ chmod +x .git/hooks/commit-msg
+$ printf -- '- Tea: 1.50\n' >> menu.md
+$ git commit -am "Tea"; echo "exit status: $?"
+commit-msg: message is too short
+exit status: 1
+```
+
+*Recorded in Bash; `ch32-custom/expected-commit-msg-hook.bash.txt`.*
+
+The short message was refused; a longer one passes:
+
+```text
+$ git commit -am "Add tea to the menu"
+[main a1ed54d] Add tea to the menu
+ 1 file changed, 1 insertion(+)
+$ git log --oneline -2
+a1ed54d (HEAD -> main) Add tea to the menu
+81f772e Add coconut cake
+```
+
+*Recorded in Bash; `ch32-custom/expected-commit-msg-hook.bash.txt`.*
+
+Hooks on the server belong to whoever runs the server. A hosting platform offers its own mechanisms instead (Chapter 60<!--ref:wfsec--> and Chapter 50<!--ref:protect-->).
 
 ---
 
@@ -225,7 +256,7 @@ i/lf    w/crlf  attr/text eol=lf      	notes.md
 
 The warning says exactly this: the working copy has CRLF (`w/crlf`), the copy that Git stores in the index has LF (`i/lf`), and the attribute in force is `text eol=lf`. `git ls-files --eol` shows this for any file, which is the quickest way to debug a line-ending problem.
 
-> **Verification pending [R210].** The wording of the warning can differ between Git versions. The old `core.autocrlf` setting and how it interacts with `.gitattributes` were not run in this chapter.
+> **Checked against the documentation (Git 2.56.0, R210).** The `text` attribute "marks the path as a text file, which enables end-of-line conversion": line endings are "normalized to LF in the index" when a file is added, and may be converted when it is copied back to the working directory. Specifying `eol` "automatically sets `text` if `text` was left unspecified". If `text` is unspecified, Git uses the setting `core.autocrlf` to decide: `true` "is the same as setting the `text` attribute to `auto` on all files and `core.eol` to `crlf`" (for people who want CRLF in their working folder and LF in the repository), and `input` performs no conversion on output. An attribute in `.gitattributes` is shared by everyone who clones, which is why it is usually better than a per-user `core.autocrlf`. The wording of the warning above was the same on Git 2.43.0 and 2.55.0.
 
 ---
 
@@ -272,7 +303,7 @@ creds file is now empty
 
 *Recorded in Bash; `ch32-custom/expected-credential.bash.txt`.*
 
-> **Verification pending [R211].** The credential helpers that ship with Git for Windows, macOS and Linux, and how each stores secrets, were not tested. Only `store` was run, and only with a made-up credential.
+> **Checked against the documentation (Git 2.56.0, R211).** Git's `gitcredentials` documentation lists the helpers that come with Git or are recommended: `cache` (credentials kept "in memory for a short period of time"), `store` ("store credentials indefinitely on disk"; the documentation calls it "discouraged" in its example), and, for particular systems, `git-credential-libsecret` (Linux), `git-credential-osxkeychain` (macOS), `git-credential-wincred` (Windows), and **Git Credential Manager** ("cross platform, included in Git for Windows"). The `store` helper's own page states that it "will store your passwords unencrypted on disk", and that its `.git-credentials` file "is stored in plaintext". How each of the others stores its secrets was not tested here.
 
 ---
 
@@ -353,11 +384,9 @@ The file already holds 2.95, without markers. The status still says `UU` (unmerg
 
 ## 32.6 What is not covered
 
-- **Merge strategies and drivers** (`git merge -s` and `-X`, custom merge drivers).
-- **`git maintenance`**, the scheduled housekeeping (Chapter 30<!--ref:objects--> showed `git gc`).
-- **Server-side hooks**, and the many other hook types.
-
-> **Verification pending [R212].** None of these was run for this chapter. They must be tested, or dropped, before the chapter is finished.
+- **Custom merge drivers**, and `git maintenance start` (which installs a schedule on your computer).
+- **Server-side hooks**: listed above, but not run.
+- **Credential helpers other than `store`**, which depend on your operating system.
 
 ---
 
@@ -416,11 +445,12 @@ You are ready for Chapter 33<!--ref:gitsec--> if you can:
 | Claim | Evidence class | Ledger |
 |---|---|---|
 | Aliases, including a `!` alias and `git help <alias>` | Locally tested: Bash 5.2 and zsh 5.9, Git 2.43.0; CI on Git 2.55.0 | R208 |
-| `pre-commit` blocks a commit; `--no-verify`; hooks not cloned | Locally tested (as above) | R209 |
-| `.gitattributes`, `check-attr`, `ls-files --eol`, CRLF warning | Locally tested (as above) | R210 |
-| `credential approve/fill/reject` with the `store` helper | Locally tested (as above), made-up credential only | R211 |
+| `pre-commit` and `commit-msg` hooks block a commit; `--no-verify`; hooks not cloned | Locally tested (as above); hook list checked against the `githooks` documentation (Git 2.56.0) | R209 |
+| `.gitattributes`, `check-attr`, `ls-files --eol`, CRLF warning | Locally tested (as above); `text`, `eol` and `core.autocrlf` checked against the documentation | R210 |
+| `credential approve/fill/reject` with the `store` helper | Locally tested (as above), made-up credential only; the list of helpers and the plain-text warning checked against the documentation | R211 |
 | `rerere` recording and reuse | Locally tested (as above) | R208 |
-| Other hook types, merge strategies, `maintenance`, OS credential helpers | **Not tested** | R212 |
+| `merge -X theirs`, `merge -s ours`, `maintenance run --task=commit-graph` and `--task=gc` | Locally tested (as above); the task list checked against the `git maintenance` documentation | R212 |
+| Merge drivers, `maintenance start`, server-side hooks, OS credential helpers | **Not run** | R212 |
 
 ## Where this leads
 

@@ -1,0 +1,29 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ cd bakery-menu
+$ git switch -q -c tea
+$ printf -- '- Tea: 1.50\n' >> menu.md
+$ git commit -qam "Add tea"
+$ git format-patch -q -1 HEAD
+$ git switch -q main
+$ printf -- '- Bagels: 1.20\n' >> menu.md
+$ git commit -qam "Add bagels"
+$ git am 0001-Add-tea.patch
+Applying: Add tea
+error: patch failed: menu.md:3
+error: menu.md: patch does not apply
+Patch failed at 0001 Add tea
+hint: Use 'git am --show-current-patch=diff' to see the failed patch
+hint: When you have resolved this problem, run "git am --continue".
+hint: If you prefer to skip this patch, run "git am --skip" instead.
+hint: To restore the original branch and stop patching, run "git am --abort".
+hint: Disable this message with "git config set advice.mergeConflict false"
+$ git status --short
+?? 0001-Add-tea.patch
+$ git am --abort
+$ git status --short
+?? 0001-Add-tea.patch
+$ git log --oneline -2
+85fe3dd (HEAD -> main) Add bagels
+81f772e Add coconut cake

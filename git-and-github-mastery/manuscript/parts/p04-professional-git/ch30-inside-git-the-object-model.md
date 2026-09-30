@@ -100,7 +100,7 @@ sha1
 
 *Recorded in Bash; `ch30-objects/expected-blob.bash.txt`.*
 
-> **Verification pending [R202].** `sha1` is what these versions of Git use by default. Git has support for a different hash function (SHA-256), and the plans and status for changing the default were not checked. The official documentation could not be reached. Treat "SHA-1" as the current default in the tested versions, not as a permanent fact.
+> **Checked against the documentation (Git 2.56.0, R202).** SHA-1 is the default object format in the versions tested. Git's own document on planned breaking changes, in its section on Git 3.0, says that "the default hash function for new repositories will be changed from "sha1" to "sha256"", and gives as the reason that "SHA-1 has been deprecated by NIST in 2011" (it also plans the "reftable" reference format and the default branch name `main` for new repositories). Those are *plans* for a future version, not a description of today's default. A SHA-256 repository "cannot be read by older versions of Git", and the project's transition document says that SHA-256 was picked in late 2018 as SHA-1's successor. So: treat "SHA-1" as the current default, expect it to change, and never write a script that depends on the length of a hash.
 
 ---
 
@@ -342,7 +342,7 @@ White loaf: 2.80
 
 Git runs this kind of housekeeping on its own from time to time, so you rarely need to.
 
-> **Verification pending [R201].** How long Git keeps unreachable objects before `gc` deletes them, and when Git runs `gc` automatically, were not checked (the official documentation could not be reached). Chapter 26<!--ref:reflog--> gives the practical rule: recover soon.
+> **Checked against the documentation (Git 2.56.0, R201).** `git gc` "will call `prune --expire 2.weeks.ago`": unreachable objects younger than **two weeks** are kept (the setting is `gc.pruneExpire`). Git also runs a light-weight `git gc --auto` "from time to time" from some commands: it packs the loose objects when there are "approximately more than" **6700** of them (`gc.auto`), and consolidates packs when there are more than **50** (`gc.autoPackLimit`). Chapter 26<!--ref:reflog--> gives the reflog's own expiry periods (90 and 30 days) and the practical rule: recover soon.
 
 ---
 
@@ -474,7 +474,7 @@ You are ready for Chapter 31<!--ref:bigrepos--> if you can:
 | `hash-object`, `cat-file`, loose storage, hash = SHA-1 of header plus content | Locally tested: Bash 5.2 and zsh 5.9, Git 2.43.0; CI on Git 2.55.0 (the hash was also recomputed with `sha1sum`) | R199 |
 | Commit, tree, `ls-tree`, index, refs, tag objects | Locally tested (as above) | R200 |
 | Packfiles, `gc`, `fsck`, dangling objects, `archive` | Locally tested (as above) | R201 |
-| Default hash function, `gc` timing | **Not verified** (official source blocked) | R202 |
+| Default hash function and the planned change in Git 3.0; `gc` grace period and automatic `gc` thresholds | Checked against the Git 2.56.0 documentation (`BreakingChanges`, `technical/hash-function-transition`, `config/gc`) | R201, R202 |
 
 ## Where this leads
 

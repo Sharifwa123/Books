@@ -122,7 +122,7 @@ So `.gitignore` is a safety net for mistakes, not a lock. Add a few more habits:
 - **A hook** can check for obvious secrets before a commit (Chapter 32<!--ref:custom-->), but it can be skipped, so it does not replace the habits above.
 - **Give each token the least power that works**, and a short life. A stolen token with little power does little harm.
 
-> **Verification pending [R214].** Automatic secret scanning by hosting platforms (what it detects, whether it blocks a push, which plans include it) is time-sensitive and was not verified. Chapter 62<!--ref:ghsec--> covers it when its facts are checked.
+> **Checked against GitHub's documentation (R214).** GitHub's secret-scanning documentation says it "scans your entire Git history on all branches of your repository for hardcoded credentials", raises an alert, and advises: "rotate the affected credential immediately"; removing a secret from the history "is time-intensive and often unnecessary if you've already revoked the credential". **Push protection** "blocks pushes that contain secrets before they reach your repository", including command-line pushes; for repositories it "is disabled by default" and "requires GitHub Secret Protection to be enabled", while push protection *for users* "is enabled by default" and stops you from pushing secrets to public repositories. On branches, GitHub's documentation says a protected-branch rule blocks force pushes and deletion by default. Which plans include each feature is time-sensitive and was not checked. Chapter 62<!--ref:ghsec--> covers it.
 
 ---
 
@@ -167,7 +167,7 @@ $ git log --all --oneline -S"not-a-real-key"
 
 *Recorded in Bash; `ch33-security/expected-history-rewrite.bash.txt`.*
 
-> **Verification pending [R215].** The statement that Git's documentation recommends `git-filter-repo` over `filter-branch`, and its current status, were not verified against the official documentation (it could not be reached). The tool was run only on a repository with no remote. On a repository with a remote, `git-filter-repo` behaves differently (it removes the remote by default as a safety measure; this was **not run**), and you would have to push the rewritten history, which is a forced push (section 33.5).
+> **Checked against the documentation (R215).** The `git filter-branch` manual page (Git 2.56.0) opens with a WARNING: the command "has a plethora of pitfalls", its "safety and performance issues cannot be backward compatibly fixed", "its use is not recommended", and it asks readers to "use an alternative history filtering tool such as git filter-repo". The `git-filter-repo` manual (version 2.47.0) says the tool aborts "if run from a repo that is not a fresh clone", and that by default it removes the `origin` remote (its `--force` option disables that check). The tool here was run only on a repository with no remote; on a repository with a remote, the rewritten history has to be pushed, which is a forced push (section 33.5).
 
 What a rewrite does **not** do:
 
@@ -220,7 +220,7 @@ Two things a signature proves, and two that it does not:
 
 Chapter 14<!--ref:config--> showed the other side: what happens if signing is switched on but the key is unavailable. Git can also sign with an SSH key; Chapter 38<!--ref:ghauth--> runs that (with a demonstration key). The way hosting platforms show a "verified" mark was **not** run.
 
-> **Verification pending [R216].** How hosting platforms decide and display "Verified" is not verified. SSH-key signing on the Git side is in Chapter 38<!--ref:ghauth-->; the platform side will be covered in Chapter 38<!--ref:ghauth--> and Chapter 62<!--ref:ghsec--> after checking.
+> **Checked against GitHub's documentation (R216).** GitHub marks a commit or tag with a verifiable GPG, SSH or S/MIME signature "Verified" (or "Partially verified"); the default statuses are Verified, Unverified and none for an unsigned commit; and "vigilant mode" is off by default. SSH-key signing on the Git side is in Chapter 38<!--ref:ghauth-->, with the platform side.
 
 ---
 
@@ -317,9 +317,9 @@ You are ready for Chapter 34<!--ref:workflows--> if you can:
 |---|---|---|
 | A deleted secret is still in history; `git log -S` finds it | Locally tested: Bash 5.2 and zsh 5.9, Git 2.43.0; CI on Git 2.55.0 | R213 |
 | `.gitignore`, `check-ignore`, `add` refusal and `-f` | Locally tested (as above) | R213 |
-| `git filter-repo` removes a path from all history (no remote) | Locally tested with git-filter-repo 2.47.0 (also installed in CI) | R215 |
+| `git filter-repo` removes a path from all history (no remote); `filter-branch` not recommended | Locally tested with git-filter-repo 2.47.0 (also installed in CI); warning text and fresh-clone rule checked in the manuals | R215 |
 | GPG-signed commit shows `G`; unsigned shows `N` | Locally tested with GnuPG and a throw-away key | R216 |
-| Platform secret scanning, protections, "Verified" marks, recommendations in the official documentation | **Not verified** | R214, R216 |
+| Platform secret scanning, push protection, protected branches, "Verified" marks | Checked against `github/docs` (commit `2eaab0b`); plans and prices not checked; not run on a live account | R214, R216 |
 | SSH-key signing | Run in Chapter 38<!--ref:ghauth--> (Git side only) | R236 |
 | Supply-chain and incident guidance | General practice, **not tested**; no incident named | R217 |
 

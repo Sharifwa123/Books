@@ -1,0 +1,16 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ cd bakery-menu
+$ printf '#!/bin/sh\nif [ "$(wc -c < "$1")" -lt 12 ]; then\n  echo "commit-msg: message is too short"\n  exit 1\nfi\n' > .git/hooks/commit-msg
+$ chmod +x .git/hooks/commit-msg
+$ printf -- '- Tea: 1.50\n' >> menu.md
+$ git commit -am "Tea"; echo "exit status: $?"
+commit-msg: message is too short
+exit status: 1
+$ git commit -am "Add tea to the menu"
+[main a1ed54d] Add tea to the menu
+ 1 file changed, 1 insertion(+)
+$ git log --oneline -2
+a1ed54d (HEAD -> main) Add tea to the menu
+81f772e Add coconut cake

@@ -211,9 +211,9 @@ done.
 
 *Recorded in Bash; `ch31-bigrepos/expected-submodule.bash.txt`.*
 
-> **⚠️ CAUTION.** Do not switch this protection off permanently (`protocol.file.allow=always` in your global configuration) just to make a local demonstration convenient. The rule exists because a repository with a malicious submodule could otherwise make Git read files from your computer.
+> **⚠️ CAUTION.** Do not switch this protection off permanently (`protocol.file.allow=always` in your global configuration) just to make a local demonstration convenient. The rule exists because cloning a malicious local repository can place unexpected files inside your repository's Git folder (see the documentation note below).
 
-> **Verification pending [R205].** The reason for that rule, and the Git versions in which it appeared, come from general knowledge; the official release notes could not be reached. The behaviour itself, the failure and the override, was recorded.
+> **Checked against the documentation (Git 2.56.0, R205).** Git's `protocol.allow` documentation says that, by default, "known-safe protocols (http, https, git, ssh) have a default policy of `always`", while "all other protocols (including file) have a default policy of `user`". The `user` policy means that a protocol "is only able to be used when `GIT_PROTOCOL_FROM_USER` is either unset or has a value of 1", and that it is meant for protocols that you use directly but that you do not want used "by commands which execute clone/fetch/push commands without user input, e.g. recursive submodule initialization". The rule came with the security fix for **CVE-2022-39253** (Git 2.30.6 and later releases, including 2.38.1): the release notes say that "the value of `protocol.file.allow` is changed to be `user` by default", and that cloning from a malicious *local* repository could place "arbitrary files" in the new repository's `$GIT_DIR`. That is the reason for the refusal above.
 
 Now the state:
 
@@ -249,9 +249,66 @@ $ git ls-tree -r HEAD
 
 Look at the last line: the submodule is recorded as `160000 commit 2e4ae70...`. A submodule is not a folder of files in the outer repository; it is **a pointer to one commit** of the other repository. That is what "pinning a version" means, and it is why a submodule does not change on its own when the library changes.
 
-**Warnings.** Submodules add work: after cloning, people must fetch their contents (a `--recurse-submodules` option exists), and updating a submodule is a separate commit in the outer project. They were not exercised beyond the recording above, and are a common source of confusion; use them when you truly need to pin another repository.
+**Warnings.** Submodules add work: after cloning, people must fetch their contents (the option `--recurse-submodules` does it), and updating a submodule is a separate commit in the outer project. They are a common source of confusion; use them when you truly need to pin another repository. The whole life cycle, recorded (the same `-c protocol.file.allow=always` is needed here only because the "remote" is a local folder). The library was added, committed, and then the project was cloned **with** `--recurse-submodules`:
 
-> **Verification pending [R206].** Cloning with submodules, updating them, and removing one were not run for this chapter.
+```text
+$ cd bakery-menu
+$ git -c protocol.file.allow=always submodule add -q ../lib-repo vendor/lib
+$ git commit -qm "Add the lib submodule"
+$ cd ..
+$ git -c protocol.file.allow=always clone -q --recurse-submodules bakery-menu bakery-copy
+$ cd bakery-copy
+$ git submodule status
+ 2e4ae7032781338fb40d5d24c3d4e709ac2eea22 vendor/lib (heads/main)
+$ ls vendor/lib
+lib.txt
+```
+
+*Recorded in Bash; `ch31-bigrepos/expected-submodule-flow.bash.txt`.*
+
+The clone has the library's files (`lib.txt`) at the pinned commit. Now the library gets a new commit, and the project updates its submodule to the library's newest commit with `git submodule update --remote`:
+
+```text
+$ cd ../lib-repo
+$ printf 'more shared code\n' >> lib.txt
+$ git commit -qam "Update lib"
+$ cd ../bakery-copy
+$ git -c protocol.file.allow=always submodule update --remote vendor/lib
+From /home/learner/lib-repo
+   2e4ae70..41273bf  main       -> origin/main
+Submodule path 'vendor/lib': checked out '41273bf3125415fc50ec5b8cbdb76d5821d39af7'
+```
+
+*Recorded in Bash; `ch31-bigrepos/expected-submodule-flow.bash.txt`.*
+
+The outer project sees that the submodule pointer changed (` M vendor/lib`); the change has to be **committed**, so that the project pins the newer version:
+
+```text
+$ git status --short
+ M vendor/lib
+$ git commit -qam "Use the newer lib"
+```
+
+*Recorded in Bash; `ch31-bigrepos/expected-submodule-flow.bash.txt`.*
+
+To **remove** a submodule, unregister it and delete it from the project, then commit:
+
+```text
+$ git submodule deinit -f vendor/lib
+Cleared directory 'vendor/lib'
+Submodule 'vendor/lib' (../lib-repo) unregistered for path 'vendor/lib'
+$ git rm -q -f vendor/lib
+$ git commit -qm "Remove the lib submodule"
+$ git ls-files
+.gitmodules
+menu.md
+```
+
+*Recorded in Bash; `ch31-bigrepos/expected-submodule-flow.bash.txt`.*
+
+`.gitmodules` remains in the list of files (now empty of submodule entries), and the library is gone from the project.
+
+> **Checked by running it (R206).** The clone, update and removal above were run in Bash and zsh (Git 2.43.0; CI on 2.55.0). Git's `git submodule` documentation was checked for the commands `update --remote` and `deinit` (Git 2.56.0). Removing a submodule leaves some history behind (the module's Git data can remain in `.git/modules`); this was not investigated.
 
 ---
 
@@ -314,17 +371,74 @@ The repository holds only a three-line **pointer**: a version, a hash (`oid`) an
 
 > **⚠️ CAUTION.** A file committed *before* LFS tracking is already in the history and stays there. Setting up LFS afterwards does not shrink the repository. And the hosting platform may limit LFS storage or bandwidth, which is time-sensitive information that was not checked (Chapter 36<!--ref:whatgh--> returns to platform limits).
 
-> **Verification pending [R207].** The pointer format, and LFS's interaction with hosting platforms, were recorded only locally. No push to an LFS server was run.
+> **Checked against the Git LFS specification (R207).** The specification (`docs/spec.md` in the Git LFS project) says that pointer files "MUST contain only UTF-8 characters", that "the first key is _always_ `version`", that the required keys are `version` (a URL), `oid` (a hash "prefixed by its hashing method"; "currently, only `sha256` is supported") and `size` (in bytes), and that a pointer must be "less than 1024 bytes". The recorded pointer matches that format. To convert files that are **already in the history**, Git LFS has `git lfs migrate import`; its documentation says that such conversions "rewrite your Git history", so the cautions of Chapter 33<!--ref:gitsec--> and Chapter 27<!--ref:rebase--> apply. No push to an LFS server was run, and hosting-platform limits are covered in the chapters on the platform.
 
 ---
 
 ## 31.6 What is not covered
 
-- **Partial clones** (`--filter=blob:none`), which download file contents on demand, and **subtrees** (`git subtree`), an alternative to submodules. Neither was run for this chapter.
+- **Partial clones** and **subtrees** are run below. **Monorepo** versus **multirepo** and **performance tuning** are design advice, not commands; they are described in general terms and not tested.
 - **Monorepo** (one big repository for many projects) versus **multirepo** (many small ones). This is a design decision, not a command. Each choice has costs: a monorepo has one history and one place to look, but grows large; many repositories stay small, but sharing code between them is harder.
 - **Performance tuning** of large repositories.
 
-> **Verification pending [R204].** All the statements in this section are general knowledge, and none was tested. They must be checked before this chapter is finished.
+### Partial clone
+
+A **partial clone** downloads the commits and trees but leaves out some file contents (blobs), fetching them only when needed. `git clone --filter=blob:none` asks the server for exactly that. The server must allow filters: Git's documentation for `uploadpack.allowFilter` says "if this option is set, `upload-pack` will support partial clone and partial fetch object filtering". Here the local "server" is set up to allow them, and the clone is made by its `file://` address:
+
+```text
+$ git clone -q --filter=blob:none file://$PWD/hub.git partial
+$ cd partial
+$ git config remote.origin.partialclonefilter
+blob:none
+$ git config extensions.partialclone
+$ git log --oneline
+81f772e (HEAD -> main, origin/main, origin/HEAD) Add coconut cake
+9f10b43 Raise the price of the white loaf
+8a52ffe Add the menu
+$ git cat-file -p HEAD:menu.md
+# Sunrise Bakery menu
+
+- White loaf: 2.80
+- Rolls (six): 3.00
+- Coconut cake (slice): 4.00
+```
+
+*Recorded in Bash; `ch31-bigrepos/expected-partial-clone.bash.txt`.*
+
+The clone records the filter in `remote.origin.partialclonefilter` (`blob:none`). The history is complete, and the first time a file's content is needed (here `git cat-file -p HEAD:menu.md`), Git fetches it on demand. Git's design notes call it "a performance optimization for Git that allows Git to function without having a complete copy of the repository", for "extremely large repositories". The documentation for `--filter` lists other forms, such as `blob:limit=<n>` and `object:type=`.
+
+> **⚠️ CAUTION.** A partial clone depends on the server being reachable later: commands that need a missing file will fetch it, and fail offline.
+
+### Subtree
+
+`git subtree` is an alternative to submodules: the other project's files are copied **into** yours, and its history is either merged or squashed. It is a separate command, from Git's `contrib` collection, and is included in many installations (check with `git subtree`). Adding the library as a squashed subtree:
+
+```text
+$ cd bakery-menu
+$ git subtree add -q --prefix=vendor/lib ../lib-repo main --squash
+git fetch ../lib-repo main
+From ../lib-repo
+ * branch            main       -> FETCH_HEAD
+$ ls vendor/lib
+lib.txt
+```
+
+*Recorded in Bash; `ch31-bigrepos/expected-subtree.bash.txt`.*
+
+The files are now ordinary files of the outer project, not a pointer:
+
+```text
+$ git log --oneline
+75db5cc (HEAD -> main) Merge commit '3747446675b9f9036312d68ab8f0bd7e40fc9c87' as 'vendor/lib'
+3747446 Squashed 'vendor/lib/' content from commit 2e4ae70
+81f772e Add coconut cake
+9f10b43 Raise the price of the white loaf
+8a52ffe Add the menu
+```
+
+*Recorded in Bash; `ch31-bigrepos/expected-subtree.bash.txt`.*
+
+The log shows a squashed commit (the library's content at one commit) and a merge commit that puts it under `vendor/lib`. Git's `git-subtree` documentation describes `add`, `merge`, `pull`, `push` and `split`; only `add` was run here. Compared with a submodule, a subtree needs no extra clone step for other people, but the library's history is mixed into your own or squashed.
 
 ---
 
@@ -384,10 +498,11 @@ You are ready for Chapter 32<!--ref:custom--> if you can:
 |---|---|---|
 | Worktree add, list, remove | Locally tested: Bash 5.2 and zsh 5.9, Git 2.43.0; CI on Git 2.55.0 | R203 |
 | Shallow clone, unshallow; sparse checkout | Locally tested (as above), with local bare repositories | R203 |
-| Submodule add, the `file` transport refusal, `.gitmodules`, mode 160000 | Locally tested (as above); the reason and versions **not verified** | R205 |
-| Git LFS install, track, pointer file | Locally tested with git-lfs 3.4.1 (CI: runner's git-lfs); no LFS server | R207 |
-| Partial clone, subtree, monorepo trade-offs | **Not tested** | R204 |
-| Submodule clone, update, removal | **Not run** | R206 |
+| Submodule add, the `file` transport refusal, `.gitmodules`, mode 160000 | Locally tested (as above); the reason and the release that introduced the rule checked against the Git documentation and the 2.30.6 release notes | R205 |
+| Git LFS install, track, pointer file | Locally tested with git-lfs 3.4.1 (CI: runner's git-lfs), and the pointer format checked against the Git LFS specification; no LFS server | R207 |
+| Partial clone (`--filter=blob:none`) and `git subtree add` | Locally tested (as above); checked against the Git 2.56.0 documentation | R204 |
+| Monorepo versus multirepo; performance tuning | General advice, **not tested** | R204 |
+| Submodule clone (`--recurse-submodules`), `update --remote`, `deinit` and removal | Locally tested (as above) | R206 |
 
 ## Where this leads
 

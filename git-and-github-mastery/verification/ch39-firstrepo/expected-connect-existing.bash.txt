@@ -1,0 +1,14 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ cd bakery-menu
+$ git branch -M main
+$ git remote add origin ../new-repo.git
+$ git push -u origin main
+To ../new-repo.git
+ * [new branch]      main -> main
+branch 'main' set up to track 'origin/main'.
+$ git branch -vv
+* main 81f772e [origin/main] Add coconut cake
+$ git ls-remote --heads origin
+81f772ee32b93d8fcf80dbb34ab74053b69d97a2	refs/heads/main

@@ -398,7 +398,63 @@ The revert commit removes one line, exactly what the original added.
 
 Because it only *adds* to history, `git revert` is the safe choice for anything already shared. Anyone who pulls receives the correction like any other commit.
 
-> **Verification pending [R186].** How `git revert` behaves with an *empty* commit, and with merge commits (which need `-m`), was not characterised well enough to teach. It is deliberately not covered here.
+### Reverting a merge commit
+
+A merge commit has **two parents** (Chapter 21<!--ref:merging-->), so "undo this commit" is ambiguous: undo the changes relative to which parent? Git refuses to guess. Here a branch `add-tea` was merged into `main` with a merge commit, and the first attempt to revert it fails:
+
+```text
+$ git switch -q -c add-tea
+$ printf -- '- Tea: 1.50\n' >> menu.md
+$ git commit -qam "Add tea"
+$ git switch -q main
+$ printf 'Open Monday to Saturday.\n' > hours.md
+$ git add hours.md
+$ git commit -qm "Add opening hours"
+$ git merge -q --no-ff --no-edit add-tea
+$ git revert --no-edit HEAD
+error: commit 0f412999532a95752723706687e3813749d8e86b is a merge but no -m option was given.
+fatal: revert failed
+```
+
+*Recorded in Bash; `ch25-undo/expected-revert-merge.bash.txt`.*
+
+`is a merge but no -m option was given`. The option `-m` (`--mainline`) names the parent that counts as the **mainline**, numbered from 1. For a merge made *on `main`*, parent 1 is the side you were on (`main`), so `-m 1` means "go back to how `main` was before the merge":
+
+```text
+$ git revert --no-edit -m 1 HEAD
+[main f999f2d] Revert "Merge branch 'add-tea'"
+ Date: Mon Jan 5 09:16:00 2026 +0000
+ 1 file changed, 1 deletion(-)
+```
+
+*Recorded in Bash; `ch25-undo/expected-revert-merge.bash.txt`.*
+
+The result:
+
+```text
+$ git log --oneline
+f999f2d (HEAD -> main) Revert "Merge branch 'add-tea'"
+0f41299 Merge branch 'add-tea'
+1e5eef8 Add opening hours
+73ad7ed (add-tea) Add tea
+81f772e Add coconut cake
+9f10b43 Raise the price of the white loaf
+8a52ffe Add the menu
+$ cat menu.md
+# Sunrise Bakery menu
+
+- White loaf: 2.80
+- Rolls (six): 3.00
+- Coconut cake (slice): 4.00
+```
+
+*Recorded in Bash; `ch25-undo/expected-revert-merge.bash.txt`.*
+
+The tea line is gone from `menu.md`, and the history shows both the merge and its reversal.
+
+> **⚠️ CAUTION.** Git's documentation warns that reverting a merge "declares that you will never want the tree changes brought in by the merge": later merges of the same branch will only bring in commits that are not ancestors of the reverted merge. That may or may not be what you want, and it is a good reason to think before you revert a merge.
+
+**Reverting an empty commit** (a commit that changes nothing) is not covered. The official `git revert` documentation says nothing about it, its behaviour was characterised locally in this book's research (Git 2.43.0 and 2.55.0, see the research folder), and there is no documented intent to teach from. The exercise stays blocked, as agreed.
 
 ---
 
@@ -480,7 +536,8 @@ You are ready for Chapter 26<!--ref:reflog--> if you can:
 |---|---|---|
 | `restore`, `restore --staged`, `restore --source` | Locally tested: Bash 5.2 and zsh 5.9, Git 2.43.0; CI on Git 2.55.0 | R184 |
 | `reset --soft/--mixed/--hard`, reflog recovery, loss of uncommitted work | Locally tested (as above); wording of the `Unstaged changes after reset` message may vary | R185 |
-| `revert` of an ordinary commit | Locally tested (as above); empty commits and merge commits not covered | R186 |
+| `revert` of an ordinary commit, and of a merge commit with `-m 1` | Locally tested (as above), and checked against the `git revert` documentation (Git 2.56.0) for `-m` and its warning | R186 |
+| `revert` of an empty commit | Behaviour characterised in the research folder; **documentation is silent**; deliberately not taught | R186 |
 
 ## Where this leads
 

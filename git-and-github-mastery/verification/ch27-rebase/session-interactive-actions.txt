@@ -1,0 +1,21 @@
+#!git
+git config --global user.name "Ada Learner"
+git config --global user.email "ada@example.org"
+git config --global init.defaultBranch main
+@ mkdir bakery-menu && cd bakery-menu && git init -q && printf "# Sunrise Bakery menu\n\n- White loaf: 2.50\n- Rolls (six): 3.00\n" > menu.md && git add menu.md && git commit -q -m "Add the menu" && printf "# Sunrise Bakery menu\n\n- White loaf: 2.80\n- Rolls (six): 3.00\n" > menu.md && git commit -q -am "Raise the price of the white loaf" && printf "# Sunrise Bakery menu\n\n- White loaf: 2.80\n- Rolls (six): 3.00\n- Coconut cake (slice): 4.00\n" > menu.md && git commit -q -am "Add coconut cake" && cd ..
+cd bakery-menu
+printf -- '- Tea: 1.50\n' >> menu.md
+git commit -qam "Add tea"
+printf 'Coffee: 2.00\n' > coffee.md
+git add coffee.md
+git commit -qm "Add coffee"
+printf 'Juice: 2.20\n' > juice.md
+git add juice.md
+git commit -qm "Add juice"
+git log --oneline -3
+GIT_SEQUENCE_EDITOR="sed -i '2s/^pick/drop/'" git rebase -i HEAD~3
+git log --oneline -3
+GIT_SEQUENCE_EDITOR="sed -i '1{h;d};\$G'" git rebase -i HEAD~2
+git log --oneline -3
+GIT_SEQUENCE_EDITOR="sed -i '1s/^pick/reword/'" GIT_EDITOR="sed -i '1s/.*/Add juice to the drinks menu/'" git rebase -i HEAD~2
+git log --oneline -3

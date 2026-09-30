@@ -1,0 +1,48 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ cd bakery-menu
+$ printf -- '- Tea: 1.50\n' >> menu.md
+$ git commit -qam "Add tea"
+$ printf -- '- Coffee: 2.00\n' >> menu.md
+$ git commit -qam "Add coffee"
+$ printf -- '- Mystery pie: 0.01\n' >> menu.md
+$ git commit -qam "Add a mystery pie"
+$ printf -- '- Juice: 2.20\n' >> menu.md
+$ git commit -qam "Add juice"
+$ printf -- '- Scones: 1.80\n' >> menu.md
+$ git commit -qam "Add scones"
+$ git bisect start
+status: waiting for both 'good' and 'bad' commits
+$ git bisect bad
+status: waiting for 'good' commit(s), 'bad' commit known
+$ git bisect good HEAD~5
+Bisecting: 2 revisions left to test after this (roughly 1 step)
+[bf6d06696d870f97a07b7fc658a78580e0976059] Add coffee
+$ grep -c Mystery menu.md
+0
+$ git bisect good
+Bisecting: 0 revisions left to test after this (roughly 1 step)
+[59d1a45ac75c3ce66c8226746cdb12c9cf8f311a] Add juice
+$ grep -c Mystery menu.md
+1
+$ git bisect bad
+Bisecting: 0 revisions left to test after this (roughly 0 steps)
+[7a5ee8a1ad6ad0d61d041c66d9346164b5a51b96] Add a mystery pie
+$ grep -c Mystery menu.md
+1
+$ git bisect bad
+7a5ee8a1ad6ad0d61d041c66d9346164b5a51b96 is the first 'bad' commit
+commit 7a5ee8a1ad6ad0d61d041c66d9346164b5a51b96 (HEAD)
+Author: Ada Learner <ada@example.org>
+Date:   Mon Jan 5 09:11:00 2026 +0000
+
+    Add a mystery pie
+
+ menu.md | 1 +
+ 1 file changed, 1 insertion(+)
+$ git bisect log | grep -c '^git bisect'
+6
+$ git bisect reset
+Previous HEAD position was 7a5ee8a Add a mystery pie
+Switched to branch 'main'
