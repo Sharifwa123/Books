@@ -1,0 +1,24 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ mkdir -p .github
+$ printf 'github: [octocat, surftocat]\npatreon: octocat\ntidelift: npm/octo-package\ncustom: ["https://www.paypal.me/octocat", octocat.com]\n' > .github/FUNDING.yml
+$ cat .github/FUNDING.yml
+github: [octocat, surftocat]
+patreon: octocat
+tidelift: npm/octo-package
+custom: ["https://www.paypal.me/octocat", octocat.com]
+$ python3 fund.py .github/FUNDING.yml
+github 2
+patreon 1
+tidelift 1
+custom 2
+problems: none
+$ printf 'custom: [https://www.paypal.me/octocat, octocat.com]\n' > unquoted.yml
+$ python3 fund.py unquoted.yml
+custom 2
+problems: none
+$ printf 'custom: [a.example, b.example, c.example, d.example, e.example]\n' > toomany.yml
+$ python3 fund.py toomany.yml
+custom 5
+problems: ['more than four custom URLs']

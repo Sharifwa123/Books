@@ -1,0 +1,13 @@
+#!git
+git config --global user.name "Ada Learner"
+git config --global user.email "ada@example.org"
+git config --global init.defaultBranch main
+@ printf %s aW1wb3J0IHN5cywgeWFtbApkID0geWFtbC5zYWZlX2xvYWQob3BlbihzeXMuYXJndlsxXSkpCmRlZiBjb3VudCh2KToKICAgIHJldHVybiBsZW4odikgaWYgaXNpbnN0YW5jZSh2LCBsaXN0KSBlbHNlIDEKZm9yIGtleSwgdmFsdWUgaW4gZC5pdGVtcygpOgogICAgcHJpbnQoa2V5LCBjb3VudCh2YWx1ZSkpCnByb2JsZW1zID0gW10KaWYgY291bnQoZC5nZXQoImdpdGh1YiIsIFtdKSkgPiA0OiBwcm9ibGVtcy5hcHBlbmQoIm1vcmUgdGhhbiBmb3VyIHNwb25zb3JlZCBkZXZlbG9wZXJzIikKaWYgY291bnQoZC5nZXQoImN1c3RvbSIsIFtdKSkgPiA0OiBwcm9ibGVtcy5hcHBlbmQoIm1vcmUgdGhhbiBmb3VyIGN1c3RvbSBVUkxzIikKcHJpbnQoInByb2JsZW1zOiIsIHByb2JsZW1zIG9yICJub25lIikK | base64 -d > fund.py
+mkdir -p .github
+printf 'github: [octocat, surftocat]\npatreon: octocat\ntidelift: npm/octo-package\ncustom: ["https://www.paypal.me/octocat", octocat.com]\n' > .github/FUNDING.yml
+cat .github/FUNDING.yml
+python3 fund.py .github/FUNDING.yml
+printf 'custom: [https://www.paypal.me/octocat, octocat.com]\n' > unquoted.yml
+python3 fund.py unquoted.yml
+printf 'custom: [a.example, b.example, c.example, d.example, e.example]\n' > toomany.yml
+python3 fund.py toomany.yml
