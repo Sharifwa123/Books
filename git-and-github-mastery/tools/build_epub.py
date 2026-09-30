@@ -143,6 +143,7 @@ opf = f'''<?xml version="1.0" encoding="utf-8"?>
 <dc:creator id="a1">{AUTHOR}</dc:creator><meta refines="#a1" property="role" scheme="marc:relators">aut</meta>
 <dc:language>en-GB</dc:language>
 <dc:publisher>SHARIF TECHNOLOGIES</dc:publisher>
+<dc:contributor>Claude (AI assistant by Anthropic, used through Claude Code): drafting, research, code and build tooling, under the author's direction</dc:contributor>
 <dc:rights>Copyright © 2026 SHARIF TECHNOLOGIES. Text: CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/). Code samples: MIT License. Third-party material is not covered.</dc:rights>
 <dc:subject>Git</dc:subject><dc:subject>GitHub</dc:subject><dc:subject>Version control</dc:subject><dc:subject>GitHub Actions</dc:subject><dc:subject>Open source</dc:subject>
 <dc:description>{html.escape(SUB)}</dc:description>

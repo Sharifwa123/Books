@@ -42,6 +42,10 @@ The licence applies only to material for which the stated rights holder has auth
 
 This licensing notice is a plain-language summary and does not replace the terms of the applicable Creative Commons or MIT licence.
 
+## AI assistance
+
+This book was written with the help of an AI assistant, Claude, made by Anthropic and used through Claude Code, working with the author, Sharif Tingane Issah, who set the goals and rules and is responsible for the book. The assistant drafted the text, exercises, solutions and code, ran and recorded the commands, did the research and checking, built the editions and drew the draft cover. The Preface and Appendix N give the details; the repository's history credits the assistant as contributor and co-author.
+
 ## What the licence does and does not mean
 
 **The book is copyrighted.** It is not "copyright-free", not in the public domain and not owned by everyone. Making a book free to read or to download does not remove copyright; a licence is a set of permissions that the rights holder grants. Keep these questions apart, as Chapter [[licences]] teaches: who owns the work; whether you may read it, download it, redistribute it, modify it, use it commercially, or reuse its code. For this book the answers are: the rights holder is named above; you may read and download it; you may redistribute and adapt the text for noncommercial purposes under the conditions of the licence; commercial use needs permission; and the code examples may be reused under the MIT License.
@@ -108,6 +112,14 @@ The book follows a small set of rules, written down before the chapters:
 
 **What this book did not do.** Nothing was run on a live GitHub account by hand: statements about GitHub come from its documentation, and every chapter says so. Windows and macOS environments were not available for testing. Appendix N lists exactly what was checked, with what, and what is still open.
 
+## How this book was made, and the part AI played
+
+This book was written with an AI assistant. The assistant is Claude, made by Anthropic and used through Claude Code, working in sessions with the author, Sharif Tingane Issah. The author set the goals, the scope and the rules that the book follows (run the commands, label the evidence, invent nothing), chose the licences and the imprint name, approved the plan, and is responsible for the book.
+
+The assistant did the work of **every area** of the book: it drafted the chapters, the exercises, the solutions, the glossary and the appendices; wrote the code samples and the scripts; ran the commands in a sandbox and recorded the output printed here; searched and read the official sources and kept the research ledger; read the whole book for errors; built the PDF and EPUB editions and the automatic checks; drew the draft cover and the diagrams; and drafted the author information and the licensing pages. It also made most of the commits in the project's repository, which therefore lists Claude as a contributor and co-author.
+
+What that means for you: the recorded output is real output from a sandbox, not from a live GitHub account, Windows or macOS, and the book says so where it matters. An AI assistant can be wrong, which is one reason the book labels how each claim was checked and lists what could not be checked (Appendix N). The full statement, area by area, is in the file `AI-ASSISTANCE.md` of the companion repository.
+
 ## A word on trust
 
 Use the book the way it asks you to use everything else: run the commands, read the output, look at the date and compare with the current documentation. If you find that something differs, trust the source and let the book's ledger tell you where its claim came from.
@@ -154,9 +166,9 @@ w("manuscript/back-matter/author-and-publisher.md", """# Author and Publisher
 
 Sharif Tingane Issah is the founder of SHARIF TECHNOLOGIES, the name under which Sharif writes and publishes software and books. Based in Ghana, Sharif describes the work on a public GitHub profile as software, artificial intelligence and cybersecurity, with the aim of building practical technology.
 
-One project is Sharif NOVA, a programming language and toolchain that Sharif began as an independent project. It has an interpreter, a compiler for web pages and a web server mode, is released under the MIT licence, and was published on npm in September 2026. It is still at an early version number, and this note makes no claim about its use by others.
+One project is Sharif NOVA, a programming language and toolchain that Sharif began as an independent project. It has an interpreter, a compiler for web pages and a web server mode, is released under the MIT licence, and was published on npm in September 2026. It is still at an early version number; no claim is made about its use by others.
 
-This book comes from the same habit. Every command in it was run and recorded, every statement about Git or GitHub is tied to the source it was checked against, and what could not be checked is written down. The working record is published beside the book, in its repository, so that readers can follow it.
+This book comes from the same habit. Every command in it was run and recorded, each statement about Git or GitHub is tied to its source, and what could not be checked is written down. The book was written with the help of an AI assistant, Claude, and says so on its copyright page. The working record, including the assistant's commits, is published beside the book, in its repository, so that readers can follow it.
 
 ## The imprint
 
@@ -165,6 +177,10 @@ This book comes from the same habit. Every command in it was run and recorded, e
 *Knowledge Is Power*
 
 Website: www.shariftechnologies.online
+
+## AI assistance
+
+This book was written with the help of an AI assistant, Claude, made by Anthropic, working under the author's direction. Appendix N and the Preface say what the assistant did.
 
 ## Final competency checklist
 

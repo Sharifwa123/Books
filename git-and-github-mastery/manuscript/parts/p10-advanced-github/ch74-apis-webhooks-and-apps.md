@@ -48,7 +48,7 @@ curl --include --request GET \
   --header "Accept: application/vnd.github+json"
 ```
 
-`--include` shows the response headers, which matter, as the next sections show. **An equivalent read-only request for the commits of this book's repository, asking for one item per page, was made by the author** (the API was reached through the session's proxy). Observed:
+`--include` shows the response headers, which matter, as the next sections show. **An equivalent read-only request for the commits of this book's repository, asking for one item per page, was made from the authoring environment** (the API was reached through the session's proxy). Observed:
 
 - Status **200** and a JSON list with one item; each item had the keys `sha`, `commit`, `author`, `committer`, `parents`, `url`, `html_url` and others.
 - A **`Link`** header holding a `rel="next"` and a `rel="last"` address, because there were more pages than the one that was returned (section 74.3).
