@@ -1,0 +1,47 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ sh "$STARTER/../assessment/setup.sh"
+Assessment sandbox ready in /home/learner/assessment/work
+$ sh "$STARTER/../assessment/check.sh"
+== Proficient level
+FAIL P1 identity set in this repository
+FAIL P2 branch feature/tea with a commit adding tea
+FAIL P3 branch feature/tea pushed to the remote
+FAIL P4 debug.log ignored and not shown by status
+FAIL P5 conflict resolved on branch combined
+FAIL P6 bad commit reverted on main and pushed
+FAIL P7 annotated tag v1.1.0 at the tip of main, pushed
+FAIL P8 deleted branch precious recovered
+FAIL P9 SECURITY.md and CONTRIBUTING.md on main
+FAIL P10 workflow file with permissions, jobs and pinned actions
+== Mastery level (extra)
+FAIL M1 secret removed from all history, local and remote
+FAIL M2 first bad commit found and written down
+FAIL M3 shallow, sparse clone in slim
+FAIL M4 release notes for v1.0.0..v1.1.0
+FAIL M5 webhook signature computed
+Proficient: 0 of 10. Mastery extras: 0 of 5.
+Proficient level not yet reached (9 of 10 needed).
+$ sh "$STARTER/../../verification/ch81-assessment/solve-reference.sh"
+$ sh "$STARTER/../assessment/check.sh"
+== Proficient level
+PASS P1 identity set in this repository
+PASS P2 branch feature/tea with a commit adding tea
+PASS P3 branch feature/tea pushed to the remote
+PASS P4 debug.log ignored and not shown by status
+PASS P5 conflict resolved on branch combined
+PASS P6 bad commit reverted on main and pushed
+PASS P7 annotated tag v1.1.0 at the tip of main, pushed
+PASS P8 deleted branch precious recovered
+PASS P9 SECURITY.md and CONTRIBUTING.md on main
+PASS P10 workflow file with permissions, jobs and pinned actions
+== Mastery level (extra)
+PASS M1 secret removed from all history, local and remote
+PASS M2 first bad commit found and written down
+PASS M3 shallow, sparse clone in slim
+PASS M4 release notes for v1.0.0..v1.1.0
+PASS M5 webhook signature computed
+Proficient: 10 of 10. Mastery extras: 5 of 5.
+Proficient level reached.
+Mastery level reached.

@@ -1,0 +1,8 @@
+#!git
+git config --global user.name "Ada Learner"
+git config --global user.email "ada@example.org"
+git config --global init.defaultBranch main
+sh "$STARTER/../assessment/setup.sh"
+sh "$STARTER/../assessment/check.sh"
+sh "$STARTER/../../verification/ch81-assessment/solve-reference.sh"
+sh "$STARTER/../assessment/check.sh"
