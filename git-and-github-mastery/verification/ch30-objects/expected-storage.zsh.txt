@@ -1,0 +1,35 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ git init obj-demo
+Initialized empty Git repository in /home/learner/obj-demo/.git/
+$ cd obj-demo
+$ printf 'White loaf: 2.80\n' > menu.md
+$ git add menu.md
+$ git commit -m "Add menu"
+[main (root-commit) d2c521c] Add menu
+ 1 file changed, 1 insertion(+)
+ create mode 100644 menu.md
+$ printf 'White loaf: 2.90\n' > menu.md
+$ git commit -am "Raise the price"
+[main 4e686c1] Raise the price
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+$ printf 'White loaf: 3.00\n' > menu.md
+$ git commit -am "Raise the price again"
+[main 2171d29] Raise the price again
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+$ git count-objects -v | grep -E '^(count|in-pack|packs):'
+count: 9
+in-pack: 0
+packs: 0
+$ git gc -q
+$ git count-objects -v | grep -E '^(count|in-pack|packs):'
+count: 0
+in-pack: 9
+packs: 1
+$ git log --oneline
+2171d29 (HEAD -> main) Raise the price again
+4e686c1 Raise the price
+d2c521c Add menu
+$ git cat-file -p HEAD~2:menu.md
+White loaf: 2.80

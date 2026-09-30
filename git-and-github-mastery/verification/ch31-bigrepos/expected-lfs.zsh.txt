@@ -1,0 +1,24 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ cd bakery-menu
+$ git lfs install
+Updated Git hooks.
+Git LFS initialized.
+$ git lfs track "*.png"
+Tracking "*.png"
+$ cat .gitattributes
+*.png filter=lfs diff=lfs merge=lfs -text
+$ printf 'not really a picture' > logo.png
+$ git add .gitattributes logo.png
+$ git commit -m "Add logo"
+[main a21b8cd] Add logo
+ 2 files changed, 4 insertions(+)
+ create mode 100644 .gitattributes
+ create mode 100644 logo.png
+$ git lfs ls-files
+fe1a4ab1fb * logo.png
+$ git cat-file -p HEAD:logo.png
+version https://git-lfs.github.com/spec/v1
+oid sha256:fe1a4ab1fb6347036bead73597d5d2958b26ac0b96f68ca2f6dcee53a50f297e
+size 20

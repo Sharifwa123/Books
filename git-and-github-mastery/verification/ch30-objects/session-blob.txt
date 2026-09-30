@@ -1,0 +1,16 @@
+#!git
+git config --global user.name "Ada Learner"
+git config --global user.email "ada@example.org"
+git config --global init.defaultBranch main
+git init obj-demo
+cd obj-demo
+echo 'White loaf: 2.80' | git hash-object --stdin
+echo 'White loaf: 2.80' | git hash-object -w --stdin
+find .git/objects -type f
+git cat-file -t 28adfbf
+git cat-file -s 28adfbf
+git cat-file -p 28adfbf
+echo 'White loaf: 2.80' | git hash-object -w --stdin
+find .git/objects -type f | wc -l
+printf 'blob 17\0White loaf: 2.80\n' | sha1sum
+git rev-parse --show-object-format

@@ -1,0 +1,17 @@
+#!git
+git config --global user.name "Ada Learner"
+git config --global user.email "ada@example.org"
+git config --global init.defaultBranch main
+git init obj-demo
+cd obj-demo
+printf 'White loaf: 2.80\nRolls (six): 3.00\n' > menu.md
+mkdir drinks
+printf 'Tea: 1.50\n' > drinks/hot.md
+git add .
+git commit -m "Add menu and drinks"
+git cat-file -p HEAD
+git cat-file -p 'HEAD^{tree}'
+git ls-tree HEAD
+git ls-tree -r HEAD
+git cat-file -p HEAD:drinks/hot.md
+git ls-files --stage

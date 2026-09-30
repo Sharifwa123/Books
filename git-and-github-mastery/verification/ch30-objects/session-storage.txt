@@ -1,0 +1,18 @@
+#!git
+git config --global user.name "Ada Learner"
+git config --global user.email "ada@example.org"
+git config --global init.defaultBranch main
+git init obj-demo
+cd obj-demo
+printf 'White loaf: 2.80\n' > menu.md
+git add menu.md
+git commit -m "Add menu"
+printf 'White loaf: 2.90\n' > menu.md
+git commit -am "Raise the price"
+printf 'White loaf: 3.00\n' > menu.md
+git commit -am "Raise the price again"
+git count-objects -v | grep -E '^(count|in-pack|packs):'
+git gc -q
+git count-objects -v | grep -E '^(count|in-pack|packs):'
+git log --oneline
+git cat-file -p HEAD~2:menu.md
