@@ -1,0 +1,17 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ mkdir -p ~/.ssh
+$ chmod 700 ~/.ssh
+$ ssh-keygen -q -t ed25519 -f ~/.ssh/id_demo -N "" -C "ada@example.org"
+$ ls ~/.ssh
+id_demo  id_demo.pub
+$ ls -l ~/.ssh/id_demo ~/.ssh/id_demo.pub | cut -c1-10
+-rw-------
+-rw-r--r--
+$ head -n 1 ~/.ssh/id_demo
+-----BEGIN OPENSSH PRIVATE KEY-----
+$ cut -d' ' -f1,3 ~/.ssh/id_demo.pub
+ssh-ed25519 ada@example.org
+$ ssh-keygen -l -f ~/.ssh/id_demo.pub | cut -d' ' -f1,4
+256 (ED25519)
