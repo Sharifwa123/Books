@@ -32,13 +32,18 @@ def strip_front(text):
     return meta, text
 import hashlib
 DIAG = os.path.join(root, "publishing", "build", "diagrams")
+FIGS = []
+CUR = {"title": ""}
 def diagram(m, text, end):
     code = m.group(1); k = hashlib.sha1(code.encode()).hexdigest()[:12]
     svg = os.path.join(DIAG, k + ".svg")
     if not os.path.exists(svg): return "\n\n<p><em>[diagram not rendered]</em></p>\n\n"
     d = re.search(r"\*Diagram description:\*\s*(.*)", text[end:end + 1500])
     alt = html.escape(re.sub(r"[`*]", "", d.group(1)).strip(), quote=True) if d else "Diagram"
-    return f'\n\n<figure class="diagram"><img src="file://{svg}" alt="{alt}"></figure>\n\n'
+    heads = re.findall(r"^#{2,4} (.*)$", text[:m.start()], flags=re.M)
+    cap = re.sub(r"[`*]", "", heads[-1]).strip() if heads else CUR["title"]
+    fid = f"fig-{len(FIGS) + 1}"; FIGS.append((fid, cap, CUR["title"]))
+    return f'\n\n<figure class="diagram" id="{fid}"><img src="file://{svg}" alt="{alt}"><figcaption>Figure {len(FIGS)}. {html.escape(cap)}</figcaption></figure>\n\n'
 def prep(text):
     text = re.sub(r"```mermaid\n(.*?)```", lambda m: diagram(m, text, m.end()), text, flags=re.S)
     parts = re.split(r"(```.*?```)", text, flags=re.S)
@@ -107,6 +112,7 @@ for pi, (pn, pt) in enumerate(T.PARTS):
         text = open(chapter_files[n], encoding="utf-8").read()
         meta, text = strip_front(text)
         chapter_text[key] = text
+        CUR["title"] = re.search(r"# (.*)", text).group(1)
         h = render(text, key, "chapter")
         h = h.replace('<h1 class="chapter">', f'<h1 class="chapter" id="ch-{key}">', 1)
         title = re.search(r"# (.*)", text).group(1)
@@ -135,9 +141,24 @@ if not a.limit:
                 if not hits: continue
                 links = ", ".join(f'<a href="#ch-{k}" class="pg"></a>' for k in hits[:10])
                 items.append(f'<p class="idx"><strong>{html.escape(term)}</strong> {links}</p>')
+            KNOWN = set(open(os.path.join(root, 'tools', 'known_commands.txt')).read().split('\n')) - {''}
+            cmd_hits = collections.defaultdict(list)
+            for k, t in chapter_text.items():
+                segs = re.findall(r"```.*?```", t, flags=re.S) + re.findall(r"`([^`\n]+)`", t)
+                for seg in segs:
+                    for line in seg.split("\n"):
+                        if line.lstrip().startswith("#"): continue
+                        for mm in re.finditer(r"(?<![\w./-])(git|gh)\s+(?:-c\s+\S+\s+|-C\s+\S+\s+|--[\w-]+(?:=\S+)?\s+)*([a-z][a-z-]{1,25})\b", line):
+                            c = mm.group(1) + " " + mm.group(2)
+                            if c not in KNOWN: continue
+                            if k not in cmd_hits[c]: cmd_hits[c].append(k)
+            citems = [f'<p class="idx"><strong>{html.escape(c)}</strong> ' + ", ".join(f'<a href="#ch-{k}" class="pg"></a>' for k in ks[:8]) + "</p>" for c, ks in sorted(cmd_hits.items()) if len(c) > 4]
+            ch = '<h1 class="top" id="cmdindex">Index of commands</h1><p>Commands that appear in code in the chapters, with the chapters where they appear (page numbers). Appendix A explains each command.</p>' + "\n".join(citems)
+            add_toc(1, "Index of commands", "#cmdindex")
             h = '<h1 class="top" id="index">Index of terms</h1><p>Each entry lists the chapters that mention the term, with page numbers. Command names are indexed in Appendix A.</p>' + "\n".join(items)
             add_toc(1, "Index of terms", "#index")
             back_html.append(f'<section class="index">{h}</section>')
+            back_html.append(f'<section class="index">{ch}</section>')
             continue
         f = os.path.join(root, "manuscript", "back-matter", name + ".md")
         text = open(f, encoding="utf-8").read()
@@ -146,8 +167,14 @@ if not a.limit:
         add_toc(1, re.search(r"# (.*)", text).group(1), f"#back-{name}")
         back_html.append(f'<section class="back">{h}</section>')
 
+if FIGS:
+    add_toc(1, "List of figures", "#figures")
 toc_items = "".join(f'<li class="l{lv}"><a href="{href}">{html.escape(label)}</a></li>' for lv, label, href in toc)
 toc_html = f'<section class="front-section" id="contents"><h1 class="top">Contents</h1><ul class="toc">{toc_items}</ul></section>'
+if FIGS:
+    _strip = lambda ch: re.sub(r"^Chapter \d+ — ", "", ch)
+    fl = "".join(f'<li class="l2"><a href="#{fid}">Figure {i + 1}. {html.escape(cap)} ({html.escape(_strip(ch))})</a></li>' for i, (fid, cap, ch) in enumerate(FIGS))
+    toc_html += f'<section class="front-section" id="figures"><h1 class="top">List of figures</h1><ul class="toc">{fl}</ul></section>'
 front = "\n".join(toc_html if x == "@@TOC@@" else x for x in front_html)
 
 css_page = {
@@ -175,7 +202,6 @@ h1.chapter { font: bold 18pt 'DejaVu Sans', sans-serif; color: COLOR; page-break
 .chapter-body h3 { font: bold 11pt 'DejaVu Sans', sans-serif; bookmark-level: 4; page-break-after: avoid; }
 .appendix h2, .back h2, .index h2, .front-section h2 { font: bold 13pt 'DejaVu Sans', sans-serif; color: COLOR; bookmark-level: 2; margin-top: 7mm; page-break-after: avoid; }
 .appendix h3, .back h3 { font: bold 11pt 'DejaVu Sans', sans-serif; bookmark-level: 3; }
-.body-start { counter-reset: page 1; }
 a { color: LINK; text-decoration: none; }
 code, pre { font-family: 'DejaVu Sans Mono', monospace; font-size: 8.2pt; }
 pre { background: #f3f3f3; border-left: 2.5pt solid #999; padding: 3mm; white-space: pre-wrap; overflow-wrap: anywhere; page-break-inside: auto; }
@@ -186,6 +212,7 @@ th, td { border: 0.5pt solid #999; padding: 1.5mm 2mm; vertical-align: top; over
 th { background: #e8e8e8; font-family: 'DejaVu Sans', sans-serif; }
 tr { page-break-inside: avoid; }
 figure.diagram { margin: 4mm 0; text-align: center; page-break-inside: avoid; }
+figure.diagram figcaption { font: italic 8.5pt 'DejaVu Sans', sans-serif; color: #444; margin-top: 1.5mm; }
 figure.diagram img { max-width: 100%; max-height: 90mm; }
 ul.toc { list-style: none; padding: 0; }
 ul.toc li { margin: 0.6mm 0; }
@@ -195,8 +222,8 @@ ul.toc a::after { content: leader('.') target-counter(attr(href), page); }
 a.pg::after { content: target-counter(attr(href), page); }
 p.idx { margin: 0.5mm 0; font-size: 8.6pt; }
 """.replace("COLOR", color).replace("LINK", link)
-# the first part starts the arabic numbering
-body = "\n".join(body_html).replace('<h1 class="part"', '<h1 class="part body-start"', 1)
+# Front matter uses roman numerals; body pages continue in arabic. (WeasyPrint 66 cannot restart the page counter: :first and :nth() do not match named pages.)
+body = "\n".join(body_html)
 epoch = int(os.environ.get("SOURCE_DATE_EPOCH", "0")) or int(datetime.datetime.now(datetime.timezone.utc).timestamp())
 STAMP = datetime.datetime.fromtimestamp(epoch, datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 doc = f"""<!doctype html><html lang="en-GB"><head><meta charset="utf-8">
