@@ -1,0 +1,17 @@
+#!git
+git config --global user.name "Ada Learner"
+git config --global user.email "ada@example.org"
+git config --global init.defaultBranch main
+mkdir -p server/releases
+mkdir server/releases/v1 server/releases/v2
+printf 'Sunrise Bakery, version 1\n' > server/releases/v1/index.txt
+printf 'Sunrise Bakery, version 2\n' > server/releases/v2/index.txt
+ln -sfn releases/v1 server/current
+cat server/current/index.txt
+readlink server/current
+ln -sfn releases/v2 server/current
+cat server/current/index.txt
+ln -sfn releases/v1 server/current
+cat server/current/index.txt
+ls -1 server/releases
+test -f server/current/index.txt && echo "health check: ok"
