@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
         with:
           persist-credentials: false
       - name: Run static checks
@@ -30,7 +30,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
         with:
           persist-credentials: false
       - name: Show tool versions
@@ -48,7 +48,7 @@ jobs:
           done
       - name: Upload results
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
         with:
           name: git-verification-results
           path: git-and-github-mastery/research/git-verification/results/
@@ -58,19 +58,27 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
         with:
           persist-credentials: false
       - name: Install zsh and Markdown renderer
         run: |
           sudo apt-get update -qq
           sudo apt-get install -y -qq zsh gnupg openssh-client
-          python3 -m pip install --quiet markdown-it-py==4.2.0 python-docx==1.2.0 git-filter-repo==2.47.0
+          python3 -m pip install --quiet markdown-it-py==4.2.0 python-docx==1.2.0 git-filter-repo==2.47.0 pyyaml==6.0.1
           # The recording tool runs with its own HOME, so a pip --user install is not visible to it: point the wrapper at the module's real folder.
           mkdir -p "$HOME/.local/bin"
           FR_DIR=$(python3 -c "import git_filter_repo, os; print(os.path.dirname(git_filter_repo.__file__))")
           printf '#!/bin/sh\nPYTHONPATH="%s" exec python3 -c "from git_filter_repo import main; main()" "$@"\n' "$FR_DIR" > "$HOME/.local/bin/git-filter-repo"
           chmod +x "$HOME/.local/bin/git-filter-repo"
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+      - name: Install GitHub CLI 2.102.0 (pinned, checksum verified)
+        run: |
+          curl -sSL -o "$RUNNER_TEMP/gh.tgz" "https://github.com/cli/cli/releases/download/v2.102.0/gh_2.102.0_linux_amd64.tar.gz"
+          echo "bb766f710eef8ede859c18578c72c327597cd4c8a85b06001b1f3843c6019386  $RUNNER_TEMP/gh.tgz" | sha256sum -c -
+          tar -xzf "$RUNNER_TEMP/gh.tgz" -C "$RUNNER_TEMP"
+          mkdir -p "$HOME/.local/bin"
+          cp "$RUNNER_TEMP/gh_2.102.0_linux_amd64/bin/gh" "$HOME/.local/bin/gh"
           echo "$HOME/.local/bin" >> "$GITHUB_PATH"
       - name: Tool versions
         run: |
@@ -80,6 +88,7 @@ jobs:
           python3 --version
           git filter-repo --version
           gpg --version | head -1
+          gh --version | head -1
       - name: Re-run recorded transcripts and compare
         run: git-and-github-mastery/verification/run_all.sh
 
@@ -88,14 +97,14 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 40
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
         with:
           persist-credentials: false
       - name: Install build dependencies and shells
         run: |
           sudo apt-get update -qq
           sudo apt-get install -y -qq zsh gnupg openssh-client build-essential gettext libssl-dev zlib1g-dev libcurl4-openssl-dev libexpat1-dev
-          python3 -m pip install --quiet markdown-it-py==4.2.0 python-docx==1.2.0 git-filter-repo==2.47.0
+          python3 -m pip install --quiet markdown-it-py==4.2.0 python-docx==1.2.0 git-filter-repo==2.47.0 pyyaml==6.0.1
           mkdir -p "$HOME/.local/bin"
           FR_DIR=$(python3 -c "import git_filter_repo, os; print(os.path.dirname(git_filter_repo.__file__))")
           printf '#!/bin/sh\nPYTHONPATH="%s" exec python3 -c "from git_filter_repo import main; main()" "$@"\n' "$FR_DIR" > "$HOME/.local/bin/git-filter-repo"
@@ -108,6 +117,14 @@ jobs:
           make -C "$RUNNER_TEMP/git-src/contrib/subtree" prefix="$HOME/git-2.56" install >/dev/null
           echo "$HOME/.local/bin" >> "$GITHUB_PATH"
           echo "$HOME/git-2.56/bin" >> "$GITHUB_PATH"
+      - name: Install GitHub CLI 2.102.0 (pinned, checksum verified)
+        run: |
+          curl -sSL -o "$RUNNER_TEMP/gh.tgz" "https://github.com/cli/cli/releases/download/v2.102.0/gh_2.102.0_linux_amd64.tar.gz"
+          echo "bb766f710eef8ede859c18578c72c327597cd4c8a85b06001b1f3843c6019386  $RUNNER_TEMP/gh.tgz" | sha256sum -c -
+          tar -xzf "$RUNNER_TEMP/gh.tgz" -C "$RUNNER_TEMP"
+          mkdir -p "$HOME/.local/bin"
+          cp "$RUNNER_TEMP/gh_2.102.0_linux_amd64/bin/gh" "$HOME/.local/bin/gh"
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
       - name: Tool versions
         run: |
           which git
@@ -115,3 +132,40 @@ jobs:
           git filter-repo --version
       - name: Re-run recorded transcripts and compare
         run: git-and-github-mastery/verification/run_all.sh
+
+  pdf-edition:
+    name: PDF edition (build and machine checks)
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - name: Install fonts and Python packages
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq fonts-dejavu-core fonts-dejavu-extra libpango-1.0-0 libpangoft2-1.0-0
+          python3 -m pip install --quiet weasyprint==66.0 pypdf==6.19.0 markdown-it-py==4.2.0 pyyaml==6.0.1
+      - name: Pre-render the diagrams
+        run: |
+          mkdir -p "$RUNNER_TEMP/mm" && cd "$RUNNER_TEMP/mm" && npm init -y >/dev/null && npm install --silent mermaid@11
+          cd "$GITHUB_WORKSPACE/git-and-github-mastery"
+          MERMAID_DIR="$RUNNER_TEMP/mm" python3 tools/render_diagrams.py
+      - name: Build the screen and print editions
+        run: |
+          cd git-and-github-mastery
+          export SOURCE_DATE_EPOCH=1790000000
+          python3 tools/build_pdf.py --profile screen
+          python3 tools/build_pdf.py --profile print
+      - name: Machine checks on both PDFs
+        run: |
+          cd git-and-github-mastery
+          for f in publishing/build/*.pdf; do python3 tools/check_pdf.py "$f" --full; done
+          sha256sum publishing/build/*.pdf | tee publishing/build/SHA256SUMS
+      - name: Upload the PDFs
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
+        with:
+          name: pdf-edition
+          path: |
+            git-and-github-mastery/publishing/build/*.pdf
+            git-and-github-mastery/publishing/build/SHA256SUMS

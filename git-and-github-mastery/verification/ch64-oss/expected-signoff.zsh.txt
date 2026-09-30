@@ -1,0 +1,18 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ git init -q proj && cd proj
+$ printf 'hello\n' > a.txt && git add a.txt
+$ git commit -q -s -m "Add greeting"
+$ git log -1 --format=%B
+Add greeting
+
+Signed-off-by: Ada Learner <ada@example.org>
+
+$ git log -1 --format='%(trailers:key=Signed-off-by,valueonly)'
+Ada Learner <ada@example.org>
+
+$ git commit -q --allow-empty -m "No sign-off here"
+$ git log --format='%s | %(trailers:key=Signed-off-by,valueonly,separator=)'
+No sign-off here |
+Add greeting | Ada Learner <ada@example.org>

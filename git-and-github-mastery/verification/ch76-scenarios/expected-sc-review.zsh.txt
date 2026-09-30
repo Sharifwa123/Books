@@ -1,0 +1,24 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ git clone -q hub.git author
+$ cd author
+$ git switch -q -c add-tea
+$ printf -- "- Tea: 1.50\n" >> menu.md
+$ git commit -q -am "Add tea"
+$ git push -q -u origin add-tea
+$ cd ..
+$ git clone -q hub.git reviewer
+$ cd reviewer
+$ git fetch -q origin
+$ git log --format='%an: %s' main..origin/add-tea
+Ada Learner: Add tea
+$ git diff --stat main...origin/add-tea
+ menu.md | 1 +
+ 1 file changed, 1 insertion(+)
+$ git switch -q --detach origin/add-tea
+$ sh check.sh
+check: ok
+$ tail -1 menu.md
+- Tea: 1.50
+$ git switch -q main

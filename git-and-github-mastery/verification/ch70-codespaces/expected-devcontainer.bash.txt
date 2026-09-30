@@ -1,0 +1,14 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ git init -q proj && cd proj
+$ mkdir -p .devcontainer/docs-dev
+$ printf '{\n  "name": "Python 3",\n  "image": "mcr.microsoft.com/devcontainers/python:0-3.11-bullseye",\n  "postCreateCommand": "pip3 install --user -r requirements.txt"\n}\n' > .devcontainer/devcontainer.json
+$ printf '// a comment, as in the documentation examples\n{\n  "name": "Docs",\n  "image": "mcr.microsoft.com/devcontainers/python:0-3.11-bullseye"\n}\n' > .devcontainer/docs-dev/devcontainer.json
+$ python3 ../dc.py .devcontainer/devcontainer.json .devcontainer/docs-dev/devcontainer.json
+.devcontainer/devcontainer.json -> strict JSON ok; keys: ['image', 'name', 'postCreateCommand']
+.devcontainer/docs-dev/devcontainer.json -> not strict JSON: JSONDecodeError
+$ git add .devcontainer && git commit -q -m "Add dev container configurations"
+$ git ls-files
+.devcontainer/devcontainer.json
+.devcontainer/docs-dev/devcontainer.json

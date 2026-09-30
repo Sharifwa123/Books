@@ -1,0 +1,96 @@
+#!git
+git config --global user.name "Ada Learner"
+git config --global user.email "ada@example.org"
+git config --global init.defaultBranch main
+echo "== C1: Update a submodule pointer"
+git init -q --bare lib.git
+git clone -q lib.git libwork 2>/dev/null
+cd libwork
+printf 'version 1\n' > lib.txt
+git add lib.txt
+git commit -q -m "lib 1"
+git push -q origin main
+cd ..
+git init -q app
+cd app
+git -c protocol.file.allow=always submodule add -q ../lib.git vendor/lib 2>&1 | grep -c fatal || true
+git commit -q -m "Add lib as a submodule"
+cd ../libwork
+printf 'version 2\n' > lib.txt
+git commit -q -am "lib 2"
+git push -q origin main
+cd ../app
+git -c protocol.file.allow=always submodule update -q --remote vendor/lib > /dev/null 2>&1
+git status --short
+git commit -q -am "Update lib to version 2"
+git submodule status | awk '{print $2}'
+cat vendor/lib/lib.txt
+cd ..
+echo "== C2: Split a folder into its own repository"
+git init -q mono
+cd mono
+mkdir -p site tools
+printf 'a\n' > site/index.html
+printf 't\n' > tools/build.sh
+git add -A
+git commit -q -m "Start"
+printf 'b\n' >> site/index.html
+git commit -q -am "Change site"
+printf 't2\n' >> tools/build.sh
+git commit -q -am "Change tools"
+printf 'c\n' >> site/index.html
+git commit -q -am "Change site again"
+cd ..
+git clone -q mono site-only
+cd site-only
+git filter-repo --quiet --subdirectory-filter site
+git log --format=%s
+ls
+git rev-list --count HEAD
+cd ..
+echo "== C3: Clone only what you need from a big repository"
+git init -q big
+cd big
+mkdir -p docs src
+for i in 1 2 3 4 5 6; do printf "$i\n" > src/f$i.txt; printf "$i\n" > docs/d$i.md; git add -A; git commit -q -m "Commit $i"; done
+cd ..
+git clone -q --depth 1 --no-checkout file://$PWD/big slim
+cd slim
+git sparse-checkout set docs
+git checkout -q main
+git rev-list --count HEAD
+ls
+cd ..
+echo "== C5: Find the first bad commit automatically"
+git init -q hunt
+cd hunt
+printf 'ok\n' > state.txt
+git add state.txt
+git commit -q -m "Start"
+for i in 1 2 3 4 5 6 7 8; do printf "$i\n" >> notes.txt; git add notes.txt; git commit -q -m "Note $i"; done
+printf 'broken\n' > state.txt
+git commit -q -am "Change state"
+for i in 9 10 11 12; do printf "$i\n" >> notes.txt; git add notes.txt; git commit -q -m "Note $i"; done
+printf 'grep -qx ok state.txt\n' > ../test.sh
+git bisect start HEAD HEAD~12 > /dev/null
+git bisect run sh ../test.sh > ../bisect.out 2>&1
+git log -1 --format=%s refs/bisect/bad
+git bisect reset > /dev/null 2>&1
+cd ..
+echo "== C6: Find a commit that no branch points to"
+git init -q lost
+cd lost
+printf 'x\n' > a.txt
+git add a.txt
+git commit -q -m "Base"
+git switch -q -c temp
+printf 'y\n' >> a.txt
+git commit -q -am "Precious work"
+git switch -q main
+git branch -D temp > /dev/null
+git fsck --lost-found 2>/dev/null | grep -c "dangling commit"
+sha=$(git fsck --lost-found 2>/dev/null | awk '/dangling commit/ {print $3}')
+git log -1 --format=%s "$sha"
+git branch rescued "$sha"
+git branch --list rescued
+cd ..

@@ -1,0 +1,12 @@
+#!git
+git config --global user.name "Ada Learner"
+git config --global user.email "ada@example.org"
+git config --global init.defaultBranch main
+@ printf %s aW1wb3J0IGpzb24sIHN5cwpmb3IgcGF0aCBpbiBzeXMuYXJndlsxOl06CiAgICB0cnk6CiAgICAgICAgZCA9IGpzb24ubG9hZChvcGVuKHBhdGgpKQogICAgICAgIHByaW50KHBhdGgsICItPiBzdHJpY3QgSlNPTiBvazsga2V5czoiLCBzb3J0ZWQoZCkpCiAgICBleGNlcHQganNvbi5KU09ORGVjb2RlRXJyb3IgYXMgZToKICAgICAgICBwcmludChwYXRoLCAiLT4gbm90IHN0cmljdCBKU09OOiIsIHR5cGUoZSkuX19uYW1lX18pCg== | base64 -d > dc.py
+git init -q proj && cd proj
+mkdir -p .devcontainer/docs-dev
+printf '{\n  "name": "Python 3",\n  "image": "mcr.microsoft.com/devcontainers/python:0-3.11-bullseye",\n  "postCreateCommand": "pip3 install --user -r requirements.txt"\n}\n' > .devcontainer/devcontainer.json
+printf '// a comment, as in the documentation examples\n{\n  "name": "Docs",\n  "image": "mcr.microsoft.com/devcontainers/python:0-3.11-bullseye"\n}\n' > .devcontainer/docs-dev/devcontainer.json
+python3 ../dc.py .devcontainer/devcontainer.json .devcontainer/docs-dev/devcontainer.json
+git add .devcontainer && git commit -q -m "Add dev container configurations"
+git ls-files

@@ -1,0 +1,15 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ mkdir release && printf 'app v1\n' > release/app.txt
+$ tar -cf app.tar release
+$ sha256sum app.tar > app.tar.sha256
+$ cat app.tar.sha256 | awk '{print length($1), $2}'
+64 app.tar
+$ sha256sum -c app.tar.sha256
+app.tar: OK
+$ printf 'tampered\n' >> app.tar
+$ sha256sum -c app.tar.sha256 || echo "verification failed: the file changed"
+app.tar: FAILED
+sha256sum: WARNING: 1 computed checksum did NOT match
+verification failed: the file changed

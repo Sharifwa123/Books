@@ -1,0 +1,27 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ git clone -q hub.git work
+$ cd work
+$ sed -i 's/Rolls: 3.00/Rolls: 30.00/' menu.md
+$ git commit -q -am "Update rolls"
+$ printf -- "- Tea: 1.50\n" >> menu.md
+$ git commit -q -am "Add tea"
+$ git log --format=%s -S'Rolls: 30.00'
+Update rolls
+$ git show --stat --format=%s HEAD~1
+Update rolls
+
+ menu.md | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+$ git diff HEAD~2 HEAD~1
+diff --git a/menu.md b/menu.md
+index 9a3ace1..1509dce 100644
+--- a/menu.md
++++ b/menu.md
+@@ -1,4 +1,4 @@
+ # Sunrise Bakery menu
+
+ - White loaf: 2.50
+-- Rolls: 3.00
++- Rolls: 30.00

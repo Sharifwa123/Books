@@ -1,0 +1,18 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ cd bakery-menu
+$ git symbolic-ref HEAD
+refs/heads/feature-tea
+$ git rev-parse --abbrev-ref HEAD
+feature-tea
+$ git rev-parse HEAD
+52240815e6798c7aa39dc658ac7faf9ea4b9b3c2
+$ git rev-parse --symbolic-full-name v1.0
+refs/tags/v1.0
+$ git rev-parse --abbrev-ref v1.0
+v1.0
+$ git for-each-ref --format='%(refname)'
+refs/heads/feature-tea
+refs/heads/main
+refs/tags/v1.0

@@ -1,0 +1,22 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ git clone -q hub.git work
+$ cd work
+$ git tag -a v1.0.0 -m "Version 1.0.0"
+$ printf "Specials for the next release\n" > specials.md
+$ git add specials.md
+$ git commit -q -m "Add specials (next release)"
+$ git switch -q -c hotfix-1.0 v1.0.0
+$ sed -i 's/Rolls: 3.00/Rolls: 3.20/' menu.md
+$ git commit -q -am "Fix the price of rolls"
+$ git tag -a v1.0.1 -m "Version 1.0.1"
+$ git switch -q main
+$ git cherry-pick -x hotfix-1.0 > /dev/null
+$ git tag --sort=version:refname
+v1.0.0
+v1.0.1
+$ git log --format=%s
+Fix the price of rolls
+Add specials (next release)
+Add the menu

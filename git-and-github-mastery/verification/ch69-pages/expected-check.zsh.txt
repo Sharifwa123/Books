@@ -1,0 +1,22 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ git init -q site && cd site
+$ printf '<link rel="stylesheet" href="/style.css">\n<img src="http://example.com/logo.png">\n<a href="about.html">About</a>\n' > index.html
+$ printf 'body { margin: 0; }\n' > style.css
+$ git add . && git commit -q -m "First version of the site"
+$ git grep -n 'http://'
+index.html:2:<img src="http://example.com/logo.png">
+$ git grep -n -E '(href|src)="/'
+index.html:1:<link rel="stylesheet" href="/style.css">
+$ printf '<link rel="stylesheet" href="style.css">\n<img src="https://example.com/logo.png">\n<a href="about.html">About</a>\n' > index.html
+$ git grep -n 'http://' || echo "no http:// left"
+no http:// left
+$ git grep -n -E '(href|src)="/' || echo "no root-absolute paths left"
+no root-absolute paths left
+$ : > .nojekyll
+$ git add -A && git commit -q -m "Fix mixed content and paths; add .nojekyll"
+$ git ls-files
+.nojekyll
+index.html
+style.css

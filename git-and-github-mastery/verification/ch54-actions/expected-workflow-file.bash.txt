@@ -1,0 +1,31 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ cd bakery-menu
+$ mkdir -p .github/workflows
+$ printf 'name: Check the menu\non: [push, pull_request]\njobs:\n  check:\n    runs-on: ubuntu-latest\n    steps:\n      - name: Get the code\n        uses: actions/checkout@v6\n      - name: Run the checks\n        run: sh ci.sh\n' > .github/workflows/check.yml
+$ cat .github/workflows/check.yml
+name: Check the menu
+on: [push, pull_request]
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get the code
+        uses: actions/checkout@v6
+      - name: Run the checks
+        run: sh ci.sh
+$ python3 outline.py .github/workflows/check.yml
+name: Check the menu
+events: ['push', 'pull_request']
+job check runs-on ubuntu-latest
+  step 1 uses actions/checkout@v6
+  step 2 run  sh ci.sh
+$ git add .github menu.md
+$ git commit -q -m "Add a workflow that runs the checks"
+$ git ls-files .github
+.github/workflows/check.yml
+$ sh -c 'export MENU_PRICE=2.80; echo "step 1 sets MENU_PRICE=$MENU_PRICE"'
+step 1 sets MENU_PRICE=2.80
+$ sh -c 'echo "step 2 sees MENU_PRICE=${MENU_PRICE:-nothing}"'
+step 2 sees MENU_PRICE=nothing

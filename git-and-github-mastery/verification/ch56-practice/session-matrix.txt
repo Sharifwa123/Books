@@ -1,0 +1,7 @@
+#!git
+git config --global user.name "Ada Learner"
+git config --global user.email "ada@example.org"
+git config --global init.defaultBranch main
+@ true
+for version in 10 12 14; do for os in ubuntu-latest windows-latest; do echo "{version: $version, os: $os}"; done; done
+for version in 10 12 14; do for os in ubuntu-latest windows-latest; do echo x; done; done | wc -l

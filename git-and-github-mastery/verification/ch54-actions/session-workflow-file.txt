@@ -1,0 +1,15 @@
+#!git
+git config --global user.name "Ada Learner"
+git config --global user.email "ada@example.org"
+git config --global init.defaultBranch main
+@ mkdir bakery-menu && cd bakery-menu && git init -q && printf %s aW1wb3J0IHN5cywgeWFtbApkID0geWFtbC5zYWZlX2xvYWQob3BlbihzeXMuYXJndlsxXSkpCm9uID0gZC5nZXQoIm9uIiwgZC5nZXQoVHJ1ZSkpCnByaW50KCJuYW1lOiIsIGQuZ2V0KCJuYW1lIikpCnByaW50KCJldmVudHM6Iiwgb24gaWYgaXNpbnN0YW5jZShvbiwgKHN0ciwgbGlzdCkpIGVsc2UgbGlzdChvbikpCmZvciBqaWQsIGpvYiBpbiBkWyJqb2JzIl0uaXRlbXMoKToKICAgIHByaW50KCJqb2IiLCBqaWQsICJydW5zLW9uIiwgam9iWyJydW5zLW9uIl0pCiAgICBmb3IgaSwgcyBpbiBlbnVtZXJhdGUoam9iWyJzdGVwcyJdLCAxKToKICAgICAgICB3aGF0ID0gInVzZXMgIiArIHNbInVzZXMiXSBpZiAidXNlcyIgaW4gcyBlbHNlICJydW4gICIgKyBzWyJydW4iXS5zdHJpcCgpLnNwbGl0bGluZXMoKVswXQogICAgICAgIHByaW50KCIgIHN0ZXAiLCBpLCB3aGF0KQo= | base64 -d > outline.py && printf "# Sunrise Bakery menu\n\n- White loaf: 2.80\n" > menu.md && cd ..
+cd bakery-menu
+mkdir -p .github/workflows
+printf 'name: Check the menu\non: [push, pull_request]\njobs:\n  check:\n    runs-on: ubuntu-latest\n    steps:\n      - name: Get the code\n        uses: actions/checkout@v6\n      - name: Run the checks\n        run: sh ci.sh\n' > .github/workflows/check.yml
+cat .github/workflows/check.yml
+python3 outline.py .github/workflows/check.yml
+git add .github menu.md
+git commit -q -m "Add a workflow that runs the checks"
+git ls-files .github
+sh -c 'export MENU_PRICE=2.80; echo "step 1 sets MENU_PRICE=$MENU_PRICE"'
+sh -c 'echo "step 2 sees MENU_PRICE=${MENU_PRICE:-nothing}"'

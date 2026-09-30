@@ -1,0 +1,22 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ git clone -q hub.git work
+$ cd work
+$ git -C ../hub.git config --get receive.denyNonFastForwards
+true
+$ git -C ../hub.git config --get receive.denyDeletes
+true
+$ git commit -q --amend -m "Add the menu (reworded)"
+$ git push --force origin main
+remote: error: denying non-fast-forward refs/heads/main (you should pull first)
+To /home/learner/hub.git
+ ! [remote rejected] main -> main (non-fast-forward)
+error: failed to push some refs to '/home/learner/hub.git'
+$ git push origin --delete main
+remote: error: denying ref deletion for refs/heads/main
+To /home/learner/hub.git
+ ! [remote rejected] main (deletion prohibited)
+error: failed to push some refs to '/home/learner/hub.git'
+$ git ls-remote --heads origin
+c4972f0d9a02edb567a40199915178833a1b91b9	refs/heads/main

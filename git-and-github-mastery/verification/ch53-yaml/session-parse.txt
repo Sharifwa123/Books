@@ -1,0 +1,15 @@
+#!git
+git config --global user.name "Ada Learner"
+git config --global user.email "ada@example.org"
+git config --global init.defaultBranch main
+@ printf %s aW1wb3J0IHN5cywgeWFtbAp0cnk6CiAgICBwcmludCh5YW1sLnNhZmVfbG9hZChzeXMuc3RkaW4ucmVhZCgpKSkKZXhjZXB0IHlhbWwuWUFNTEVycm9yIGFzIGU6CiAgICBwcmludCgiRVJST1I6IiwgdHlwZShlKS5fX25hbWVfXykK | base64 -d > y.py
+cat y.py
+printf 'name: Sunrise Bakery\nopen: true\nprices:\n  loaf: 2.80\n  rolls: 3\n' | python3 y.py
+printf 'items:\n  - White loaf\n  - Rolls\n' | python3 y.py
+printf 'version: 3.10\n' | python3 y.py
+printf 'version: "3.10"\n' | python3 y.py
+printf 'answer: no\n' | python3 y.py
+printf 'answer: "no"\n' | python3 y.py
+printf 'menu:\n  - loaf\n - rolls\n' | python3 y.py
+printf 'menu:\n\t- loaf\n' | python3 y.py
+printf 'on: push\n' | python3 y.py

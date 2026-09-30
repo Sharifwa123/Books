@@ -1,0 +1,30 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ git init -q wordcount && cd wordcount
+$ mkdir -p src tests .github
+$ printf 'def count_words(text):\n    """Return the number of words in text."""\n    return len(text.split())\n' > src/wordcount.py
+$ printf 'import unittest\nfrom wordcount import count_words\n\n\nclass CountWordsTest(unittest.TestCase):\n    def test_empty(self):\n        self.assertEqual(count_words(""), 0)\n\n    def test_sentence(self):\n        self.assertEqual(count_words("one two  three"), 3)\n\n\nif __name__ == "__main__":\n    unittest.main()\n' > tests/test_wordcount.py
+$ PYTHONPATH=src python3 -m unittest discover -s tests 2>&1 | grep -x OK
+OK
+$ printf '__pycache__/\n' > .gitignore
+$ printf '# wordcount\n\nCounts the words in a piece of text.\n\n    from wordcount import count_words\n    count_words("one two three")  # 3\n' > README.md
+$ printf '# Contributing\n\nOpen an issue first. Run the tests before you send a pull request.\n' > CONTRIBUTING.md
+$ printf '# Security policy\n\nReport vulnerabilities privately to security@example.org.\n' > SECURITY.md
+$ for f in README.md LICENSE CONTRIBUTING.md CODE_OF_CONDUCT.md SECURITY.md; do test -f "$f" && echo "present: $f" || echo "MISSING: $f"; done
+present: README.md
+MISSING: LICENSE
+present: CONTRIBUTING.md
+MISSING: CODE_OF_CONDUCT.md
+present: SECURITY.md
+$ git add -A && git commit -q -m "Add wordcount library, tests and community files"
+$ git tag -a v0.1.0 -m "Version 0.1.0: initial development"
+$ git tag -n1
+v0.1.0          Version 0.1.0: initial development
+$ git ls-files
+.gitignore
+CONTRIBUTING.md
+README.md
+SECURITY.md
+src/wordcount.py
+tests/test_wordcount.py

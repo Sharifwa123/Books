@@ -1,0 +1,9 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ echo "versions 3 x systems 2 = $((3*2)) jobs"
+versions 3 x systems 2 = 6 jobs
+$ echo "versions 4 x systems 4 x arch 4 x options 5 = $((4*4*4*5)) jobs"
+versions 4 x systems 4 x arch 4 x options 5 = 320 jobs
+$ if [ $((4*4*4*5)) -gt 256 ]; then echo "over the documented limit of 256 jobs per workflow run"; fi
+over the documented limit of 256 jobs per workflow run

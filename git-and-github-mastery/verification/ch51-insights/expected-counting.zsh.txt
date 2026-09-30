@@ -1,0 +1,29 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ cd bakery-menu
+$ git rev-list --count HEAD
+6
+$ git shortlog -sne HEAD
+     5	Ada Learner <ada@example.org>
+     1	Ada L. <ada@old-mail.example>
+$ git shortlog -sne --no-merges HEAD
+     4	Ada Learner <ada@example.org>
+     1	Ada L. <ada@old-mail.example>
+$ printf 'Ada Learner <ada@example.org> Ada L. <ada@old-mail.example>\n' > .mailmap
+$ git shortlog -sne --no-merges HEAD
+     5	Ada Learner <ada@example.org>
+$ git log --shortstat --format='%h %s' --no-merges
+da81f52 Trigger the checks again
+1fdaf40 Raise the price of the white loaf
+
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+77deeab Add tea
+
+ 1 file changed, 1 insertion(+)
+8b83a9e Add rolls
+
+ 1 file changed, 1 insertion(+)
+a325a15 Add the menu
+
+ 1 file changed, 3 insertions(+)

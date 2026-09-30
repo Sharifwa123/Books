@@ -1,0 +1,140 @@
+#!git
+git config --global user.name "Ada Learner"
+git config --global user.email "ada@example.org"
+git config --global init.defaultBranch main
+@ git init -q --bare hub.git && git clone -q hub.git seed 2>/dev/null && cd seed && printf "# Sunrise Bakery menu\n\n- White loaf: 2.50\n" > menu.md && git add menu.md && git commit -q -m "Add the menu" && git push -q origin main && cd .. && rm -rf seed && git -C hub.git symbolic-ref HEAD refs/heads/main && git config --global --unset user.name && git config --global --unset user.email
+echo "== E1: not a git repository"
+mkdir empty && cd empty
+git status 2>&1 | grep -E '^fatal'
+cd ..
+echo "== E2: pathspec did not match"
+git clone -q hub.git w2
+cd w2
+git add missing.txt 2>&1 | grep -E '^fatal'
+git checkout no-such-branch 2>&1 | grep -E '^error'
+cd ..
+echo "== E3: identity unknown"
+git clone -q hub.git w3
+cd w3
+printf 'x\n' > a.txt
+git add a.txt
+git commit -m "Add a" 2>&1 | grep -E '^Author identity unknown'
+cd ..
+echo "== E4: nothing to commit"
+git config --global user.name "Ada Learner"
+git config --global user.email "ada@example.org"
+git clone -q hub.git w4
+cd w4
+git commit -m "Nothing" 2>&1 | head -2
+printf 'new\n' > new.txt
+git commit -m "Nothing" 2>&1 | head -3
+cd ..
+echo "== E5: checkout would overwrite"
+git clone -q hub.git w5
+cd w5
+git switch -q -c other
+printf -- '- Rolls: 3.00\n' >> menu.md
+git commit -q -am "Rolls"
+git switch -q main
+printf -- '- Tea: 1.50\n' >> menu.md
+git switch other 2>&1 | grep -E '^error'
+git stash -q
+git switch -q other
+git stash pop 2>&1 | grep -E '^(CONFLICT|Auto-merging)'
+cd ..
+echo "== E6: push rejected"
+git clone -q hub.git a6
+git clone -q hub.git b6
+cd a6
+printf -- '- Tea: 1.50\n' >> menu.md
+git commit -q -am "Tea"
+git push -q origin main
+cd ../b6
+printf -- '- Coffee: 2.00\n' >> menu.md
+git commit -q -am "Coffee"
+git push origin main 2>&1 | grep -E '^ ! \[rejected\]|^error'
+cd ..
+echo "== E7: unrelated histories"
+git init -q solo && cd solo
+printf 'x\n' > x.txt && git add x.txt && git commit -q -m "Solo"
+git remote add origin ../hub.git
+git fetch -q origin
+git merge origin/main 2>&1 | grep -E '^fatal'
+cd ..
+echo "== E8: remote exists / bad remote"
+git clone -q hub.git w8
+cd w8
+git remote add origin ../hub.git 2>&1 | grep -E '^error'
+git remote add backup ../nowhere.git
+git fetch backup 2>&1 | grep -E '^fatal'
+cd ..
+echo "== E9: branch exists / not merged"
+git clone -q hub.git w9
+cd w9
+git switch -q -c idea
+printf 'i\n' > idea.txt && git add idea.txt && git commit -q -m "Idea"
+git switch -q main
+git branch idea 2>&1 | grep -E '^fatal'
+git branch -d idea 2>&1 | grep -E '^error' | sed 's/[.]$//'
+cd ..
+echo "== E10: bad revision"
+git clone -q hub.git w10
+cd w10
+git log no-such-ref 2>&1 | grep -E '^fatal'
+git show HEAD~5 2>&1 | grep -E '^fatal'
+cd ..
+echo "== E11: index.lock"
+git clone -q hub.git w11
+cd w11
+touch .git/index.lock
+git add -A 2>&1 | head -1 | cut -c1-60
+rm .git/index.lock
+git status -sb
+cd ..
+echo "== E12: gitignore not working"
+git clone -q hub.git w12
+cd w12
+printf 'secret\n' > notes.txt
+git add notes.txt && git commit -q -m "Add notes"
+printf 'notes.txt\n' > .gitignore
+printf 'more\n' >> notes.txt
+git status --short
+git rm -q --cached notes.txt
+git status --short
+cd ..
+echo "== E13: detached HEAD"
+git clone -q hub.git w13
+cd w13
+git switch -q --detach HEAD
+git branch --show-current | wc -c | tr -d ' '
+git status | head -1
+git switch -q -c rescue
+git branch --show-current
+cd ..
+echo "== E14: merge conflict"
+git clone -q hub.git p14
+git clone -q hub.git q14
+cd p14
+sed -i 's/2.50/2.60/' menu.md
+git commit -q -am "Price up"
+git push -q origin main
+cd ../q14
+sed -i 's/2.50/2.70/' menu.md
+git commit -q -am "Price different"
+git -c advice.mergeConflict=false pull -q --no-rebase --no-edit 2>&1 | grep -E '^(CONFLICT|Automatic)'
+git status --short
+git merge --abort
+git status --short | wc -l | tr -d ' '
+cd ..
+echo "== E15: pull with diverged branches"
+git clone -q hub.git p15
+git clone -q hub.git q15
+cd p15
+printf -- '- Tea: 1.50\n' >> menu.md
+git commit -q -am "Tea"
+git push -q origin main
+cd ../q15
+printf -- '- Coffee: 2.00\n' >> menu.md
+git commit -q -am "Coffee"
+git pull 2>&1 | grep -E '^fatal'
+cd ..

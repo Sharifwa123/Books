@@ -1,0 +1,17 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ cd bakery-site
+$ find dist -type l | wc -l
+0
+$ tar -cf artifact.tar -C dist .
+$ tar -tf artifact.tar | sort
+./
+./index.html
+./style.css
+$ gzip -c artifact.tar > artifact.tar.gz
+$ gzip -t artifact.tar.gz && echo "the gzip archive is valid"
+the gzip archive is valid
+$ ln -s index.html dist/home.html
+$ find dist -type l
+dist/home.html

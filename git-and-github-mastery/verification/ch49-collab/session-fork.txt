@@ -1,0 +1,24 @@
+#!git
+git config --global user.name "Ada Learner"
+git config --global user.email "ada@example.org"
+git config --global init.defaultBranch main
+@ git init -q --bare upstream.git && git clone -q upstream.git seed 2>/dev/null && cd seed && printf "# Sunrise Bakery menu\n\n- White loaf: 2.50\n" > menu.md && git add menu.md && git commit -q -m "Add the menu" && git push -q origin main && cd .. && rm -rf seed && git clone -q --bare upstream.git fork.git
+git clone -q fork.git my-clone
+cd my-clone
+git remote -v
+git remote add upstream ../upstream.git
+git remote -v
+git switch -q -c add-tea
+printf -- "- Tea: 1.50\n" >> menu.md
+git commit -q -am "Add tea"
+git push -q -u origin add-tea
+git -C ../upstream.git branch
+git clone -q ../upstream.git ../maintainer
+git -C ../maintainer -c user.name=Maintainer -c user.email=maintainer@example.org commit -q --allow-empty -m "Update the contributing guide"
+git -C ../maintainer push -q origin main
+git switch -q main
+git fetch -q upstream
+git log --oneline --all --graph
+git merge --ff-only upstream/main
+git push -q origin main
+git log --oneline --graph --all

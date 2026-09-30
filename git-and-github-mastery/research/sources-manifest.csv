@@ -99,3 +99,16 @@ https://raw.githubusercontent.com/git-for-windows/build-extra/main/installer/ins
 https://raw.githubusercontent.com/Homebrew/homebrew-core/HEAD/Formula/g/git.rb,2026-09-30T02:29:07Z,8586,19810d48c27ffda1a56258a455d7135fc2d9af0ea620b861c2437fd47f5b828b
 git+https://github.com/github/docs (sparse: content/) @ 2eaab0bd200255beb8d1b2d8d743a3d3e76428da (committed 2026-09-29),2026-09-30T02:30:47Z,,commit-id
 git+https://github.com/github/site-policy @ b9578b546d2506febda1da2cd7431644d58e512c (committed 2026-05-29),2026-09-30T02:30:47Z,,commit-id
+https://raw.githubusercontent.com/git/git/v2.56.0/builtin/pull.c,2026-09-30T06:21:33Z,36060,538aa964818a9e90fc281f555f440e868388a54f1c8be38af0da1e55d52f00d1
+https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/receive.adoc,2026-09-30T06:35:43Z,6351,4c50a43076bf4bbaca5f0697b13c49487fe75687f786f88a7476d641405e3a40
+https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/gitmailmap.adoc,2026-09-30T06:37:13Z,3551,31bb0984519fa6a86045403d633d537ae8ca97186e99e553b16a4688c84a45e6
+https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-shortlog.adoc,2026-09-30T06:37:13Z,4441,64ec16e90c9972211f41a87372bc0b3ad999ecbd78170e8c7f81d8e6d8362133
+https://raw.githubusercontent.com/yaml/yaml-spec/main/spec/1.2.2/spec.md,2026-09-30T06:41:10Z,151091,9e198856ec83b4ad659598c223b9df8ef4b6333923ee48d65e7f3f0ad1e7e1af
+https://raw.githubusercontent.com/github/choosealicense.com/gh-pages/_licenses/apache-2.0.txt,2026-09-30T07:03:36Z,12624,609e2cb599f84aaa41d8ef29d8fdb04d164fab22e8d9292ca34a599d0f56a338
+https://raw.githubusercontent.com/github/choosealicense.com/gh-pages/_licenses/gpl-3.0.txt,2026-09-30T07:03:37Z,36408,e9c13804a52b8aea2e30033764d1b19f98369bae58028d9d1eb6b84e42b888bc
+https://raw.githubusercontent.com/github/choosealicense.com/gh-pages/_licenses/lgpl-3.0.txt,2026-09-30T07:03:37Z,9152,0b2e8a7c7a977908fa0bfaa2e2a7a54e3fd73676662e9fedae264db2916e0135
+https://raw.githubusercontent.com/github/choosealicense.com/gh-pages/_licenses/bsd-2-clause.txt,2026-09-30T07:03:37Z,2260,d8237d165c176416a8ab938bf7e120d8f345098163fcec9017c5652f467fecaf
+https://raw.githubusercontent.com/github/choosealicense.com/gh-pages/_licenses/bsd-3-clause.txt,2026-09-30T07:03:37Z,2505,732e653d6b57d83ee9bd21ff53c6dd1eb332628cefd05df4b99d523727dff664
+https://raw.githubusercontent.com/github/choosealicense.com/gh-pages/_licenses/mpl-2.0.txt,2026-09-30T07:03:38Z,18104,0e03b8171b7b830a6a416b403eced17d39baed5b3a60563971f8b27aaa4f29e6
+https://raw.githubusercontent.com/github/choosealicense.com/gh-pages/_licenses/unlicense.txt,2026-09-30T07:03:38Z,2001,ddc2e070df0bb25ce951b0954d9c1b5d22b17f150d58eac66bda653d044bb5ed
+https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/howto/revert-a-faulty-merge.adoc,2026-09-30T11:32:50Z,10856,fa45375bca469a8d9b756ce142b66572a2630540bd89e19b40c29560e7b158d9

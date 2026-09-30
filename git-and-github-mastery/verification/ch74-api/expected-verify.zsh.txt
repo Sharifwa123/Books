@@ -1,0 +1,20 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ python3 sig.py
+sha256=757107ea0eb2509fc211221cce984b8a37570b6d7586c22c46f4379c8b043e17
+genuine delivery accepted: True
+tampered payload accepted: False
+$ secret="It's a Secret to Everybody"
+$ printf '%s' 'Hello, World!' | openssl dgst -sha256 -hmac "$secret" | awk '{print $NF}'
+757107ea0eb2509fc211221cce984b8a37570b6d7586c22c46f4379c8b043e17
+$ printf '%s\n' '<https://api.github.com/repositories/1300192/issues?page=2>; rel="prev", <https://api.github.com/repositories/1300192/issues?page=4>; rel="next", <https://api.github.com/repositories/1300192/issues?page=515>; rel="last", <https://api.github.com/repositories/1300192/issues?page=1>; rel="first"' | python3 link.py
+first -> https://api.github.com/repositories/1300192/issues?page=1
+prev -> https://api.github.com/repositories/1300192/issues?page=2
+next -> https://api.github.com/repositories/1300192/issues?page=4
+last -> https://api.github.com/repositories/1300192/issues?page=515
+$ printf '%s\n' '<https://api.github.com/repositories/1300192/issues?page=2>; rel="next"' | python3 link.py
+first -> (none)
+prev -> (none)
+next -> https://api.github.com/repositories/1300192/issues?page=2
+last -> (none)

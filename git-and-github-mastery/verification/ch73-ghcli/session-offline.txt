@@ -1,0 +1,14 @@
+#!git
+git config --global user.name "Ada Learner"
+git config --global user.email "ada@example.org"
+git config --global init.defaultBranch main
+@ unset GH_TOKEN GITHUB_TOKEN GH_HOST GH_TELEMETRY DO_NOT_TRACK
+gh alias set prd "pr create --draft"
+gh alias list | grep prd
+gh config set editor "code -w"
+gh config get editor
+gh auth status || echo "not logged in (exit status $?)"
+git init -q project && cd project
+gh pr list || echo "gh needs authentication (exit status $?)"
+GH_TELEMETRY=log gh config get editor 2>&1 | grep -E '"(type|command)"'
+GH_TELEMETRY=false gh config get editor 2>&1 | grep -c "Telemetry payload" || true

@@ -1,0 +1,86 @@
+#!git
+git config --global user.name "Ada Learner"
+git config --global user.email "ada@example.org"
+git config --global init.defaultBranch main
+@ git init -q --bare hub.git && git clone -q hub.git seed 2>/dev/null && cd seed && printf "# Sunrise Bakery menu\n\n- White loaf: 2.50\n- Rolls: 3.00\n" > menu.md && git add menu.md && git commit -q -m "Add the menu" && printf -- "- Tea: 1.50\n" >> menu.md && git commit -q -am "Add tea" && git push -q origin main && cd .. && rm -rf seed && git -C hub.git symbolic-ref HEAD refs/heads/main
+echo "== P1: A secret was pushed"
+git clone -q hub.git work
+cd work
+printf 'API_KEY=not-a-real-key\n' > .env
+git add .env
+git commit -q -m "Add configuration"
+git push -q origin main
+echo "1. REVOKE the key at the service that issued it (outside Git)"
+git rm -q .env
+printf '.env\n' > .gitignore
+git add .gitignore
+git commit -q -m "Stop tracking .env"
+git push -q origin main
+git log --format=%s -S'not-a-real-key'
+git filter-repo --sensitive-data-removal --invert-paths --path .env --force
+git log --format=%s -S'not-a-real-key'
+git push -q --force --mirror origin
+git clone -q ../hub.git ../fresh
+git -C ../fresh log --all --format=%s -S'not-a-real-key'
+cd ..
+echo "== P2: Commits seem to be lost after a hard reset"
+git clone -q hub.git p2
+cd p2
+printf -- "- Coffee: 2.00\n" >> menu.md
+git commit -q -am "Add coffee"
+printf -- "- Scone: 2.20\n" >> menu.md
+git commit -q -am "Add scone"
+git reset -q --hard HEAD~2
+git log --format=%s
+git reflog --format='%gd %gs' -n 4
+git reset -q --hard 'HEAD@{1}'
+git log --format=%s
+cd ..
+echo "== P3: A bad merge reached the shared branch"
+git clone -q hub.git p3
+cd p3
+git switch -q -c risky
+printf -- "- Coffee: 20.00\n" >> menu.md
+git commit -q -am "Add coffee at a wrong price"
+git switch -q main
+printf 'Open daily.\n' > hours.md
+git add hours.md
+git commit -q -m "Add opening hours"
+git merge -q --no-ff -m "Merge risky" risky
+git push -q origin main
+git log --format=%s
+git revert -m 1 --no-edit HEAD > /dev/null
+git push -q origin main
+git log --format=%s
+cat menu.md
+ls
+cd ..
+echo "== P4: A rebase went wrong"
+git clone -q hub.git p4
+cd p4
+git switch -q -c feature
+sed -i 's/Rolls: 3.00/Rolls: 3.20/' menu.md
+git commit -q -am "Rolls 3.20"
+git switch -q main
+sed -i 's/Rolls: 3.00/Rolls: 3.50/' menu.md
+git commit -q -am "Rolls 3.50"
+git switch -q feature
+git -c advice.mergeConflict=false rebase main 2>&1 | grep -E '^CONFLICT'
+git status -sb | head -1
+git rebase --abort
+git status -sb | head -1
+git log --format=%s
+cd ..
+echo "== P5: A commit was made on the wrong branch"
+git clone -q hub.git p5
+cd p5
+printf -- "- Coffee: 2.00\n" >> menu.md
+git commit -q -am "Add coffee"
+git branch feature/coffee
+git reset -q --hard origin/main
+git log --format=%s
+git log --format=%s feature/coffee
+git switch -q feature/coffee
+git push -q -u origin feature/coffee
+git status -sb | head -1
+cd ..

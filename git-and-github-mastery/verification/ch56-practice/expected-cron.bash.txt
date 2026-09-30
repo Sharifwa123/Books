@@ -1,0 +1,18 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ python3 cron.py '15 * * * *'
+minutes: [15]
+hours: 24 values from 0 to 23
+$ python3 cron.py '2,10 4,5 * * *'
+minutes: [2, 10]
+hours: [4, 5]
+$ python3 cron.py '30 4-6 * * *'
+minutes: [30]
+hours: [4, 5, 6]
+$ python3 cron.py '20/15 * * * *'
+minutes: [20, 35, 50]
+hours: 24 values from 0 to 23
+$ python3 cron.py '15 4,5 * * *'
+minutes: [15]
+hours: [4, 5]

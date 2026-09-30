@@ -1,0 +1,27 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ cat y.py
+import sys, yaml
+try:
+    print(yaml.safe_load(sys.stdin.read()))
+except yaml.YAMLError as e:
+    print("ERROR:", type(e).__name__)
+$ printf 'name: Sunrise Bakery\nopen: true\nprices:\n  loaf: 2.80\n  rolls: 3\n' | python3 y.py
+{'name': 'Sunrise Bakery', 'open': True, 'prices': {'loaf': 2.8, 'rolls': 3}}
+$ printf 'items:\n  - White loaf\n  - Rolls\n' | python3 y.py
+{'items': ['White loaf', 'Rolls']}
+$ printf 'version: 3.10\n' | python3 y.py
+{'version': 3.1}
+$ printf 'version: "3.10"\n' | python3 y.py
+{'version': '3.10'}
+$ printf 'answer: no\n' | python3 y.py
+{'answer': False}
+$ printf 'answer: "no"\n' | python3 y.py
+{'answer': 'no'}
+$ printf 'menu:\n  - loaf\n - rolls\n' | python3 y.py
+ERROR: ParserError
+$ printf 'menu:\n\t- loaf\n' | python3 y.py
+ERROR: ScannerError
+$ printf 'on: push\n' | python3 y.py
+{True: 'push'}

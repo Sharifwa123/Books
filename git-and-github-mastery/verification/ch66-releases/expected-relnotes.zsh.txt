@@ -1,0 +1,38 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ git init -q proj && cd proj
+$ printf 'app\n' > app.txt && git add app.txt && git commit -q -m "First working version"
+$ git tag -a v1.0.0 -m "Version 1.0.0"
+$ printf 'fix\n' >> app.txt && git commit -q -am "Fix crash on empty input"
+$ git tag -a v1.0.1 -m "Version 1.0.1"
+$ printf 'search\n' >> app.txt && git commit -q -am "Add search"
+$ git tag -a v1.2.0 -m "Version 1.2.0"
+$ printf 'export\n' >> app.txt && git commit -q -am "Add export"
+$ git tag -a v1.10.0 -m "Version 1.10.0"
+$ git tag
+v1.0.0
+v1.0.1
+v1.10.0
+v1.2.0
+$ git tag --sort=-version:refname
+v1.10.0
+v1.2.0
+v1.0.1
+v1.0.0
+$ git log --format='- %s' v1.0.1..v1.10.0
+- Add export
+- Add search
+$ git describe --tags
+v1.10.0
+$ git archive --format=tar --prefix=proj-1.10.0/ v1.10.0 | tar -t
+proj-1.10.0/
+proj-1.10.0/app.txt
+$ git archive --format=tar.gz -o ../proj-1.10.0.tar.gz v1.10.0 && gzip -t ../proj-1.10.0.tar.gz && echo "archive ok"
+archive ok
+$ mkdir -p .github
+$ printf 'changelog:\n  exclude:\n    labels:\n      - ignore-for-release\n  categories:\n    - title: Breaking changes\n      labels:\n        - breaking-change\n    - title: Other changes\n      labels:\n        - "*"\n' > .github/release.yml
+$ python3 ../rel.py .github/release.yml
+excluded labels: ['ignore-for-release']
+Breaking changes <- ['breaking-change']
+Other changes <- ['*']

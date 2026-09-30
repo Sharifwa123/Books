@@ -1,0 +1,26 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ mkdir -p .github
+$ printf 'version: 2\nupdates:\n  - package-ecosystem: "npm"\n    directory: "/"\n    schedule:\n      interval: "daily"\n' > .github/dependabot.yml
+$ cat .github/dependabot.yml
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "daily"
+$ python3 check.py .github/dependabot.yml
+version: 2
+ecosystem: npm | directory: / | interval: daily
+$ printf '# Security policy\n\nReport a vulnerability privately to security@example.org.\nPlease do not open a public issue.\n' > SECURITY.md
+$ cat SECURITY.md
+# Security policy
+
+Report a vulnerability privately to security@example.org.
+Please do not open a public issue.
+$ git init -q .
+$ git add .github SECURITY.md
+$ git ls-files
+.github/dependabot.yml
+SECURITY.md

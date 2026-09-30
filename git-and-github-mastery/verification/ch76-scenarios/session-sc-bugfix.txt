@@ -1,0 +1,21 @@
+#!git
+git config --global user.name "Ada Learner"
+git config --global user.email "ada@example.org"
+git config --global init.defaultBranch main
+@ git init -q --bare hub.git && git clone -q hub.git seed 2>/dev/null && cd seed && printf "# Sunrise Bakery menu\n\n- White loaf: 2.50\n- Rolls: 3.00\n" > menu.md && printf 'grep -q "White loaf" menu.md && echo "check: ok"\n' > check.sh && git add menu.md check.sh && git commit -q -m "Add the menu" && git push -q origin main && cd .. && rm -rf seed && git -C hub.git symbolic-ref HEAD refs/heads/main
+git clone -q hub.git work
+cd work
+git switch -q -c fix-roll-price
+sed -i 's/Rolls: 3.00/Rolls: 3.20/' menu.md
+git commit -q -am "Correct the price of rolls"
+git push -q -u origin fix-roll-price
+git log --format=%s main..fix-roll-price
+git clone -q ../hub.git ../maintainer
+git -C ../maintainer -c user.name=Maintainer -c user.email=maintainer@example.org merge -q --no-ff -m "Merge fix-roll-price" origin/fix-roll-price
+git -C ../maintainer push -q origin main
+git fetch -q
+git switch -q main
+git merge -q --ff-only origin/main
+git branch -d fix-roll-price
+git push -q origin --delete fix-roll-price
+git log --format=%s
