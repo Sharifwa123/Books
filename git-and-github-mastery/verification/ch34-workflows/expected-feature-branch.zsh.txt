@@ -1,0 +1,72 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ cd alice
+$ git switch -c add-tea
+Switched to a new branch 'add-tea'
+$ printf -- '- Tea: 1.50\n' >> menu.md
+$ git commit -am "Add tea"
+[add-tea cece341] Add tea
+ 1 file changed, 1 insertion(+)
+$ git push -u origin add-tea
+To /home/learner/hub.git
+ * [new branch]      add-tea -> add-tea
+branch 'add-tea' set up to track 'origin/add-tea'.
+$ cd ../bob
+$ git fetch
+From /home/learner/hub
+ * [new branch]      add-tea    -> origin/add-tea
+$ git branch -r
+  origin/HEAD -> origin/main
+  origin/add-tea
+  origin/main
+$ git diff main origin/add-tea
+diff --git a/menu.md b/menu.md
+index 97e3bea..ae8d71a 100644
+--- a/menu.md
++++ b/menu.md
+@@ -3,3 +3,4 @@
+ - White loaf: 2.80
+ - Rolls (six): 3.00
+ - Coconut cake (slice): 4.00
++- Tea: 1.50
+$ git merge --no-ff origin/add-tea -m "Merge add-tea"
+Merge made by the 'ort' strategy.
+ menu.md | 1 +
+ 1 file changed, 1 insertion(+)
+$ git push origin main
+To /home/learner/hub.git
+   81f772e..9fff21e  main -> main
+$ git push origin --delete add-tea
+To /home/learner/hub.git
+ - [deleted]         add-tea
+$ git branch -r
+  origin/HEAD -> origin/main
+  origin/main
+$ cd ../alice
+$ git fetch --prune
+From /home/learner/hub
+ - [deleted]         (none)     -> origin/add-tea
+   81f772e..9fff21e  main       -> origin/main
+$ git branch -vv
+* add-tea cece341 [origin/add-tea: gone] Add tea
+  main    81f772e [origin/main: behind 2] Add coconut cake
+$ git switch main
+Switched to branch 'main'
+Your branch is behind 'origin/main' by 2 commits, and can be fast-forwarded.
+  (use "git pull" to update your local branch)
+$ git pull
+Updating 81f772e..9fff21e
+Fast-forward
+ menu.md | 1 +
+ 1 file changed, 1 insertion(+)
+$ git branch -d add-tea
+Deleted branch add-tea (was cece341).
+$ git log --oneline --graph
+*   9fff21e (HEAD -> main, origin/main, origin/HEAD) Merge add-tea
+|\
+| * cece341 Add tea
+|/
+* 81f772e Add coconut cake
+* 9f10b43 Raise the price of the white loaf
+* 8a52ffe Add the menu

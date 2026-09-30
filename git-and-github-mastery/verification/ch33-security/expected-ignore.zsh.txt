@@ -1,0 +1,20 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ cd bakery-menu
+$ printf '.env\n' > .gitignore
+$ printf 'API_KEY=not-a-real-key\n' > .env
+$ git status --short
+?? .gitignore
+$ git check-ignore -v .env
+.gitignore:1:.env	.env
+$ git add .env
+The following paths are ignored by one of your .gitignore files:
+.env
+hint: Use -f if you really want to add them.
+hint: Turn this message off by running
+hint: "git config advice.addIgnoredFile false"
+$ git add -f .env
+$ git status --short
+A  .env
+?? .gitignore
