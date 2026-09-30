@@ -1,0 +1,14 @@
+#!git
+git config --global user.name "Ada Learner"
+git config --global user.email "ada@example.org"
+git config --global init.defaultBranch main
+@ printf %s aW1wb3J0IHN5cywgeWFtbApkID0geWFtbC5zYWZlX2xvYWQob3BlbihzeXMuYXJndlsxXSkpCnByaW50KCJ2ZXJzaW9uOiIsIGRbInZlcnNpb24iXSkKZm9yIHUgaW4gZFsidXBkYXRlcyJdOgogICAgcHJpbnQoImVjb3N5c3RlbToiLCB1WyJwYWNrYWdlLWVjb3N5c3RlbSJdLCAifCBkaXJlY3Rvcnk6IiwgdVsiZGlyZWN0b3J5Il0sICJ8IGludGVydmFsOiIsIHVbInNjaGVkdWxlIl1bImludGVydmFsIl0pCg== | base64 -d > check.py
+mkdir -p .github
+printf 'version: 2\nupdates:\n  - package-ecosystem: "npm"\n    directory: "/"\n    schedule:\n      interval: "daily"\n' > .github/dependabot.yml
+cat .github/dependabot.yml
+python3 check.py .github/dependabot.yml
+printf '# Security policy\n\nReport a vulnerability privately to security@example.org.\nPlease do not open a public issue.\n' > SECURITY.md
+cat SECURITY.md
+git init -q .
+git add .github SECURITY.md
+git ls-files
