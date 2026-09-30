@@ -18,10 +18,10 @@ All twelve chapters are `status: draft`. Chapters 13-24 were drafted from record
 `verification/run_all.sh` (all 96+ transcripts, bash and zsh): no failures locally. CI: three jobs green on the merged head. Recorded but *not shown in prose*: nothing is left unrecorded (`unrecorded lines: 0`).
 
 ## 4. Cross-references
-`resolve_refs.py --check`, `check_links.py`, `check_refs`: no problems. Forward references to Chapters 27, 28, 31-32 and 40-41 use `Chapter [[key]]` and follow the outline order.
+`resolve_refs.py --check`, `check_links.py`, `check_refs`: no problems. Forward references to later chapters (for example 25-29, 31-34 and 36) use `Chapter [[key]]` and follow the outline order.
 
 ## 5. Research / source review
-Ledger rows R142-R183 cover Part III. All are *Locally tested* (Git documentation not consulted, because official hosts are unreachable). Nothing in Part III depends on GitHub behaviour; the hosting platform first appears in Chapter 35.
+Ledger rows R142-R183 cover Part III. All are *Locally tested* (Git documentation not consulted, because official hosts are unreachable). Nothing in Part III depends on GitHub behaviour; the hosting platform first appears in Chapter 36.
 
 ## 6. Security review
 - Ch 14 warns about credentials in remote URLs and config; Ch 18 shows a committed (fake) secret surviving deletion and defers the removal procedure to the security chapter.
