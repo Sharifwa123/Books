@@ -48,7 +48,7 @@ Built with `tools/build_pdf.py` (WeasyPrint 66.0), diagrams pre-rendered by `too
 | Running headers, page numbers; roman numerals for front matter | done |
 | Selectable text, embedded fonts (DejaVu family), code wrapping, tables | done; fonts machine-checked |
 | Diagrams as vector with text alternatives | done (14 diagrams; alt text from the "Diagram description" paragraph) |
-| Tagged PDF, PDF/UA-1 variant, document language | tag tree and MarkInfo machine-checked; **no external PDF/UA validator was run** |
+| Tagged PDF, PDF/UA-1 variant, document language | tag tree and MarkInfo machine-checked; **veraPDF 1.28.2 (PDF/UA-1 profile) passes on the full screen edition** (105 rules; the first run found one rule failing on nine list items with nested blocks in Chapters 3 and 11, fixed in the source). This validates the tagging structure, not real-world reading with assistive technology, which was not tested. The print edition is validated in CI |
 | Glossary; index of terms with page numbers | done (index lists chapters that mention each glossary term; commands are indexed in Appendix A) |
 | Two profiles: screen (A4, colour links) and print (170 x 240 mm, black links) | done |
 | PDF/A archival profile | **not done** (not combined with PDF/UA) |

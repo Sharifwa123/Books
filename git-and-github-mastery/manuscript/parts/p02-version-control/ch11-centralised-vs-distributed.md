@@ -57,13 +57,11 @@ How it feels to use: to see who changed a line last year, you ask the server. To
 
 **Weaknesses.**
 
-- **A single point of failure.**
-
-  > **New term: single point of failure.** A part of a system whose failure stops the whole system, or destroys something that cannot be replaced.
-
-  If the server is unreachable, nobody can record work or read history. If it is lost without a backup, the history is lost.
+- **A single point of failure.** If the server is unreachable, nobody can record work or read history. If it is lost without a backup, the history is lost.
 - **Needs the network for almost everything.**
 - **Sharing half-finished work is awkward**, because the only way to share is to send it to the one official place.
+
+> **New term: single point of failure.** A part of a system whose failure stops the whole system, or destroys something that cannot be replaced.
 
 ---
 

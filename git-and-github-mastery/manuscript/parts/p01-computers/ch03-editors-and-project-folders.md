@@ -88,13 +88,12 @@ The features that will help you in this book:
 
 - **Line numbers.** Git messages refer to lines. Seeing numbers makes them easy to follow.
 - **Syntax highlighting.** The editor colours words according to their role, so mistakes stand out.
-
-  > **New term: syntax highlighting.** Colouring different parts of text (for example, tags, words and comments) so that its structure is easy to see.
-
 - **Show invisible characters.** You can display spaces, tabs and line endings. Chapter 4<!--ref:text--> explains why you will want this.
 - **Choice of encoding and line endings.** You can say how characters are stored in the file (Chapter 4<!--ref:text--> explains both terms).
 - **Open a whole folder.** You see all the files of a project in a side panel.
 - **Search across files.** You can find every use of a word in the project.
+
+> **New term: syntax highlighting.** Colouring different parts of text (for example, tags, words and comments) so that its structure is easy to see.
 
 ### 3.2.2 Choosing one
 
