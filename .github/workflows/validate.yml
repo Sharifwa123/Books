@@ -66,6 +66,10 @@ jobs:
           sudo apt-get update -qq
           sudo apt-get install -y -qq zsh gnupg
           python3 -m pip install --quiet markdown-it-py==4.2.0 python-docx==1.2.0 git-filter-repo==2.47.0
+          # the pip-generated launcher can pick a different Python; use a wrapper that runs the module with the same python3
+          mkdir -p "$HOME/.local/bin"
+          printf '#!/bin/sh\nexec python3 -c "from git_filter_repo import main; main()" "$@"\n' > "$HOME/.local/bin/git-filter-repo"
+          chmod +x "$HOME/.local/bin/git-filter-repo"
           echo "$HOME/.local/bin" >> "$GITHUB_PATH"
       - name: Tool versions
         run: |

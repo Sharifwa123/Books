@@ -102,6 +102,8 @@ hint: "git config advice.addIgnoredFile false"
 
 *Recorded in Bash; `ch33-security/expected-ignore.bash.txt`.*
 
+*(On newer Git versions, 2.55.0 was tested, the last two hint lines are replaced by one: `hint: Disable this message with "git config set advice.addIgnoredFile false"`. The refusal is the same.)*
+
 But **`-f` overrides the rule**, and nothing stops you:
 
 ```text
