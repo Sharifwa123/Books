@@ -26,7 +26,7 @@ Total rows: 356.
 
 | Host | Files fetched |
 |---|---|
-| raw.githubusercontent.com | 132 |
+| raw.githubusercontent.com | 133 |
 
 Files fetched with the book's tool are hashed in the manifest, so a reader can check that a source has not changed since it was read.
 

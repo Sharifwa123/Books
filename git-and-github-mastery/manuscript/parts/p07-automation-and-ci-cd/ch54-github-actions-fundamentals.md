@@ -154,6 +154,7 @@ The repository of this book has a workflow file, `.github/workflows/validate.yml
 | Git command tests (runner's Git version) | Runs the older Git verification scripts on the runner's Git |
 | Chapter command transcripts (bash and zsh) | Re-runs every recorded chapter session and compares the output |
 | Chapter command transcripts on Git v2.56.0 (built from source) | Builds Git v2.56.0, then re-runs the same sessions |
+| PDF edition (build and machine checks) | Builds the PDF and EPUB editions from the manuscript and checks them with machine validators |
 
 Each job uses `ubuntu-latest`, starts with the checkout action, installs what it needs with `run` steps, and ends with the command that does the work. When a recording differs on a newer Git, that job turns red and the difference is printed in the job's log, which is exactly how the differences noted in Chapters 20<!--ref:branching-->, 27<!--ref:rebase-->, 28<!--ref:tools--> and 49<!--ref:collab--> were found. This is the CI idea of Chapter 52<!--ref:cicd--> applied to a book: the pipeline is the test of the text.
 
