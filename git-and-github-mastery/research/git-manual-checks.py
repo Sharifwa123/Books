@@ -23,6 +23,9 @@ def page(name):
         except Exception: pass
     return re.sub(r"\s+", " ", t.replace("`", ""))
 C = [
+ ("R153", "gitrepository-layout", r"HEAD:: A symref \(see glossary\) to the refs/heads/ namespace describing the currently active branch", "the HEAD file is a symref to the current branch"),
+ ("R153", "gitrepository-layout", r"HEAD can also record a specific commit directly", "HEAD can record a commit directly (detached)"),
+ ("R141", "git-init", r"--bare", "git init --bare exists"),
  ("R154", "git-status", r"paths that have differences between the index file and the current HEAD commit", "status reports index-versus-HEAD differences"),
  ("R154", "git-status", r"paths in the working tree that are not tracked by Git", "status reports untracked files"),
  ("R155", "git-init", r"Create an empty Git repository", "git init creates an empty repository"),

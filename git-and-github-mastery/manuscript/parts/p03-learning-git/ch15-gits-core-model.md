@@ -397,7 +397,7 @@ You are ready for Chapter 16<!--ref:firstrepo--> if you can:
 |---|---|---|
 | The status reports at each stage, the four file states, `git ls-files --stage` | Locally tested: Bash 5.2 and zsh 5.9 on Git 2.43.0; re-run in CI on the runner's Git 2.55.0 with identical output. Concept and option statements also checked in the Git 2.56.0 manual (git-status). | R154 |
 | A commit has a tree, a parent, author, committer and message | Locally tested (`git cat-file -p HEAD`) | R152 |
-| HEAD contains `ref: refs/heads/main`; the branch file holds a commit hash | Locally tested | R153 |
+| HEAD contains `ref: refs/heads/main`; the branch file holds a commit hash | Locally tested. Concept and option statements also checked in the Git 2.56.0 manual (gitrepository-layout). | R153 |
 | The conceptual definitions (snapshot, working tree, index) | Compared with the Git 2.56.0 glossary (commit, commit object, index, working tree) | R152 |
 
 ## Where this leads
