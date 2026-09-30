@@ -7,8 +7,8 @@ This book separates what was **checked** from what was **assumed**. Every claim 
 | Evidence class | Rows | Meaning |
 |---|---|---|
 | Officially verified (docs only) | 112 | compared with an official source; not run |
-| Both officially verified and locally tested | 90 | compared with an official source and run on the author's computer |
-| Locally tested | 70 | run on the author's computer; no official source consulted |
+| Both officially verified and locally tested | 91 | compared with an official source and run on the author's computer |
+| Locally tested | 69 | run on the author's computer; no official source consulted |
 | Time-sensitive (unverified) | 56 | about a platform that changes; not yet checked |
 | Needs re-verification | 23 | checked once; must be checked again before publication |
 | Not applicable | 3 | a general concept with no product claim |
