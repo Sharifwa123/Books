@@ -1,0 +1,51 @@
+#!/usr/bin/env python3
+"""Exports the finished book text only (no planning, research notes, ledger data, tooling or drafting markers) as one
+Markdown file plus a manifest, and fails if development artefacts are found in the text.
+Output: publishing/build/clean/book.md and MANIFEST.txt.  Usage: export_clean.py [--out DIR]
+Included: manuscript/front-matter, parts, appendices, back-matter.  Excluded by construction: planning/, research/,
+verification/, tools/, exercises and solutions (published separately), .github/.
+Placeholders that are intentionally part of the text (ISBN, address, author biography) are listed, not hidden."""
+import glob, hashlib, os, re, sys
+root = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+out = os.path.join(root, "publishing", "build", "clean")
+if "--out" in sys.argv: out = sys.argv[sys.argv.index("--out") + 1]
+os.makedirs(out, exist_ok=True)
+M = os.path.join(root, "manuscript")
+def key(f):
+    b = os.path.basename(f); m = re.match(r"(?:ch)?(\d+)", b); return int(m.group(1)) if m else 999
+files = sorted(glob.glob(f"{M}/front-matter/*.md"))
+files += sorted(glob.glob(f"{M}/parts/*/ch*.md"), key=key)
+files += sorted(glob.glob(f"{M}/appendices/*.md"))
+files += [f"{M}/back-matter/glossary.md", f"{M}/back-matter/author-and-publisher.md"]
+FORBIDDEN = [(r"STOPPED HERE", "drafting marker"), (r"\bTBD\b|FIXME|lorem ipsum", "unfinished text"), (r"Claude|session_[0-9A-Za-z]", "AI working note"),
+             (r"gate [A-F]\b", "internal process gate"), (r"planning/", "internal repository path"), (r"\[\[[a-z0-9_]+\]\]", "unresolved cross-reference"),
+             ]
+WARN = [(r"research/[a-z-]+", "citation of a published evidence file in the repository (decide whether the printed book should name it)")]
+problems, warns, parts, manifest = [], [], [], []
+for f in files:
+    t = open(f, encoding="utf-8").read()
+    t = re.sub(r"\A---\n.*?\n---\n", "", t, flags=re.S)
+    t = re.sub(r"<!--.*?-->", "", t, flags=re.S)
+    rel = os.path.relpath(f, root)
+    for pat, why in FORBIDDEN:
+        for m in re.finditer(pat, t, flags=re.M):
+            line = t[:m.start()].count("\n") + 1
+            problems.append(f"{rel}:{line}: {why}: {m.group(0)!r}")
+    for pat, why in WARN:
+        for m in re.finditer(pat, t): warns.append(f"{rel}:{t[:m.start()].count(chr(10)) + 1}: {why}: {m.group(0)!r}")
+    parts.append(t.strip()); manifest.append(f"{hashlib.sha256(t.encode()).hexdigest()}  {rel}")
+book = "\n\n".join(parts) + "\n"
+open(os.path.join(out, "book.md"), "w", encoding="utf-8").write(book)
+ph = sorted(set(re.findall(r"\[[A-Z][A-Z ]*(?:TO BE [A-Z]+|PLACEHOLDER|NOT YET [A-Z]+)[^\]]*\]", book)))
+open(os.path.join(out, "MANIFEST.txt"), "w").write("\n".join(manifest) + "\n")
+print(f"exported {len(files)} files, {len(book.split())} words -> {os.path.relpath(out, root)}/book.md")
+print("intentional placeholders present:", len(ph))
+for p in ph[:10]: print("  ", p)
+if warns:
+    print(f"{len(warns)} warning(s):")
+    for w in warns: print("  ", w)
+if problems:
+    print(f"{len(problems)} development artefact(s) found in the book text:")
+    for p in problems: print("  ", p)
+    sys.exit(1)
+print("clean export: no development artefacts found")

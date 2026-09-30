@@ -17,7 +17,7 @@ ledger: [R339, R340]
 - the commands that need one, from GitHub's documentation
 - authentication in scripts and workflows, and the CLI's telemetry
 
-> **How to read this chapter.** This is a **Deep** chapter and can be read later. The commands in section 73.3 were run with **GitHub CLI 2.102.0** (released 30 September 2026), downloaded from the official release page and checked against its published checksum, in Bash and zsh, and re-run in CI with the same pinned version. **Commands that talk to GitHub (`gh pr list` with a login, `gh repo create`, `gh issue create` and others) were not run**, because that needs an authenticated account (gate D of the book's plan); they are described from GitHub's documentation (`github/docs` at commit `2eaab0b`, 29 September 2026). Output wording of a tool changes between versions: expect differences from what you see.
+> **How to read this chapter.** This is a **Deep** chapter and can be read later. The commands in section 73.3 were run with **GitHub CLI 2.102.0** (released 30 September 2026), downloaded from the official release page and checked against its published checksum, in Bash and zsh, and re-run in CI with the same pinned version. **Commands that talk to GitHub (`gh pr list` with a login, `gh repo create`, `gh issue create` and others) were not run**, because that needs an authenticated account (a step the book's author has not yet done on a live account); they are described from GitHub's documentation (`github/docs` at commit `2eaab0b`, 29 September 2026). Output wording of a tool changes between versions: expect differences from what you see.
 
 **Before you start.** Chapter 38<!--ref:ghauth--> (signing in), Chapter 7<!--ref:terminal--> and Chapter 45<!--ref:pr-->.
 
