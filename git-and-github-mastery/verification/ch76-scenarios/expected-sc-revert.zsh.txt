@@ -1,0 +1,22 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ git clone -q hub.git work
+$ cd work
+$ sed -i 's/White loaf: 2.50/White loaf: 25.00/' menu.md
+$ git commit -q -am "Change the loaf price"
+$ git push -q origin main
+$ git revert --no-edit HEAD
+[main 2fc2497] Revert "Change the loaf price"
+ Date: Mon Jan 5 09:13:00 2026 +0000
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+$ git push -q origin main
+$ git log --format=%s
+Revert "Change the loaf price"
+Change the loaf price
+Add the menu
+$ cat menu.md
+# Sunrise Bakery menu
+
+- White loaf: 2.50
+- Rolls: 3.00

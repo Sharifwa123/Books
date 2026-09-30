@@ -1,0 +1,20 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ git clone -q hub.git work
+$ cd work
+$ printf -- "- Tea: 1.50\n" >> menu.md
+$ git stash push -q -m "tea in progress"
+$ git status --short
+$ git switch -q -c fix-typo
+$ sed -i 's/White loaf/White loaves/' menu.md
+$ git commit -q -am "Fix the name of the loaf"
+$ git switch -q main
+$ git stash list | grep -c .
+1
+$ git stash pop -q
+$ git status --short
+ M menu.md
+$ git log --format=%s --all
+Fix the name of the loaf
+Add the menu

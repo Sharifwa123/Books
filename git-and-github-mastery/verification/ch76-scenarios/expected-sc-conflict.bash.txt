@@ -1,0 +1,35 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ git clone -q hub.git ada
+$ git clone -q hub.git ben
+$ cd ada
+$ sed -i 's/Rolls: 3.00/Rolls: 3.20/' menu.md
+$ git commit -q -am "Rolls cost 3.20"
+$ git push -q origin main
+$ cd ../ben
+$ sed -i 's/Rolls: 3.00/Rolls: 3.50/' menu.md
+$ git commit -q -am "Rolls cost 3.50"
+$ git fetch -q
+$ git -c advice.mergeConflict=false merge origin/main
+Auto-merging menu.md
+CONFLICT (content): Merge conflict in menu.md
+Automatic merge failed; fix conflicts and then commit the result.
+$ cat menu.md
+# Sunrise Bakery menu
+
+- White loaf: 2.50
+<<<<<<< HEAD
+- Rolls: 3.50
+=======
+- Rolls: 3.20
+>>>>>>> origin/main
+$ printf "# Sunrise Bakery menu\n\n- White loaf: 2.50\n- Rolls: 3.30\n" > menu.md
+$ git add menu.md
+$ git commit -q --no-edit
+$ git log --format=%s
+Merge remote-tracking branch 'origin/main'
+Rolls cost 3.50
+Rolls cost 3.20
+Add the menu
+$ git push -q origin main

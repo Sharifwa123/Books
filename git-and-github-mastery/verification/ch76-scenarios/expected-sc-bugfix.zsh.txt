@@ -1,0 +1,24 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ git clone -q hub.git work
+$ cd work
+$ git switch -q -c fix-roll-price
+$ sed -i 's/Rolls: 3.00/Rolls: 3.20/' menu.md
+$ git commit -q -am "Correct the price of rolls"
+$ git push -q -u origin fix-roll-price
+$ git log --format=%s main..fix-roll-price
+Correct the price of rolls
+$ git clone -q ../hub.git ../maintainer
+$ git -C ../maintainer -c user.name=Maintainer -c user.email=maintainer@example.org merge -q --no-ff -m "Merge fix-roll-price" origin/fix-roll-price
+$ git -C ../maintainer push -q origin main
+$ git fetch -q
+$ git switch -q main
+$ git merge -q --ff-only origin/main
+$ git branch -d fix-roll-price
+Deleted branch fix-roll-price (was cd06e61).
+$ git push -q origin --delete fix-roll-price
+$ git log --format=%s
+Merge fix-roll-price
+Correct the price of rolls
+Add the menu

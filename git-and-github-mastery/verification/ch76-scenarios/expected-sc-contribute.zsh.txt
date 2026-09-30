@@ -1,0 +1,19 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ git clone -q hub.git fork
+$ cd fork
+$ git switch -q -c add-tea
+$ printf -- "- Tea: 1.50\n" >> menu.md
+$ sh check.sh
+check: ok
+$ git commit -q -s -am "Add tea to the menu"
+$ git log -1 --format=%B
+Add tea to the menu
+
+Signed-off-by: Ada Learner <ada@example.org>
+
+$ git push -q -u origin add-tea
+$ git ls-remote --heads origin
+b5895b45037f31bbdf8262b45c73140c2d40747d	refs/heads/add-tea
+75f410ae298df20e7637e6c4692195c081e54673	refs/heads/main

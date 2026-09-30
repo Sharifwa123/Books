@@ -1,0 +1,17 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ git clone -q hub.git work
+$ cd work
+$ git switch -q -c tea-idea
+$ printf -- "- Tea: 1.50\n" >> menu.md
+$ git commit -q -am "Add tea"
+$ git switch -q main
+$ git branch -D tea-idea
+Deleted branch tea-idea (was 11bdfb7).
+$ git branch
+* main
+$ sha=$(git reflog --format='%H %gs' | grep 'commit: Add tea' | awk '{print $1}')
+$ git branch tea-idea "$sha"
+$ git log -1 --format=%s tea-idea
+Add tea

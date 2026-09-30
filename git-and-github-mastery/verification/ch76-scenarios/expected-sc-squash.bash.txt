@@ -1,0 +1,20 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ git clone -q hub.git work
+$ cd work
+$ git switch -q -c menu-update
+$ printf -- "- Tea: 1.50\n" >> menu.md
+$ git commit -q -am "WIP"
+$ printf -- "- Coffee: 2.00\n" >> menu.md
+$ git commit -q -am "more"
+$ printf -- "- Scone: 2.20\n" >> menu.md
+$ git commit -q -am "fix typo"
+$ git log --format=%s main..HEAD
+fix typo
+more
+WIP
+$ git reset -q --soft main
+$ git commit -q -m "Add tea, coffee and scones to the menu"
+$ git log --format=%s main..HEAD
+Add tea, coffee and scones to the menu
