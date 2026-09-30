@@ -1,0 +1,26 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ git init obj-demo
+Initialized empty Git repository in /home/learner/obj-demo/.git/
+$ cd obj-demo
+$ echo 'White loaf: 2.80' | git hash-object --stdin
+28adfbf9397e4db31a26821309402a09c1b6b943
+$ echo 'White loaf: 2.80' | git hash-object -w --stdin
+28adfbf9397e4db31a26821309402a09c1b6b943
+$ find .git/objects -type f
+.git/objects/28/adfbf9397e4db31a26821309402a09c1b6b943
+$ git cat-file -t 28adfbf
+blob
+$ git cat-file -s 28adfbf
+17
+$ git cat-file -p 28adfbf
+White loaf: 2.80
+$ echo 'White loaf: 2.80' | git hash-object -w --stdin
+28adfbf9397e4db31a26821309402a09c1b6b943
+$ find .git/objects -type f | wc -l
+1
+$ printf 'blob 17\0White loaf: 2.80\n' | sha1sum
+28adfbf9397e4db31a26821309402a09c1b6b943  -
+$ git rev-parse --show-object-format
+sha1

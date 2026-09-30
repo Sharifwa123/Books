@@ -1,0 +1,35 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ git init obj-demo
+Initialized empty Git repository in /home/learner/obj-demo/.git/
+$ cd obj-demo
+$ printf 'White loaf: 2.80\nRolls (six): 3.00\n' > menu.md
+$ mkdir drinks
+$ printf 'Tea: 1.50\n' > drinks/hot.md
+$ git add .
+$ git commit -m "Add menu and drinks"
+[main (root-commit) 762af16] Add menu and drinks
+ 2 files changed, 3 insertions(+)
+ create mode 100644 drinks/hot.md
+ create mode 100644 menu.md
+$ git cat-file -p HEAD
+tree 3f1f9623d71be5d01728beffeab8c162cc97e3ca
+author Ada Learner <ada@example.org> 1767603960 +0000
+committer Ada Learner <ada@example.org> 1767603960 +0000
+
+Add menu and drinks
+$ git cat-file -p 'HEAD^{tree}'
+040000 tree 8214205a3a9ec4a01ff1c38afed63b0fa8265355	drinks
+100644 blob 5cf2ab8b14d0142893464d70f752b9b4d25797a3	menu.md
+$ git ls-tree HEAD
+040000 tree 8214205a3a9ec4a01ff1c38afed63b0fa8265355	drinks
+100644 blob 5cf2ab8b14d0142893464d70f752b9b4d25797a3	menu.md
+$ git ls-tree -r HEAD
+100644 blob 45f2c5990d976c063458edad8ee69ecb26749412	drinks/hot.md
+100644 blob 5cf2ab8b14d0142893464d70f752b9b4d25797a3	menu.md
+$ git cat-file -p HEAD:drinks/hot.md
+Tea: 1.50
+$ git ls-files --stage
+100644 45f2c5990d976c063458edad8ee69ecb26749412 0	drinks/hot.md
+100644 5cf2ab8b14d0142893464d70f752b9b4d25797a3 0	menu.md

@@ -159,3 +159,11 @@ Cherry-pick,Copy one commit onto another branch.,Apply the change introduced by 
 Bisect,Find the commit that broke something by halving.,A binary search through history that repeatedly checks out the middle of the remaining range to find the first bad commit.,git bisect run ./test.sh,commit,tools
 Patch,A text file that describes a change.,"A text file describing changes to files so that they can be applied elsewhere, for example with git apply or git am.",0001-Add-tea.patch,diff; cherry-pick,tools
 Semantic versioning,A convention for MAJOR.MINOR.PATCH release numbers.,"A versioning convention in which MAJOR changes for incompatible changes, MINOR for compatible additions and PATCH for compatible fixes; a hyphenated label marks a pre-release.",v1.4.2,tag,tags
+Object,Any item in Git's database.,"One of the four kinds of stored item in Git's object database: blob, tree, commit or tag, each named by a hash.",a commit,blob; tree,objects
+Blob,The stored contents of one file.,"An object holding the contents of a single file, with no name, folder or date.",28adfbf...,tree; object,objects
+Tree,A stored list of a folder's contents.,"An object listing the entries of one folder, each with a mode, type, hash and name.",drinks/,blob; commit,objects
+Ref,A name that points to an object.,"A named pointer, stored as a small file under .git/refs, holding a hash or another ref's name; branches and tags are refs.",refs/heads/main,branch; tag,objects
+Tag object,The object an annotated tag creates.,"An object naming another object with a type, tag name, tagger and message.",git cat-file -p v1.0,annotated tag; ref,objects
+Packfile,One file holding many objects compactly.,"A file that stores many objects together, using differences between similar objects; created by git gc and by network transfers.",.git/objects/pack,garbage collection; object,objects
+Garbage collection,Git's housekeeping of stored objects.,git gc packs loose objects into packfiles and removes unreachable objects after a safety period.,git gc,packfile; dangling object,objects
+Dangling object,A stored object nothing points to.,An object in the database that no ref leads to; removed by garbage collection eventually.,dangling commit ee9eec6,reflog; garbage collection,objects

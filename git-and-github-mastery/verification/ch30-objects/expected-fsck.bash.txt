@@ -1,0 +1,24 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ git init obj-demo
+Initialized empty Git repository in /home/learner/obj-demo/.git/
+$ cd obj-demo
+$ printf 'White loaf: 2.80\n' > menu.md
+$ git add menu.md
+$ git commit -m "Add menu"
+[main (root-commit) d2c521c] Add menu
+ 1 file changed, 1 insertion(+)
+ create mode 100644 menu.md
+$ printf 'Rolls (six): 3.00\n' >> menu.md
+$ git commit -am "Add rolls"
+[main ee9eec6] Add rolls
+ 1 file changed, 1 insertion(+)
+$ git fsck 2>/dev/null; echo "exit status: $?"
+exit status: 0
+$ git reset --hard HEAD~1
+HEAD is now at d2c521c Add menu
+$ git fsck --no-reflogs 2>/dev/null
+dangling commit ee9eec6763a660d81626c783ad78359f8920c2ff
+$ git archive --format=tar HEAD | tar -t
+menu.md

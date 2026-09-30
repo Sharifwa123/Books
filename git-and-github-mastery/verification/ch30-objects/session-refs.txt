@@ -1,0 +1,18 @@
+#!git
+git config --global user.name "Ada Learner"
+git config --global user.email "ada@example.org"
+git config --global init.defaultBranch main
+git init obj-demo
+cd obj-demo
+printf 'White loaf: 2.80\n' > menu.md
+git add menu.md
+git commit -m "Add menu"
+git tag -a v1.0 -m "First menu"
+git switch -c experiment
+cat .git/HEAD
+cat .git/refs/heads/main
+cat .git/refs/tags/v1.0
+git show-ref
+git cat-file -t v1.0
+git cat-file -p v1.0
+git rev-parse main v1.0 'v1.0^{commit}'

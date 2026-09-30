@@ -1,0 +1,38 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ git init obj-demo
+Initialized empty Git repository in /home/learner/obj-demo/.git/
+$ cd obj-demo
+$ printf 'White loaf: 2.80\n' > menu.md
+$ git add menu.md
+$ git commit -m "Add menu"
+[main (root-commit) d2c521c] Add menu
+ 1 file changed, 1 insertion(+)
+ create mode 100644 menu.md
+$ git tag -a v1.0 -m "First menu"
+$ git switch -c experiment
+Switched to a new branch 'experiment'
+$ cat .git/HEAD
+ref: refs/heads/experiment
+$ cat .git/refs/heads/main
+d2c521ce41194be46021aef2f83e2fe37d6fe9f8
+$ cat .git/refs/tags/v1.0
+da7d3cd54643668fae087fd3eb73361482a60fa2
+$ git show-ref
+d2c521ce41194be46021aef2f83e2fe37d6fe9f8 refs/heads/experiment
+d2c521ce41194be46021aef2f83e2fe37d6fe9f8 refs/heads/main
+da7d3cd54643668fae087fd3eb73361482a60fa2 refs/tags/v1.0
+$ git cat-file -t v1.0
+tag
+$ git cat-file -p v1.0
+object d2c521ce41194be46021aef2f83e2fe37d6fe9f8
+type commit
+tag v1.0
+tagger Ada Learner <ada@example.org> 1767604020 +0000
+
+First menu
+$ git rev-parse main v1.0 'v1.0^{commit}'
+d2c521ce41194be46021aef2f83e2fe37d6fe9f8
+da7d3cd54643668fae087fd3eb73361482a60fa2
+d2c521ce41194be46021aef2f83e2fe37d6fe9f8

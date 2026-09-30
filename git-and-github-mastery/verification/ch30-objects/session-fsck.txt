@@ -1,0 +1,15 @@
+#!git
+git config --global user.name "Ada Learner"
+git config --global user.email "ada@example.org"
+git config --global init.defaultBranch main
+git init obj-demo
+cd obj-demo
+printf 'White loaf: 2.80\n' > menu.md
+git add menu.md
+git commit -m "Add menu"
+printf 'Rolls (six): 3.00\n' >> menu.md
+git commit -am "Add rolls"
+git fsck 2>/dev/null; echo "exit status: $?"
+git reset --hard HEAD~1
+git fsck --no-reflogs 2>/dev/null
+git archive --format=tar HEAD | tar -t
