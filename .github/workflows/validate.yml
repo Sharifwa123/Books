@@ -26,6 +26,10 @@ jobs:
         run: git-and-github-mastery/tools/check_all.sh
       - name: Check that the Git 2.56.0 manual says what the chapters attribute to it
         run: python3 git-and-github-mastery/research/git-manual-checks.py
+      - name: Check the Markdown renderer against the CommonMark specification examples
+        run: |
+          python3 -m pip install --quiet markdown-it-py==4.2.0
+          python3 git-and-github-mastery/research/commonmark-conformance.py
 
   git-tests:
     name: Git command tests (runner's Git version)
