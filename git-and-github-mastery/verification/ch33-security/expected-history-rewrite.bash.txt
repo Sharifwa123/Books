@@ -1,0 +1,37 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ cd bakery-menu
+$ printf 'API_KEY=not-a-real-key\n' > .env
+$ git add .env
+$ git commit -m "Add config"
+[main 50ff373] Add config
+ 1 file changed, 1 insertion(+)
+ create mode 100644 .env
+$ git rm -q .env
+$ git commit -m "Remove the env file"
+[main 1cadcfd] Remove the env file
+ 1 file changed, 1 deletion(-)
+ delete mode 100644 .env
+$ git log --oneline
+1cadcfd (HEAD -> main) Remove the env file
+50ff373 Add config
+81f772e Add coconut cake
+9f10b43 Raise the price of the white loaf
+8a52ffe Add the menu
+$ git show HEAD~1:.env
+API_KEY=not-a-real-key
+$ git log --all --oneline -S"not-a-real-key"
+1cadcfd (HEAD -> main) Remove the env file
+50ff373 Add config
+$ git filter-repo --path .env --invert-paths --force
+Parsed 5 commits
+New history written in <n> seconds; now repacking/cleaning...
+Repacking your repo and cleaning out old unneeded objects
+HEAD is now at 81f772e Add coconut cake
+Completely finished after <n> seconds.
+$ git log --oneline
+81f772e (HEAD -> main) Add coconut cake
+9f10b43 Raise the price of the white loaf
+8a52ffe Add the menu
+$ git log --all --oneline -S"not-a-real-key"

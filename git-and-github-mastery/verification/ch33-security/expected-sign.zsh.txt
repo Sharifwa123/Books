@@ -1,0 +1,15 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ cd bakery-menu
+$ gpg --batch --passphrase '' --quick-gen-key "Ada Learner <ada@example.org>" default default never 2>/dev/null; echo "key created: $?"
+key created: 0
+$ git config user.signingkey "ada@example.org"
+$ printf -- '- Tea: 1.50\n' >> menu.md
+$ git commit -q -S -am "Add tea (signed)"
+$ printf -- '- Coffee: 2.00\n' >> menu.md
+$ git commit -q -am "Add coffee (unsigned)"
+$ git log --format='%G? %GS: %s' -3
+N : Add coffee (unsigned)
+G Ada Learner <ada@example.org>: Add tea (signed)
+N : Add coconut cake

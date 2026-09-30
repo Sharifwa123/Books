@@ -175,3 +175,5 @@ Alias,Your own short name for a Git command.,"A name defined in configuration (a
 Hook,A script Git runs at a fixed moment.,"A script in .git/hooks that Git runs at a specific moment, such as before a commit; a failing exit status stops the operation.",.git/hooks/pre-commit,configuration,custom
 Credential helper,A program that remembers passwords for Git.,"A program that Git asks to store, return or delete the username and password or token for a remote address.",credential.helper,remote,custom
 rerere,Git remembers how you resolved a conflict.,A feature (reuse recorded resolution) that records a conflict resolution and applies it when the same conflict recurs.,git config rerere.enabled true,merge conflict,custom
+Secret,A value that gives access if someone else has it.,"A password, token, API key, private key or file containing them, which gives access to a system when held by someone else.",API_KEY=...,credential helper,gitsec
+Signed commit,A commit that carries a verifiable signature.,"A commit carrying a cryptographic signature made with the author's private key, which others can check against the public key.",git commit -S,commit,gitsec

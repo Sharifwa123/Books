@@ -64,13 +64,16 @@ jobs:
       - name: Install zsh and Markdown renderer
         run: |
           sudo apt-get update -qq
-          sudo apt-get install -y -qq zsh
-          python3 -m pip install --quiet markdown-it-py==4.2.0 python-docx==1.2.0
+          sudo apt-get install -y -qq zsh gnupg
+          python3 -m pip install --quiet markdown-it-py==4.2.0 python-docx==1.2.0 git-filter-repo==2.47.0
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
       - name: Tool versions
         run: |
           bash --version | head -1
           zsh --version
           ls --version | head -1
           python3 --version
+          git filter-repo --version
+          gpg --version | head -1
       - name: Re-run recorded transcripts and compare
         run: git-and-github-mastery/verification/run_all.sh
