@@ -1,0 +1,18 @@
+#!git
+git config --global user.name "Ada Learner"
+git config --global user.email "ada@example.org"
+git config --global init.defaultBranch main
+@ mkdir bakery-menu && cd bakery-menu && git init -q && printf "# Sunrise Bakery menu\n\n- White loaf: 2.50\n- Rolls (six): 3.00\n" > menu.md && git add menu.md && git commit -q -m "Add the menu" && printf "# Sunrise Bakery menu\n\n- White loaf: 2.80\n- Rolls (six): 3.00\n" > menu.md && git commit -q -am "Raise the price of the white loaf" && printf "# Sunrise Bakery menu\n\n- White loaf: 2.80\n- Rolls (six): 3.00\n- Coconut cake (slice): 4.00\n" > menu.md && git commit -q -am "Add coconut cake" && cd ..
+cd bakery-menu
+git config --global alias.st "status --short"
+git config --global alias.lg "log --oneline --graph --all"
+git config --global alias.last "log -1 --stat"
+git config --global alias.hello '!echo hello from a shell alias'
+printf -- '- Tea: 1.50\n' >> menu.md
+git st
+git commit -qam "Add tea"
+git lg
+git last
+git hello
+git help st
+git config --get-regexp '^alias\.'

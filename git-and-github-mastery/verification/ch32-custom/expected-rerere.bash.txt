@@ -1,0 +1,38 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ cd bakery-menu
+$ git config rerere.enabled true
+$ git switch -c raise-bread
+Switched to a new branch 'raise-bread'
+$ printf '# Sunrise Bakery menu\n\n- White loaf: 3.00\n- Rolls (six): 3.00\n- Coconut cake (slice): 4.00\n' > menu.md
+$ git commit -qam "Raise the white loaf to 3.00"
+$ git switch -q main
+$ printf '# Sunrise Bakery menu\n\n- White loaf: 2.90\n- Rolls (six): 3.00\n- Coconut cake (slice): 4.00\n' > menu.md
+$ git commit -qam "Raise the white loaf to 2.90"
+$ git merge raise-bread
+Auto-merging menu.md
+CONFLICT (content): Merge conflict in menu.md
+Recorded preimage for 'menu.md'
+Automatic merge failed; fix conflicts and then commit the result.
+$ printf '# Sunrise Bakery menu\n\n- White loaf: 2.95\n- Rolls (six): 3.00\n- Coconut cake (slice): 4.00\n' > menu.md
+$ git add menu.md
+$ git commit -m "Merge raise-bread, settling on 2.95"
+Recorded resolution for 'menu.md'.
+[main a87e5b1] Merge raise-bread, settling on 2.95
+$ git reset --hard HEAD~1
+HEAD is now at 5dc50d3 Raise the white loaf to 2.90
+$ git merge raise-bread
+Auto-merging menu.md
+CONFLICT (content): Merge conflict in menu.md
+Resolved 'menu.md' using previous resolution.
+Automatic merge failed; fix conflicts and then commit the result.
+$ git status --short
+UU menu.md
+$ cat menu.md
+# Sunrise Bakery menu
+
+- White loaf: 2.95
+- Rolls (six): 3.00
+- Coconut cake (slice): 4.00
+$ git rerere status

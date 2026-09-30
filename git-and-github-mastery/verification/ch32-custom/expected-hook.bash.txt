@@ -1,0 +1,27 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ cd bakery-menu
+$ printf '#!/bin/sh\nif grep -q TODO menu.md; then\n  echo "pre-commit: remove the TODO before committing"\n  exit 1\nfi\n' > .git/hooks/pre-commit
+$ chmod +x .git/hooks/pre-commit
+$ printf 'TODO fix the price\n' >> menu.md
+$ git commit -am "Add a note"; echo "exit status: $?"
+pre-commit: remove the TODO before committing
+exit status: 1
+$ git status --short
+ M menu.md
+$ git log --oneline
+81f772e (HEAD -> main) Add coconut cake
+9f10b43 Raise the price of the white loaf
+8a52ffe Add the menu
+$ git commit --no-verify -am "Add a note"
+[main 08f6ccc] Add a note
+ 1 file changed, 1 insertion(+)
+$ git log --oneline
+08f6ccc (HEAD -> main) Add a note
+81f772e Add coconut cake
+9f10b43 Raise the price of the white loaf
+8a52ffe Add the menu
+$ git clone -q . ../copy
+$ test -e ../copy/.git/hooks/pre-commit && echo "hook copied" || echo "hook not copied"
+hook not copied
