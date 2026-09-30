@@ -125,7 +125,7 @@ Hosting platforms publish their own documents about their own features: accounts
 - **They may depend on your plan or account type.** A feature described on a page may not be available to you.
 - **They are not Git's documentation.** Whether something is a Git feature or a platform feature decides where to look (Chapter 12<!--ref:platforms--> introduced the difference).
 
-> **Verification pending [R223].** This book's own statements about GitHub could not be checked against the official documentation while writing Part IV, because the documentation site was not reachable from the test environment. Every such statement is marked *Verification pending* and recorded in the research ledger. When you meet a GitHub fact in this book, check it against GitHub's current documentation before you rely on it.
+> **Checked against GitHub's documentation source (R223).** GitHub's documentation is open source, in the `github/docs` repository, and each page carries a `versions` header saying which products it applies to (for example `fpt` for Free, Pro and Team, `ghes` for GitHub Enterprise Server and `ghec` for GitHub Enterprise Cloud). This book's GitHub statements were checked against that source at commit `2eaab0b` (29 September 2026) and are labelled with their ledger row. The service changes, so when you meet a GitHub fact, check the page for your kind of account and its date before you rely on it.
 
 ---
 
@@ -197,7 +197,7 @@ You are ready for Chapter 36<!--ref:whatgh--> if you can:
 | `git --version`, `git tag -h`, the "most similar command" message | Locally tested: Bash 5.2 and zsh 5.9, Git 2.43.0; CI on Git 2.55.0 | R221 |
 | Synopsis notation as it reads in usage text | Locally tested (usage text); definition checked in `CodingGuidelines` | R222 |
 | `git help` options and `help.format` | Checked against the `git help` manual page; not run (no manual pages installed on the test computer) | R221 |
-| How manual pages open on each system; platform documentation | **Not verified** | R223 |
+| How manual pages open on each system; platform documentation | Page `versions` headers checked in `github/docs`; how manual pages open on your system depends on your installation | R223 |
 
 ## Where this leads
 

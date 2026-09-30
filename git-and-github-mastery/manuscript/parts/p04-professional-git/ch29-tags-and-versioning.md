@@ -246,7 +246,7 @@ $ git ls-remote --tags origin
 
 > **⚠️ CAUTION.** Deleting a tag that other people may have already fetched does not remove it from *their* repositories, and re-using the name for a different commit causes confusion. Treat published tags as permanent: if a release is wrong, make a new tag (`v1.0.1`) rather than moving the old one.
 
-> **Verification pending [R196].** How hosting platforms display tags, and how a **release** on a platform differs from a tag, is covered in Chapter 66<!--ref:releases-->. None of it was verified for this chapter.
+> **Checked against GitHub's documentation (R196).** "About releases" says releases "are based on Git tags", that a tag's date "may be different" from the release date, and that GitHub "will automatically include links to download a zip file and a tarball containing the contents of the repository at the point of the tag's creation". Chapter 66<!--ref:releases--> covers them in full.
 
 ---
 
