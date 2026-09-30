@@ -18,13 +18,13 @@ ledger: [R213, R214, R215, R216, R217]
 - the risks of forced pushes, and of code you did not write
 - an incident checklist
 
-**Before you start.** Chapter [[tracking]] (`.gitignore` and the demonstration of a committed secret), Chapter [[reflog]], Chapter [[remotes]] and Chapter [[accounts]]. The recordings ran in Bash and zsh on Git 2.43.0 and were re-run in CI on Git 2.55.0. **Every secret in this book is made up** (`not-a-real-key`).
+**Before you start.** Chapter 18<!--ref:tracking--> (`.gitignore` and the demonstration of a committed secret), Chapter 26<!--ref:reflog-->, Chapter 23<!--ref:remotes--> and Chapter 6<!--ref:accounts-->. The recordings ran in Bash and zsh on Git 2.43.0 and were re-run in CI on Git 2.55.0. **Every secret in this book is made up** (`not-a-real-key`).
 
 ---
 
 ## 33.1 The core lesson
 
-Chapter [[objects]] showed that Git keeps every version of every file, and that a commit's name depends on everything before it. That is what makes Git reliable. It is also why **a secret that was ever committed stays in the history**, even after you delete the file.
+Chapter 30<!--ref:objects--> showed that Git keeps every version of every file, and that a commit's name depends on everything before it. That is what makes Git reliable. It is also why **a secret that was ever committed stays in the history**, even after you delete the file.
 
 > **New term: secret.** Any value that gives access if someone else has it: a password, a token, an API key, a private key, or a file that contains them.
 
@@ -65,7 +65,7 @@ $ git log --all --oneline -S"not-a-real-key"
 
 *Recorded in Bash; `ch33-security/expected-history-rewrite.bash.txt`.*
 
-`git show HEAD~1:.env` prints the key from the earlier commit, and `git log -S` (Chapter [[stash]]) finds both commits that touch it. Anyone who has a copy of this repository has the secret. Deleting the file changed nothing about that.
+`git show HEAD~1:.env` prints the key from the earlier commit, and `git log -S` (Chapter 24<!--ref:stash-->) finds both commits that touch it. Anyone who has a copy of this repository has the secret. Deleting the file changed nothing about that.
 
 > **⚠️ CAUTION.** If a real secret reaches a repository that anyone else can read, assume that it is **compromised**. The first step is **not** to clean the history. It is to **revoke or rotate the secret** (make it stop working, and issue a new one) at the place that issued it. Only then is cleaning worth considering.
 
@@ -75,7 +75,7 @@ $ git log --all --oneline -S"not-a-real-key"
 
 Prevention is much cheaper than cleanup.
 
-**Keep secrets in files that Git ignores.** A `.env` file is a common place for settings. Put its name in `.gitignore` (Chapter [[tracking]]):
+**Keep secrets in files that Git ignores.** A `.env` file is a common place for settings. Put its name in `.gitignore` (Chapter 18<!--ref:tracking-->):
 
 ```text
 $ cd bakery-menu
@@ -117,12 +117,12 @@ A  .env
 
 So `.gitignore` is a safety net for mistakes, not a lock. Add a few more habits:
 
-- **Read `git status` and `git diff --staged` before every commit** (Chapter [[commits]]).
+- **Read `git status` and `git diff --staged` before every commit** (Chapter 19<!--ref:commits-->).
 - **Keep example files without real values** (for example `.env.example`) in the repository, and the real one out of it.
-- **A hook** can check for obvious secrets before a commit (Chapter [[custom]]), but it can be skipped, so it does not replace the habits above.
+- **A hook** can check for obvious secrets before a commit (Chapter 32<!--ref:custom-->), but it can be skipped, so it does not replace the habits above.
 - **Give each token the least power that works**, and a short life. A stolen token with little power does little harm.
 
-> **Verification pending [R214].** Automatic secret scanning by hosting platforms (what it detects, whether it blocks a push, which plans include it) is time-sensitive and was not verified. Chapter [[ghsec]] covers it when its facts are checked.
+> **Verification pending [R214].** Automatic secret scanning by hosting platforms (what it detects, whether it blocks a push, which plans include it) is time-sensitive and was not verified. Chapter 62<!--ref:ghsec--> covers it when its facts are checked.
 
 ---
 
@@ -181,7 +181,7 @@ That is why the order is **revoke first**.
 
 ## 33.4 Signing commits
 
-Anyone can write any name and email into a commit (Chapter [[config]]). Nothing in Git stops you from committing as someone else. A **signature** adds proof that the commit was made by the holder of a particular key.
+Anyone can write any name and email into a commit (Chapter 14<!--ref:config-->). Nothing in Git stops you from committing as someone else. A **signature** adds proof that the commit was made by the holder of a particular key.
 
 > **New term: signed commit.** A commit that carries a cryptographic signature made with the author's private key, so that others can check it against the matching public key.
 
@@ -218,23 +218,23 @@ Two things a signature proves, and two that it does not:
 - It **proves** that the holder of the key made the commit, and that the commit was not changed afterwards.
 - It does **not** prove that the person is who they say (that depends on how you came to trust the key), and it does not prove that the code is safe.
 
-Chapter [[config]] showed the other side: what happens if signing is switched on but the key is unavailable. Git can also sign with an SSH key; Chapter [[ghauth]] runs that (with a demonstration key). The way hosting platforms show a "verified" mark was **not** run.
+Chapter 14<!--ref:config--> showed the other side: what happens if signing is switched on but the key is unavailable. Git can also sign with an SSH key; Chapter 38<!--ref:ghauth--> runs that (with a demonstration key). The way hosting platforms show a "verified" mark was **not** run.
 
-> **Verification pending [R216].** How hosting platforms decide and display "Verified" is not verified. SSH-key signing on the Git side is in Chapter [[ghauth]]; the platform side will be covered in Chapter [[ghauth]] and Chapter [[ghsec]] after checking.
+> **Verification pending [R216].** How hosting platforms decide and display "Verified" is not verified. SSH-key signing on the Git side is in Chapter 38<!--ref:ghauth-->; the platform side will be covered in Chapter 38<!--ref:ghauth--> and Chapter 62<!--ref:ghsec--> after checking.
 
 ---
 
 ## 33.5 Force pushes
 
-Chapter [[remotes]] showed a rejected push and warned against forcing it. Here is the reason.
+Chapter 23<!--ref:remotes--> showed a rejected push and warned against forcing it. Here is the reason.
 
-A **forced push** (`git push --force`) makes the remote branch match yours, even if that discards commits that others have pushed. It is what you must do after rewriting history that is already shared (Chapter [[rebase]], section 33.3). Consequences:
+A **forced push** (`git push --force`) makes the remote branch match yours, even if that discards commits that others have pushed. It is what you must do after rewriting history that is already shared (Chapter 27<!--ref:rebase-->, section 33.3). Consequences:
 
 - Other people's work can be **lost** from the shared branch.
 - Everyone who already has the old history now has a history that **conflicts** with the new one.
-- Hosting platforms can **protect** branches against forced pushes. (Whether and how was not verified for this chapter; see Chapter [[ghsec]].)
+- Hosting platforms can **protect** branches against forced pushes. (Whether and how was not verified for this chapter; see Chapter 62<!--ref:ghsec-->.)
 
-Rules of thumb: never force-push to a shared branch without agreement; use a forced push only on your own branches; and prefer `git revert` (Chapter [[undo]]) for shared history.
+Rules of thumb: never force-push to a shared branch without agreement; use a forced push only on your own branches; and prefer `git revert` (Chapter 25<!--ref:undo-->) for shared history.
 
 ---
 
@@ -242,9 +242,9 @@ Rules of thumb: never force-push to a shared branch without agreement; use a for
 
 Whenever you clone a repository, install a package, or copy a script, you run or trust **someone else's code**.
 
-- **Hooks** (Chapter [[custom]]) and scripts in a cloned repository run with your permissions. Read them first.
-- **Submodules** (Chapter [[bigrepos]]) pull code from another address. Git refuses local-path submodules by default, as the recording in that chapter showed.
-- **Dependencies** (packages) can change, or be replaced by malicious versions. Pin versions, and review what you add. (Ways to do this on a hosting platform are in Chapter [[ghsec]].)
+- **Hooks** (Chapter 32<!--ref:custom-->) and scripts in a cloned repository run with your permissions. Read them first.
+- **Submodules** (Chapter 31<!--ref:bigrepos-->) pull code from another address. Git refuses local-path submodules by default, as the recording in that chapter showed.
+- **Dependencies** (packages) can change, or be replaced by malicious versions. Pin versions, and review what you add. (Ways to do this on a hosting platform are in Chapter 62<!--ref:ghsec-->.)
 
 > **Verification pending [R217].** This section states general good practice, not tested facts. **No real-world incident is named in this chapter**: none was researched and verified from a primary source, and the book does not repeat incidents from memory. If a later revision adds incident examples, each must be verified and cited.
 
@@ -304,7 +304,7 @@ Do the exercises in [`exercises/ch33-exercises.md`](../../../exercises/ch33-exer
 
 ## Before Moving On
 
-You are ready for Chapter [[workflows]] if you can:
+You are ready for Chapter 34<!--ref:workflows--> if you can:
 
 - [ ] explain why deleting a committed secret is not enough
 - [ ] state the order: revoke, find, then clean
@@ -320,9 +320,9 @@ You are ready for Chapter [[workflows]] if you can:
 | `git filter-repo` removes a path from all history (no remote); `filter-branch` not recommended | Locally tested with git-filter-repo 2.47.0 (also installed in CI); warning text and fresh-clone rule checked in the manuals | R215 |
 | GPG-signed commit shows `G`; unsigned shows `N` | Locally tested with GnuPG and a throw-away key | R216 |
 | Platform secret scanning, protections, "Verified" marks, recommendations in the official documentation | **Not verified** | R214, R216 |
-| SSH-key signing | Run in Chapter [[ghauth]] (Git side only) | R236 |
+| SSH-key signing | Run in Chapter 38<!--ref:ghauth--> (Git side only) | R236 |
 | Supply-chain and incident guidance | General practice, **not tested**; no incident named | R217 |
 
 ## Where this leads
 
-Chapter [[workflows]] shows how teams organise their branches. Chapter [[ghauth]] covers tokens and SSH keys on the platform, and Chapter [[ghsec]] returns to secret scanning, protected branches and dependency security, once their facts are verified.
+Chapter 34<!--ref:workflows--> shows how teams organise their branches. Chapter 38<!--ref:ghauth--> covers tokens and SSH keys on the platform, and Chapter 62<!--ref:ghsec--> returns to secret scanning, protected branches and dependency security, once their facts are verified.
