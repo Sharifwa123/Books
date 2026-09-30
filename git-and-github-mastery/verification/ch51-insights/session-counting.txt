@@ -1,0 +1,12 @@
+#!git
+git config --global user.name "Ada Learner"
+git config --global user.email "ada@example.org"
+git config --global init.defaultBranch main
+@ mkdir bakery-menu && cd bakery-menu && git init -q && printf "# Sunrise Bakery menu\n\n- White loaf: 2.50\n" > menu.md && git add menu.md && git commit -q -m "Add the menu" && printf -- "- Rolls (six): 3.00\n" >> menu.md && git commit -q -am "Add rolls" && git switch -q -c topic && printf -- "- Tea: 1.50\n" >> menu.md && git -c user.name="Ada L." -c user.email="ada@old-mail.example" commit -q -am "Add tea" && git switch -q main && printf "# Sunrise Bakery menu\n\n- White loaf: 2.60\n- Rolls (six): 3.00\n" > menu.md && git commit -q -am "Raise the price of the white loaf" && git merge -q --no-ff -m "Merge topic" topic && git commit -q --allow-empty -m "Trigger the checks again" && cd ..
+cd bakery-menu
+git rev-list --count HEAD
+git shortlog -sne HEAD
+git shortlog -sne --no-merges HEAD
+printf 'Ada Learner <ada@example.org> Ada L. <ada@old-mail.example>\n' > .mailmap
+git shortlog -sne --no-merges HEAD
+git log --shortstat --format='%h %s' --no-merges
