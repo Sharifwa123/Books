@@ -158,3 +158,4 @@ Rebase,Replay your commits on top of another commit.,"Reapply the commits of a b
 Cherry-pick,Copy one commit onto another branch.,Apply the change introduced by an existing commit as a new commit on the current branch.,git cherry-pick drinks~1,rebase; patch,tools
 Bisect,Find the commit that broke something by halving.,A binary search through history that repeatedly checks out the middle of the remaining range to find the first bad commit.,git bisect run ./test.sh,commit,tools
 Patch,A text file that describes a change.,"A text file describing changes to files so that they can be applied elsewhere, for example with git apply or git am.",0001-Add-tea.patch,diff; cherry-pick,tools
+Semantic versioning,A convention for MAJOR.MINOR.PATCH release numbers.,"A versioning convention in which MAJOR changes for incompatible changes, MINOR for compatible additions and PATCH for compatible fixes; a hyphenated label marks a pre-release.",v1.4.2,tag,tags

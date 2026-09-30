@@ -1,0 +1,33 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ cd bakery-menu
+$ git remote add origin ../hub.git
+$ git push -q origin main
+$ git tag -a v1.0.0 -m "First public menu"
+$ git tag v0.9-lightweight
+$ git push origin v1.0.0
+To ../hub.git
+ * [new tag]         v1.0.0 -> v1.0.0
+$ git ls-remote --tags origin
+1d32143cf5c3f7fd0d2bc2c5b7494e76ae07ac2b	refs/tags/v1.0.0
+81f772ee32b93d8fcf80dbb34ab74053b69d97a2	refs/tags/v1.0.0^{}
+$ git push origin --tags
+To ../hub.git
+ * [new tag]         v0.9-lightweight -> v0.9-lightweight
+$ git ls-remote --tags origin
+81f772ee32b93d8fcf80dbb34ab74053b69d97a2	refs/tags/v0.9-lightweight
+1d32143cf5c3f7fd0d2bc2c5b7494e76ae07ac2b	refs/tags/v1.0.0
+81f772ee32b93d8fcf80dbb34ab74053b69d97a2	refs/tags/v1.0.0^{}
+$ git tag -d v0.9-lightweight
+Deleted tag 'v0.9-lightweight' (was 81f772e)
+$ git ls-remote --tags origin
+81f772ee32b93d8fcf80dbb34ab74053b69d97a2	refs/tags/v0.9-lightweight
+1d32143cf5c3f7fd0d2bc2c5b7494e76ae07ac2b	refs/tags/v1.0.0
+81f772ee32b93d8fcf80dbb34ab74053b69d97a2	refs/tags/v1.0.0^{}
+$ git push origin --delete v0.9-lightweight
+To ../hub.git
+ - [deleted]         v0.9-lightweight
+$ git ls-remote --tags origin
+1d32143cf5c3f7fd0d2bc2c5b7494e76ae07ac2b	refs/tags/v1.0.0
+81f772ee32b93d8fcf80dbb34ab74053b69d97a2	refs/tags/v1.0.0^{}
