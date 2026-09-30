@@ -1,0 +1,18 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ cd bakery-menu
+$ mkdir docs
+$ printf '# Sunrise Bakery menu\n\nSee [how to help](docs/CONTRIBUTING.md).\n' > README.md
+$ printf 'Be kind.\n' > docs/CONTRIBUTING.md
+$ grep -o '](.*)' README.md
+](docs/CONTRIBUTING.md)
+$ test -f docs/CONTRIBUTING.md && echo "target found"
+target found
+$ git add README.md docs
+$ git commit -q -m "Add a README and a contributing guide"
+$ git mv docs/CONTRIBUTING.md docs/HELP.md
+$ test -f docs/CONTRIBUTING.md || echo "target missing: the link is now broken"
+target missing: the link is now broken
+$ git status --short
+R  docs/CONTRIBUTING.md -> docs/HELP.md
