@@ -1,0 +1,13 @@
+#!git
+git config --global user.name "Ada Learner"
+git config --global user.email "ada@example.org"
+git config --global init.defaultBranch main
+@ mkdir bakery-menu && cd bakery-menu && git init -q && printf "# Sunrise Bakery menu\n\n- White loaf: 2.50\n- Rolls (six): 3.00\n" > menu.md && git add menu.md && git commit -q -m "Add the menu" && printf "# Sunrise Bakery menu\n\n- White loaf: 2.80\n- Rolls (six): 3.00\n" > menu.md && git commit -q -am "Raise the price of the white loaf" && printf "# Sunrise Bakery menu\n\n- White loaf: 2.80\n- Rolls (six): 3.00\n- Coconut cake (slice): 4.00\n" > menu.md && git commit -q -am "Add coconut cake" && cd .. && git init -q --bare hub-with-readme.git && git clone -q hub-with-readme.git seed && cd seed && printf '# Sunrise Bakery\n' > README.md && git add README.md && git commit -q -m 'Initial commit' && git push -q origin main && cd .. && rm -rf seed
+cd bakery-menu
+git remote add origin ../hub-with-readme.git
+git push -u origin main
+git fetch -q origin
+git pull --no-rebase origin main
+git pull --no-rebase --allow-unrelated-histories --no-edit origin main
+git log --oneline --graph
+git push -u origin main
