@@ -66,3 +66,7 @@ L += ["", "Files fetched with the book's tool are hashed in the manifest, so a r
 for r in open_rows: L.append(f"| {r['id']} | {cell(r['topic'])} | {cell(r['claim_to_verify'][:120])} |")
 L += ["", "## N.5 How to use this log", "", "1. Before relying on a fact about GitHub, find its chapter's ledger row and read its status and date.", "2. Prefer GitHub's current documentation for your plan over this book for anything time-sensitive.", "3. If you find an error, the ledger tells you where the claim came from, so it can be corrected at the source."]
 w("manuscript/appendices/appendix-n-sources-and-verification-log.md", "\n".join(L))
+
+# the generated files contain [[key]] cross-references: expand them so the committed files are always final
+import subprocess, sys
+subprocess.run([sys.executable, os.path.join(os.path.dirname(os.path.abspath(__file__)), "resolve_refs.py"), "--expand"], check=True)
