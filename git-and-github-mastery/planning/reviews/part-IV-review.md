@@ -11,7 +11,7 @@ All eleven chapters are `status: draft`. Chapters 25-35 were drafted from record
 
 ## 2. Beginner comprehension review
 - Every chapter follows the pattern: motivation, a small recorded demonstration read line by line, a caution, a summary. [Deep] chapters say so at the top and can be skipped on a first read.
-- `check_term_order.py` shows only forward pointers with chapter references, plus the front-matter key `tag:` (false positive).
+- `check_term_order.py` reports (a) false positives: the front-matter key `tag:`, the `ref` inside cross-reference markup, and ordinary uses of `tree` ("working tree", "decision tree") and `secret`; (b) forward pointers that carry an explicit chapter reference (for example "Chapter 27 rewrites history"); and (c) two terms explained in place before their formal definition in Chapter 30: *tag object* and *object* in Chapter 29, where the text says what they are. No unexplained forward use was found by reading the list.
 - Chapters 30-31 are dense and need a pilot read by a beginner.
 
 ## 3. Command verification
