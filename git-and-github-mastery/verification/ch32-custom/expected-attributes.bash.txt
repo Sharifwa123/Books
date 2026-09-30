@@ -1,0 +1,23 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ cd bakery-menu
+$ printf '*.md text eol=lf\n*.bin binary\n' > .gitattributes
+$ git add .gitattributes
+$ git commit -m "Add attributes"
+[main 8776a78] Add attributes
+ 1 file changed, 2 insertions(+)
+ create mode 100644 .gitattributes
+$ git check-attr -a menu.md
+menu.md: text: set
+menu.md: eol: lf
+$ git check-attr -a logo.bin
+logo.bin: binary: set
+logo.bin: diff: unset
+logo.bin: merge: unset
+logo.bin: text: unset
+$ printf 'one\r\ntwo\r\n' > notes.md
+$ git add notes.md
+warning: in the working copy of 'notes.md', CRLF will be replaced by LF the next time Git touches it
+$ git ls-files --eol notes.md
+i/lf    w/crlf  attr/text eol=lf      	notes.md

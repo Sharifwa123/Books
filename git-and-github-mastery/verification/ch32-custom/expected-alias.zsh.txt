@@ -1,0 +1,35 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ cd bakery-menu
+$ git config --global alias.st "status --short"
+$ git config --global alias.lg "log --oneline --graph --all"
+$ git config --global alias.last "log -1 --stat"
+$ git config --global alias.hello '!echo hello from a shell alias'
+$ printf -- '- Tea: 1.50\n' >> menu.md
+$ git st
+ M menu.md
+$ git commit -qam "Add tea"
+$ git lg
+* 31cb2c3 (HEAD -> main) Add tea
+* 81f772e Add coconut cake
+* 9f10b43 Raise the price of the white loaf
+* 8a52ffe Add the menu
+$ git last
+commit 31cb2c3316e22b96397393788023fb0b98ff2c6d (HEAD -> main)
+Author: Ada Learner <ada@example.org>
+Date:   Mon Jan 5 09:14:00 2026 +0000
+
+    Add tea
+
+ menu.md | 1 +
+ 1 file changed, 1 insertion(+)
+$ git hello
+hello from a shell alias
+$ git help st
+'st' is aliased to 'status --short'
+$ git config --get-regexp '^alias\.'
+alias.st status --short
+alias.lg log --oneline --graph --all
+alias.last log -1 --stat
+alias.hello !echo hello from a shell alias
