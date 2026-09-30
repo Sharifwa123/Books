@@ -1,0 +1,12 @@
+#!git
+git config --global user.name "Ada Learner"
+git config --global user.email "ada@example.org"
+git config --global init.defaultBranch main
+@ git init -q --bare hub.git && git clone -q hub.git bakery-menu 2>/dev/null && cd bakery-menu && printf "# Sunrise Bakery menu\n\n- White loaf: 2.50\n" > menu.md && git add menu.md && git commit -q -m "Add the menu" && git push -q origin main && git switch -q -c add-tea && printf -- "- Tea: 1.50\n" >> menu.md && git commit -q -am "Add tea" && git push -q origin add-tea && cd .. && git -C hub.git update-ref refs/pull/1/head $(git -C hub.git rev-parse add-tea) && git -C hub.git config receive.hideRefs refs/pull && rm -rf bakery-menu
+git clone -q hub.git reviewer
+cd reviewer
+git ls-remote origin
+git fetch -q origin pull/1/head:pr-1
+git switch -q pr-1
+git log --oneline
+git push origin HEAD:refs/pull/1/head

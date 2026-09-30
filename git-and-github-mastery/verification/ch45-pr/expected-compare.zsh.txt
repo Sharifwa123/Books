@@ -1,0 +1,17 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ cd bakery-menu
+$ git log --oneline --graph --all
+* cd79e50 (HEAD -> main) Raise the price of the white loaf
+| * a13923d (add-tea) Add tea
+|/
+* 8a52ffe Add the menu
+$ git diff --stat main...add-tea
+ menu.md | 1 +
+ 1 file changed, 1 insertion(+)
+$ git diff --stat main..add-tea
+ menu.md | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+$ git merge-base main add-tea
+8a52ffecdf9a4a5f307aa1d31e3429b29ad0d6f9

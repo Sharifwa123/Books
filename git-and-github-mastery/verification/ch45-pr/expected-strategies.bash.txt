@@ -1,0 +1,41 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ cd bakery-menu
+$ git switch -q strategy-merge
+$ git merge --no-ff -m "Merge topic" topic
+Merge made by the 'ort' strategy.
+ menu.md | 2 ++
+ 1 file changed, 2 insertions(+)
+$ git log --oneline --graph
+*   66ffa82 (HEAD -> strategy-merge) Merge topic
+|\
+| * 85667ec (topic) Add coffee
+| * d0ffe5a Add tea
+|/
+* 7877d40 (strategy-squash, main) Add the menu
+$ git switch -q strategy-squash
+$ git merge --squash topic
+Updating 7877d40..85667ec
+Fast-forward
+Squash commit -- not updating HEAD
+ menu.md | 2 ++
+ 1 file changed, 2 insertions(+)
+$ git commit -q -m "Add tea and coffee"
+$ git log --oneline --graph
+* 9655a53 (HEAD -> strategy-squash) Add tea and coffee
+* 7877d40 (main) Add the menu
+$ git switch -q topic
+$ git rebase strategy-rebase
+Successfully rebased and updated refs/heads/topic.
+$ git switch -q strategy-rebase
+$ git merge --ff-only topic
+Updating ed8302b..14100dc
+Fast-forward
+ menu.md | 2 ++
+ 1 file changed, 2 insertions(+)
+$ git log --oneline --graph
+* 14100dc (HEAD -> strategy-rebase, topic) Add coffee
+* 1b66442 Add tea
+* ed8302b Raise the price of the white loaf
+* 7877d40 (main) Add the menu
