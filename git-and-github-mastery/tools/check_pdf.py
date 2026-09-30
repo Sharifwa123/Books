@@ -66,7 +66,8 @@ txt = "".join((r.pages[i].extract_text() or "") for i in range(min(n, 12)))
 ok(len(txt) > 500, f"extractable text on the first pages ({len(txt)} characters)")
 ok("Git & GitHub: From Zero to Mastery" in txt.replace("\n", " ") or "Git & GitHub" in txt, "title text present")
 ok("Sharif Tingane Issah" in txt, "author text present")
-ok("CC BY-NC-SA 4.0" in txt.replace("\n", " ") and "MIT License" in txt.replace("\n", " "), "copyright page states the book text and code licences")
+flat = re.sub(r"\s+", "", "".join((r.pages[i].extract_text() or "") for i in range(min(n, 20))))   # line breaks may fall inside a hyphenated name
+ok("CCBY-NC-SA4.0" in flat and "MITLicense" in flat, "copyright page states the book text and code licences")
 ok(not re.search(r"ISBN[: ]+97[89]", txt), "no invented ISBN")
 if full:
     alltxt = "".join((p.extract_text() or "") for p in r.pages)
