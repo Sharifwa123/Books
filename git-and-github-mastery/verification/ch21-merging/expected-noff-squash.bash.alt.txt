@@ -65,7 +65,8 @@ $ git log --oneline --graph
 * 9f10b43 Raise the price of the white loaf
 * 8a52ffe Add the menu
 $ git branch -d add-juice
-error: the branch 'add-juice' is not fully merged.
-If you are sure you want to delete it, run 'git branch -D add-juice'
+error: the branch 'add-juice' is not fully merged
+hint: If you are sure you want to delete it, run 'git branch -D add-juice'
+hint: Disable this message with "git config set advice.forceDeleteBranch false"
 $ git branch -D add-juice
 Deleted branch add-juice (was 663bebc).

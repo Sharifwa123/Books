@@ -1,0 +1,48 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ cd bakery-menu
+$ git switch -c add-tea
+Switched to a new branch 'add-tea'
+$ printf '# Sunrise Bakery menu\n\n- White loaf: 2.80\n- Rolls (six): 3.00\n- Coconut cake (slice): 4.00\n- Tea: 1.50\n' > menu.md
+$ git commit -am "Add tea to the menu"
+[add-tea a1ed54d] Add tea to the menu
+ 1 file changed, 1 insertion(+)
+$ git switch main
+Switched to branch 'main'
+$ printf 'Open Monday to Saturday.\n' > hours.md
+$ git add hours.md
+$ git switch add-tea
+A	hours.md
+Switched to branch 'add-tea'
+$ git status --short
+A  hours.md
+$ git switch main
+A	hours.md
+Switched to branch 'main'
+$ printf '# Sunrise Bakery menu\n\n- White loaf: 3.00\n- Rolls (six): 3.00\n- Coconut cake (slice): 4.00\n' > menu.md
+$ git switch add-tea
+error: Your local changes to the following files would be overwritten by checkout:
+	menu.md
+Please commit your changes or stash them before you switch branches.
+Aborting
+$ git status --short
+A  hours.md
+ M menu.md
+$ git stash
+Saved working directory and index state WIP on main: 81f772e Add coconut cake
+$ git switch add-tea
+Switched to branch 'add-tea'
+$ git stash pop
+Auto-merging menu.md
+On branch add-tea
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	new file:   hours.md
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   menu.md
+
+Dropped refs/stash@{0} (7ad1cd045fd28554d6d12eecf6fb3dae681bff32)

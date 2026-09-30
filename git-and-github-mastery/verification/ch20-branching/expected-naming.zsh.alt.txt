@@ -1,0 +1,20 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ cd bakery-menu
+$ git branch feature/add-tea
+$ git branch fix-broken-link
+$ git branch "bad name"
+fatal: 'bad name' is not a valid branch name
+hint: See 'git help check-ref-format'
+hint: Disable this message with "git config set advice.refSyntax false"
+$ git branch bad..name
+fatal: 'bad..name' is not a valid branch name
+hint: See 'git help check-ref-format'
+hint: Disable this message with "git config set advice.refSyntax false"
+$ git branch
+  feature/add-tea
+  fix-broken-link
+* main
+$ git branch --show-current
+main
