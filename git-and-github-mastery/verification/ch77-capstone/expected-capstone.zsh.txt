@@ -1,0 +1,258 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ echo "== Step 1: Create the shared repository and your clone"
+== Step 1: Create the shared repository and your clone
+$ git init -q --bare hub.git
+$ git -C hub.git symbolic-ref HEAD refs/heads/main
+$ git clone -q hub.git bakery 2>/dev/null
+$ cd bakery
+$ git status -sb
+## No commits yet on main...origin/main [gone]
+$ echo "== Step 2: First files, tests and the ignore file"
+== Step 2: First files, tests and the ignore file
+$ mkdir -p src tests
+$ printf 'def total(prices):\n    return round(sum(prices), 2)\n' > src/orders.py
+$ printf 'import unittest\nfrom orders import total\n\n\nclass TotalTest(unittest.TestCase):\n    def test_total(self):\n        self.assertEqual(total([2.5, 3.0]), 5.5)\n\n    def test_empty(self):\n        self.assertEqual(total([]), 0)\n' > tests/test_orders.py
+$ printf '__pycache__/\n.env\n' > .gitignore
+$ PYTHONPATH=src python3 -m unittest discover -s tests 2>&1 | grep -x OK
+OK
+$ echo "== Step 3: Documentation and community files"
+== Step 3: Documentation and community files
+$ printf '# Bakery orders\n\nAdds up the prices of an order.\n\n    from orders import total\n    total([2.5, 3.0])  # 5.5\n' > README.md
+$ printf '# Contributing\n\nOpen an issue first. Run sh ci.sh before you open a pull request.\n' > CONTRIBUTING.md
+$ printf '# Security policy\n\nReport vulnerabilities privately to security@example.org.\n' > SECURITY.md
+$ echo "== Step 4: A local pipeline you can run anywhere"
+== Step 4: A local pipeline you can run anywhere
+$ printf 'PYTHONPATH=src python3 -m unittest discover -s tests >/dev/null 2>&1 && echo "tests: ok" || { echo "tests: FAILED"; exit 1; }\nfor f in README.md CONTRIBUTING.md SECURITY.md .gitignore; do test -f "$f" && echo "present: $f" || { echo "MISSING: $f"; exit 1; }; done\ntest -f LICENSE && echo "present: LICENSE" || echo "note: no LICENSE yet (the owner decides)"\n' > ci.sh
+$ sh ci.sh
+tests: ok
+present: README.md
+present: CONTRIBUTING.md
+present: SECURITY.md
+present: .gitignore
+note: no LICENSE yet (the owner decides)
+$ echo "== Step 5: First commit and push"
+== Step 5: First commit and push
+$ git add -A
+$ git commit -q -m "Add the order total, tests, documentation and a local pipeline"
+$ git push -q -u origin main
+$ git status -sb
+## main...origin/main
+$ echo "== Step 6: A server rule that protects the shared branch"
+== Step 6: A server rule that protects the shared branch
+$ git -C ../hub.git config receive.denyNonFastForwards true
+$ git -C ../hub.git config --get receive.denyNonFastForwards
+true
+$ echo "== Step 7: A feature branch and a test that fails first"
+== Step 7: A feature branch and a test that fails first
+$ git switch -q -c feature/discount
+$ printf '\n    def test_discount(self):\n        self.assertEqual(total([10, 10], 0.1), 18.0)\n' >> tests/test_orders.py
+$ PYTHONPATH=src python3 -m unittest discover -s tests 2>&1 | grep -E "^(OK|FAILED)"
+FAILED (errors=1)
+$ echo "== Step 8: Make the test pass and commit"
+== Step 8: Make the test pass and commit
+$ printf 'def total(prices, discount=0):\n    return round(sum(prices) * (1 - discount), 2)\n' > src/orders.py
+$ sh ci.sh
+tests: ok
+present: README.md
+present: CONTRIBUTING.md
+present: SECURITY.md
+present: .gitignore
+note: no LICENSE yet (the owner decides)
+$ git commit -q -am "Support a discount in total()"
+$ git push -q -u origin feature/discount
+$ echo "== Step 9: A colleague reviews the branch on their computer"
+== Step 9: A colleague reviews the branch on their computer
+$ git clone -q ../hub.git ../reviewer
+$ cd ../reviewer
+$ git log --format='%an: %s' main..origin/feature/discount
+Ada Learner: Support a discount in total()
+$ git diff --stat main...origin/feature/discount
+ src/orders.py        | 4 ++--
+ tests/test_orders.py | 3 +++
+ 2 files changed, 5 insertions(+), 2 deletions(-)
+$ git switch -q --detach origin/feature/discount
+$ sh ci.sh
+tests: ok
+present: README.md
+present: CONTRIBUTING.md
+present: SECURITY.md
+present: .gitignore
+note: no LICENSE yet (the owner decides)
+$ git switch -q main
+$ cd ../bakery
+$ echo "== Step 10: Review feedback: add a follow-up commit"
+== Step 10: Review feedback: add a follow-up commit
+$ printf '\n    def test_no_discount(self):\n        self.assertEqual(total([10, 10], 0), 20.0)\n' >> tests/test_orders.py
+$ git commit -q -am "Test the case without a discount"
+$ git push -q origin feature/discount
+$ git log --format=%s main..feature/discount
+Test the case without a discount
+Support a discount in total()
+$ echo "== Step 11: Meanwhile, main moved: a second developer changes the docs"
+== Step 11: Meanwhile, main moved: a second developer changes the docs
+$ git clone -q ../hub.git ../ben
+$ git -C ../ben switch -q main
+$ printf 'See CONTRIBUTING.md to help.\n\n' | cat - ../ben/README.md > ../ben/README.new && mv ../ben/README.new ../ben/README.md
+$ git -C ../ben commit -q -am "Point the README to the contributing guide"
+$ git -C ../ben push -q origin main
+$ echo "== Step 12: Bring main into your branch and check again"
+== Step 12: Bring main into your branch and check again
+$ git fetch -q
+$ git merge -q --no-edit origin/main
+$ sh ci.sh
+tests: ok
+present: README.md
+present: CONTRIBUTING.md
+present: SECURITY.md
+present: .gitignore
+note: no LICENSE yet (the owner decides)
+$ git push -q origin feature/discount
+$ git log --format=%s -4
+Merge remote-tracking branch 'origin/main' into feature/discount
+Point the README to the contributing guide
+Test the case without a discount
+Support a discount in total()
+$ echo "== Step 13: A conflict: both changed the same line"
+== Step 13: A conflict: both changed the same line
+$ printf 'def total(prices, discount=0):\n    return round(sum(prices) * (1 - discount), 2)  # rounds to cents\n' > ../ben/src/orders.py
+$ git -C ../ben commit -q -am "Comment the rounding"
+$ git -C ../ben push -q origin main
+$ git fetch -q
+$ sed -i 's/(1 - discount), 2)/(1 - discount), 2)  # cents/' src/orders.py
+$ git commit -q -am "Comment the rounding differently"
+$ git -c advice.mergeConflict=false merge origin/main
+Auto-merging src/orders.py
+CONFLICT (content): Merge conflict in src/orders.py
+Automatic merge failed; fix conflicts and then commit the result.
+$ git checkout -q --ours src/orders.py
+$ git add src/orders.py
+$ git commit -q --no-edit
+$ sh ci.sh
+tests: ok
+present: README.md
+present: CONTRIBUTING.md
+present: SECURITY.md
+present: .gitignore
+note: no LICENSE yet (the owner decides)
+$ git push -q origin feature/discount
+$ echo "== Step 14: Maintainer merges the pull request (squash)"
+== Step 14: Maintainer merges the pull request (squash)
+$ git clone -q ../hub.git ../maintainer
+$ cd ../maintainer
+$ git -c user.name=Maintainer -c user.email=maintainer@example.org merge -q --squash origin/feature/discount
+Squash commit -- not updating HEAD
+$ git -c user.name=Maintainer -c user.email=maintainer@example.org commit -q -m "Add discount support (#1)"
+$ git push -q origin main
+$ git push -q origin --delete feature/discount
+$ cd ../bakery
+$ echo "== Step 15: Clean up and update your main"
+== Step 15: Clean up and update your main
+$ git switch -q main
+$ git fetch -q --prune
+$ git merge -q --ff-only origin/main
+$ git branch -D feature/discount
+Deleted branch feature/discount (was 14445d8).
+$ git log --format=%s
+Add discount support (#1)
+Comment the rounding
+Point the README to the contributing guide
+Add the order total, tests, documentation and a local pipeline
+$ sh ci.sh
+tests: ok
+present: README.md
+present: CONTRIBUTING.md
+present: SECURITY.md
+present: .gitignore
+note: no LICENSE yet (the owner decides)
+$ echo "== Step 16: Tag the first release"
+== Step 16: Tag the first release
+$ git tag -a v0.1.0 -m "Version 0.1.0: initial development"
+$ git push -q origin v0.1.0
+$ git tag -n1
+v0.1.0          Version 0.1.0: initial development
+$ echo "== Step 17: Package the release and publish a checksum"
+== Step 17: Package the release and publish a checksum
+$ git archive --format=tar.gz --prefix=bakery-0.1.0/ -o ../bakery-0.1.0.tar.gz v0.1.0
+$ tar -tzf ../bakery-0.1.0.tar.gz | head -4
+bakery-0.1.0/
+bakery-0.1.0/.gitignore
+bakery-0.1.0/CONTRIBUTING.md
+bakery-0.1.0/README.md
+$ (cd .. && sha256sum bakery-0.1.0.tar.gz > bakery-0.1.0.tar.gz.sha256 && sha256sum -c bakery-0.1.0.tar.gz.sha256)
+bakery-0.1.0.tar.gz: OK
+$ echo "== Step 18: A bug report: discounts above 100 percent"
+== Step 18: A bug report: discounts above 100 percent
+$ printf '\n    def test_bad_discount(self):\n        with self.assertRaises(ValueError):\n            total([10], 1.5)\n' >> tests/test_orders.py
+$ PYTHONPATH=src python3 -m unittest discover -s tests 2>&1 | grep -E "^(OK|FAILED)"
+FAILED (failures=1)
+$ echo "== Step 19: Fix it and release 0.1.1"
+== Step 19: Fix it and release 0.1.1
+$ printf 'def total(prices, discount=0):\n    if not 0 <= discount <= 1:\n        raise ValueError("discount must be between 0 and 1")\n    return round(sum(prices) * (1 - discount), 2)\n' > src/orders.py
+$ sh ci.sh
+tests: ok
+present: README.md
+present: CONTRIBUTING.md
+present: SECURITY.md
+present: .gitignore
+note: no LICENSE yet (the owner decides)
+$ git commit -q -am "Reject discounts outside 0 to 1"
+$ git push -q origin main
+$ git tag -a v0.1.1 -m "Version 0.1.1"
+$ git push -q origin v0.1.1
+$ git tag --sort=version:refname
+v0.1.0
+v0.1.1
+$ echo "== Step 20: A bad change reaches main, and you revert it"
+== Step 20: A bad change reaches main, and you revert it
+$ printf 'def total(prices, discount=0):\n    return round(sum(prices))\n' > src/orders.py
+$ git commit -q -am "Round to whole numbers"
+$ git push -q origin main
+$ sh ci.sh || true
+tests: FAILED
+$ git revert --no-edit HEAD > /dev/null
+$ git push -q origin main
+$ sh ci.sh
+tests: ok
+present: README.md
+present: CONTRIBUTING.md
+present: SECURITY.md
+present: .gitignore
+note: no LICENSE yet (the owner decides)
+$ git log --format=%s -3
+Revert "Round to whole numbers"
+Round to whole numbers
+Reject discounts outside 0 to 1
+$ echo "== Step 21: A secret is committed by mistake"
+== Step 21: A secret is committed by mistake
+$ printf 'TOKEN=not-a-real-token\n' > .env
+$ git add -f .env
+$ git commit -q -m "Add local settings"
+$ git rm -q --cached .env
+$ git commit -q -m "Stop tracking .env"
+$ git log --format=%s -S'not-a-real-token'
+Stop tracking .env
+Add local settings
+$ git ls-files | grep -c '^.env$' || true
+0
+$ echo "== Step 22: Release notes from the history"
+== Step 22: Release notes from the history
+$ git log --format='- %s' v0.1.0..v0.1.1
+- Reject discounts outside 0 to 1
+$ echo "== Step 23: Final audit"
+== Step 23: Final audit
+$ git shortlog -sn --no-merges main
+     8	Ada Learner
+     1	Maintainer
+$ git ls-remote --tags --refs origin | wc -l | tr -d ' '
+2
+$ git status -sb
+## main...origin/main [ahead 2]
+$ sh ci.sh
+tests: ok
+present: README.md
+present: CONTRIBUTING.md
+present: SECURITY.md
+present: .gitignore
+note: no LICENSE yet (the owner decides)
