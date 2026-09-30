@@ -132,3 +132,40 @@ jobs:
           git filter-repo --version
       - name: Re-run recorded transcripts and compare
         run: git-and-github-mastery/verification/run_all.sh
+
+  pdf-edition:
+    name: PDF edition (build and machine checks)
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - name: Install fonts and Python packages
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq fonts-dejavu-core fonts-dejavu-extra libpango-1.0-0 libpangoft2-1.0-0
+          python3 -m pip install --quiet weasyprint==66.0 pypdf==6.19.0 markdown-it-py==4.2.0 pyyaml==6.0.1
+      - name: Pre-render the diagrams
+        run: |
+          mkdir -p "$RUNNER_TEMP/mm" && cd "$RUNNER_TEMP/mm" && npm init -y >/dev/null && npm install --silent mermaid@11
+          cd "$GITHUB_WORKSPACE/git-and-github-mastery"
+          MERMAID_DIR="$RUNNER_TEMP/mm" python3 tools/render_diagrams.py
+      - name: Build the screen and print editions
+        run: |
+          cd git-and-github-mastery
+          export SOURCE_DATE_EPOCH=1790000000
+          python3 tools/build_pdf.py --profile screen
+          python3 tools/build_pdf.py --profile print
+      - name: Machine checks on both PDFs
+        run: |
+          cd git-and-github-mastery
+          for f in publishing/build/*.pdf; do python3 tools/check_pdf.py "$f" --full; done
+          sha256sum publishing/build/*.pdf | tee publishing/build/SHA256SUMS
+      - name: Upload the PDFs
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
+        with:
+          name: pdf-edition
+          path: |
+            git-and-github-mastery/publishing/build/*.pdf
+            git-and-github-mastery/publishing/build/SHA256SUMS

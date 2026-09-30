@@ -5,3 +5,5 @@ __pycache__/
 # local scratch and build output
 /build/
 /dist/
+# PDF build output and pre-rendered diagrams (built in CI, attached to the release)
+/git-and-github-mastery/publishing/build/
