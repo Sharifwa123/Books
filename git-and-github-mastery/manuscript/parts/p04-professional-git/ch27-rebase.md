@@ -152,7 +152,7 @@ Could not apply 73e14f7... Raise the white loaf to 3.00
 
 *Recorded in Bash; `ch27-rebase/expected-rebase-conflict.bash.txt`.*
 
-Git stops in the middle and says which commit it could not apply, and it lists the ways out. Ask for the state:
+Git stops in the middle and says which commit it could not apply, and it lists the ways out. *(On newer Git versions, 2.55.0 was tested, the output has one more hint line about `advice.mergeConflict`, and the commit subject is shown with a `# ` before it, as in `Could not apply 73e14f7... # Raise the white loaf to 3.00`. The meaning is the same.)* Ask for the state:
 
 ```text
 $ git status

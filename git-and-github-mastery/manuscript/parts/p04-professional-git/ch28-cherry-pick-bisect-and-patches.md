@@ -210,6 +210,8 @@ $ git status --short
 
 > **⚠️ CAUTION.** Do not commit or change files in the middle of a bisect. And write down the good and bad commits before you start, so that you can restart.
 
+> *On Git 2.55.0, bisect puts quotes around the words: `waiting for both 'good' and 'bad' commits` and `is the first 'bad' commit`.*
+
 > **Verification pending [R195].** The exact wording of bisect's messages (for instance the `running` line, and the "roughly N steps" estimate) may differ between Git versions. Manual bisecting (`git bisect good` and `git bisect bad` typed by hand) was not run for this chapter.
 
 ---

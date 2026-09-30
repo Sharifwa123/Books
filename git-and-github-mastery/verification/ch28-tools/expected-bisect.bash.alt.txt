@@ -1,0 +1,62 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ cd bakery-menu
+$ printf -- '- Tea: 1.50\n' >> menu.md
+$ git commit -am "Add tea"
+[main 60cb0bb] Add tea
+ 1 file changed, 1 insertion(+)
+$ printf -- '- Coffee: 2.00\n' >> menu.md
+$ git commit -am "Add coffee"
+[main bf6d066] Add coffee
+ 1 file changed, 1 insertion(+)
+$ printf -- '- Mystery pie: 0.01\n' >> menu.md
+$ git commit -am "Add a mystery pie"
+[main 7a5ee8a] Add a mystery pie
+ 1 file changed, 1 insertion(+)
+$ printf -- '- Juice: 2.20\n' >> menu.md
+$ git commit -am "Add juice"
+[main 59d1a45] Add juice
+ 1 file changed, 1 insertion(+)
+$ printf -- '- Scones: 1.80\n' >> menu.md
+$ git commit -am "Add scones"
+[main 2862c91] Add scones
+ 1 file changed, 1 insertion(+)
+$ git log --oneline
+2862c91 (HEAD -> main) Add scones
+59d1a45 Add juice
+7a5ee8a Add a mystery pie
+bf6d066 Add coffee
+60cb0bb Add tea
+81f772e Add coconut cake
+9f10b43 Raise the price of the white loaf
+8a52ffe Add the menu
+$ git bisect start
+status: waiting for both 'good' and 'bad' commits
+$ git bisect bad HEAD
+status: waiting for 'good' commit(s), 'bad' commit known
+$ git bisect good HEAD~5
+Bisecting: 2 revisions left to test after this (roughly 1 step)
+[bf6d06696d870f97a07b7fc658a78580e0976059] Add coffee
+$ git bisect run sh -c '! grep -q Mystery menu.md'
+running 'sh' '-c' ''\!' grep -q Mystery menu.md'
+Bisecting: 0 revisions left to test after this (roughly 1 step)
+[59d1a45ac75c3ce66c8226746cdb12c9cf8f311a] Add juice
+running 'sh' '-c' ''\!' grep -q Mystery menu.md'
+Bisecting: 0 revisions left to test after this (roughly 0 steps)
+[7a5ee8a1ad6ad0d61d041c66d9346164b5a51b96] Add a mystery pie
+running 'sh' '-c' ''\!' grep -q Mystery menu.md'
+7a5ee8a1ad6ad0d61d041c66d9346164b5a51b96 is the first 'bad' commit
+commit 7a5ee8a1ad6ad0d61d041c66d9346164b5a51b96
+Author: Ada Learner <ada@example.org>
+Date:   Mon Jan 5 09:11:00 2026 +0000
+
+    Add a mystery pie
+
+ menu.md | 1 +
+ 1 file changed, 1 insertion(+)
+bisect found first 'bad' commit
+$ git bisect reset
+Previous HEAD position was 7a5ee8a Add a mystery pie
+Switched to branch 'main'
+$ git status --short
