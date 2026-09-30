@@ -1,0 +1,17 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ git --version
+git version <version>
+$ git tag -h | head -n 6
+usage: git tag [-a | -s | -u <key-id>] [-f] [-m <msg> | -F <file>] [-e]
+               [(--trailer <token>[(=|:)<value>])...]
+               <tagname> [<commit> | <object>]
+   or: git tag -d <tagname>...
+   or: git tag [-n[<num>]] -l [--contains <commit>] [--no-contains <commit>]
+               [--points-at <object>] [--column[=<options>] | --no-column]
+$ git comit
+git: 'comit' is not a git command. See 'git --help'.
+
+The most similar command is
+	commit
