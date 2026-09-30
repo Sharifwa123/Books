@@ -24,6 +24,8 @@ jobs:
           persist-credentials: false
       - name: Run static checks
         run: git-and-github-mastery/tools/check_all.sh
+      - name: Check that the Git 2.56.0 manual says what the chapters attribute to it
+        run: python3 git-and-github-mastery/research/git-manual-checks.py
 
   git-tests:
     name: Git command tests (runner's Git version)

@@ -426,9 +426,9 @@ You are ready for Chapter 22<!--ref:conflicts--> if you can:
 
 | Claim | Evidence class | Ledger |
 |---|---|---|
-| Fast-forward merge, `--merged`, `-d` afterwards | Locally tested: Bash 5.2 and zsh 5.9, Git 2.43.0; identical on CI's Git 2.55.0 | R173 |
-| Three-way merge, merge commit, `--merges`, the `ort` strategy line | Locally tested (as above); the strategy naming across versions not investigated | R174 |
-| `--no-ff` and `--squash`, and the `-d` refusal after a squash | Locally tested (as above); the refusal hint differs between 2.43.0 and 2.55.0 (both recorded) | R175 |
+| Fast-forward merge, `--merged`, `-d` afterwards | Locally tested: Bash 5.2 and zsh 5.9, Git 2.43.0; identical on CI's Git 2.55.0. Concept and option statements also checked in the Git 2.56.0 manual (git-merge). | R173 |
+| Three-way merge, merge commit, `--merges`, the `ort` strategy line | Locally tested (as above); the strategy naming across versions not investigated. Concept and option statements also checked in the Git 2.56.0 manual (git-merge). | R174 |
+| `--no-ff` and `--squash`, and the `-d` refusal after a squash | Locally tested (as above); the refusal hint differs between 2.43.0 and 2.55.0 (both recorded). Concept and option statements also checked in the Git 2.56.0 manual (git-merge). | R175 |
 
 ## Where this leads
 

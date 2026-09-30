@@ -292,8 +292,8 @@ You are ready for Chapter 27<!--ref:rebase--> if you can:
 
 | Claim | Evidence class | Ledger |
 |---|---|---|
-| Reflog lines and `HEAD@{n}`; deleted-branch recovery | Locally tested: Bash 5.2 and zsh 5.9, Git 2.43.0; CI on Git 2.55.0 | R187 |
-| Detached `HEAD`, the leaving-commits warning, rescue with `git branch` | Locally tested (as above) | R188 |
+| Reflog lines and `HEAD@{n}`; deleted-branch recovery | Locally tested: Bash 5.2 and zsh 5.9, Git 2.43.0; CI on Git 2.55.0. Concept and option statements also checked in the Git 2.56.0 manual (git-reflog). | R187 |
+| Detached `HEAD`, the leaving-commits warning, rescue with `git branch` | Locally tested (as above). Concept and option statements also checked in the Git 2.56.0 manual (git-switch, glossary-content). | R188 |
 | Reflog expiry defaults (90 days, 30 days) and the `gc.pruneExpire` grace period (two weeks) | Checked against the Git 2.56.0 documentation (`config/gc`); not measured by test | R189 |
 
 ## Where this leads

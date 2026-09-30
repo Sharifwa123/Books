@@ -174,7 +174,7 @@ You are ready for Chapter 37<!--ref:ghaccount--> if you can:
 
 | Claim | Evidence class | Ledger |
 |---|---|---|
-| `git remote add`, `remote -v`, `config --get`, no upstream before a push | Locally tested: Bash 5.2 and zsh 5.9, Git 2.43.0; CI on Git 2.55.0; **no network access to GitHub** | R226 |
+| `git remote add`, `remote -v`, `config --get`, no upstream before a push | Locally tested: Bash 5.2 and zsh 5.9, Git 2.43.0; CI on Git 2.55.0; **no network access to GitHub**. Concept and option statements also checked in the Git 2.56.0 manual (git-remote). | R226 |
 | What GitHub offers, and the map of features | Checked against `github/docs` (commit `2eaab0b`); plan availability not checked | R224, R227 |
 | Terms, ownership, removal of content | Quoted from `site-policy` (commit `b9578b5`); plans not checked | R225 |
 

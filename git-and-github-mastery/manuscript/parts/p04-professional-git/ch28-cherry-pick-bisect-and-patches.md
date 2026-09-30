@@ -543,7 +543,7 @@ You are ready for Chapter 29<!--ref:tags--> if you can:
 
 | Claim | Evidence class | Ledger |
 |---|---|---|
-| `git cherry-pick` of one and of two commits; new hashes; author date kept | Locally tested: Bash 5.2 and zsh 5.9, Git 2.43.0; CI on Git 2.55.0 | R193 |
+| `git cherry-pick` of one and of two commits; new hashes; author date kept | Locally tested: Bash 5.2 and zsh 5.9, Git 2.43.0; CI on Git 2.55.0. Concept and option statements also checked in the Git 2.56.0 manual (git-cherry-pick). | R193 |
 | `git bisect run` and manual `good`/`bad` narrow to the first bad commit; `bisect log`; `bisect reset` | Locally tested (as above); message wording varies by version | R195 |
 | `format-patch`, `apply` (with and without `--check`), `am` and `am --abort`; cherry-pick conflict, abort and continue | Locally tested (as above); email (`send-email`) not run | R194 |
 

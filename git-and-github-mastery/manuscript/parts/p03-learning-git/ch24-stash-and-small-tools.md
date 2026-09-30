@@ -402,9 +402,9 @@ You are ready for Chapter 25<!--ref:undo--> if you can:
 
 | Claim | Evidence class | Ledger |
 |---|---|---|
-| `stash`, `stash -u`, `list`, `pop`, empty-shelf message | Locally tested: Bash 5.2 and zsh 5.9, Git 2.43.0; identical on CI's Git 2.55.0 | R181 |
-| Lightweight and annotated tags, `show`, `-d`, `-l`; `clean -n/-f/-d` | Locally tested (as above) | R182 |
-| `git grep`, `git blame -s`, `git log -S` | Locally tested (as above) | R183 |
+| `stash`, `stash -u`, `list`, `pop`, empty-shelf message | Locally tested: Bash 5.2 and zsh 5.9, Git 2.43.0; identical on CI's Git 2.55.0. Concept and option statements also checked in the Git 2.56.0 manual (git-stash). | R181 |
+| Lightweight and annotated tags, `show`, `-d`, `-l`; `clean -n/-f/-d` | Locally tested (as above). Concept and option statements also checked in the Git 2.56.0 manual (git-clean, git-tag). | R182 |
+| `git grep`, `git blame -s`, `git log -S` | Locally tested (as above). Concept and option statements also checked in the Git 2.56.0 manual (git-blame, git-grep, git-log). | R183 |
 
 ## Where this leads
 

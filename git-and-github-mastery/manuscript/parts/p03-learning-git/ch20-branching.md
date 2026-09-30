@@ -501,7 +501,7 @@ You are ready for Chapter 21<!--ref:merging--> if you can:
 | Claim | Evidence class | Ledger |
 |---|---|---|
 | Listing, creating, switching, `-c`, `-vv`, rename, delete and force-delete; the graph; files change on switch | Locally tested: Bash 5.2 and zsh 5.9, Git 2.43.0; identical on the CI runner's Git 2.55.0 except one hint (both recorded); "experimental" note checked in the Git 2.50.0 and 2.51.0 documentation and release notes | R169 |
-| Switching with uncommitted changes (carried; refused; stash) | Locally tested (as above) | R172 |
+| Switching with uncommitted changes (carried; refused; stash) | Locally tested (as above). Concept and option statements also checked in the Git 2.56.0 manual (git-switch). | R172 |
 | `git checkout` equivalents; detached HEAD | Locally tested (as above); reason for the split checked in the Git 2.23.0 release notes | R170 |
 | Invalid branch names; naming conventions | Recorded messages: locally tested; rules checked in `git check-ref-format`; conventions: general practice (labelled as such) | R171 |
 

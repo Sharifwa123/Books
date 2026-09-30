@@ -607,7 +607,7 @@ You are ready for Chapter 19<!--ref:commits--> if you can:
 |---|---|---|
 | The behaviour and output of ignoring, check-ignore, status --ignored, the global ignore file, and of the five patterns | Locally tested: Bash 5.2, zsh 5.9, Git 2.43.0; identical on the CI runner's Git 2.55.0; pattern rules checked in `gitignore` (Git 2.56.0) | R161 |
 | The `.gitignore` starting points for a website, JavaScript and Python projects | Compared with GitHub's `Node.gitignore` and `Python.gitignore` templates; not run | R162 |
-| Ignoring does not untrack; `git rm --cached`; `git mv`; `git rm`; deleted-outside-Git and `git restore` | Locally tested (as above) | R163 |
+| Ignoring does not untrack; `git rm --cached`; `git mv`; `git rm`; deleted-outside-Git and `git restore` | Locally tested (as above). Concept and option statements also checked in the Git 2.56.0 manual (git-mv, git-rm). | R163 |
 | A secret stays in history after the file is deleted | Locally tested with a made-up token (`session-secret-history`); Chapter 33<!--ref:gitsec--> shows the full incident response | R164 |
 
 ## Where this leads

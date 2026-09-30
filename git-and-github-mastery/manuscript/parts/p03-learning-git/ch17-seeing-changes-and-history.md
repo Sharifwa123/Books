@@ -559,7 +559,7 @@ You are ready for Chapter 18<!--ref:tracking--> if you can:
 | Claim | Evidence class | Ledger |
 |---|---|---|
 | All `git log` forms and their output | Locally tested: Bash 5.2, zsh 5.9, Git 2.43.0; identical on the CI runner's Git 2.55.0 (including hashes) | R158 |
-| The four `git diff` comparisons and their output at each stage | Locally tested (as above) | R159 |
+| The four `git diff` comparisons and their output at each stage | Locally tested (as above). Concept and option statements also checked in the Git 2.56.0 manual (git-diff). | R159 |
 | `HEAD~n`, `HEAD^`, ranges, `git rev-parse` | Locally tested (as above); forms checked against `gitrevisions` (Git 2.56.0) | R160 |
 | The behaviour of the pager | Checked against the `git` and `core.pager` documentation (not shown in the recordings) | R158 |
 

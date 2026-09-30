@@ -536,8 +536,8 @@ You are ready for Chapter 26<!--ref:reflog--> if you can:
 
 | Claim | Evidence class | Ledger |
 |---|---|---|
-| `restore`, `restore --staged`, `restore --source` | Locally tested: Bash 5.2 and zsh 5.9, Git 2.43.0; CI on Git 2.55.0 | R184 |
-| `reset --soft/--mixed/--hard`, reflog recovery, loss of uncommitted work | Locally tested (as above); wording of the `Unstaged changes after reset` message may vary | R185 |
+| `restore`, `restore --staged`, `restore --source` | Locally tested: Bash 5.2 and zsh 5.9, Git 2.43.0; CI on Git 2.55.0. Concept and option statements also checked in the Git 2.56.0 manual (git-restore). | R184 |
+| `reset --soft/--mixed/--hard`, reflog recovery, loss of uncommitted work | Locally tested (as above); wording of the `Unstaged changes after reset` message may vary. Concept and option statements also checked in the Git 2.56.0 manual (git-reset). | R185 |
 | `revert` of an ordinary commit, and of a merge commit with `-m 1` | Locally tested (as above), and checked against the `git revert` documentation (Git 2.56.0) for `-m` and its warning | R186 |
 | A staged edit survives `reset --hard` as a dangling blob (`git fsck --lost-found`); an unstaged edit does not | Locally tested once on Git 2.43.0; not a recorded session; documentation not yet consulted | R355 |
 | `revert` of an empty commit | Behaviour characterised in the research folder; **documentation is silent**; deliberately not taught | R186 |
