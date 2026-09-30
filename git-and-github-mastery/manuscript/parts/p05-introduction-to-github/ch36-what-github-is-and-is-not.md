@@ -99,7 +99,7 @@ That is right: nothing has been pushed, so `main` does not follow any `origin/ma
 
 ## 36.4 What a repository has beyond Git
 
-A GitHub repository contains your Git repository, and around it a set of services. As a **map for the next chapters** (all of it to be checked):
+A GitHub repository contains your Git repository, and around it a set of services. As a **map for the next chapters**:
 
 | Piece | What it is for | Chapter |
 |---|---|---|
@@ -159,7 +159,7 @@ Do the exercises in [`exercises/ch36-exercises.md`](../../../exercises/ch36-exer
 2. Name two things in this book that worked without GitHub.
 3. Which pieces of a GitHub repository come with `git clone`, and which do not?
 4. What does `git remote add origin <url>` do, and what does it not do?
-5. Why are the GitHub facts in this part marked as pending?
+5. Why are the GitHub facts in this part labelled with how they were checked?
 
 ## Before Moving On
 
@@ -180,4 +180,4 @@ You are ready for Chapter 37<!--ref:ghaccount--> if you can:
 
 ## Where this leads
 
-Chapter 37<!--ref:ghaccount--> covers accounts and profiles, Chapter 38<!--ref:ghauth--> covers signing in from Git, and Chapter 39<!--ref:ghrepo--> creates a first repository. Each will be verified against the official documentation before it is finished.
+Chapter 37<!--ref:ghaccount--> covers accounts and profiles, Chapter 38<!--ref:ghauth--> covers signing in from Git, and Chapter 39<!--ref:ghrepo--> creates a first repository.
