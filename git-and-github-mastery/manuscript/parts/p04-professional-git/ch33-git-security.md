@@ -315,8 +315,8 @@ You are ready for Chapter 34<!--ref:workflows--> if you can:
 
 | Claim | Evidence class | Ledger |
 |---|---|---|
-| A deleted secret is still in history; `git log -S` finds it | Locally tested: Bash 5.2 and zsh 5.9, Git 2.43.0; CI on Git 2.55.0. Concept and option statements also checked in the Git 2.56.0 manual (gitignore). | R213 |
-| `.gitignore`, `check-ignore`, `add` refusal and `-f` | Locally tested (as above). Concept and option statements also checked in the Git 2.56.0 manual (gitignore). | R213 |
+| A deleted secret is still in history; `git log -S` finds it | Locally tested: Bash 5.2 and zsh 5.9, Git 2.43.0; CI on Git 2.55.0 | R213 |
+| `.gitignore`, `check-ignore`, `add` refusal and `-f` | Locally tested (as above). Some concept and option statements for this row were also checked in the Git 2.56.0 manual (gitignore); the ledger row says which. | R213 |
 | `git filter-repo` removes a path from all history (no remote); `filter-branch` not recommended | Locally tested with git-filter-repo 2.47.0 (also installed in CI); warning text and fresh-clone rule checked in the manuals | R215 |
 | GPG-signed commit shows `G`; unsigned shows `N` | Locally tested with GnuPG and a throw-away key | R216 |
 | Platform secret scanning, push protection, protected branches, "Verified" marks | Checked against `github/docs` (commit `2eaab0b`); plans and prices not checked; not run on a live account | R214, R216 |

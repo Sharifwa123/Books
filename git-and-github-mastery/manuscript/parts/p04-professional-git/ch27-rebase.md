@@ -603,8 +603,8 @@ You are ready for Chapter 28<!--ref:tools--> if you can:
 
 | Claim | Evidence class | Ledger |
 |---|---|---|
-| Rebase of a diverged branch, new hashes, fast-forward afterwards | Locally tested: Bash 5.2 and zsh 5.9, Git 2.43.0; CI on Git 2.55.0. Concept and option statements also checked in the Git 2.56.0 manual (git-rebase). | R190 |
-| Rebase conflict, `--abort`, `--continue` | Locally tested (as above). Concept and option statements also checked in the Git 2.56.0 manual (git-rebase). | R190 |
+| Rebase of a diverged branch, new hashes, fast-forward afterwards | Locally tested: Bash 5.2 and zsh 5.9, Git 2.43.0; CI on Git 2.55.0. Some concept and option statements for this row were also checked in the Git 2.56.0 manual (git-rebase); the ledger row says which. | R190 |
+| Rebase conflict, `--abort`, `--continue` | Locally tested (as above). Some concept and option statements for this row were also checked in the Git 2.56.0 manual (git-rebase); the ledger row says which. | R190 |
 | Interactive `squash`, `drop`, reorder and `reword` (todo list edited by a program), and the drop conflict | Locally tested (as above); the list of commands checked against the Git 2.56.0 documentation | R192 |
 | `pull --rebase`, `--force-with-lease` (rejection with `stale info`) | Locally tested (as above); semantics checked against the `git pull` and `git push` documentation (Git 2.56.0) | R191 |
 

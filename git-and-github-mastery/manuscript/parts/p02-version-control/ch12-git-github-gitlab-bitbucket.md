@@ -190,7 +190,7 @@ You are ready for Part III if you can:
 | Claim | Evidence class | Ledger |
 |---|---|---|
 | Descriptions of Git, GitHub, GitLab and Bitbucket; what belongs to tool versus platform | Time-sensitive; unverified (no feature, price or ownership claim is made) | R140 |
-| A Git repository needs no hosting platform; a local shared repository works as a meeting place | Locally tested on Git 2.43.0 and the CI runner's Git (bare-repository checks). Concept and option statements also checked in the Git 2.56.0 manual (git-init). | R141 |
+| A Git repository needs no hosting platform; a local shared repository works as a meeting place | Locally tested on Git 2.43.0 and the CI runner's Git (bare-repository checks). Some concept and option statements for this row were also checked in the Git 2.56.0 manual (git-init); the ledger row says which. | R141 |
 
 ## Where this leads
 

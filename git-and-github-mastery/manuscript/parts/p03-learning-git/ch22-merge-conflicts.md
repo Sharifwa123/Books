@@ -380,7 +380,7 @@ You are ready for Chapter 23<!--ref:remotes--> if you can:
 
 | Claim | Evidence class | Ledger |
 |---|---|---|
-| Conflict output, status, markers, resolution and merge commit | Locally tested: Bash 5.2 and zsh 5.9, Git 2.43.0; identical on CI's Git 2.55.0. Concept and option statements also checked in the Git 2.56.0 manual (git-merge). | R176 |
+| Conflict output, status, markers, resolution and merge commit | Locally tested: Bash 5.2 and zsh 5.9, Git 2.43.0; identical on CI's Git 2.55.0. Some concept and option statements for this row were also checked in the Git 2.56.0 manual (git-merge); the ledger row says which. | R176 |
 | `git merge --abort` may be unable to restore uncommitted changes present when the merge started | Officially verified (docs only): the `git merge` manual, Git 2.56.0 | R356 |
 | `--abort` restores the pre-merge state; `diff3` shows the ancestor | Locally tested (as above); the three styles and the default checked in the `merge.conflictStyle` documentation; `zdiff3` not run | R177 |
 
