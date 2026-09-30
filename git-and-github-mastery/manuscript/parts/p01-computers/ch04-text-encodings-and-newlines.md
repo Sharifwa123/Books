@@ -313,7 +313,7 @@ Do the exercises in [`exercises/ch04-exercises.md`](../../../exercises/ch04-exer
 
 ## Before Moving On
 
-You are ready for Chapter 7<!--ref:terminal--> if you can:
+You are ready for Chapter 5<!--ref:internet--> if you can:
 
 - [ ] explain what UTF-8 is without using the word "encoding" more than once
 - [ ] find the encoding and line-ending indicators in your editor

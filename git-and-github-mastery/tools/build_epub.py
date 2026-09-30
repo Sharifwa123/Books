@@ -3,7 +3,7 @@
 a navigation document, internal links, accessibility metadata, diagrams as SVG images with alternative text.
 Output: publishing/build/git-and-github-from-zero-to-mastery.epub, then a structural self-check.
 Usage: build_epub.py [--out FILE]      Needs: markdown-it-py; diagrams pre-rendered by tools/render_diagrams.py (optional).
-Not included yet (see publishing/publication-formats-plan.md): cover image (a separate asset), EPUBCheck run."""
+The cover is publishing/cover/cover-front.png when present. Validate with EPUBCheck (see the CI job)."""
 import datetime, glob, hashlib, html, os, re, sys, uuid, zipfile
 import xml.etree.ElementTree as ET
 from markdown_it import MarkdownIt
@@ -88,6 +88,9 @@ def xhtml(title, body, epub_type=None):
             f'<link rel="stylesheet" type="text/css" href="../style.css" /></head><body{et}>{body}</body></html>')
 
 docs, nav_items = {}, []   # file -> xhtml ; nav: (level, label, href)
+COVER = os.path.join(root, "publishing", "cover", "cover-front.png")
+if os.path.exists(COVER):
+    docs["cover.xhtml"] = xhtml("Cover", f'<section epub:type="cover" style="text-align:center"><img src="../images/cover.png" alt="Cover: {html.escape(TITLE, quote=True)}, by {AUTHOR}" style="max-width:100%;height:auto" /></section>', "cover")
 for kind, name, src in entries:
     fn = name + ".xhtml"
     if kind == "part":
@@ -115,11 +118,12 @@ def build(items):
         st[-1]["c"].append(node); st.append(node)
     return root_
 def ol(n): return "<ol>" + "".join(f'<li><a href="text/{c["href"]}">{html.escape(c["label"])}</a>{ol(c) if c["c"] else ""}</li>' for c in n["c"]) + "</ol>"
+cover_landmark = '<li><a epub:type="cover" href="text/cover.xhtml">Cover</a></li>' if os.path.exists(COVER) else ""
 first_body = next(f for k, f, s in entries if k == "part") + ".xhtml"
 nav = ('<?xml version="1.0" encoding="utf-8"?>\n<!DOCTYPE html>\n<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" lang="en-GB" xml:lang="en-GB">'
        f'<head><meta charset="utf-8" /><title>Contents</title><link rel="stylesheet" type="text/css" href="style.css" /></head><body>'
        f'<nav epub:type="toc" id="toc" role="doc-toc"><h1>Contents</h1>{ol(build(nav_items))}</nav>'
-       f'<nav epub:type="landmarks" hidden="hidden"><h2>Guide</h2><ol><li><a epub:type="titlepage" href="text/front-title-page.xhtml">Title page</a></li>'
+       f'<nav epub:type="landmarks" hidden="hidden"><h2>Guide</h2><ol>{cover_landmark}<li><a epub:type="titlepage" href="text/front-title-page.xhtml">Title page</a></li>'
        f'<li><a epub:type="toc" href="nav.xhtml#toc">Contents</a></li><li><a epub:type="bodymatter" href="text/{first_body}">Start of the book</a></li></ol></nav></body></html>')
 
 # package
@@ -128,6 +132,7 @@ items = [f'<item id="nav" href="nav.xhtml" media-type="application/xhtml+xml" pr
 spine = ['<itemref idref="nav" linear="no"/>']
 for i, fn in enumerate(docs):
     items.append(f'<item id="d{i}" href="text/{fn}" media-type="application/xhtml+xml"/>'); spine.append(f'<itemref idref="d{i}"/>')
+if os.path.exists(COVER): items.append('<item id="cover-image" href="images/cover.png" media-type="image/png" properties="cover-image"/>')
 for k in sorted(images): items.append(f'<item id="img-{k}" href="images/{k}.svg" media-type="image/svg+xml"/>')
 opf = f'''<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://www.idpf.org/2007/opf" version="3.0" unique-identifier="bookid" xml:lang="en-GB" prefix="schema: http://schema.org/">
@@ -162,6 +167,7 @@ with zipfile.ZipFile(out, "w") as z:
     put(z, "META-INF/container.xml", container); put(z, "OEBPS/content.opf", opf); put(z, "OEBPS/nav.xhtml", nav); put(z, "OEBPS/style.css", CSS)
     for fn, d in docs.items(): put(z, f"OEBPS/text/{fn}", d)
     for k, p in sorted(images.items()): put(z, f"OEBPS/images/{k}.svg", open(p, "rb").read())
+    if os.path.exists(COVER): put(z, "OEBPS/images/cover.png", open(COVER, "rb").read())
 print("wrote", os.path.relpath(out, root), os.path.getsize(out), "bytes;", len(docs), "documents,", len(images), "images")
 
 # ---- structural self-check

@@ -5,7 +5,7 @@ tag: Core
 first_read: full
 status: draft
 requires: [merging]
-ledger: [R176, R177]
+ledger: [R176, R177, R356]
 ---
 # Chapter 22 — Merge Conflicts [Core]
 
@@ -227,7 +227,7 @@ $ git log --oneline --graph --all
 
 Nothing was lost, and you can try the merge again later. `--abort` works only while the merge is unfinished. Once you have committed the merge, you must undo it another way (Chapter 25<!--ref:undo-->).
 
-> **Deep.** In a quick test, an uncommitted edit to a *different* file survived `git merge --abort`. Git's documentation is understood to warn that `--abort` may not restore uncommitted changes that overlap the merge; that warning has not been checked against the official page (official host unreachable). The safe habit is the same: start every merge with a clean `git status`.
+> **Checked against the documentation (R356).** The `git merge` manual (Git 2.56.0) says that `git merge --abort` "will abort the merge process and try to reconstruct the pre-merge state", but that if there were uncommitted changes when the merge started, and especially if they were changed further after it started, it "will in some cases be unable to reconstruct the original (pre-merge) changes". It warns that running `git merge` with non-trivial uncommitted changes "is discouraged", and recommends to "always commit or stash your changes before running `git merge`". (In a quick test here, an uncommitted edit to a *different* file did survive `--abort`; the manual's warning is the rule to follow.) The safe habit is the same: start every merge with a clean `git status`.
 
 ---
 
@@ -380,7 +380,8 @@ You are ready for Chapter 23<!--ref:remotes--> if you can:
 
 | Claim | Evidence class | Ledger |
 |---|---|---|
-| Conflict output, status, markers, resolution and merge commit | Locally tested: Bash 5.2 and zsh 5.9, Git 2.43.0; identical on CI's Git 2.55.0 | R176 |
+| Conflict output, status, markers, resolution and merge commit | Locally tested: Bash 5.2 and zsh 5.9, Git 2.43.0; identical on CI's Git 2.55.0. Concept and option statements also checked in the Git 2.56.0 manual (git-merge). | R176 |
+| `git merge --abort` may be unable to restore uncommitted changes present when the merge started | Officially verified (docs only): the `git merge` manual, Git 2.56.0 | R356 |
 | `--abort` restores the pre-merge state; `diff3` shows the ancestor | Locally tested (as above); the three styles and the default checked in the `merge.conflictStyle` documentation; `zdiff3` not run | R177 |
 
 ## Where this leads

@@ -294,9 +294,9 @@ You are ready for Chapter 40<!--ref:ghtour--> if you can:
 
 | Claim | Evidence class | Ledger |
 |---|---|---|
-| Clone of an empty remote, first push, `status -sb` | Locally tested: Bash 5.2 and zsh 5.9, Git 2.43.0; CI on Git 2.55.0; local bare repository | R239 |
-| Connecting an existing repository; `ls-remote --heads` | Locally tested (as above) | R239 |
-| Rejected push and `unrelated histories`; the merge that joins them | Locally tested (as above) | R240 |
+| Clone of an empty remote, first push, `status -sb` | Locally tested: Bash 5.2 and zsh 5.9, Git 2.43.0; CI on Git 2.55.0; local bare repository. Concept and option statements also checked in the Git 2.56.0 manual (git-ls-remote). | R239 |
+| Connecting an existing repository; `ls-remote --heads` | Locally tested (as above). Concept and option statements also checked in the Git 2.56.0 manual (git-ls-remote). | R239 |
+| Rejected push and `unrelated histories`; the merge that joins them | Locally tested (as above). Concept and option statements also checked in the Git 2.56.0 manual (git-merge). | R240 |
 | The website's create form, its options and defaults, and the repository page | Checked against `github/docs` (commit `2eaab0b`); not run on a live account | R237, R238 |
 
 ## Where this leads

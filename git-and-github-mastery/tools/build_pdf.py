@@ -234,7 +234,7 @@ STAMP = datetime.datetime.fromtimestamp(epoch, datetime.timezone.utc).strftime("
 doc = f"""<!doctype html><html lang="en-GB"><head><meta charset="utf-8">
 <title>Git &amp; GitHub: From Zero to Mastery</title>
 <meta name="author" content="Sharif Tingane Issah">
-<meta name="description" content="A Complete Beginner-to-Expert Guide to Version Control, Collaboration, Automation, Security, and Modern Software Development. Published by SHARIF TECHNOLOGIES.">
+<meta name="description" content="A Complete Beginner-to-Expert Guide to Version Control, Collaboration, Automation, Security, and Modern Software Development. By Sharif Tingane Issah, issued under the SHARIF TECHNOLOGIES name.">
 <meta name="keywords" content="Git, GitHub, version control, GitHub Actions, security, open source, CI/CD, tutorial">
 <meta name="generator" content="tools/build_pdf.py (WeasyPrint {weasyprint.__version__})">
 <meta name="dcterms.created" content="{STAMP}"><meta name="dcterms.modified" content="{STAMP}">

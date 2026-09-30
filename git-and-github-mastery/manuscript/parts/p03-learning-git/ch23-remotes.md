@@ -530,8 +530,8 @@ You are ready for Chapter 24<!--ref:stash--> if you can:
 
 | Claim | Evidence class | Ledger |
 |---|---|---|
-| Bare repository, clone, `remote -v`, `push -u`, tracking, `origin/main` | Locally tested: Bash 5.2 and zsh 5.9, Git 2.43.0; identical on CI's Git 2.55.0 | R178 |
-| Fetch changes only `origin/...`; status wording after fetch; pull fast-forward | Locally tested (as above) | R179 |
+| Bare repository, clone, `remote -v`, `push -u`, tracking, `origin/main` | Locally tested: Bash 5.2 and zsh 5.9, Git 2.43.0; identical on CI's Git 2.55.0. Concept and option statements also checked in the Git 2.56.0 manual (git-clone, git-push, git-remote). | R178 |
+| Fetch changes only `origin/...`; status wording after fetch; pull fast-forward | Locally tested (as above). Concept and option statements also checked in the Git 2.56.0 manual (git-fetch, git-pull). | R179 |
 | Rejected push, divergence, pull advice, `git remote` subcommands | Locally tested (as above), same result on Git 2.43.0, 2.55.0 and 2.56.0; `pull.rebase`/`pull.ff` and the `git pull` default checked in the manuals, source `builtin/pull.c` v2.56.0 confirms the refusal, the manual's "default" wording is looser; hosting-platform behaviour not covered | R180 |
 
 ## Where this leads

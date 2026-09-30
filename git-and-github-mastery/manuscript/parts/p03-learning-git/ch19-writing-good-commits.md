@@ -388,9 +388,9 @@ You are ready for Chapter 20<!--ref:branching--> if you can:
 | Claim | Evidence class | Ledger |
 |---|---|---|
 | Message conventions (imperative subject, length, body, footer) | Blank line and 50-character title checked in `git commit`; imperative mood in the project's `SubmittingPatches`; the rest is convention | R165 |
-| Amend behaviour: new hash, retained author date, forgotten file, old commit in the reflog and readable by hash | Locally tested: Bash 5.2 and zsh 5.9, Git 2.43.0; identical on the CI runner's Git 2.55.0 | R166 |
-| Author versus committer, `--author`, `fuller` format | Locally tested (as above) | R167 |
-| Atomic commits by staging files separately; empty commits | Locally tested (as above) | R168 |
+| Amend behaviour: new hash, retained author date, forgotten file, old commit in the reflog and readable by hash | Locally tested: Bash 5.2 and zsh 5.9, Git 2.43.0; identical on the CI runner's Git 2.55.0. Concept and option statements also checked in the Git 2.56.0 manual (git-commit, git-reflog). | R166 |
+| Author versus committer, `--author`, `fuller` format | Locally tested (as above). Concept and option statements also checked in the Git 2.56.0 manual (git-commit). | R167 |
+| Atomic commits by staging files separately; empty commits | Locally tested (as above). Concept and option statements also checked in the Git 2.56.0 manual (git-commit). | R168 |
 | `git add -p` prompt keys; editor comment lines | Described from general knowledge, not recorded | R165 |
 
 ## Where this leads

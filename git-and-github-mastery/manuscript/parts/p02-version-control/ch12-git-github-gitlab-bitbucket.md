@@ -19,7 +19,7 @@ ledger: [R140, R141]
 
 **Before you start.** Chapter 11<!--ref:distributed-->: you know what a repository is, and that a shared repository is a convention, not a requirement.
 
-> **Independent publication.** This book is an independent educational publication by SHARIF TECHNOLOGIES. It is not affiliated with, endorsed by, sponsored by, or published by Git, GitHub, GitLab, Bitbucket, Microsoft, or any company mentioned. Names of products and companies are trademarks of their respective owners and are used here only to identify them.
+> **Independent publication.** This book is an independent educational work by Sharif Tingane Issah, issued under the SHARIF TECHNOLOGIES name. It is not affiliated with, endorsed by, sponsored by, or published by Git, GitHub, GitLab, Bitbucket, Microsoft, or any company mentioned. Names of products and companies are trademarks of their respective owners and are used here only to identify them.
 
 > **Verification pending [R140].** Descriptions of products and companies in this chapter are general and have not yet been checked against each product's own documentation. Products change quickly; the chapter avoids statements about specific features, prices or ownership for that reason, and the release gate will not pass until the ledger rows are verified against current official sources.
 
@@ -79,7 +79,7 @@ Beginners often look for a feature in the wrong place. Use this table to know wh
 
 A team does not need a hosting platform to use Git. The tool works entirely on your computer. It can also exchange history with a second repository that sits *anywhere*: on a memory stick, on a colleague's laptop, on a server you run yourself, or in a folder on the same machine. This has been tested: a folder on the same computer, prepared as a shared repository, worked as the "meeting place" for pushing and fetching history in the book's test environment on two versions of Git.
 
-> **Verification pending [R141].** The test is recorded in `research/git-verification/verify-git-basics.sh` (bare-repository checks); the official Git documentation has not yet been consulted for the wording of the concepts involved.
+> **Checked against the documentation [R141].** The test is recorded in `research/git-verification/verify-git-basics.sh` (bare-repository checks), and the Git 2.56.0 manual for `git init` documents the `--bare` option ("Create a bare repository"). Both the test and the manual concern the tool, not any hosting platform.
 
 Chapter 23<!--ref:remotes--> will let you repeat this experiment with two repositories on your own computer and no account at all. Then, in Part V, you will connect the same repository to GitHub, and you will see that only the *address* changes.
 
@@ -190,7 +190,7 @@ You are ready for Part III if you can:
 | Claim | Evidence class | Ledger |
 |---|---|---|
 | Descriptions of Git, GitHub, GitLab and Bitbucket; what belongs to tool versus platform | Time-sensitive; unverified (no feature, price or ownership claim is made) | R140 |
-| A Git repository needs no hosting platform; a local shared repository works as a meeting place | Locally tested on Git 2.43.0 and the CI runner's Git (bare-repository checks) | R141 |
+| A Git repository needs no hosting platform; a local shared repository works as a meeting place | Locally tested on Git 2.43.0 and the CI runner's Git (bare-repository checks). Concept and option statements also checked in the Git 2.56.0 manual (git-init). | R141 |
 
 ## Where this leads
 

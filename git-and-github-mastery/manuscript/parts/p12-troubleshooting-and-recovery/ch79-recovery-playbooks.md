@@ -247,7 +247,7 @@ $ cd ..
 
 **What happened.** The first search line shows the conflict. `git status -sb` printed `## HEAD (no branch)`: in the middle of a rebase Git checks out the commits one by one, so you are not on your branch. `git rebase --abort` **returned everything to how it was before the rebase**, including the branch name (the next status line) and the branch's own commit at the top of the log.
 
-**Your choices in a stopped rebase.** Resolve the conflict, `git add` the file and `git rebase --continue`; or skip the commit (`--skip`) if it is no longer needed; or abort. Abort is always safe. If you have already finished the rebase and regret it, the reflog has the old tip (Playbook 2).
+**Your choices in a stopped rebase.** Resolve the conflict, `git add` the file and `git rebase --continue`; or skip the commit (`--skip`) if it is no longer needed; or abort. Abort is the safe way out: it restores the branch as it was before the rebase, and it discards the conflict edits you made so far in the stopped rebase. If you have already finished the rebase and regret it, the reflog has the old tip (Playbook 2).
 
 **Caution.** Rebase rewrites commits. Do it only on commits nobody else has (Chapter 27<!--ref:rebase-->).
 

@@ -41,11 +41,11 @@ for f in files:
     parts.append(t.strip()); manifest.append(f"{hashlib.sha256(t.encode()).hexdigest()}  {rel}")
 book = "\n\n".join(parts) + "\n"
 open(os.path.join(out, "book.md"), "w", encoding="utf-8").write(book)
-ph = sorted(set(re.findall(r"\[[A-Z][A-Z ]*(?:TO BE [A-Z]+|PLACEHOLDER|NOT YET [A-Z]+)[^\]]*\]", book)))
+ph = sorted(set(re.findall(r"\*{0,2}\[[^\]\n]*(?:TO BE [A-Z]+|to be supplied|PLACEHOLDER|placeholder)[^\]\n]*\]", book)))
 open(os.path.join(out, "MANIFEST.txt"), "w").write("\n".join(manifest) + "\n")
 print(f"exported {len(files)} files, {len(book.split())} words -> {os.path.relpath(out, root)}/book.md")
 print("intentional placeholders present:", len(ph))
-for p in ph[:10]: print("  ", p)
+for p in ph[:20]: print("  ", p)
 if warns:
     print(f"{len(warns)} warning(s):")
     for w in warns: print("  ", w)

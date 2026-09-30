@@ -51,7 +51,7 @@ Built with `tools/build_pdf.py` (WeasyPrint 66.0), diagrams pre-rendered by `too
 | Tagged PDF, PDF/UA-1 variant, document language | tag tree and MarkInfo machine-checked; **veraPDF 1.28.2 (PDF/UA-1 profile) passes on the full screen edition** (105 rules; the first run found one rule failing on nine list items with nested blocks in Chapters 3 and 11, fixed in the source). This validates the tagging structure, not real-world reading with assistive technology, which was not tested. The print edition is validated in CI |
 | Glossary; index of terms with page numbers | done (index lists chapters that mention each glossary term; commands are indexed in Appendix A) |
 | Two profiles: screen (A4, colour links) and print (170 x 240 mm, black links) | done |
-| PDF/A archival profile | **not done** (not combined with PDF/UA) |
+| PDF/A archival edition | done as a **separate file**: the print profile built as PDF/A-2b (`publishing/build/archive/`), validated with veraPDF 1.28.2 (passes). WeasyPrint 66 writes only one variant per file and its PDF/A output is **untagged**, so the archival file is not the accessible one; the tagged PDF/UA-1 editions are. PDF/A-4 was tried and fails four metadata rules |
 | Bit-for-bit reproducible output | **not achieved**: content is identical between builds but the bytes differ slightly (object streams); `SOURCE_DATE_EPOCH` and a fixed identifier are set, and checksums are published per build |
 | List of figures | done (14 figures, with captions and page numbers) |
 | Index of commands | done (`git` and `gh` commands found in code, filtered by `tools/known_commands.txt`, with page numbers) |

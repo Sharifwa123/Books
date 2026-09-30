@@ -444,11 +444,11 @@ You are ready for Chapter 33<!--ref:gitsec--> if you can:
 
 | Claim | Evidence class | Ledger |
 |---|---|---|
-| Aliases, including a `!` alias and `git help <alias>` | Locally tested: Bash 5.2 and zsh 5.9, Git 2.43.0; CI on Git 2.55.0 | R208 |
+| Aliases, including a `!` alias and `git help <alias>` | Locally tested: Bash 5.2 and zsh 5.9, Git 2.43.0; CI on Git 2.55.0. Concept and option statements also checked in the Git 2.56.0 manual (git-rerere). | R208 |
 | `pre-commit` and `commit-msg` hooks block a commit; `--no-verify`; hooks not cloned | Locally tested (as above); hook list checked against the `githooks` documentation (Git 2.56.0) | R209 |
 | `.gitattributes`, `check-attr`, `ls-files --eol`, CRLF warning | Locally tested (as above); `text`, `eol` and `core.autocrlf` checked against the documentation | R210 |
 | `credential approve/fill/reject` with the `store` helper | Locally tested (as above), made-up credential only; the list of helpers and the plain-text warning checked against the documentation | R211 |
-| `rerere` recording and reuse | Locally tested (as above) | R208 |
+| `rerere` recording and reuse | Locally tested (as above). Concept and option statements also checked in the Git 2.56.0 manual (git-rerere). | R208 |
 | `merge -X theirs`, `merge -s ours`, `maintenance run --task=commit-graph` and `--task=gc` | Locally tested (as above); the task list checked against the `git maintenance` documentation | R212 |
 | Merge drivers, `maintenance start`, server-side hooks, OS credential helpers | **Not run** | R212 |
 

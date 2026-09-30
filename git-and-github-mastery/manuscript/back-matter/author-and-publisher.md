@@ -6,9 +6,9 @@
 
 [AUTHOR BIOGRAPHY: to be supplied by the publisher. No qualifications, employment, awards or memberships are stated here, because none were supplied.]
 
-## The publisher
+## The brand
 
-**SHARIF TECHNOLOGIES**
+**SHARIF TECHNOLOGIES** is the name under which this book is issued. The legal publisher or imprint has not yet been confirmed.
 
 *Knowledge Is Power*
 

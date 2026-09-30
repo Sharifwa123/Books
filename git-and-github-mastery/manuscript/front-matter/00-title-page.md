@@ -4,7 +4,7 @@
 
 **Written by Sharif Tingane Issah**
 
-**Published by SHARIF TECHNOLOGIES**
+**SHARIF TECHNOLOGIES**
 
 *Knowledge Is Power*
 

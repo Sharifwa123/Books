@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 2560" width="1600" height="2560" role="img" aria-labelledby="t d">
+  <title id="t">Cover: Git &amp; GitHub: From Zero to Mastery, by Sharif Tingane Issah</title>
+  <desc id="d">A dark blue cover with a graph of commits and branches in warm yellow and light blue, the title in white capitals, the author's name and the words Knowledge Is Power.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0d1b3d"/><stop offset="1" stop-color="#14213d"/></linearGradient>
+  </defs>
+  <rect width="1600" height="2560" fill="url(#bg)"/>
+  <!-- commit graph: one main line, two branches that leave it and merge back -->
+  <g fill="none" stroke-width="10" stroke-linecap="round">
+    <path d="M800 1300 V1900" stroke="#f4b942"/>
+    <path d="M800 1420 C800 1500 560 1500 560 1600 C560 1700 800 1700 800 1780" stroke="#7cc6fe"/>
+    <path d="M800 1420 C800 1500 1040 1500 1040 1600 C1040 1700 800 1700 800 1780" stroke="#7cc6fe"/>
+  </g>
+  <g stroke="#0d1b3d" stroke-width="8">
+    <circle cx="800" cy="1300" r="34" fill="#f4b942"/><circle cx="800" cy="1420" r="34" fill="#f4b942"/>
+    <circle cx="800" cy="1780" r="34" fill="#f4b942"/><circle cx="800" cy="1900" r="34" fill="#f4b942"/>
+    <circle cx="560" cy="1600" r="34" fill="#7cc6fe"/><circle cx="1040" cy="1600" r="34" fill="#7cc6fe"/>
+  </g>
+  <g font-family="'DejaVu Sans', Arial, Helvetica, sans-serif" fill="#ffffff" text-anchor="middle">
+    <text x="800" y="330" font-size="82" font-weight="700" letter-spacing="6">GIT &amp; GITHUB</text>
+    <text x="800" y="470" font-size="82" font-weight="700" letter-spacing="6" fill="#f4b942">FROM ZERO</text>
+    <text x="800" y="590" font-size="82" font-weight="700" letter-spacing="6" fill="#f4b942">TO MASTERY</text>
+    <text x="800" y="760" font-size="38" fill="#c9d6ee">A Complete Beginner-to-Expert Guide to Version Control,</text>
+    <text x="800" y="815" font-size="38" fill="#c9d6ee">Collaboration, Automation, Security,</text>
+    <text x="800" y="870" font-size="38" fill="#c9d6ee">and Modern Software Development</text>
+    <text x="800" y="2260" font-size="64" font-weight="700" letter-spacing="4">SHARIF TINGANE ISSAH</text>
+    <text x="800" y="2390" font-size="34" letter-spacing="8" fill="#c9d6ee">SHARIF TECHNOLOGIES</text>
+    <text x="800" y="2445" font-size="30" font-style="italic" fill="#f4b942">Knowledge Is Power</text>
+  </g>
+</svg>

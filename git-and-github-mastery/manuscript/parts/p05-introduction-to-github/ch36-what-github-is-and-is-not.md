@@ -17,7 +17,7 @@ ledger: [R224, R225, R226, R227]
 - the pieces that a GitHub repository has, beyond Git
 - how to read GitHub facts in this book
 
-> **Independent publication.** This book is an independent educational publication by SHARIF TECHNOLOGIES. It is not affiliated with, endorsed by, sponsored by, or published by Git, GitHub, Microsoft, or any company mentioned. Names of products and companies are trademarks of their respective owners and are used here only to identify them.
+> **Independent publication.** This book is an independent educational work by Sharif Tingane Issah, issued under the SHARIF TECHNOLOGIES name. It is not affiliated with, endorsed by, sponsored by, or published by Git, GitHub, Microsoft, or any company mentioned. Names of products and companies are trademarks of their respective owners and are used here only to identify them.
 
 > **How GitHub facts are checked in this book.** Parts I to IV were tested by running Git on a computer. GitHub is a *service on the internet* that changes over time, so its statements are checked differently: against GitHub's own documentation, whose source is published as the open `github/docs` repository (checked at commit `2eaab0b`, 29 September 2026), and, for legal terms, against GitHub's `site-policy` repository (commit `b9578b5`, 29 May 2026). Both are recorded in `research/sources-manifest.csv`. What the *website looks like* was not seen on a live account, so descriptions of screens are labelled, and anything the sources do not cover stays marked *Verification pending*. The parts about **Git** (commands, the remote, URLs) were run and tested.
 
@@ -174,7 +174,7 @@ You are ready for Chapter 37<!--ref:ghaccount--> if you can:
 
 | Claim | Evidence class | Ledger |
 |---|---|---|
-| `git remote add`, `remote -v`, `config --get`, no upstream before a push | Locally tested: Bash 5.2 and zsh 5.9, Git 2.43.0; CI on Git 2.55.0; **no network access to GitHub** | R226 |
+| `git remote add`, `remote -v`, `config --get`, no upstream before a push | Locally tested: Bash 5.2 and zsh 5.9, Git 2.43.0; CI on Git 2.55.0; **no network access to GitHub**. Concept and option statements also checked in the Git 2.56.0 manual (git-remote). | R226 |
 | What GitHub offers, and the map of features | Checked against `github/docs` (commit `2eaab0b`); plan availability not checked | R224, R227 |
 | Terms, ownership, removal of content | Quoted from `site-policy` (commit `b9578b5`); plans not checked | R225 |
 

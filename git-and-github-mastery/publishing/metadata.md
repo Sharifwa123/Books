@@ -5,14 +5,16 @@
 | Title | Git & GitHub: From Zero to Mastery | Decided |
 | Subtitle | A Complete Beginner-to-Expert Guide to Version Control, Collaboration, Automation, Security, and Modern Software Development | Decided |
 | Author | Sharif Tingane Issah | Supplied |
-| Publisher / rights holder | SHARIF TECHNOLOGIES | Supplied |
+| Brand identity | SHARIF TECHNOLOGIES | Supplied (intended technology/brand identity) |
+| Legal publisher / imprint | [TO BE CONFIRMED] | **Undecided.** Printed pages must not state a legal publisher until decided (gates A and B) |
+| Copyright holder | [TO BE CONFIRMED] | **Undecided.** An earlier draft named SHARIF TECHNOLOGIES as stated by the publisher; the relation between author and company is not documented |
 | Slogan | Knowledge Is Power | Supplied |
 | Edition | 1st Edition | Planned |
 | Manuscript version | 0.3.0 (research + renumbered v2 architecture; no chapters drafted) | Current |
 | Technical information verified | [DATE] | **Not verified: research incomplete** (see research/README.md) |
 | ISBN | [ISBN TO BE ASSIGNED] | Placeholder |
 | Publication date | [PUBLICATION DATE] | Placeholder |
-| Address | [SHARIF TECHNOLOGIES REGISTERED ADDRESS] | Placeholder |
+| Address | [PUBLISHER ADDRESS: TO BE SUPPLIED] | Placeholder |
 | Website / email / contact | [OFFICIAL WEBSITE] / [OFFICIAL PUBLISHING EMAIL] / [CONTACT INFORMATION] | Placeholder |
 | Book-text licence (intended) | **CC BY-NC-SA 4.0** | Intended. Official name, identifier and terms **UNVERIFIED** (creativecommons.org blocked) |
 | Code-sample licence (intended) | **MIT License** | Intended. Official text **UNVERIFIED** (opensource.org blocked) |
@@ -21,7 +23,7 @@
 Not to be invented: registration numbers, ISBN, addresses, legal identifiers, author-biography facts.
 
 ## Non-affiliation statement (draft)
-"This book is an independent educational publication by SHARIF TECHNOLOGIES. It is not affiliated with, endorsed by, sponsored by, or published by Git, GitHub, Microsoft, or any other third party mentioned. All product and company names are trademarks of their respective owners."
+"This book is an independent educational work by Sharif Tingane Issah, issued under the SHARIF TECHNOLOGIES name. It is not affiliated with, endorsed by, sponsored by, or published by Git, GitHub, Microsoft, or any other third party mentioned. All product and company names are trademarks of their respective owners."
 
 ## The seven distinctions the copyright/licensing pages must make
 Intended model (publisher's statement): readers obtain and share the book freely under the selected licence; SHARIF TECHNOLOGIES remains the copyright holder; commercial exploitation of the book *text* is restricted according to the final verified licence terms. The book is never described as "copyright-free".
