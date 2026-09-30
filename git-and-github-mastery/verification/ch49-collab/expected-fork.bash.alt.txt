@@ -1,0 +1,39 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ git clone -q fork.git my-clone
+$ cd my-clone
+$ git remote -v
+origin	/home/learner/fork.git (fetch)
+origin	/home/learner/fork.git (push)
+$ git remote add upstream ../upstream.git
+$ git remote -v
+origin	/home/learner/fork.git (fetch)
+origin	/home/learner/fork.git (push)
+upstream	../upstream.git (fetch)
+upstream	../upstream.git (push)
+$ git switch -q -c add-tea
+$ printf -- "- Tea: 1.50\n" >> menu.md
+$ git commit -q -am "Add tea"
+$ git push -q -u origin add-tea
+$ git -C ../upstream.git branch
+* main
+$ git clone -q ../upstream.git ../maintainer
+$ git -C ../maintainer -c user.name=Maintainer -c user.email=maintainer@example.org commit -q --allow-empty -m "Update the contributing guide"
+$ git -C ../maintainer push -q origin main
+$ git switch -q main
+$ git fetch -q upstream
+$ git log --oneline --all --graph
+* ce2b049 (upstream/main, upstream/HEAD) Update the contributing guide
+| * 9c3dcee (origin/add-tea, add-tea) Add tea
+|/
+* c4972f0 (HEAD -> main, origin/main, origin/HEAD) Add the menu
+$ git merge --ff-only upstream/main
+Updating c4972f0..ce2b049
+Fast-forward
+$ git push -q origin main
+$ git log --oneline --graph --all
+* ce2b049 (HEAD -> main, upstream/main, upstream/HEAD, origin/main, origin/HEAD) Update the contributing guide
+| * 9c3dcee (origin/add-tea, add-tea) Add tea
+|/
+* c4972f0 Add the menu

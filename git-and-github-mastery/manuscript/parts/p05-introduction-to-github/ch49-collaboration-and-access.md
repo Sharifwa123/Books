@@ -111,6 +111,8 @@ $ git log --oneline --graph --all
 
 *Recorded in Bash; `ch49-collab/expected-fork.bash.txt`.*
 
+> **Your Git may show one more label.** Git 2.55.0 (re-run in CI) also lists `upstream/HEAD` beside `upstream/main` in the graph, because it records which branch is the upstream's default. The commits are the same.
+
 Follow the story. `git remote -v` first shows only `origin`, your fork. `git remote add upstream` adds the original. A pushed branch `add-tea` shows in the fork. A maintainer then adds a commit to the upstream. In your clone, `git fetch upstream` brings it as `upstream/main`, and the graph shows the two lines: your `add-tea` branch, and the upstream change. `git merge --ff-only upstream/main` moves your `main` forward, and `git push origin main` updates your fork. Afterwards `main` and `upstream/main` are the same commit.
 
 `--ff-only` is a safety choice: it refuses to create a merge commit, so if your `main` had drifted from the upstream you would notice at once (Chapter 21<!--ref:merging-->).
