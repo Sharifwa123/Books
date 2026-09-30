@@ -81,7 +81,7 @@ https://github.com/example-owner/sunrise-bakery.git
 
 An SSH **key pair** is two files that belong together, made by one command.
 
-A **key pair** (Chapter 6<!--ref:accounts--> introduced the idea) is two linked cryptographic keys: a **private key**, which you keep secret, and a **public key**, which you can share freely. Something proved with the private key can be checked with the public key; the public key cannot be used to work out the private key.
+A **key pair** (Chapter 6<!--ref:accounts--> introduced the idea) is two linked cryptographic keys: a **private key**, which you keep secret, and a **public key**, which you can share freely. Something proved with the private key can be checked with the public key; the public key cannot practically be used to work out the private key.
 
 Make a pair for the demonstration. `-t ed25519` chooses a modern key type, `-C` adds a label, `-f` names the file, and `-q` keeps the tool quiet. (`-N ""` sets **no passphrase**, *only* so that this recording can run without asking; see the caution below.)
 

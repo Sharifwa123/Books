@@ -489,7 +489,7 @@ $ git switch -q main
 
 - The safe tool depends on whether others already have the commit: amend, squash and reset for private work; revert for shared work.
 - The reflog and pickaxe search find what seems lost or hidden.
-- Conflicts need a decision, not just commands; `--abort` is always available.
+- Conflicts need a decision, not just commands; `--abort` is available for as long as the merge or rebase is still in progress.
 - A committed secret stays in history: revoke it first.
 - Hotfixes start from the release tag, and fixes are carried across with `cherry-pick -x`.
 - Reading the state (`status`, `log`, `diff`) before and after each step is the habit that prevents most mistakes.

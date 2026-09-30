@@ -165,6 +165,13 @@ jobs:
         run: |
           cd git-and-github-mastery
           tools/verapdf_check.sh publishing/build/*.pdf
+      - name: Build and validate the archival PDF/A-2b edition (untagged; the tagged PDF/UA editions are the accessible ones)
+        run: |
+          cd git-and-github-mastery
+          mkdir -p publishing/build/archive
+          export SOURCE_DATE_EPOCH=1790000000
+          python3 tools/build_pdf.py --profile print --variant pdf/a-2b --out publishing/build/archive/git-and-github-from-zero-to-mastery-print-pdfa-2b.pdf
+          tools/verapdf_check.sh publishing/build/archive/*pdfa-2b.pdf
       - name: Build the reflowable EPUB
         run: |
           cd git-and-github-mastery
@@ -179,12 +186,13 @@ jobs:
       - name: Checksums
         run: |
           cd git-and-github-mastery
-          sha256sum publishing/build/*.pdf publishing/build/*.epub | tee publishing/build/SHA256SUMS
+          sha256sum publishing/build/*.pdf publishing/build/archive/*.pdf publishing/build/*.epub | tee publishing/build/SHA256SUMS
       - name: Upload the PDFs and EPUB
         uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
         with:
           name: pdf-edition
           path: |
             git-and-github-mastery/publishing/build/*.pdf
+            git-and-github-mastery/publishing/build/archive/*.pdf
             git-and-github-mastery/publishing/build/*.epub
             git-and-github-mastery/publishing/build/SHA256SUMS

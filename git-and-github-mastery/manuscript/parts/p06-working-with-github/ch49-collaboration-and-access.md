@@ -119,7 +119,7 @@ Follow the story. `git remote -v` first shows only `origin`, your fork. `git rem
 
 > **Checked against GitHub's documentation (R272).** "Configuring a remote repository for a fork" gives `git remote add upstream <URL>`; "Syncing a fork" gives `git fetch upstream`, switching to your local default branch, and `git merge upstream/main`, and also describes an **Update branch** button on the platform (with conflicts, the platform prompts you to create a pull request to resolve them) and a command of the GitHub CLI. The recorded commands show the Git side, with local stand-ins for the platform.
 
-**Rule of thumb.** Never do your work on the fork's `main`. Keep `main` as a mirror of the upstream, and do each change on its own branch (Chapter 20<!--ref:branching-->), so that syncing is always a clean fast-forward.
+**Rule of thumb.** Never do your work on the fork's `main`. Keep `main` as a mirror of the upstream, and do each change on its own branch (Chapter 20<!--ref:branching-->), so that syncing is normally a clean fast-forward.
 
 ---
 
