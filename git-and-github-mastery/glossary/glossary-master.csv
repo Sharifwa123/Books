@@ -244,3 +244,8 @@ Permissive licence,A licence that asks only for credit and notices.,A licence wh
 Copyleft,A licence rule that what you build from the code must be shared under the same licence.,"A licence condition requiring that distributed derivative works be licensed under the same or a compatible licence, with reach that varies (weak or strong).",The GNU General Public License.,permissive licence,licences
 SPDX identifier,A short standard name for a licence.,"A short identifier from the SPDX licence list, such as MIT or Apache-2.0.",CC-BY-NC-SA-4.0,licence,licences
 Creative Commons,"A family of licences for text, pictures and other non-software work.","Public licences built from elements such as Attribution, ShareAlike and NonCommercial.",CC-BY-4.0,licence; SPDX identifier,licences
+Release,"A named, downloadable version of a project on GitHub.","A GitHub page built on a Git tag, with a title, notes and attached files.",Release v1.2.0 with a zip file and a notes page.,tag; release notes,releases
+Release notes,A description of what changed in a release.,"Text attached to a release, written by hand or generated from merged pull requests.",A list of merged pull requests and contributors.,release; changelog,releases
+Asset,A file attached to a release.,"A file uploaded to a GitHub release, in addition to the automatic source archives.",A compiled program.,release; artifact,releases
+Source archive,"A zip or tar file of the files at a tag, without history.","An archive of a tagged commit's tree, made by GitHub for each release or locally with git archive.",proj-1.0.0.tar.gz,tag; release,releases
+Pre-release,A release marked as not yet final.,"A release flagged as a pre-release, for example a beta.",v1.3.2 (beta),release,releases
