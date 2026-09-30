@@ -83,6 +83,8 @@ The notation is a convention that Git's documentation follows:
 | `...` | The item before it may be **repeated** |
 | `or:` | A different way of using the same command |
 
+*(The synopsis grows as Git grows. On Git 2.55.0 the first form has one more optional part, `[(--trailer <token>[(=|:)<value>])...]`, which the 2.43.0 recording above does not have. Round brackets group alternatives, so `(=|:)` means "either `=` or `:`". This is a live example of why you must read the documentation for your own version.)*
+
 Read the first form: `git tag`, optionally one of `-a`, `-s` or `-u <key-id>`, optionally `-f`, optionally a message with `-m <msg>` (or from a file with `-F <file>`), optionally `-e`; then the required `<tagname>`; then optionally a `<commit>` or `<object>`. That is what you used in Chapter 24<!--ref:stash--> and Chapter 29<!--ref:tags-->: `git tag -a v1.0 -m "..."`, with an optional commit at the end. The second form, `git tag -d <tagname>...`, deletes one or more tags.
 
 > **Verification pending [R222].** The notation table above is how Git's usage text reads in the recording. Whether the official reference manual defines the notation in exactly these words was not checked; the manual pages could not be opened on the test computer.
