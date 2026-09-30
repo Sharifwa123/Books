@@ -16,7 +16,7 @@
 **3.2** A plain comparison can stop at the first difference, so the time it takes may leak how much of the guess was right. Use a constant-time comparison such as Python's `hmac.compare_digest`, Ruby's `Rack::Utils.secure_compare` or Node's `crypto.timingSafeEqual`.
 
 ## Level 4
-**4.1** A personal access token is tied to a person and often broad; an OAuth app acts with a user's scopes; a GitHub App has fine-grained permissions, can be limited to chosen repositories, uses short-lived tokens and is not tied to a person. Recommend a GitHub App with only the permission to comment on pull requests, installed on the organisation's repositories.
+**4.1** A personal access token is tied to a person and often broad; an OAuth app acts with a user's scopes; a GitHub App has fine-grained permissions, can be limited to chosen repositories, uses short-lived tokens and is not tied to a person. Recommend a GitHub App with only the permission to comment on pull requests, installed on the organization's repositories.
 
 ## Level 5
 **5.1** The endpoint paginates (30 items is a default page). Request a larger `per_page` if the endpoint supports it and follow the `next` link until it is absent.

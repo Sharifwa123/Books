@@ -12,7 +12,7 @@ ledger: [R311, R312, R313]
 **In this chapter**
 
 - least privilege in practice
-- where secrets live: repository, environment and organisation
+- where secrets live: repository, environment and organization
 - signed commits on GitHub
 - artifacts: checksums and attestations
 - the supply chain, and the difference between Git's security and GitHub's
@@ -39,7 +39,7 @@ Actions secrets can be stored at three levels. From the documentation: "Secrets 
 |---|---|---|
 | Repository | Workflows in that repository | Simple; anyone who can write workflows there can use it in a run |
 | Environment | Jobs that target that environment (Chapter 58<!--ref:wfadvanced-->) | You can require reviewers: "A workflow job cannot access environment secrets until approval is granted" |
-| Organisation | Repositories the organisation allows | "you can use a policy to limit access by repository" |
+| Organization | Repositories the organization allows | "you can use a policy to limit access by repository" |
 
 Other rules from the documentation: a workflow "can only read a secret if you explicitly include the secret in a workflow"; secrets are encrypted before they reach GitHub; and log redaction "is not guaranteed" (Chapter 60<!--ref:wfsec-->). Choose the narrowest level that works: an environment secret for a production deployment is stronger than a repository secret, because approval gates it.
 
@@ -126,7 +126,7 @@ Keep the two apart. **Git** is a local tool: it stores content by hash, can sign
 ## What You Learned
 
 - Give people, tokens and workflows the minimum access.
-- Secrets can be scoped to a repository, an environment (with approval) or an organisation.
+- Secrets can be scoped to a repository, an environment (with approval) or an organization.
 - GitHub marks signed commits Verified or Unverified; a signature says which key, not that the change is good.
 - A checksum detects change; attestations link an artifact to its source and build, and must be verified.
 - The supply chain has many links; Git and GitHub protect different layers.

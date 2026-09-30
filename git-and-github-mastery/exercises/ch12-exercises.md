@@ -16,7 +16,7 @@ Attempt each exercise before you open `solutions/ch12-solutions.md`.
 
 ## Level 4 — Professional scenario
 
-**4.1** Your organisation must keep its code on its own servers. Explain, using section 12.4.1, which of your team's Git skills stay the same and which parts of the decision are about the platform.
+**4.1** Your organization must keep its code on its own servers. Explain, using section 12.4.1, which of your team's Git skills stay the same and which parts of the decision are about the platform.
 
 ## Level 5 — Troubleshooting
 

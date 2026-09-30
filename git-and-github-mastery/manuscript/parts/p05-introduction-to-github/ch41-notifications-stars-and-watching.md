@@ -30,7 +30,7 @@ Three actions look alike and do different things.
 |---|---|---|
 | **Watch** a repository | "Tell me about activity here." | You are *subscribed* to updates, so you receive notifications. |
 | **Star** a repository | "Save this, and show appreciation." | The repository is added to your list of stars. It does **not**, by itself, send you notifications. |
-| **Follow** a person or an organisation | "Show me their public activity." | Their public activity appears on your personal dashboard. |
+| **Follow** a person or an organization | "Show me their public activity." | Their public activity appears on your personal dashboard. |
 
 > **New term: notification.** A message from the platform that something happened in a place you are subscribed to: a comment, a mention, a review request, the result of an automatic check. It arrives in an *inbox* on the website, in a mobile app, by email, or by some mix of these.
 
@@ -95,7 +95,7 @@ The **notifications inbox** (at `github.com/notifications`) is the website's lis
 
 You choose the *places* separately for the two big groups, **participating** and **watching**, in your notification settings. The documentation names three places: the inbox on the website, the inbox in the mobile app (which stays in step with the website), and email, which needs a verified email address. If you turn off the web and mobile option for both groups, the inbox stays empty. If you turn off email for both groups, your mail stays quiet.
 
-Depending on the organisation that owns a repository, you can also send its notifications to a different address, for example work mail for work repositories, and your organisation may require the address to be verified for its domain. Every notification email carries **headers** that name the repository and the reason, which you can use to filter mail in your email program.
+Depending on the organization that owns a repository, you can also send its notifications to a different address, for example work mail for work repositories, and your organization may require the address to be verified for its domain. Every notification email carries **headers** that name the repository and the reason, which you can use to filter mail in your email program.
 
 > **⚠️ CAUTION.** A notification email can contain the text of a private conversation, and it goes to whatever address you chose. Use an address you control, and be careful about forwarding rules.
 

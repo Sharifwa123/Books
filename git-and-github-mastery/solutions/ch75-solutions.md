@@ -3,7 +3,7 @@
 ## Level 1
 **1.1** In the `.github` folder of the repository, on the default branch.
 
-**1.2** One username, package name or project name per external funding platform with up to four custom URLs; and one organisation plus up to four sponsored developers on GitHub Sponsors.
+**1.2** One username, package name or project name per external funding platform with up to four custom URLs; and one organization plus up to four sponsored developers on GitHub Sponsors.
 
 ## Level 2
 **2.1** For example: `github: [ada-example]`, `patreon: ada-example` and `custom: ["https://example.org/support"]`, written with `printf` into `.github/FUNDING.yml`, then `cat`.

@@ -19,6 +19,6 @@
 **4.1** For example: "Without a licence, the default copyright law applies, which means we have no permission to copy it. I suggest we ask the owner for a licence or written permission, or write our own version, and ask the company's legal contact if unsure. Being public is not permission."
 
 ## Level 5
-**5.1** Restore the notice, and check the rest of the licence's conditions. If you already distributed the code, ask the responsible person in your organisation.
+**5.1** Restore the notice, and check the rest of the licence's conditions. If you already distributed the code, ask the responsible person in your organization.
 
 **5.2** Read both licence files and the compatibility statements of their projects, then ask a qualified person. Compatibility is a legal question.

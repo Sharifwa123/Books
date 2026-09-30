@@ -45,7 +45,7 @@ A runner executes whatever the workflow tells it to. On a GitHub-hosted runner t
 
 - "Self-hosted runners for GitHub do not have guarantees around running in ephemeral clean virtual machines, and can be persistently compromised by untrusted code in a workflow."
 - "As a result, self-hosted runners should almost never be used for public repositories on GitHub, because any user can open pull requests against the repository and compromise the environment."
-- When a runner is defined at the organisation or enterprise level, "GitHub can schedule workflows from multiple repositories onto the same runner. Consequently, a security compromise of these environments can result in a wide impact." Organising runners into separate groups helps to limit the scope.
+- When a runner is defined at the organization or enterprise level, "GitHub can schedule workflows from multiple repositories onto the same runner. Consequently, a security compromise of these environments can result in a wide impact." Organising runners into separate groups helps to limit the scope.
 - Think about what sensitive information is on the machine, such as private SSH keys and API tokens.
 - Destroying the runner after each job is only a partial defence: "there is no way to guarantee that a self-hosted runner only runs one job", and some jobs pass secrets as command-line arguments, which another job on the same machine could see. The documentation points to **just-in-time (JIT) runners**, which "perform at most one job before being automatically removed".
 

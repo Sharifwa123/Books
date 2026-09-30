@@ -94,7 +94,7 @@ The documentation says projects include **built-in workflows** that update the *
 
 ## 47.6 Who can see a project
 
-A project's visibility is separate from its items. GitHub's documentation: public projects can be viewed by "everyone on the internet"; private projects only by users "granted at least read access". **Only the project's visibility is affected**: to see an item, someone must still have access to the repository it belongs to, and items from a private repository appear as hidden to people without access. Project admins and organisation owners control visibility.
+A project's visibility is separate from its items. GitHub's documentation: public projects can be viewed by "everyone on the internet"; private projects only by users "granted at least read access". **Only the project's visibility is affected**: to see an item, someone must still have access to the repository it belongs to, and items from a private repository appear as hidden to people without access. Project admins and organization owners control visibility.
 
 > **⚠️ CAUTION.** Do not put secrets or private details in a project's title, README, status updates or custom fields of a public project: everything in it is visible to the world, even if your repositories are private.
 

@@ -52,7 +52,7 @@ The documentation's table of contexts:
 |---|---|
 | `github` | Information about the workflow run |
 | `env` | Variables set in a workflow, job or step |
-| `vars` | Variables set at the repository, organisation or environment level |
+| `vars` | Variables set at the repository, organization or environment level |
 | `job` | Information about the current job |
 | `steps` | Information about the steps that have run in the current job |
 | `runner` | Information about the machine running the job |
