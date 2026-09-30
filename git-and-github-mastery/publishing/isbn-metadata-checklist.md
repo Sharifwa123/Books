@@ -47,11 +47,12 @@ Only this table may receive an ISBN, and only after an agency has issued it. The
 
 ## 4. The full manuscript for the ISBN application (prepared 30 September 2026)
 
-The agency asks for the complete manuscript. The package is built by `tools/build_package.sh` into `publishing/build/package/` (a build folder, not committed; CI also builds and uploads the same formats):
+The agency asks for the complete manuscript. The package is built by `tools/build_package.sh` into `publishing/build/package/` (a build folder, not committed). A copy of the finished files is committed in `publishing/release/` so that they can be downloaded from GitHub:
 
 | File | Use |
 |---|---|
 | `ebook/git-and-github-from-zero-to-mastery-screen.pdf` | The complete book as one PDF (tagged, PDF/UA-1 checked), the usual file to send with an application |
+| `ebook/git-and-github-from-zero-to-mastery.docx` | The complete book as a Word file (headings, tables, code, diagrams; validated against the Word XML schema, **not opened in Word or LibreOffice**, which are unavailable here) |
 | `ebook/git-and-github-from-zero-to-mastery.epub` | The reflowable ebook (EPUBCheck: no messages) |
 | `manuscript/book.md` and `MANIFEST.txt` | The complete text as one Markdown file, with a SHA-256 per source file |
 | `cover/cover-front.png` and `.svg` | The front cover (1600 x 2560) |
