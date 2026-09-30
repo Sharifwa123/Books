@@ -585,7 +585,7 @@ You are ready for Chapter 9<!--ref:problem--> if you can:
 
 | Claim | Evidence class | Ledger |
 |---|---|---|
-| The source-to-HTML results of every example | Both: rendered with markdown-it-py 4.2.0 (CommonMark preset, tables on); the book's build compares every example with the recorded output (`tools/check_md_examples.py`, `verification/ch08-markdown`); the same renderer reproduces all 655 examples of the CommonMark specification, version 0.31.2 (`research/commonmark-conformance.py`) | R131 |
+| The source-to-HTML results of every example | Both: rendered with markdown-it-py 4.2.0 (CommonMark preset, tables on); the book's build compares every example with the recorded output (`tools/check_md_examples.py`, `verification/ch08-markdown`); the same renderer reproduces all 655 examples of the CommonMark specification, version 0.31.2 (the script `research/commonmark-conformance.py` in the companion repository) | R131 |
 | GitHub's extras (automatic links, task lists, tables) | Officially verified (docs only): GitHub's Markdown specification, version 0.29; GitHub's live rendering not observed | R132 |
 
 ## Where this leads

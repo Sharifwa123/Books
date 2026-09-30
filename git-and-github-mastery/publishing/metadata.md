@@ -1,51 +1,42 @@
 # Publishing Metadata (source of truth)
 
-| Field | Value | Status |
-|-------|-------|--------|
-| Title | Git & GitHub: From Zero to Mastery | Decided |
-| Subtitle | A Complete Beginner-to-Expert Guide to Version Control, Collaboration, Automation, Security, and Modern Software Development | Decided |
-| Author | Sharif Tingane Issah | Supplied |
-| Brand identity | SHARIF TECHNOLOGIES | Supplied (intended technology/brand identity) |
-| Legal publisher / imprint | [TO BE CONFIRMED] | **Undecided.** Printed pages must not state a legal publisher until decided (gates A and B) |
-| Copyright holder | [TO BE CONFIRMED] | **Undecided.** An earlier draft named SHARIF TECHNOLOGIES as stated by the publisher; the relation between author and company is not documented |
-| Slogan | Knowledge Is Power | Supplied |
-| Edition | 1st Edition | Planned |
-| Manuscript version | 0.3.0 (research + renumbered v2 architecture; no chapters drafted) | Current |
-| Technical information verified | [DATE] | **Not verified: research incomplete** (see research/README.md) |
-| ISBN | [ISBN TO BE ASSIGNED] | Placeholder |
-| Publication date | [PUBLICATION DATE] | Placeholder |
-| Address | [PUBLISHER ADDRESS: TO BE SUPPLIED] | Placeholder |
-| Website / email / contact | [OFFICIAL WEBSITE] / [OFFICIAL PUBLISHING EMAIL] / [CONTACT INFORMATION] | Placeholder |
-| Book-text licence (intended) | **CC BY-NC-SA 4.0** | Intended. Official name, identifier and terms **UNVERIFIED** (creativecommons.org blocked) |
-| Code-sample licence (intended) | **MIT License** | Intended. Official text **UNVERIFIED** (opensource.org blocked) |
-| Final licence wording | [LICENCE WORDING: PENDING OFFICIAL VERIFICATION] | **Deliberately not written** |
+Updated 30 September 2026. Details behind each row are in the files named in the last column.
 
-Not to be invented: registration numbers, ISBN, addresses, legal identifiers, author-biography facts.
+| Field | Value | Status | Detail |
+|-------|-------|--------|--------|
+| Title | Git & GitHub: From Zero to Mastery | Decided | |
+| Subtitle | A Complete Beginner-to-Expert Guide to Version Control, Collaboration, Automation, Security, and Modern Software Development | Decided | |
+| Author | Sharif Tingane Issah | Supplied | `author-biographies.md` |
+| Imprint (name on the title page) | SHARIF TECHNOLOGIES | Supplied; in public use by the author | `publisher-imprint-profile.md` |
+| Legal publisher | Not established | **Open**: no registry or document found; nothing registered is claimed | `publisher-imprint-profile.md` |
+| Copyright holder | SHARIF TECHNOLOGIES | As instructed by the author on 30 Sept 2026; **legal basis to be confirmed** | `rights-and-licensing.md`, `final-publication-blockers.md` |
+| Copyright year | 2026 | As instructed | |
+| Slogan | Knowledge Is Power | Supplied | |
+| Edition | 1st Edition | Planned | |
+| Language | English | Decided | |
+| Manuscript state | Complete: 81 chapters, 14 appendices, exercises and solutions, glossary and index; full editorial read-through done; build pipelines for PDF, EPUB and clean export pass in CI | Current | `repository-status-audit.md` |
+| Technical information verified | [DATE] | **Open**: set only when the remaining unverified ledger rows are checked or closed (Appendix N) | `research/README.md` |
+| ISBN | none assigned | **Open**: never to be invented | `isbn-metadata-checklist.md` |
+| Publication date | [PUBLICATION DATE] | Open; needs the author's publication authorisation | |
+| Address | none | Not supplied; the book carries none | |
+| Website | www.shariftechnologies.online | From the author's own profile; not opened by this project; author to confirm | `author-research-report.md` |
+| Contact e-mail | [OFFICIAL PUBLISHING EMAIL] | Open (optional) | |
+| Book-text licence | CC BY-NC-SA 4.0, `https://creativecommons.org/licenses/by-nc-sa/4.0/` | As instructed; the author states the official legal code was checked; this project could not reach the official site | `rights-and-licensing.md` |
+| Code-sample licence | MIT License | As instructed; text from the SPDX copy | `LICENSE-CODE` |
+| Licence wording on the copyright page | Prepared to the author's wording | **Proposed wording, not legal advice**; to be checked against the final ownership | `rights-and-licensing.md` |
+| Third-party material | Quotations, marks and fonts listed; exclusions stated | Audited 30 Sept 2026 | `third-party-rights-register.md` |
+| Author biography | Short, standard and extended versions, each statement tied to evidence | Written from public evidence; author to confirm | `author-biographies.md` |
 
-## Non-affiliation statement (draft)
-"This book is an independent educational work by Sharif Tingane Issah, issued under the SHARIF TECHNOLOGIES name. It is not affiliated with, endorsed by, sponsored by, or published by Git, GitHub, Microsoft, or any other third party mentioned. All product and company names are trademarks of their respective owners."
+Never invented: registration numbers, ISBN, addresses, legal identifiers, credentials, employment, awards, publications.
 
-## The seven distinctions the copyright/licensing pages must make
-Intended model (publisher's statement): readers obtain and share the book freely under the selected licence; SHARIF TECHNOLOGIES remains the copyright holder; commercial exploitation of the book *text* is restricted according to the final verified licence terms. The book is never described as "copyright-free".
+## Non-affiliation statement (as printed)
 
-| # | Distinction | Intended position | Wording status |
-|---|-------------|-------------------|----------------|
-| 1 | Copyright ownership | SHARIF TECHNOLOGIES holds copyright in the book text (as stated by the publisher). Choosing a licence does not remove copyright ownership. | Publisher to confirm the written basis if author and company are separate persons (assignment/employment terms). Not legal advice. |
-| 2 | Reading | Free to read. | Pending |
-| 3 | Downloading | Free to download. | Pending |
-| 4 | Redistribution | Allowed under the licence's conditions (attribution; non-commercial; share-alike), exactly as the verified licence states. | Pending official terms |
-| 5 | Modification / adaptation | Allowed under the licence's conditions; adaptations carry the same licence. | Pending official terms |
-| 6 | Commercial use | Restricted for the book text. What counts as "NonCommercial" is defined by the licence text and must be quoted or linked, not paraphrased loosely. | Pending official terms |
-| 7 | Code reuse | Code samples are separately licensed under MIT; MIT does not apply to the prose. | Pending official MIT text |
+"This book is an independent educational work by Sharif Tingane Issah, issued under the SHARIF TECHNOLOGIES name. It is not affiliated with, endorsed by, sponsored by, or published by Git, GitHub, Microsoft, or any other third party mentioned. Git, GitHub, Microsoft, Linux, Windows, macOS, Docker, GitLab, Bitbucket and other names may be trademarks of their respective owners, and this book claims no rights in them."
 
-## Points to raise with the publisher (not legal advice; nothing here is a verified legal claim)
-1. **"NonCommercial" is defined by the licence, and its edge cases (e.g. classroom fees, ads on a free site, corporate training) are a known source of disagreement.** Read the official definition and FAQ before finalising. (ledger rows on CC NonCommercial)
-2. **A rights-holder generally is not bound by the licence it grants others** and can offer separate commercial terms. Confirm with qualified counsel; the ledger has this as an open point.
-3. **Effect of the NC condition on adoption:** some educators, publishers and open-content repositories accept only licences that allow commercial use. This is a policy trade-off for the publisher, not an error.
-4. **GitHub hosting:** GitHub's own Terms may give other users certain rights to a *public* repository independent of the repository's licence. Unverified; the licence chapter must not claim this until read from the official policy.
-5. **Mixed content in one repository:** prose (CC BY-NC-SA 4.0), code (MIT), diagrams/images (decide), third-party quotations (their own terms). Each folder should say which licence applies. Plan: `LICENSE-TEXT` and `LICENSE-CODE` files added only after the official texts are verified.
-6. **Trademarks are not licensed** by either licence: SHARIF TECHNOLOGIES name/logo, and third-party marks.
-7. **Visibility:** the repository's public/private status should be decided before licence files are added.
+## The seven distinctions the pages must keep
 
-## Licence files
-Not created yet. No MIT or Creative Commons text is copied into the repository until verified against the official sources.
+1. Copyright ownership, 2. reading, 3. downloading, 4. redistribution, 5. modification, 6. commercial use, 7. code reuse. The table with the book's position on each is in `rights-and-licensing.md`. The book is never called "copyright-free", "public domain" or "owned by everyone".
+
+## Files
+
+`LICENSE.md` (index), `LICENSE-TEXT.md` (notice, no legal code), `LICENSE-CODE` (MIT text). No Creative Commons legal code is copied into the repository.

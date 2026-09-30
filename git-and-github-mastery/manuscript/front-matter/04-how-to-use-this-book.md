@@ -86,6 +86,10 @@ Read the first sections of these Core chapters on a first pass, and return later
 - **Projects.** Twelve projects are spread through the book; the last is the capstone.
 - **A practice folder.** Do everything in a folder you can throw away.
 
+## The companion repository
+
+The recorded command sessions, the research ledger, the verification scripts, the exercises and the files the chapters ask you to download are published in the book's companion repository: https://github.com/Sharifwa123/Books (folder `git-and-github-mastery`). The text of the book says when it names a file from there.
+
 ## What you need
 
 A computer (Windows, macOS or Linux), a text editor, a terminal, an internet connection for the later parts, and a GitHub account from Part V onwards. Chapter 13<!--ref:install--> installs Git. Some tools of later chapters are installed when needed.

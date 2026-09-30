@@ -1,21 +1,34 @@
 # Copyright and Notices
 
-Copyright © [YEAR] [COPYRIGHT HOLDER: TO BE CONFIRMED]. All rights reserved.
+Copyright © 2026 SHARIF TECHNOLOGIES. All rights reserved except for the permissions expressly granted under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International Public License.
 
-> **Licence: undecided.** The publisher intends to release the book text and its code samples under licences that permit reading, downloading and sharing on stated conditions. **The wording of any licence has not been inserted, because it has not yet been verified and decided.** Until the publisher adds it here, treat the book as protected by copyright with all rights reserved. Copyright is not removed by making a work public or free to read: **the book is not "copyright-free"**. Chapter 65<!--ref:licences--> explains the difference between copyright and a licence and the seven questions to ask of any work: who owns it, and whether you may read it, download it, redistribute it, modify it, use it commercially, or reuse its code.
+This book's original text is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0):
+
+<https://creativecommons.org/licenses/by-nc-sa/4.0/>
+
+Under this license, readers may share and adapt the licensed book material for noncommercial purposes, provided that the applicable attribution and ShareAlike requirements are followed. Commercial use requires separate permission from the rights holder.
+
+Code examples contained in this book are separately licensed under the MIT License unless a particular example identifies another applicable licence or third-party source.
+
+The licence applies only to material for which the stated rights holder has authority to grant the licence. Third-party material, trademarks, screenshots, quotations, logos, and other material identified as belonging to their respective owners are not automatically covered by this licence and may be subject to separate rights or permissions.
+
+This licensing notice is a plain-language summary and does not replace the terms of the applicable Creative Commons or MIT licence.
+
+## What the licence does and does not mean
+
+**The book is copyrighted.** It is not "copyright-free", not in the public domain and not owned by everyone. Making a book free to read or to download does not remove copyright; a licence is a set of permissions that the rights holder grants. Keep these questions apart, as Chapter 65<!--ref:licences--> teaches: who owns the work; whether you may read it, download it, redistribute it, modify it, use it commercially, or reuse its code. For this book the answers are: the rights holder is named above; you may read and download it; you may redistribute and adapt the text for noncommercial purposes under the conditions of the licence; commercial use needs permission; and the code examples may be reused under the MIT License.
 
 | | |
 |---|---|
 | Title | Git & GitHub: From Zero to Mastery |
 | Author | Sharif Tingane Issah |
-| Brand | SHARIF TECHNOLOGIES |
-| Legal publisher or imprint | [LEGAL PUBLISHER OR IMPRINT: TO BE CONFIRMED] |
+| Published | Under the SHARIF TECHNOLOGIES imprint |
 | Edition | 1st Edition |
 | ISBN | [ISBN TO BE ASSIGNED] |
 | Publication date | [PUBLICATION DATE] |
 | Technical information verified | [MONTH YEAR OF FINAL VERIFICATION] (see Appendix N for what was checked and what remains open) |
-| Publisher address | [PUBLISHER ADDRESS: TO BE SUPPLIED] |
-| Website and contact | [OFFICIAL WEBSITE] · [OFFICIAL PUBLISHING EMAIL] |
+| Website | www.shariftechnologies.online |
+| Contact | [OFFICIAL PUBLISHING EMAIL] |
 
 ## Disclaimer
 
@@ -23,8 +36,10 @@ This book is educational. Commands change the state of your computer and your re
 
 ## Trademarks and non-affiliation
 
-This book is an independent educational work by Sharif Tingane Issah, issued under the SHARIF TECHNOLOGIES name. It is not affiliated with, endorsed by, sponsored by, or published by Git, GitHub, Microsoft, or any other third party mentioned. Git, GitHub, Microsoft, Linux, Windows, macOS, Docker, GitLab, Bitbucket and other names may be trademarks of their respective owners.
+This book is an independent educational work by Sharif Tingane Issah, issued under the SHARIF TECHNOLOGIES name. It is not affiliated with, endorsed by, sponsored by, or published by Git, GitHub, Microsoft, or any other third party mentioned. Git, GitHub, Microsoft, Linux, Windows, macOS, Docker, GitLab, Bitbucket and other names may be trademarks of their respective owners, and this book claims no rights in them. The name SHARIF TECHNOLOGIES is not licensed by the licences above.
 
 ## Third-party material
 
-Where the book quotes short passages from official documentation, it names the source; those passages remain under their own terms. Names, prices and addresses in examples are made up.
+Where the book quotes short passages from official documentation, it names the source; those passages remain under their own terms and are not covered by this book's licence. Names, prices and addresses in examples are made up.
+
+The PDF editions are set in the DejaVu fonts. Copyright (c) 2003 by Bitstream, Inc. All Rights Reserved. Bitstream Vera is a trademark of Bitstream, Inc. DejaVu changes are in the public domain.

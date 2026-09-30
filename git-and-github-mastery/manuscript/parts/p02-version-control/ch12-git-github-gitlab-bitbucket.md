@@ -79,7 +79,7 @@ Beginners often look for a feature in the wrong place. Use this table to know wh
 
 A team does not need a hosting platform to use Git. The tool works entirely on your computer. It can also exchange history with a second repository that sits *anywhere*: on a memory stick, on a colleague's laptop, on a server you run yourself, or in a folder on the same machine. This has been tested: a folder on the same computer, prepared as a shared repository, worked as the "meeting place" for pushing and fetching history in the book's test environment on two versions of Git.
 
-> **Checked against the documentation [R141].** The test is recorded in `research/git-verification/verify-git-basics.sh` (bare-repository checks), and the Git 2.56.0 manual for `git init` documents the `--bare` option ("Create a bare repository"). Both the test and the manual concern the tool, not any hosting platform.
+> **Checked against the documentation [R141].** The test is recorded in the script `research/git-verification/verify-git-basics.sh` in the companion repository (bare-repository checks), and the Git 2.56.0 manual for `git init` documents the `--bare` option ("Create a bare repository"). Both the test and the manual concern the tool, not any hosting platform.
 
 Chapter 23<!--ref:remotes--> will let you repeat this experiment with two repositories on your own computer and no account at all. Then, in Part V, you will connect the same repository to GitHub, and you will see that only the *address* changes.
 

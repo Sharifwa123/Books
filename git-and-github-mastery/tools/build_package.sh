@@ -2,7 +2,7 @@
 # Assembles the publication package under publishing/build/package/ from the manuscript:
 #   manuscript/ (clean text export + manifest)   ebook/ (EPUB, PDFs)   cover/   metadata/
 # It builds every format from the same manuscript. It does NOT publish anything (gate B) and does not invent
-# any identifier: the ISBN and the legal publisher remain placeholders until they are assigned and decided.
+# any identifier: the ISBN and the legal publisher remain empty until they are assigned and established.
 # Needs the diagrams pre-rendered (tools/render_diagrams.py) and the packages named in .github/workflows/validate.yml.
 set -eu
 cd "$(dirname "$0")/.."
@@ -28,9 +28,14 @@ meta = {
   "brand": "SHARIF TECHNOLOGIES",
   "slogan": "Knowledge Is Power",
   "keywords": ["Git", "GitHub", "version control", "GitHub Actions", "open source"],
-  "isbn": None, "legal_publisher_or_imprint": None, "copyright_holder": None, "licence": None,
-  "publisher_address": None, "publication_date": None, "author_biography": None,
-  "status_of_null_fields": "Not decided or not yet supplied. They are deliberately empty and must not be invented.",
+  "imprint": "SHARIF TECHNOLOGIES",
+  "copyright": "Copyright (c) 2026 SHARIF TECHNOLOGIES",
+  "copyright_holder_note": "As instructed by the author; the legal basis for the holder is to be confirmed.",
+  "licences": {"text": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)", "code_samples": "MIT"},
+  "website": "www.shariftechnologies.online",
+  "author_biography_short": "Sharif Tingane Issah writes and builds software under the name SHARIF TECHNOLOGIES, from Ghana. The public profile of Sharif's GitHub account lists software, artificial intelligence and cybersecurity as areas of work. Among the projects is Sharif NOVA, an early-stage, open-source programming language and toolchain first published on npm in September 2026. This book for first-time learners follows one habit: run the command, read the source, and say what was and was not checked.",
+  "isbn": None, "legal_publisher": None, "publisher_address": None, "publication_date": None,
+  "status_of_null_fields": "Not assigned, not established or not yet supplied. They are deliberately empty and must not be invented.",
   "files": {os.path.relpath(f, out): hashlib.sha256(open(f, "rb").read()).hexdigest() for f in sorted(glob.glob(out + "/ebook/*") + glob.glob(out + "/cover/*"))},
 }
 json.dump(meta, open(out + "/metadata/publication-metadata.json", "w"), indent=2, ensure_ascii=False)

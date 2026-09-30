@@ -142,6 +142,8 @@ opf = f'''<?xml version="1.0" encoding="utf-8"?>
 <dc:title id="t2">{html.escape(SUB)}</dc:title><meta refines="#t2" property="title-type">subtitle</meta>
 <dc:creator id="a1">{AUTHOR}</dc:creator><meta refines="#a1" property="role" scheme="marc:relators">aut</meta>
 <dc:language>en-GB</dc:language>
+<dc:publisher>SHARIF TECHNOLOGIES</dc:publisher>
+<dc:rights>Copyright © 2026 SHARIF TECHNOLOGIES. Text: CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/). Code samples: MIT License. Third-party material is not covered.</dc:rights>
 <dc:subject>Git</dc:subject><dc:subject>GitHub</dc:subject><dc:subject>Version control</dc:subject><dc:subject>GitHub Actions</dc:subject><dc:subject>Open source</dc:subject>
 <dc:description>{html.escape(SUB)}</dc:description>
 <meta property="dcterms:modified">{STAMP}</meta>

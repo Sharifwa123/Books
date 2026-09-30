@@ -1,5 +1,7 @@
 # Research — Status Report
 
+> **Current status (30 September 2026).** The ledger now has **356 rows**: 127 "both officially verified and locally tested", 113 "officially verified (docs only)", 34 "locally tested", 56 "time-sensitive (unverified)", 23 "needs re-verification" and 3 "not applicable". **79 rows are still marked unverified** (55 of them early planning rows superseded by later rows); Appendix N of the book lists them. Git was checked against the Git 2.56.0 manual (`git-manual-checks.py`, 67 checks) and the recorded sessions are re-run in CI on the runner's Git and on Git 2.56.0 built from source. GitHub claims were checked against the `github/docs` repository at commit `2eaab0b`; nothing was run on a live account. `sources-manifest.csv` holds the hash of every fetched source. The sections below are the **historical report of 29 September 2026** and describe the state at that date (for example, only 109 ledger rows and blocked hosts that have since been worked around through GitHub-hosted raw sources).
+
 **Technical information verified: [DATE]** — deliberately NOT filled in. Research is **not complete**; the book-level date is set only after every time-sensitive ledger row is verified.
 
 ## Evidence classes (used in `research-ledger.csv`)
