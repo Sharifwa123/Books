@@ -21,7 +21,7 @@ A checklist that gathers the security advice of the book. Tick what you have don
 ## G.3 Repository and access
 
 - [ ] `SECURITY.md` says how to report a vulnerability privately (Chapter 62<!--ref:ghsec-->).
-- [ ] Roles are the least that work; the base permission is low; at least two owners in an organisation (Chapter 68<!--ref:orgs-->).
+- [ ] Roles are the least that work; the base permission is low; at least two owners in an organization (Chapter 68<!--ref:orgs-->).
 - [ ] The default branch is protected: pull requests, required checks, no force pushes (*GitHub*; Chapter 50<!--ref:protect-->).
 - [ ] Deploy keys and outside collaborators are reviewed regularly (Chapter 68<!--ref:orgs-->).
 - [ ] Commits are signed where your team requires it, and you know a signature shows a key, not a good change (Chapter 63<!--ref:secpractice-->).

@@ -39,4 +39,4 @@ Use this list to review a repository before you share it, or to review someone e
 
 - [ ] Issues get an answer, even if the answer is "not now".
 - [ ] `good first issue` labels are kept honest (Chapter 64<!--ref:oss-->).
-- [ ] There are at least two people who can administer the repository or organisation (Chapter 68<!--ref:orgs-->).
+- [ ] There are at least two people who can administer the repository or organization (Chapter 68<!--ref:orgs-->).

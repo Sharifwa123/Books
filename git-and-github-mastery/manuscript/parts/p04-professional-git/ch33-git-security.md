@@ -257,7 +257,7 @@ Whenever you clone a repository, install a package, or copy a script, you run or
 3. **Check for misuse**: look at the service's access logs for uses that were not yours.
 4. **Find every copy**: branches, remotes, forks, clones, builds, and pasted messages.
 5. **Decide whether to rewrite history.** If you do, agree it with everyone who shares the repository, use a maintained tool, and expect to force-push.
-6. **Tell the people who need to know**, following your organisation's rules.
+6. **Tell the people who need to know**, following your organization's rules.
 7. **Add a prevention**: `.gitignore`, an example file, a hook or a scanner, and a note in the project's documentation.
 
 ---

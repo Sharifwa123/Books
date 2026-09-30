@@ -129,7 +129,7 @@ The "shared copy on a server" in the diagram is a convention, not a requirement 
 
 A common exam question, and a real decision: "Should we use Git or a centralised system such as Subversion?" Because the two are built on different designs, the honest answer is a comparison, not a verdict.
 
-**Choose a distributed tool such as Git when** people work in parallel on a project, work from different places or with intermittent networks, want private experiments, or contribute from outside the organisation.
+**Choose a distributed tool such as Git when** people work in parallel on a project, work from different places or with intermittent networks, want private experiments, or contribute from outside the organization.
 
 **A centralised tool may suit you when** a team is small and always connected, a single official history with strict central control matters more than flexibility, or a project's large binary files make copying the whole history to everyone impractical, and its tooling handles them better. (These are judgements to weigh, not rules; check current documentation when you decide.)
 

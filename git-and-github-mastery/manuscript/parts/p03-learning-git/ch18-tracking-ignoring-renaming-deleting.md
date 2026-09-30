@@ -220,7 +220,7 @@ $ git check-ignore -v app.log important.log todo.txt docs/todo.txt build/output.
 
 Read each line as *file, line number and pattern, then the path it applied to*. Notice that `important.log` was reported with the exception rule `!important.log`, that is, it matched an exception and is therefore **not** ignored; and `docs/todo.txt` does not appear because no rule matched it. (Git also stops looking inside an ignored folder: `build/output.js` was ignored because the folder `build/` was.)
 
-### 18.4.1 Comments and organisation
+### 18.4.1 Comments and organization
 
 A `.gitignore` can carry comments to say *why*, which is kind to the next person:
 

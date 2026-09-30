@@ -22,7 +22,7 @@ This appendix maps GitHub features to the chapters that describe them, and lists
 | Pages | static websites | 69<!--ref:pages--> |
 | Codespaces | cloud development environments | 70<!--ref:codespaces--> |
 | Packages | package registries | 71<!--ref:packages--> |
-| Organisations, enterprise accounts | groups | 68<!--ref:orgs--> |
+| Organizations, enterprise accounts | groups | 68<!--ref:orgs--> |
 | REST and GraphQL APIs, webhooks, Apps | programmatic access | 74<!--ref:api--> |
 | Sponsors, Marketplace, custom properties | other features | 75<!--ref:platformextras--> |
 

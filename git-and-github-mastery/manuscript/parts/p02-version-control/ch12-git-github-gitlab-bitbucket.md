@@ -99,7 +99,7 @@ Because they all host Git repositories, **your Git skills transfer**: the comman
 
 There is no universal winner. When a team chooses, it weighs questions such as:
 
-1. **Where must the code live?** Some organisations must keep code on servers they control.
+1. **Where must the code live?** Some organizations must keep code on servers they control.
 2. **What features does the team need?** Issue tracking, review, automated tests and deployment differ in style and depth.
 3. **Who else is here?** If you want to contribute to open-source projects, you go where they are.
 4. **Cost and limits.** Plans, limits and prices change; consult the current official pages.
