@@ -56,7 +56,7 @@ Some details that change how to read them:
 
 Three effects change a count without any change in the work.
 
-**Merge commits and empty commits.** A merge commit records a merge, and an empty commit changes no file. The contributors graph ignores both. In Git you can count with and without merges. A small repository was built with two people-identities of the same person, a merge and an empty commit:
+**Merge commits and empty commits.** A merge commit records a merge, and an empty commit changes no file. The contributors graph ignores both. In Git you can count with and without merges. A small repository was built with one person who committed under two different email addresses, plus a merge and an empty commit:
 
 ```text
 $ cd bakery-menu
