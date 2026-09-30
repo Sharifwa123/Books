@@ -63,7 +63,7 @@ $ command -v git
 
 ## 13.4 Windows
 
-> **Verification pending [R142].** The installation of Git for Windows could not be run or checked. This section describes the *decisions* the installer asks about and gives recommended answers with their reasons. It deliberately does not describe screens, buttons or the order of pages, because these change between versions. When the installer's wording differs from this section, trust the installer, and use this section to understand what is being asked.
+> **Checked against the installer's source (R142).** The Git for Windows installer is built from a script in the `git-for-windows/build-extra` repository (fetched from its `main` branch; the copy's hash is in `research/sources-manifest.csv`). It has a page for each decision in the table. **Editor:** "Choosing the default editor used by Git"; the installer's own text says Vim "is the default editor of Git for Windows only for historical reasons, and it is highly recommended to switch to a modern GUI editor instead". **First branch:** "Let Git decide" (using the default branch name of that installer build, `master` in the script) or "Override the default branch name for new repositories", with "main", "trunk" and "development" named as common choices. **PATH:** "Git from the command line and also from 3rd-party software", marked "(Recommended)". **Line endings:** three choices; "Checkout Windows-style, commit Unix-style line endings" is described as "the recommended setting on Windows" for cross-platform projects (it sets `core.autocrlf` to `true`), "Checkout as-is, commit Unix-style line endings" as the recommended one on Unix (`input`), and "Checkout as-is, commit as-is" as "not recommended for cross-platform projects". **Credentials:** a page offers "Git Credential Manager". The installer was not run here, and its pages can change, so the section describes the decisions and not the screens.
 
 1. Open the official Git download page (search for "Git for Windows" and check that the address belongs to the Git project) and download the installer for your version of Windows.
 2. Run the installer, and accept the administrator prompt.
@@ -74,7 +74,7 @@ $ command -v git
 | **Which text editor Git should open** | Git opens an editor when you write a long commit message (Chapter 19<!--ref:commits-->) | An editor you already know (Chapter 3<!--ref:editors-->). Avoid an editor that is hard to exit if you have never used it. |
 | **Name of the first branch** | New repositories start with a branch of this name (Chapter 20<!--ref:branching-->) | `main` |
 | **How Git is added to your PATH** | Whether `git` works from every terminal, or only in Git Bash | The option that lets you run Git from the command line *and* from other software, so it also works in PowerShell and Command Prompt |
-| **Line endings** | How Git converts line endings between Windows (CRLF) and other systems (LF) (Chapter 4<!--ref:text-->) | Read the choices; the recommended default for cross-platform work is to convert to LF when committing. Chapter 14<!--ref:config--> returns to this. |
+| **Line endings** | How Git converts line endings between Windows (CRLF) and other systems (LF) (Chapter 4<!--ref:text-->) | Read the choices; for cross-platform work the installer recommends "Checkout Windows-style, commit Unix-style line endings" (LF in the repository). Chapter 14<!--ref:config--> returns to this. |
 | **The terminal to use with Git Bash** | The window program that displays Git Bash | Either choice works for this book |
 | **Credential helper** | Whether Git remembers logins securely (Chapter 38<!--ref:ghauth-->) | Keep the offered default |
 
@@ -91,7 +91,7 @@ Accept the defaults for every decision you do not understand. All of them can be
 
 ### macOS
 
-> **Verification pending [R143].** The installation methods for macOS were not run or checked. The statements below describe the *kinds* of source that exist and must be verified against Apple's and the Git project's documentation.
+> **Checked in part (R143).** The Homebrew package collection has a formula named `git` ("Distributed revision control system", homepage git-scm.com) that at the time of checking built Git 2.56.0 from the project's source tarball. How macOS offers developer tools on first use of `git`, and the Git project's own download page, were **not** checked.
 
 Git may already be present on a Mac; the check in section 13.2 will tell you. If it is not, there are two kinds of source, in order of preference: the one your operating system offers (some systems offer to install developer tools when you first type `git`), and the Git project's own list of installation methods on its download page. Follow the official page for your version, and read what it says before running anything it gives you.
 
@@ -158,7 +158,7 @@ init.defaultbranch=main
 
 > **Security note.** An email address written into commits is public if you later share the repository publicly. Some hosting platforms let you use a privacy-preserving address for this purpose; decide before you publish. (That statement is about platforms and is verified in Chapter 37<!--ref:ghaccount-->.)
 
-> **Verification pending [R146].** The three settings work as shown on Git 2.43.0 and the CI runner's Git. Their wording in Git's official documentation, and the privacy statement above, have not been checked against current official sources.
+> **Checked against the documentation (R146).** Git's `user.name` and `user.email` documentation (Git 2.56.0) says the two variables "determine what ends up in the `author` and `committer` fields of commit objects", that the environment variables `GIT_AUTHOR_NAME`, `GIT_AUTHOR_EMAIL`, `GIT_COMMITTER_NAME`, `GIT_COMMITTER_EMAIL` and `EMAIL` override them, and that the `name` forms "conventionally refer to some form of a personal name". `init.defaultBranch` "allows overriding the default branch name e.g. when initializing a new repository". The privacy statement is general advice and is not in Git's documentation.
 
 ---
 
@@ -181,7 +181,7 @@ usage: git status [<options>] [--] [<pathspec>...]
 
 *Recorded on Linux. The command `git status -h` prints a usage summary; here the output was shortened to its first three lines with `head -3`, and the `2>&1` joins Git's two output streams so that `head` sees them both. Later lines list the options.*
 
-> **Verification pending [R147].** In the book's test environment the manual pages were **not installed** (the environment had been stripped of documentation), so `git help <command>` printed a notice about that instead of the manual. That is a fact about that machine, not about Git. On your computer the manual pages are usually available; if they are not, `-h` and the official online documentation (Chapter 35<!--ref:readdocs-->) still work.
+> **Checked against the documentation (R147).** The `git help` manual page (Git 2.56.0) says the `man` program is used by default, `-a` lists all available commands and `-g` the concept guides. In the book's test environment the manual pages were **not installed**, so `git help <command>` printed a notice about that instead of the manual. That is a fact about that machine, not about Git. On your computer the manual pages are usually available; if they are not, `-h` and the official online documentation (Chapter 35<!--ref:readdocs-->) still work.
 
 ---
 
@@ -247,8 +247,8 @@ You are ready for Chapter 14<!--ref:config--> if you can:
 | Claim | Evidence class | Ledger |
 |---|---|---|
 | `git --version`, `command -v git`, and the three `git config` commands and the listed result; behaviour of the `-h` summary | Locally tested in Bash 5.2 and zsh 5.9 on Git 2.43.0; re-run in CI on the runner's Git | R145, R146 |
-| Installer decisions and recommended answers for Windows | Needs re-verification; not run | R142 |
-| macOS installation methods | Needs re-verification; not run | R143 |
+| Installer decisions and recommended answers for Windows | Checked against the installer script's source; installer not run | R142 |
+| macOS installation methods | Homebrew formula checked; Apple's developer-tools prompt and the Git download page not checked | R143 |
 | `apt` install form on Debian-family systems; other distributions | Locally tested for Ubuntu 24.04 (simulation); other distributions unverified | R144 |
 | Manual pages not installed in the test environment | Locally observed; environment-specific | R147 |
 

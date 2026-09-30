@@ -432,7 +432,7 @@ hint: Disable this message with "git config set advice.defaultBranchName false"
 
 That is why Chapter 13<!--ref:install--> asked you to set `init.defaultBranch` yourself: with it set, no hint appears and the branch name is the one you chose.
 
-> **Verification pending [R157].** The two hints were produced by two Git versions and the plan for a future default is stated by Git's own output; the official announcement and documentation have not been consulted.
+> **Checked against the documentation (R157).** Git's `BreakingChanges` document (Git 2.56.0) lists, among the changes planned for Git 3.0: "In new repositories, the default branch name will be `main`. We have been warning that the default name will change since [the commit that added the advice about `init.defaultBranch`] (2020-12-11). The new name matches the default branch name used in new repositories by many of the big Git forges." `init.defaultBranch` "allows overriding the default branch name e.g. when initializing a new repository". The hint you saw on Git 2.55.0, `will change to "main" in Git 3.0`, states the same plan.
 
 ---
 

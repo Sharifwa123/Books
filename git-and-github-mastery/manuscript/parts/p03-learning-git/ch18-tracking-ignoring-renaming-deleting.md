@@ -141,7 +141,7 @@ Notice that the listing of tracked files contains `.gitignore` but none of the t
 
 > **A rule worth remembering.** `.gitignore` is a normal, tracked file. Commit it, so the whole team shares the rules.
 
-> **Verification pending [R161].** The behaviour above was recorded on Git 2.43.0 and 2.55.0. The documentation of `.gitignore` in the official manual, including the full pattern grammar, has not been consulted; only the patterns recorded in this chapter are taught.
+> **Checked against the documentation (R161).** The pattern rules recorded here agree with `gitignore` (Git 2.56.0): a blank line matches nothing; a line starting with `#` is a comment; `!` at the start negates a pattern, but "it is not possible to re-include a file if a parent directory of that file is excluded"; a slash at the end matches only directories; `*` matches anything except a slash and `?` any one character except a slash; a pattern with a slash at the beginning or middle is relative to the `.gitignore` file's directory, and otherwise may match at any level below. Also documented there: `**/` matches in all directories, `/**` matches everything inside, and `a/**/b` matches zero or more directories. The order of precedence (command line, then `.gitignore` files, then `.git/info/exclude`, then `core.excludesFile`) and the default for `core.excludesFile`, `$XDG_CONFIG_HOME/git/ignore` (or `$HOME/.config/git/ignore`), are in the same page.
 
 ---
 
@@ -155,7 +155,7 @@ Each line of `.gitignore` is a **pattern**. Blank lines are skipped, and a line 
 | `build/` | A folder called `build`, and everything in it | A trailing `/` means *directory* |
 | `/todo.txt` | `todo.txt` in the **top folder only** | A leading `/` anchors the pattern to the top of the repository |
 | `docs/*.tmp` | `.tmp` files directly inside `docs` | A pattern with a `/` in the middle is relative to the top |
-| `!important.log` | An **exception**: do not ignore this file, even though an earlier rule did | `!` negates; it must come after the rule it overrides, and it cannot re-include a file inside an ignored *folder* (section 18.4.3) |
+| `!important.log` | An **exception**: do not ignore this file, even though an earlier rule did | `!` negates; it must come after the rule it overrides |
 
 A recording tests all of them at once. Eight files are created and the five patterns are written:
 
@@ -270,7 +270,7 @@ __pycache__/
 .env
 ```
 
-> **Verification pending [R162].** These lists are given from general knowledge as illustrations. Their names (for example `node_modules/` and `__pycache__/`) are conventions of other tools, which this book has not tested. Before relying on a template for a real project, compare it with a current, maintained template and with your own project's needs.
+> **Checked against GitHub's template collection (R162).** These lists are short illustrations. Compared with the `Node.gitignore` and `Python.gitignore` templates in GitHub's `github/gitignore` repository (the collection used by GitHub's template chooser): `node_modules/`, `dist`, `.env` and `*.log` appear in the Node template (which has `build/Release` rather than a plain `build/`); `__pycache__/`, `.venv`, `.env`, `build/` and `dist/` appear in the Python template, and it ignores `*.py[codz]`, a wider pattern than `*.pyc`. The templates are much longer than the lists here. Before relying on a list for a real project, start from a current, maintained template and adjust it to your own project.
 
 ### 18.4.3 Exceptions and ignored folders
 
@@ -605,8 +605,8 @@ You are ready for Chapter 19<!--ref:commits--> if you can:
 
 | Claim | Evidence class | Ledger |
 |---|---|---|
-| The behaviour and output of ignoring, check-ignore, status --ignored, the global ignore file, and of the five patterns | Locally tested: Bash 5.2, zsh 5.9, Git 2.43.0; identical on the CI runner's Git 2.55.0 | R161 |
-| The `.gitignore` starting points for a website, JavaScript and Python projects | Needs re-verification: general knowledge, not run | R162 |
+| The behaviour and output of ignoring, check-ignore, status --ignored, the global ignore file, and of the five patterns | Locally tested: Bash 5.2, zsh 5.9, Git 2.43.0; identical on the CI runner's Git 2.55.0; pattern rules checked in `gitignore` (Git 2.56.0) | R161 |
+| The `.gitignore` starting points for a website, JavaScript and Python projects | Compared with GitHub's `Node.gitignore` and `Python.gitignore` templates; not run | R162 |
 | Ignoring does not untrack; `git rm --cached`; `git mv`; `git rm`; deleted-outside-Git and `git restore` | Locally tested (as above) | R163 |
 | A secret stays in history after the file is deleted | Locally tested with a made-up token (`session-secret-history`); Chapter 33<!--ref:gitsec--> shows the full incident response | R164 |
 

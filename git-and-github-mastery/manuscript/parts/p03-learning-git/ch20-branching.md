@@ -99,7 +99,7 @@ $ git branch
 
 `git switch add-tea` moved `HEAD` to the branch `add-tea`. The asterisk moved with it. No files changed yet, since the two branches point to the same commit.
 
-> **Verification pending [R169].** In the documentation shipped with Git 2.43.0, `git switch` and `git restore` are marked *experimental*, meaning their behaviour might change. In every recording in this book they behave identically on Git 2.43.0 and on Git 2.55.0. The current online documentation, which may have removed that note, has not been consulted. Section 20.8 shows the older command, `git checkout`, which does the same job.
+> **Checked against the documentation (R169).** In Git's own documentation, `git switch` and `git restore` were marked "THIS COMMAND IS EXPERIMENTAL. THE BEHAVIOR MAY CHANGE." up to and including Git 2.50.0. The release notes of **Git 2.51.0** say that both commands "are declared to be no longer experimental", and the manual pages of 2.51.0 and later no longer carry the warning. Older Git versions you may meet still have it, and in every recording in this book the commands behave identically on Git 2.43.0 and 2.55.0.
 
 ### 20.4.1 Committing on a branch
 
@@ -345,7 +345,7 @@ Deleted branch legacy-style (was 81f772e).
 
 Why two commands? `git checkout` grew to do **two unrelated jobs**: switching branches, *and* restoring files from a commit. That made it confusing. Newer Git separates them: `git switch` for branches (this chapter) and `git restore` for files (Chapter 25<!--ref:undo-->). This book teaches the new commands and points out the old forms where you will meet them.
 
-> **Verification pending [R170].** The statement about why the commands were split, and the equivalences shown here, come from general knowledge and the recordings; the official documentation has not been consulted for its own explanation.
+> **Checked against the documentation (R170).** The release notes of Git 2.23.0 introduce the two commands "to split 'checking out a branch to work on advancing its history' and 'checking out paths out of the index and/or a tree-ish to work on advancing the current history' out of the single `git checkout` command". That is the reason given above, in the project's own words.
 
 If you give `git switch` a name that does not exist, it says so:
 
@@ -417,7 +417,7 @@ Two rejections are recorded: a name with a **space** and a name containing **`..
 - a name that says *what the branch is for*, so it still makes sense in a month;
 - no spaces, and avoid characters that are special to your shell.
 
-> **Verification pending [R171].** The invalid-name messages were recorded on Git 2.43.0 and 2.55.0. The full list of names Git rejects, and the naming conventions above, are from general practice and have not been checked against the official documentation.
+> **Checked against the documentation (R171).** The rules for what Git rejects are in `git check-ref-format` (Git 2.56.0). Among them: a name cannot contain two consecutive dots `..`; ASCII control characters, space, tilde `~`, caret `^` or colon `:`; a question mark `?`, asterisk `*` or open bracket `[`; a backslash; or the sequence `@{`; it cannot begin or end with a slash, end with a dot, or be the single character `@`; and no slash-separated part may begin with a dot or end with `.lock`. The naming conventions above (lowercase, hyphens, prefixes) are habits, not Git rules, and are labelled that way.
 
 ---
 
@@ -500,10 +500,10 @@ You are ready for Chapter 21<!--ref:merging--> if you can:
 
 | Claim | Evidence class | Ledger |
 |---|---|---|
-| Listing, creating, switching, `-c`, `-vv`, rename, delete and force-delete; the graph; files change on switch | Locally tested: Bash 5.2 and zsh 5.9, Git 2.43.0; identical on the CI runner's Git 2.55.0 except one hint (both recorded) | R169 |
+| Listing, creating, switching, `-c`, `-vv`, rename, delete and force-delete; the graph; files change on switch | Locally tested: Bash 5.2 and zsh 5.9, Git 2.43.0; identical on the CI runner's Git 2.55.0 except one hint (both recorded); "experimental" note checked in the Git 2.50.0 and 2.51.0 documentation and release notes | R169 |
 | Switching with uncommitted changes (carried; refused; stash) | Locally tested (as above) | R172 |
-| `git checkout` equivalents; detached HEAD | Locally tested (as above) | R170 |
-| Invalid branch names; naming conventions | Recorded messages: locally tested; conventions: general practice, needs re-verification | R171 |
+| `git checkout` equivalents; detached HEAD | Locally tested (as above); reason for the split checked in the Git 2.23.0 release notes | R170 |
+| Invalid branch names; naming conventions | Recorded messages: locally tested; rules checked in `git check-ref-format`; conventions: general practice (labelled as such) | R171 |
 
 ## Where this leads
 

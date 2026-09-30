@@ -124,6 +124,8 @@ UU menu.md
 
 *Recorded in Bash; `ch28-tools/expected-cherry-pick-conflict.bash.txt`.*
 
+> **Your Git may word this differently.** Git 2.55.0 and 2.56.0 (recorded and re-run in CI) print one more hint line, `Disable this message with "git config set advice.mergeConflict false"`. The meaning is the same.
+
 Git stops and leaves `menu.md` unmerged (`UU`), with the same kind of message as a conflicted merge. Abort, and everything returns to the state before:
 
 ```text
@@ -289,6 +291,8 @@ Bisecting: 2 revisions left to test after this (roughly 1 step)
 ```
 
 *Recorded in Bash; `ch28-tools/expected-bisect-manual.bash.txt`.*
+
+> **Your Git may word this differently.** Git 2.55.0 and 2.56.0 (recorded and re-run in CI) put quotation marks around the words: `waiting for both 'good' and 'bad' commits`, and print `is the first 'bad' commit` at the end, followed by `commit <hash> (HEAD)`. The meaning is the same.
 
 Git checked out the middle commit. Test it (here, count the lines that contain `Mystery`), and tell Git what you found:
 
@@ -456,6 +460,8 @@ To restore the original branch and stop patching, run "git am --abort".
 ```
 
 *Recorded in Bash; `ch28-tools/expected-am-conflict.bash.txt`.*
+
+> **Your Git may word this differently.** Git 2.55.0 and 2.56.0 (recorded and re-run in CI) print one more hint line, `Disable this message with "git config set advice.mergeConflict false"` and put `hint:` in front of the three instruction lines (`When you have resolved this problem...`). The meaning is the same.
 
 Git lists the three ways out: fix and `git am --continue`, `git am --skip`, or `git am --abort`. The abort restores the branch:
 

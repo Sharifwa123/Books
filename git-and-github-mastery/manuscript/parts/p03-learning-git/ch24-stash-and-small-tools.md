@@ -318,6 +318,8 @@ $ git blame -s -L 3,3 menu.md
 
 *Recorded in Bash; `ch24-stash/expected-search.bash.txt`.*
 
+> **Your Git may show a longer hash.** With `git blame -s -L 3,3`, Git 2.43.0 and 2.55.0 print the hash as 8 characters (`9f10b436`) and Git 2.56.0 prints 7 (`9f10b43`). Hashes shortened to different lengths still name the same commit.
+
 `-s` hides names and dates so the output is short. The hash on each line is the commit that last changed it. A leading `^` (as in `^8a52ffe`) marks a line from the very first commit. `-L 3,3` limits the output to line 3. Despite the name, blame is not about fault: it is how you find the commit that explains a line, and then `git show <hash>` tells you why.
 
 **"When did this text first appear (or disappear)?"** `git log -S` finds commits that added or removed a given string:

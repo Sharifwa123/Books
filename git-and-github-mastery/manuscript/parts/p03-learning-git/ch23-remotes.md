@@ -373,7 +373,7 @@ nothing to commit, working tree clean
 
 > **⚠️ CAUTION.** When a push is rejected, do **not** reach for `--force`. Forcing tells the remote to discard the commits you do not have, which would delete Alice's work. Fetch, integrate, then push normally. Chapter 33<!--ref:gitsec--> returns to why force-pushing shared branches is dangerous.
 
-> **Verification pending [R180].** The wording of the pull-divergence advice changes between Git versions (2.43.0 and 2.55.0 differ slightly in spacing), and the `pull.rebase` defaults may change in future versions. The official documentation could not be reached to confirm the current default behaviour.
+> **Checked against the documentation (R180), with one discrepancy.** The `pull.rebase` and `pull.ff` settings are documented (Git 2.56.0): `pull.rebase` set to true rebases "instead of merging", and the manual calls this "a possibly dangerous operation"; `pull.ff` set to `only` allows only fast-forwards. The `git pull` manual of Git 2.50.0 said that on divergent branches "the user needs to specify how to reconcile the divergent branches with `--rebase` or `--no-rebase`", which is what the recording shows. The manual of Git 2.55.0 and 2.56.0 instead lists `git pull --ff-only` as the default ("it fails if your local branch has diverged from the remote branch"). The recorded run on Git 2.43.0, 2.55.0 and 2.56.0 gave the same result, the message `Need to specify how to reconcile divergent branches`, so what happens on your computer is what the recording shows; whether the manual or the message describes the intended default was not resolved, and it is a reason to always set the behaviour yourself.
 
 ---
 
@@ -532,7 +532,7 @@ You are ready for Chapter 24<!--ref:stash--> if you can:
 |---|---|---|
 | Bare repository, clone, `remote -v`, `push -u`, tracking, `origin/main` | Locally tested: Bash 5.2 and zsh 5.9, Git 2.43.0; identical on CI's Git 2.55.0 | R178 |
 | Fetch changes only `origin/...`; status wording after fetch; pull fast-forward | Locally tested (as above) | R179 |
-| Rejected push, divergence, pull advice, `git remote` subcommands | Locally tested (as above); advice text differs slightly between versions; hosting-platform behaviour not covered | R180 |
+| Rejected push, divergence, pull advice, `git remote` subcommands | Locally tested (as above), same result on Git 2.43.0, 2.55.0 and 2.56.0; `pull.rebase`/`pull.ff` and the `git pull` default checked in the manuals, with the discrepancy noted above; hosting-platform behaviour not covered | R180 |
 
 ## Where this leads
 

@@ -181,7 +181,7 @@ That walk-through showed every state a file can be in. Learn them as a set.
 
 > **New term: tracked file.** A file that Git knows about, because it is in the last commit or in the index.
 
-> **Verification pending [R154].** The status messages above were recorded on Git 2.43.0 and re-run in CI on a newer Git, where they were identical. The wording is Git's own and can change between versions; the current official documentation has not been consulted.
+> **Note on wording (R154).** The status messages above were recorded on Git 2.43.0 and re-run in CI on Git 2.55.0, where they were identical. The wording is Git's own and can change between versions, which is why the book shows recorded output and not descriptions of it.
 
 ---
 
@@ -244,7 +244,7 @@ flowchart RL
 
 **Why the hash matters.** The hash is calculated from everything in the commit, *including its parent's hash*. Change anything in an old commit and its hash changes, and so does every later commit's. That is how Git notices tampering: history cannot be altered without leaving a different chain (Chapter 30<!--ref:objects--> explains it fully).
 
-> **Verification pending [R152].** The five parts of a commit and the "snapshot" model are shown here by real output, but the official documentation's own definitions have not yet been consulted, and the statement about hash chaining is explained in Chapter 30<!--ref:objects--> with its own evidence.
+> **Checked against the documentation (R152).** Git's glossary (Git 2.56.0) defines a commit as "a single point in the Git history", and, as a verb, "the action of storing a new snapshot of the project's state in the Git history, by creating a new commit representing the current state of the index and advancing HEAD to point at the new commit". A commit object "contains the information about a particular revision, such as parents, committer, author, date and the tree object which corresponds to the top directory of the stored revision". The index is "a stored version of your working tree"; the working tree is "the tree of actual checked out files", normally containing "the contents of the HEAD commit's tree, plus any local changes that you have made but not yet committed". Hash chaining is explained in Chapter 30<!--ref:objects--> with its own evidence.
 
 ---
 
@@ -398,7 +398,7 @@ You are ready for Chapter 16<!--ref:firstrepo--> if you can:
 | The status reports at each stage, the four file states, `git ls-files --stage` | Locally tested: Bash 5.2 and zsh 5.9 on Git 2.43.0; re-run in CI on the runner's Git 2.55.0 with identical output | R154 |
 | A commit has a tree, a parent, author, committer and message | Locally tested (`git cat-file -p HEAD`) | R152 |
 | HEAD contains `ref: refs/heads/main`; the branch file holds a commit hash | Locally tested | R153 |
-| The conceptual definitions (snapshot, working tree, index, repository) | Not yet compared with the official glossary | R152 |
+| The conceptual definitions (snapshot, working tree, index) | Compared with the Git 2.56.0 glossary (commit, commit object, index, working tree) | R152 |
 
 ## Where this leads
 

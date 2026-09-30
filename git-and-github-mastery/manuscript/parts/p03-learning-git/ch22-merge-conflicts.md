@@ -277,7 +277,7 @@ $ git merge --abort
 
 *Recorded in Bash; `ch22-conflicts/expected-diff3.bash.txt`.*
 
-> **Verification pending [R177].** Newer Git versions offer a further style, `zdiff3`, and the default may change in the future. This book has recorded only `diff3`. The official documentation for `merge.conflictStyle` could not be reached when this chapter was written.
+> **Checked against the documentation (R177).** Git's `merge.conflictStyle` documentation (Git 2.56.0) says the default is `merge`, which shows the two sides; `diff3` "adds a `|||||||` marker and the original text before the `=======` marker"; and a third style, `zdiff3`, "is similar to `diff3` but removes matching lines on the two sides from the conflict region when those matching lines appear near either the beginning or the end of a conflict region". The documentation also says the `merge` style "tends to produce smaller conflict regions than diff3". A change of the default is not announced in Git 2.56.0's `BreakingChanges` document. This book recorded `merge` and `diff3`, not `zdiff3`.
 
 Whichever style you choose, remember: the extra section is only for reading. You still delete all the marker lines.
 
@@ -381,7 +381,7 @@ You are ready for Chapter 23<!--ref:remotes--> if you can:
 | Claim | Evidence class | Ledger |
 |---|---|---|
 | Conflict output, status, markers, resolution and merge commit | Locally tested: Bash 5.2 and zsh 5.9, Git 2.43.0; identical on CI's Git 2.55.0 | R176 |
-| `--abort` restores the pre-merge state; `diff3` shows the ancestor | Locally tested (as above); `zdiff3` and defaults in newer versions not tested | R177 |
+| `--abort` restores the pre-merge state; `diff3` shows the ancestor | Locally tested (as above); the three styles and the default checked in the `merge.conflictStyle` documentation; `zdiff3` not run | R177 |
 
 ## Where this leads
 

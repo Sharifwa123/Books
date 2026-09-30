@@ -428,6 +428,8 @@ Could not apply bde8e38... Add juice
 
 *Recorded in Bash; `ch27-rebase/expected-drop-conflict.bash.txt`.*
 
+> **Your Git may word this differently.** Git 2.55.0 and 2.56.0 (recorded and re-run in CI) print one more hint line, `Disable this message with "git config set advice.mergeConflict false"`, and name the dropped commit as `# Add juice` in the `Could not apply` line. The meaning is the same.
+
 ```text
 $ git status --short
 UU menu.md
