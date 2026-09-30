@@ -1,0 +1,14 @@
+#!git
+git config --global user.name "Ada Learner"
+git config --global user.email "ada@example.org"
+git config --global init.defaultBranch main
+@ mkdir bakery-menu && cd bakery-menu && git init -q && printf "# Sunrise Bakery menu\n\n- White loaf: 2.80\n" > menu.md && git add menu.md && git commit -q -m "Add the menu" && cd ..
+cd bakery-menu
+GIT_TRACE=1 git rev-parse --git-dir 2>&1 | sed -E 's/^[0-9:.]+ +[a-z.]+:[0-9]+ +//'
+printf -- '- Rolls (six): 3.00\n' >> menu.md
+git commit -q -am "Add rolls [skip ci]"
+git log -1 --format=%s
+printf -- '- Tea: 1.50\n' >> menu.md
+git commit -q -am "Add tea" -m "skip-checks: true"
+git log -1 --format=%B | git interpret-trailers --parse
+git log --oneline

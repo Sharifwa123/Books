@@ -1,0 +1,19 @@
+$ git config --global user.name "Ada Learner"
+$ git config --global user.email "ada@example.org"
+$ git config --global init.defaultBranch main
+$ cd bakery-menu
+$ GIT_TRACE=1 git rev-parse --git-dir 2>&1 | sed -E 's/^[0-9:.]+ +[a-z.]+:[0-9]+ +//'
+trace: built-in: git rev-parse --git-dir
+.git
+$ printf -- '- Rolls (six): 3.00\n' >> menu.md
+$ git commit -q -am "Add rolls [skip ci]"
+$ git log -1 --format=%s
+Add rolls [skip ci]
+$ printf -- '- Tea: 1.50\n' >> menu.md
+$ git commit -q -am "Add tea" -m "skip-checks: true"
+$ git log -1 --format=%B | git interpret-trailers --parse
+skip-checks: true
+$ git log --oneline
+0de6891 (HEAD -> main) Add tea
+785584e Add rolls [skip ci]
+5224081 Add the menu
