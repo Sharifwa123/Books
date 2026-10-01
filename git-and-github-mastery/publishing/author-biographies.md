@@ -4,19 +4,19 @@ Written 30 September 2026 from `author-research-report.md`, revised the same day
 
 **Use:** the short version for retailer metadata and back matter, the standard version for the book's "Author and Publisher" page, the extended version for a publisher website, author page or press material. Re-read them before publication: the dates and the software version change.
 
-## Short biography (59 words)
+## Short biography (50 words)
 
-Sharif Issah Tingane builds software from Wenchi, Ghana, and founded SHARIF TECHNOLOGIES. Public projects include SAIBA, an AI business assistant; Sharif NOVA, an open-source programming language; and CodeCast, an Android app. A public ORCID record lists interests in software development, AI, cybersecurity and networking. This book, for first-time learners, was written with the help of an AI assistant, Claude.
+Sharif Issah Tingane builds software from Wenchi, Ghana, and founded SHARIF TECHNOLOGIES. Public projects include SAIBA, an AI business assistant; Sharif NOVA, an open-source programming language; and CodeCast, an Android app. A public ORCID record lists interests in software development, AI, cybersecurity and networking. This book is for first-time learners.
 
-## Standard biography (152 words) — used in the book
+## Standard biography (136 words) — used in the book
 
 Sharif Issah Tingane is the founder of SHARIF TECHNOLOGIES, the name under which Sharif builds and publishes software and books from Wenchi, Ghana. The SHARIF TECHNOLOGIES website lists custom web and mobile software, cybersecurity, networking and ICT training.
 
 Public projects include SAIBA, an AI assistant for business customer support; Sharif NOVA, an open-source programming language and toolchain, still at an early version number; and CodeCast, an Android app that its repository describes as turning a codebase into a video tutorial. Sharif's public ORCID record lists interests in software development, artificial intelligence, cybersecurity, networking and developer tools, and an education entry in General Science at Techiman Senior High School, Ghana.
 
-This book follows one habit: every command was run and recorded, each claim is tied to its source, and what could not be checked is written down. It was written with the help of an AI assistant, Claude, as the copyright page explains.
+This book follows one habit: every command was run and recorded, each claim is tied to its source, and what could not be checked is written down.
 
-## Extended biography (346 words)
+## Extended biography (318 words)
 
 Sharif Issah Tingane is the founder of SHARIF TECHNOLOGIES, the name under which Sharif builds and publishes software and books. Sharif works from Wenchi, in Ghana's Bono Region, and has kept a public GitHub account since March 2023. The SHARIF TECHNOLOGIES website lists custom web and system development, mobile applications, software maintenance, cybersecurity, networking and ICT training.
 
@@ -24,7 +24,7 @@ Several projects are public. SAIBA is an AI assistant for business customer supp
 
 Sharif's public ORCID record lists interests in software development, artificial intelligence, cybersecurity, computer networking, developer tools and programming languages, and an education entry in General Science at Techiman Senior High School.
 
-Git & GitHub: From Zero to Mastery applies the same insistence on precision to teaching. It starts from what a computer, a file and a path are, and continues through everyday Git, GitHub, automation, security, open-source practice and recovery. Every command was run and recorded, each claim is labelled with how it was checked, and an appendix lists what could not be checked. The book was written with the help of an AI assistant, Claude, made by Anthropic, working under Sharif's direction; the repository's history lists Claude as contributor and co-author. The book is issued under the slogan Knowledge Is Power.
+Git & GitHub: From Zero to Mastery applies the same insistence on precision to teaching. It starts from what a computer, a file and a path are, and continues through everyday Git, GitHub, automation, security, open-source practice and recovery. Every command was run and recorded, each claim is labelled with how it was checked, and an appendix lists what could not be checked. The book is issued under the slogan Knowledge Is Power.
 
 ## Evidence for each claim
 
@@ -44,7 +44,6 @@ Sources marked "dossier" come from the author's research dossier of 30 September
 | ORCID lists the interests named and a General Science education entry at Techiman Senior High School, Ghana | ORCID public API: keywords and education (dossier) | Self-published record; **no examination result or certificate is claimed**; dates left out |
 | No university claim | LinkedIn previews conflict and the profile is sign-in-gated (dossier) | Deliberately not stated |
 | No publications claimed | ORCID works list empty at lookup (dossier) | — |
-| The book was written with an AI assistant, Claude; the repository lists Claude as contributor and co-author | The author's instruction of 30 September 2026; commit history; `AI-ASSISTANCE.md` | Verifiable in the repository |
 | The book's method and contents | The book itself (preface, appendices, repository) | Verifiable in the repository |
 | Slogan "Knowledge Is Power" | Title page; project metadata | Self |
 

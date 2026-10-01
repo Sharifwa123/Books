@@ -17,7 +17,7 @@ Total rows: 356.
 
 ## N.2 What was tested, and where
 
-- **Git:** every command shown was run in Bash and zsh on Git 2.43.0 (the Linux package in the authoring environment, a sandbox used by the author and the AI assistant) and re-run in continuous integration on the runner's Git (2.55.0) and on Git 2.56.0 built from source. Where newer versions print different text, alternate recordings are kept and noted.
+- **Git:** every command shown was run in Bash and zsh on Git 2.43.0 (the Linux package in the authoring environment, a sandbox) and re-run in continuous integration on the runner's Git (2.55.0) and on Git 2.56.0 built from source. Where newer versions print different text, alternate recordings are kept and noted.
 - **GitHub:** statements were compared with the `github/docs` repository at commit `2eaab0b` (29 September 2026) and the `github/site-policy` repository, both read from their public sources. **No statement about GitHub was checked on a live account**; the book says so wherever it matters (a signed-in account of the plan).
 - **Licences:** licence summaries come from GitHub's `choosealicense.com` data and the SPDX licence list (secondary sources); the official pages could not be read. The book's own licences (Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International for the text, the MIT License for code samples) are stated on its copyright page; the official Creative Commons pages could not be read from the testing computer, and the complete legal code is not reproduced in the book.
 - **Quotations:** short quotations from GitHub's documentation are used with attribution; that documentation is published under the Creative Commons Attribution 4.0 licence (as stated in its repository), and the quoted passages stay under it, not under this book's licence. Quotations from other sources stay under their own terms.
@@ -117,11 +117,7 @@ These rows were planned during research and could not be verified from an offici
 | R140 | Git, GitHub, GitLab, Bitbucket: what each is | Git is a version-control tool; GitHub, GitLab and Bitbucket are hosting platforms built around Git repositories with col |
 | R217 | Supply-chain guidance and incidents | general practice about hooks, submodules and dependencies; no incident examples verified (Ch 33) |
 
-## N.5 AI assistance
-
-This book was written with an AI assistant, Claude (made by Anthropic, used through Claude Code), working with the author. The assistant drafted the text, exercises, solutions, glossary, appendices and code; ran the commands and recorded their output in a sandbox (the "authoring environment"); fetched and read the sources and kept the ledger summarised here; read the whole book for errors; built the PDF and EPUB editions and the checks; drew the draft cover; and drafted the author and licensing information. The author set the goals and rules, chose the licences and imprint name, approved the plan and is responsible for the book. The recorded output is real output from that sandbox; nothing was run by hand on a live GitHub account, on Windows or on macOS. The repository lists Claude as a contributor and co-author of its commits. The full statement, area by area, is the file `AI-ASSISTANCE.md` in the companion repository.
-
-## N.6 How to use this log
+## N.5 How to use this log
 
 1. Before relying on a fact about GitHub, find its chapter's ledger row and read its status and date.
 2. Prefer GitHub's current documentation for your plan over this book for anything time-sensitive.

@@ -58,7 +58,7 @@ st["Heading 1"].paragraph_format.page_break_before = True
 cp = doc.core_properties
 cp.title = TITLE; cp.subject = SUB; cp.author = AUTHOR; cp.language = "en-GB"
 cp.keywords = "Git, GitHub, version control, GitHub Actions, security, open source, CI/CD, tutorial"
-cp.comments = "Published by Sharif Issah Tingane under the SHARIF TECHNOLOGIES imprint. Text CC BY-NC-SA 4.0; code MIT. Written with an AI assistant; see the copyright page."
+cp.comments = "Published by Sharif Issah Tingane under the SHARIF TECHNOLOGIES imprint. Text CC BY-NC-SA 4.0; code MIT."
 
 def field(run, instr):
     for t, txt in (("begin", None), (None, instr), ("end", None)):

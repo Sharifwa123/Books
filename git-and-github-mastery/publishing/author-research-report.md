@@ -49,7 +49,7 @@ What this supports: Sharif Issah Tingane's GitHub account is associated with a l
 ### 2.3 This repository
 
 - `Sharifwa123/Books`: a public repository, owner `Sharifwa123`. Root README: "Main directory for all books by Sharif Issah Tingane, published under SHARIF TECHNOLOGIES". One book folder.
-- The book itself: 81 chapters in 13 parts, 14 appendices, exercises and solutions, a research ledger with 356 rows and recorded command sessions, in CI. Commits were made with AI assistance (the commit trailers say so); see `final-publication-blockers.md`, item 3.
+- The book itself: 81 chapters in 13 parts, 14 appendices, exercises and solutions, a research ledger with 356 rows and recorded command sessions, in CI.
 - Activity: 164 commits and 22 merged pull requests in this repository between 29 and 30 September 2026.
 
 ## 3. Topics the author asked to be checked, and the result

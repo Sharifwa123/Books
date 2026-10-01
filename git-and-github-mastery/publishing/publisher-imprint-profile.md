@@ -28,11 +28,9 @@ Not allowed until independently documented: "registered", "incorporated", "limit
 - Slogan: *Knowledge Is Power*.
 - No independent source (registry, regulator, press) was reachable, and the dossier also found none: no incorporation, registration, separate legal personality or publisher registration is established.
 
-## The copyright-holder question (for the author; not manufactured here)
+## Copyright holder
 
-The author asked for SHARIF TECHNOLOGIES to be recorded as copyright holder. Copyright initially belongs to the author of a work unless it passes to someone else by a legal act (for example a written assignment, or employment terms), and the rules differ between countries. If SHARIF TECHNOLOGIES is **only a trading name of the author** (a brand, not a separate person), then the author and SHARIF TECHNOLOGIES are the same legal person and the notice is sound. If SHARIF TECHNOLOGIES is **a separate legal entity** (for example a registered company), the author's rights reach it only through a written legal basis, and that basis has to exist before the notice is published as written.
-
-This project does not decide which case applies and does not write the document. The copyright notice, the licence grant and the metadata are prepared exactly as instructed, and the open point is recorded in `final-publication-blockers.md` (item 1) for the author to settle, with qualified advice if needed. One safe correction for either case is to name the author as well, for example "Copyright © 2026 Sharif Issah Tingane, trading as SHARIF TECHNOLOGIES." That wording is **not** used unless the author chooses it.
+SHARIF TECHNOLOGIES is named as copyright holder by the author's decision. Whether it is only the author's trading name or a separate legal person, and the written basis if it is separate, is open: see `final-publication-blockers.md` (item 1) and `rights-and-licensing.md`. Naming the author as well ("Copyright © 2026 Sharif Issah Tingane, trading as SHARIF TECHNOLOGIES") is a safe alternative that is **not** used unless the author chooses it.
 
 ## Publisher-profile text for the book (as used)
 

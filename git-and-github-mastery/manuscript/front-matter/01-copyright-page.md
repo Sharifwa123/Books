@@ -14,13 +14,7 @@ The licence applies only to material for which the stated rights holder has auth
 
 This licensing notice is a plain-language summary and does not replace the terms of the applicable Creative Commons or MIT licence.
 
-## AI assistance
-
-This book was written with the help of an AI assistant, Claude, made by Anthropic and used through Claude Code, working with the author, Sharif Issah Tingane, who set the goals and rules and is responsible for the book. The assistant drafted the text, exercises, solutions and code, ran and recorded the commands, did the research and checking, built the editions and drew the draft cover. The Preface and Appendix N give the details; the repository's history credits the assistant as contributor and co-author.
-
-## What the licence does and does not mean
-
-**The book is copyrighted.** It is not "copyright-free", not in the public domain and not owned by everyone. Making a book free to read or to download does not remove copyright; a licence is a set of permissions that the rights holder grants. Keep these questions apart, as Chapter 65<!--ref:licences--> teaches: who owns the work; whether you may read it, download it, redistribute it, modify it, use it commercially, or reuse its code. For this book the answers are: the rights holder is named above; you may read and download it; you may redistribute and adapt the text for noncommercial purposes under the conditions of the licence; commercial use needs permission; and the code examples may be reused under the MIT License.
+**The book is copyrighted.** It is not copyright-free, in the public domain or owned by everyone; being free to read or to download does not remove copyright. Chapter 65<!--ref:licences--> explains the difference.
 
 | | |
 |---|---|
@@ -35,14 +29,8 @@ This book was written with the help of an AI assistant, Claude, made by Anthropi
 
 ## Disclaimer
 
-This book is educational. Commands change the state of your computer and your repositories: understand a command before you run it, use a practice folder, and make backups. Operations involving secrets, history rewriting and access control need particular care. Behaviour can differ between operating systems, versions, configurations and future releases of Git and GitHub. The book was tested on the versions named in Appendix N; the platform's own current documentation prevails. **Nothing in this book is legal advice**, and the chapter on licences explains how licences are described, not what they mean for your situation.
+This book is educational. Commands change the state of your computer and your repositories: understand a command before you run it, use a practice folder, and make backups. Operations involving secrets, history rewriting and access control need particular care. Behaviour can differ between operating systems, versions, configurations and future releases of Git and GitHub. The book was tested on the versions named in Appendix N; the platform's own current documentation prevails. **Nothing in this book is legal advice.**
 
-## Trademarks and non-affiliation
+## Trademarks, non-affiliation and other people's material
 
-This book is an independent educational work by Sharif Issah Tingane, issued under the SHARIF TECHNOLOGIES name. It is not affiliated with, endorsed by, sponsored by, or published by Git, GitHub, Microsoft, or any other third party mentioned. Git, GitHub, Microsoft, Linux, Windows, macOS, Docker, GitLab, Bitbucket and other names may be trademarks of their respective owners, and this book claims no rights in them. The name SHARIF TECHNOLOGIES is not licensed by the licences above.
-
-## Third-party material
-
-Where the book quotes short passages from official documentation, it names the source; those passages remain under their own terms and are not covered by this book's licence. Names, prices and addresses in examples are made up.
-
-The PDF editions are set in the DejaVu fonts. Copyright (c) 2003 by Bitstream, Inc. All Rights Reserved. Bitstream Vera is a trademark of Bitstream, Inc. DejaVu changes are in the public domain.
+This book is an independent educational work by Sharif Issah Tingane, issued under the SHARIF TECHNOLOGIES name. It is not affiliated with, endorsed by, sponsored by, or published by Git, GitHub, Microsoft, or any other third party mentioned. Git, GitHub, Microsoft, Linux, Windows, macOS, Docker, GitLab, Bitbucket and other names may be trademarks of their respective owners; this book claims no rights in them, and the SHARIF TECHNOLOGIES name is not licensed. Short quotations from official documentation name their source and stay under their own terms. Names, prices and addresses in examples are made up. The PDF edition is set in the DejaVu fonts (Copyright (c) 2003 by Bitstream, Inc. All Rights Reserved; Bitstream Vera is a trademark of Bitstream, Inc.; DejaVu changes are in the public domain).

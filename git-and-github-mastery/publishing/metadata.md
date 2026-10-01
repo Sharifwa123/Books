@@ -29,14 +29,16 @@ Updated 30 September 2026. Details behind each row are in the files named in the
 
 Never invented: registration numbers, ISBN, addresses, legal identifiers, credentials, employment, awards, publications.
 
-## Non-affiliation statement (as printed)
-
-"This book is an independent educational work by Sharif Issah Tingane, issued under the SHARIF TECHNOLOGIES name. It is not affiliated with, endorsed by, sponsored by, or published by Git, GitHub, Microsoft, or any other third party mentioned. Git, GitHub, Microsoft, Linux, Windows, macOS, Docker, GitLab, Bitbucket and other names may be trademarks of their respective owners, and this book claims no rights in them."
-
-## The seven distinctions the pages must keep
-
-1. Copyright ownership, 2. reading, 3. downloading, 4. redistribution, 5. modification, 6. commercial use, 7. code reuse. The table with the book's position on each is in `rights-and-licensing.md`. The book is never called "copyright-free", "public domain" or "owned by everyone".
-
 ## Files
 
 `LICENSE.md` (index), `LICENSE-TEXT.md` (notice, no legal code), `LICENSE-CODE` (MIT text). No Creative Commons legal code is copied into the repository.
+
+## Short description (retailer, up to about 50 words)
+
+A beginner-to-advanced guide to Git and GitHub. It starts with what a computer and a file are, then covers everyday Git, collaboration, automation, security, open-source practice and recovery. Every command was run and recorded, and every claim is labelled with how it was checked.
+
+## Long description (about 130 words)
+
+*Git & GitHub: From Zero to Mastery* teaches version control to people who have never used it, and goes on to the practices of professional teams. It begins with computers, files, paths and the terminal, then teaches Git by doing: commits, branches, merging, undoing and recovering, tags and history. It moves to GitHub: repositories, issues, pull requests, reviews, protection rules and organizations, then to automation with GitHub Actions, security, open-source practice, releases, deployment and troubleshooting, and ends with a capstone project and a practical assessment. The commands in the book were run in a sandbox and their output recorded; statements about Git and GitHub are tied to the source they were checked against, and an appendix lists what could not be checked. The book is published under the SHARIF TECHNOLOGIES imprint and is licensed for noncommercial sharing and adaptation.
+
+(The last sentence depends on the rights review and is removed if the licence decision changes.)
