@@ -19,7 +19,7 @@
 | Title | Git & GitHub: From Zero to Mastery | Ready |
 | Subtitle | A Complete Beginner-to-Expert Guide to Version Control, Collaboration, Automation, Security, and Modern Software Development | Ready |
 | Author / contributor role | Sharif Issah Tingane, author. Public records also show the order Sharif Issah Tingane (ORCID: family name Tingane); **the author decides the order used for ISBN and library records** | Ready, order to confirm |
-| Other contributors | None to list (no editor, illustrator or translator is recorded; the use of AI assistance is addressed in `final-publication-blockers.md` item 3) | Ready |
+| Other contributors | None to list | Ready |
 | Publisher / imprint | SHARIF TECHNOLOGIES (imprint); legal registrant **to be confirmed** | Open |
 | Copyright holder | SHARIF TECHNOLOGIES, as instructed; **legal basis to be confirmed** | Open |
 | Edition | 1st edition | Ready |
@@ -31,7 +31,7 @@
 | Subject / category | Computing: software development, version control, Git, GitHub. BISAC: COM051230 (Software Development and Engineering: General) is a candidate; **codes not verified here**. Thema: UMZ (software engineering) is a candidate; **not verified** | Candidate |
 | Keywords | git, github, version control, beginners, open source, continuous integration, github actions, security, collaboration | Ready |
 | Audience | Complete beginners to advanced readers | Ready |
-| Description (short) | See `publication-metadata-checklist.md` | Ready |
+| Description (short) | See `metadata.md` | Ready |
 | Page count | Not fixed: depends on trim size and typesetting. The print draft's count changes with each build | Open |
 | Price | Not decided | Open |
 | Licence statement | CC BY-NC-SA 4.0 (text), MIT (code), as instructed | Ready, pending the rights review |
@@ -56,7 +56,7 @@ The agency asks for the complete manuscript. The package is built by `tools/buil
 | `ebook/git-and-github-from-zero-to-mastery.epub` | The reflowable ebook (EPUBCheck: no messages) |
 | `manuscript/book.md` and `MANIFEST.txt` | The complete text as one Markdown file, with a SHA-256 per source file |
 | `cover/cover-front.png` and `.svg` | The front cover (1600 x 2560) |
-| `metadata/publication-metadata.json` | Title, author, imprint, copyright, licences, AI-assistance statement; ISBN left empty |
+| `metadata/publication-metadata.json` | Title, author, imprint, copyright, licences; ISBN left empty |
 | `SHA256SUMS` | Checksums of every file in the package |
 
 The book is an electronic book only: there is no print edition, trim size or back cover. The author submits the files; the project cannot contact the agency. When an ISBN is issued, record it in section 3 and update the copyright page, the package metadata, the EPUB identifier and the retailer records.

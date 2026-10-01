@@ -21,8 +21,7 @@
     "code_samples": "MIT"
   },
   "website": "www.shariftechnologies.online",
-  "ai_assistance": "Written with the help of an AI assistant, Claude (Anthropic, via Claude Code), under the author's direction; see AI-ASSISTANCE.md. Claude is credited as contributor and co-author.",
-  "author_biography_short": "Sharif Issah Tingane builds software from Wenchi, Ghana, and founded SHARIF TECHNOLOGIES. Public projects include SAIBA, an AI business assistant; Sharif NOVA, an open-source programming language; and CodeCast, an Android app. A public ORCID record lists interests in software development, AI, cybersecurity and networking. This book, for first-time learners, was written with the help of an AI assistant, Claude.",
+  "author_biography_short": "Sharif Issah Tingane builds software from Wenchi, Ghana, and founded SHARIF TECHNOLOGIES. Public projects include SAIBA, an AI business assistant; Sharif NOVA, an open-source programming language; and CodeCast, an Android app. A public ORCID record lists interests in software development, AI, cybersecurity and networking. This book is for first-time learners.",
   "isbn": null,
   "legal_publisher": null,
   "publisher_address": null,
@@ -31,7 +30,8 @@
   "files": {
     "cover/cover-front.png": "791350cc768321a1ad4a4bef344990531f1aa56047c7896aab15fddd28179983",
     "cover/cover-front.svg": "f961014a4ca39fb9b1eefcd5648e04a25d5cff3e62bcb3000a2f10c78fa77ed8",
-    "ebook/git-and-github-from-zero-to-mastery-screen.pdf": "9cf72757cef922565a281a2bcd2ce6ca5ce6d3a78e87d6419b5b60ac973566ed",
-    "ebook/git-and-github-from-zero-to-mastery.epub": "c3777d9e1d1b248932e9f80d254f5e2a6f82f097b50a6f1db1c02af701c77f6c"
+    "ebook/git-and-github-from-zero-to-mastery-screen.pdf": "ce66ba5153a779142468f5b8db506745c0acbb6700c6bca0193ac4536fcebcd9",
+    "ebook/git-and-github-from-zero-to-mastery.docx": "9b711a245ec3bd40e48f8b1c2c8b01355400e53196ec102b0e47738a0a982908",
+    "ebook/git-and-github-from-zero-to-mastery.epub": "7c8f9f30643ae0b7d035b60f4320995c1e6f4176f385b94049ea1a34a241f271"
   }
 }

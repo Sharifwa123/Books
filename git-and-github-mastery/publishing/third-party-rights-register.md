@@ -41,7 +41,6 @@ Status words: **original** (made for this book by the book project), **licensed*
 | Test values published in GitHub's webhook documentation (Chapter 74) | **quoted** public test values | Named as the documentation's. |
 | Third-party tools used by the book's build (WeasyPrint, markdown-it-py, veraPDF, EPUBCheck, Mermaid, git-filter-repo, PyYAML, `gh`) | **Tools, not distributed in the book** | Their licences apply to the tools only. The repository does not contain their source. |
 | Code or text copied from Stack Overflow, blogs or other people's projects | **None is known.** The book's commands were written for it and run | No copying was intentional. |
-| Output of the AI assistant (nearly all text and code) | Disclosed in `AI-ASSISTANCE.md` and in the book | The assistant's training data is not known, so it cannot be stated that no third-party material influenced the output; legal effect is an open point (`final-publication-blockers.md` item 3). |
 
 ## D. Names and trademarks
 

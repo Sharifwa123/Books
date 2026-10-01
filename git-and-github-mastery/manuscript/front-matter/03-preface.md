@@ -16,17 +16,9 @@ The book follows a small set of rules, written down before the chapters:
 4. **Every claim has an evidence class:** officially verified, locally tested, both, time-sensitive, or needing re-verification. A locally tested claim is never called officially verified.
 5. **Surprises are investigated before they are taught.** Where Git's behaviour and its manual disagreed, the book followed the behaviour and said so.
 6. **Interface is taught as an idea first.** Screens change; principles last.
-7. **Nothing is invented.** Where a fact was not supplied or could not be verified (an ISBN, a publication date, a contact address), the book leaves a visible placeholder. The author's biography states only what public evidence supports.
+7. **Nothing is invented.** Where a fact is not available (an ISBN, a contact address), the book says so instead of guessing. The author's biography states only what public evidence supports.
 
 **What this book did not do.** Nothing was run on a live GitHub account by hand: statements about GitHub come from its documentation, and every chapter says so. Windows and macOS environments were not available for testing. Appendix N lists exactly what was checked, with what, and what is still open.
-
-## How this book was made, and the part AI played
-
-This book was written with an AI assistant. The assistant is Claude, made by Anthropic and used through Claude Code, working in sessions with the author, Sharif Issah Tingane. The author set the goals, the scope and the rules that the book follows (run the commands, label the evidence, invent nothing), chose the licences and the imprint name, approved the plan, and is responsible for the book.
-
-The assistant did the work of **every area** of the book: it drafted the chapters, the exercises, the solutions, the glossary and the appendices; wrote the code samples and the scripts; ran the commands in a sandbox and recorded the output printed here; searched and read the official sources and kept the research ledger; read the whole book for errors; built the PDF and EPUB editions and the automatic checks; drew the draft cover and the diagrams; and drafted the author information and the licensing pages. It also made most of the commits in the project's repository, which therefore lists Claude as a contributor and co-author.
-
-What that means for you: the recorded output is real output from a sandbox, not from a live GitHub account, Windows or macOS, and the book says so where it matters. An AI assistant can be wrong, which is one reason the book labels how each claim was checked and lists what could not be checked (Appendix N). The full statement, area by area, is in the file `AI-ASSISTANCE.md` of the companion repository.
 
 ## A word on trust
 

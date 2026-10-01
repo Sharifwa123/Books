@@ -7,6 +7,4 @@
 | Quotations and third-party material | Their own terms; **not** covered by either licence | [`publishing/third-party-rights-register.md`](publishing/third-party-rights-register.md) |
 | The name SHARIF TECHNOLOGIES and any logo | Not licensed by either | — |
 
-The AI assistance behind this book is described in [`AI-ASSISTANCE.md`](AI-ASSISTANCE.md); its effect on ownership is an open point in `publishing/final-publication-blockers.md`.
-
 A code example inside a chapter that names another licence or a third-party source keeps that licence or source. This page is a summary of the proposed publication wording and is not legal advice; the copyright holder and the final wording are settled in `publishing/final-publication-blockers.md`.

@@ -42,13 +42,7 @@ The licence applies only to material for which the stated rights holder has auth
 
 This licensing notice is a plain-language summary and does not replace the terms of the applicable Creative Commons or MIT licence.
 
-## AI assistance
-
-This book was written with the help of an AI assistant, Claude, made by Anthropic and used through Claude Code, working with the author, Sharif Issah Tingane, who set the goals and rules and is responsible for the book. The assistant drafted the text, exercises, solutions and code, ran and recorded the commands, did the research and checking, built the editions and drew the draft cover. The Preface and Appendix N give the details; the repository's history credits the assistant as contributor and co-author.
-
-## What the licence does and does not mean
-
-**The book is copyrighted.** It is not "copyright-free", not in the public domain and not owned by everyone. Making a book free to read or to download does not remove copyright; a licence is a set of permissions that the rights holder grants. Keep these questions apart, as Chapter [[licences]] teaches: who owns the work; whether you may read it, download it, redistribute it, modify it, use it commercially, or reuse its code. For this book the answers are: the rights holder is named above; you may read and download it; you may redistribute and adapt the text for noncommercial purposes under the conditions of the licence; commercial use needs permission; and the code examples may be reused under the MIT License.
+**The book is copyrighted.** It is not copyright-free, in the public domain or owned by everyone; being free to read or to download does not remove copyright. Chapter [[licences]] explains the difference.
 
 | | |
 |---|---|
@@ -63,17 +57,11 @@ This book was written with the help of an AI assistant, Claude, made by Anthropi
 
 ## Disclaimer
 
-This book is educational. Commands change the state of your computer and your repositories: understand a command before you run it, use a practice folder, and make backups. Operations involving secrets, history rewriting and access control need particular care. Behaviour can differ between operating systems, versions, configurations and future releases of Git and GitHub. The book was tested on the versions named in Appendix N; the platform's own current documentation prevails. **Nothing in this book is legal advice**, and the chapter on licences explains how licences are described, not what they mean for your situation.
+This book is educational. Commands change the state of your computer and your repositories: understand a command before you run it, use a practice folder, and make backups. Operations involving secrets, history rewriting and access control need particular care. Behaviour can differ between operating systems, versions, configurations and future releases of Git and GitHub. The book was tested on the versions named in Appendix N; the platform's own current documentation prevails. **Nothing in this book is legal advice.**
 
-## Trademarks and non-affiliation
+## Trademarks, non-affiliation and other people's material
 
-This book is an independent educational work by Sharif Issah Tingane, issued under the SHARIF TECHNOLOGIES name. It is not affiliated with, endorsed by, sponsored by, or published by Git, GitHub, Microsoft, or any other third party mentioned. Git, GitHub, Microsoft, Linux, Windows, macOS, Docker, GitLab, Bitbucket and other names may be trademarks of their respective owners, and this book claims no rights in them. The name SHARIF TECHNOLOGIES is not licensed by the licences above.
-
-## Third-party material
-
-Where the book quotes short passages from official documentation, it names the source; those passages remain under their own terms and are not covered by this book's licence. Names, prices and addresses in examples are made up.
-
-The PDF editions are set in the DejaVu fonts. Copyright (c) 2003 by Bitstream, Inc. All Rights Reserved. Bitstream Vera is a trademark of Bitstream, Inc. DejaVu changes are in the public domain.
+This book is an independent educational work by Sharif Issah Tingane, issued under the SHARIF TECHNOLOGIES name. It is not affiliated with, endorsed by, sponsored by, or published by Git, GitHub, Microsoft, or any other third party mentioned. Git, GitHub, Microsoft, Linux, Windows, macOS, Docker, GitLab, Bitbucket and other names may be trademarks of their respective owners; this book claims no rights in them, and the SHARIF TECHNOLOGIES name is not licensed. Short quotations from official documentation name their source and stay under their own terms. Names, prices and addresses in examples are made up. The PDF edition is set in the DejaVu fonts (Copyright (c) 2003 by Bitstream, Inc. All Rights Reserved; Bitstream Vera is a trademark of Bitstream, Inc.; DejaVu changes are in the public domain).
 """)
 
 # Contents
@@ -107,17 +95,9 @@ The book follows a small set of rules, written down before the chapters:
 4. **Every claim has an evidence class:** officially verified, locally tested, both, time-sensitive, or needing re-verification. A locally tested claim is never called officially verified.
 5. **Surprises are investigated before they are taught.** Where Git's behaviour and its manual disagreed, the book followed the behaviour and said so.
 6. **Interface is taught as an idea first.** Screens change; principles last.
-7. **Nothing is invented.** Where a fact was not supplied or could not be verified (an ISBN, a publication date, a contact address), the book leaves a visible placeholder. The author's biography states only what public evidence supports.
+7. **Nothing is invented.** Where a fact is not available (an ISBN, a contact address), the book says so instead of guessing. The author's biography states only what public evidence supports.
 
 **What this book did not do.** Nothing was run on a live GitHub account by hand: statements about GitHub come from its documentation, and every chapter says so. Windows and macOS environments were not available for testing. Appendix N lists exactly what was checked, with what, and what is still open.
-
-## How this book was made, and the part AI played
-
-This book was written with an AI assistant. The assistant is Claude, made by Anthropic and used through Claude Code, working in sessions with the author, Sharif Issah Tingane. The author set the goals, the scope and the rules that the book follows (run the commands, label the evidence, invent nothing), chose the licences and the imprint name, approved the plan, and is responsible for the book.
-
-The assistant did the work of **every area** of the book: it drafted the chapters, the exercises, the solutions, the glossary and the appendices; wrote the code samples and the scripts; ran the commands in a sandbox and recorded the output printed here; searched and read the official sources and kept the research ledger; read the whole book for errors; built the PDF and EPUB editions and the automatic checks; drew the draft cover and the diagrams; and drafted the author information and the licensing pages. It also made most of the commits in the project's repository, which therefore lists Claude as a contributor and co-author.
-
-What that means for you: the recorded output is real output from a sandbox, not from a live GitHub account, Windows or macOS, and the book says so where it matters. An AI assistant can be wrong, which is one reason the book labels how each claim was checked and lists what could not be checked (Appendix N). The full statement, area by area, is in the file `AI-ASSISTANCE.md` of the companion repository.
 
 ## A word on trust
 
@@ -167,19 +147,13 @@ Sharif Issah Tingane is the founder of SHARIF TECHNOLOGIES, the name under which
 
 Public projects include SAIBA, an AI assistant for business customer support; Sharif NOVA, an open-source programming language and toolchain, still at an early version number; and CodeCast, an Android app that its repository describes as turning a codebase into a video tutorial. Sharif's public ORCID record lists interests in software development, artificial intelligence, cybersecurity, networking and developer tools, and an education entry in General Science at Techiman Senior High School, Ghana.
 
-This book follows one habit: every command was run and recorded, each claim is tied to its source, and what could not be checked is written down. It was written with the help of an AI assistant, Claude, as the copyright page explains.
+This book follows one habit: every command was run and recorded, each claim is tied to its source, and what could not be checked is written down.
 
 ## The imprint
 
-**SHARIF TECHNOLOGIES** is the name under which Sharif Issah Tingane writes and publishes software and books. This book is published under the SHARIF TECHNOLOGIES imprint. The name is not licensed by the book's licences.
+**SHARIF TECHNOLOGIES** is the name under which Sharif Issah Tingane writes and publishes software and books.
 
-*Knowledge Is Power*
-
-Website: www.shariftechnologies.online
-
-## AI assistance
-
-This book was written with the help of an AI assistant, Claude, made by Anthropic, working under the author's direction. Appendix N and the Preface say what the assistant did.
+*Knowledge Is Power* · www.shariftechnologies.online
 
 ## Final competency checklist
 

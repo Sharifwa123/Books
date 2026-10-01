@@ -20,7 +20,7 @@ files = sorted(glob.glob(f"{M}/front-matter/*.md"))
 files += sorted(glob.glob(f"{M}/parts/*/ch*.md"), key=key)
 files += sorted(glob.glob(f"{M}/appendices/*.md"))
 files += ["@solutions", f"{M}/back-matter/glossary.md", f"{M}/back-matter/author-and-publisher.md"]
-FORBIDDEN = [(r"STOPPED HERE", "drafting marker"), (r"\bTBD\b|FIXME|lorem ipsum", "unfinished text"), (r"session_[0-9A-Za-z]{8,}|Claude-Session|Co-Authored-By", "working-session identifier or commit trailer"),
+FORBIDDEN = [(r"STOPPED HERE", "drafting marker"), (r"\bTBD\b|FIXME|lorem ipsum", "unfinished text"), (r"Claude|Anthropic|session_[0-9A-Za-z]{8,}|Co-Authored-By", "working note, session identifier or commit trailer"),
              (r"gate [A-F]\b", "internal process gate"), (r"planning/", "internal repository path"), (r"\[\[[a-z0-9_]+\]\]", "unresolved cross-reference"),
              ]
 WARN = []
